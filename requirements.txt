@@ -1,0 +1,6 @@
+# Analysis and figures (versions used for the paper; figures were also checked with numpy 2.5, scipy 1.18, matplotlib 3.11)
+numpy>=2.4
+scipy>=1.17
+h5py>=3.16
+pyarrow>=20
+matplotlib>=3.10

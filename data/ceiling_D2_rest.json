@@ -1,0 +1,174 @@
+{
+ "rules": "How much does a random-half \"ceiling\" (cell-eval, Arc Institute) overstate what an independent replicate reaches?\n(A100.) cell-eval --ceiling: each perturbation's cells and the control's are split into two disjoint random halves,\none half is scored as \"real\" and the other as \"prediction\", per-perturbation metrics are averaged and the\nSpearman-Brown correction r' = 2r / (1 + r) maps the mean to full depth (README, _evaluator.py, checked 2026-10-18).\nHere the same construction is computed twice on the same perturbations: halves = random cells (as cell-eval) and\nhalves = independent units, then compared.\n  cd4    donor-1 single cells (Zhu / Marson 2025): random cells vs guides (guide rank parity; independent\n         transductions). Rest and Stim48hr separately. Aggregates from cd4_sc_extract.py / cd4_sc_extract_guide.py.\n  tahoe  48 lines x 91 conditions (plates 6 / 14, tahoe_plate_recompute.py): within-well halves vs replicate plates.\nMetrics (cell-eval definitions on pseudobulk means of log1p CP10K; effect = perturbation mean - control mean, each\nhalf against its own control half):\n  pearson_delta        Pearson over genes between the two halves' effects, per perturbation\n  discrimination_l1    1 - rank / n of the true perturbation when the \"prediction\" half's effect is matched by L1\n                       distance against all \"real\" effects (target gene excluded); computed on random panels of\n                       PANEL perturbations (5 panels, same panels for both designs), since cell-eval's all-pairs\n                       loop is too large here; for Tahoe within each line across its 91 conditions\n  top_overlap_N        PROXY for cell-eval's DE overlap_at_N (which needs a cell-level Wilcoxon test): overlap of the\n                       top-N genes by |effect| between halves, N = 50, 100\nEach metric: mean over perturbations, then Spearman-Brown if the mean is > 0 (as cell-eval). Subsets (cd4): all;\nexpressed targets (control >= 0.5); inert targets (< 0.01; nothing to predict beyond clone / guide structure);\nstrongest knockdowns (top 1000 expressed targets by the drop of the target gene itself, a criterion that does not\nreuse the response genes).\nUsage: ceiling_compare.py cd4 <cell_split_dir> <guide_split_dir> <label> <out_dir>\n       ceiling_compare.py tahoe <D_arrays.npz> <out_dir>. Exploratory.",
+ "label": "rest_D2",
+ "n_perturbations": 5792,
+ "n_genes": 7982,
+ "median_cells_per_half": {
+  "cell": [
+   78.0,
+   77.0
+  ],
+  "guide": [
+   60.0,
+   59.0
+  ]
+ },
+ "n_expressed": 1222,
+ "n_inert": 1140,
+ "all": {
+  "n": 5792,
+  "cell": {
+   "pearson_delta": {
+    "mean": 0.3585033429444828,
+    "ceiling": 0.5277916242258869
+   },
+   "top_overlap_50": {
+    "mean": 0.40122237569060776,
+    "ceiling": 0.572674805443156
+   },
+   "top_overlap_100": {
+    "mean": 0.3517075276243094,
+    "ceiling": 0.5203899814665561
+   },
+   "discrimination_l1": {
+    "mean": 0.7330512,
+    "ceiling": 0.8459660049281867
+   }
+  },
+  "guide": {
+   "pearson_delta": {
+    "mean": 0.032848597516227665,
+    "ceiling": 0.06360776902872556
+   },
+   "top_overlap_50": {
+    "mean": 0.16212016574585636,
+    "ceiling": 0.2790075768830783
+   },
+   "top_overlap_100": {
+    "mean": 0.15712016574585635,
+    "ceiling": 0.27157104404032206
+   },
+   "discrimination_l1": {
+    "mean": 0.50894,
+    "ceiling": 0.6745662518059035
+   }
+  }
+ },
+ "expressed": {
+  "n": 1222,
+  "cell": {
+   "pearson_delta": {
+    "mean": 0.3826483179932463,
+    "ceiling": 0.5535005727973054
+   },
+   "top_overlap_50": {
+    "mean": 0.420278232405892,
+    "ceiling": 0.5918252111686008
+   },
+   "top_overlap_100": {
+    "mean": 0.3678559738134206,
+    "ceiling": 0.537857758208098
+   },
+   "discrimination_l1": {
+    "mean": 0.7530968,
+    "ceiling": 0.8591616846257434
+   }
+  },
+  "guide": {
+   "pearson_delta": {
+    "mean": 0.05169316706556387,
+    "ceiling": 0.09830465516819557
+   },
+   "top_overlap_50": {
+    "mean": 0.17178396072013094,
+    "ceiling": 0.2932007374713671
+   },
+   "top_overlap_100": {
+    "mean": 0.1635433715220949,
+    "ceiling": 0.2811126349474276
+   },
+   "discrimination_l1": {
+    "mean": 0.5259119999999999,
+    "ceiling": 0.689308426698263
+   }
+  }
+ },
+ "inert": {
+  "n": 1140,
+  "cell": {
+   "pearson_delta": {
+    "mean": 0.34807291910770427,
+    "ceiling": 0.5164007290319211
+   },
+   "top_overlap_50": {
+    "mean": 0.39382456140350874,
+    "ceiling": 0.5650991843721679
+   },
+   "top_overlap_100": {
+    "mean": 0.3447982456140351,
+    "ceiling": 0.5127880657765138
+   },
+   "discrimination_l1": {
+    "mean": 0.7291232,
+    "ceiling": 0.8433444187204242
+   }
+  },
+  "guide": {
+   "pearson_delta": {
+    "mean": 0.02270397828391689,
+    "ceiling": 0.044399902153531956
+   },
+   "top_overlap_50": {
+    "mean": 0.15773684210526315,
+    "ceiling": 0.2724917034141019
+   },
+   "top_overlap_100": {
+    "mean": 0.15501754385964914,
+    "ceiling": 0.26842457014399423
+   },
+   "discrimination_l1": {
+    "mean": 0.5030816,
+    "ceiling": 0.6694002507914407
+   }
+  }
+ },
+ "strong_kd": {
+  "n": 1000,
+  "cell": {
+   "pearson_delta": {
+    "mean": 0.38681153774998933,
+    "ceiling": 0.5578429760940202
+   },
+   "top_overlap_50": {
+    "mean": 0.42618,
+    "ceiling": 0.5976524702351736
+   },
+   "top_overlap_100": {
+    "mean": 0.37205,
+    "ceiling": 0.5423271746656463
+   },
+   "discrimination_l1": {
+    "mean": 0.7610528,
+    "ceiling": 0.864315709330237
+   }
+  },
+  "guide": {
+   "pearson_delta": {
+    "mean": 0.058865125775629204,
+    "ceiling": 0.11118531405500756
+   },
+   "top_overlap_50": {
+    "mean": 0.17562000000000003,
+    "ceiling": 0.29877001071774895
+   },
+   "top_overlap_100": {
+    "mean": 0.16634000000000002,
+    "ceiling": 0.2852341512766432
+   },
+   "discrimination_l1": {
+    "mean": 0.5300672000000001,
+    "ceiling": 0.6928678688099452
+   }
+  }
+ }
+}

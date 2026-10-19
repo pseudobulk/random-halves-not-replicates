@@ -1,0 +1,188 @@
+{
+ "rules": "Tahoe null perturbation: the difference between a plate's two DMSO wells (preprint review 2.4; A100).\nBoth wells received vehicle only, so in expectation their difference is zero; any part of it that is reproducible\nbetween random cell halves of the same wells is a well effect (spheroid, density, handling), the Tahoe analogue of\nthe inert-target control. For each plate with >= 2 DMSO wells (first two by sample order) and each line with >= MIN\ncells in both halves of both wells:\n  x_h = mean(well 1, half h) - mean(well 2, half h)        (log1p CP10K pseudobulk, genes with DMSO mean >= 0.1)\n  within-well cross energy x_0 . x_1 (= about twice the per-well effect variance), Pearson(x_0, x_1), frac_pos\n  split across lines into the well-common part (mean over lines, entering beta) and the line-specific part (gamma)\n  cross-plate check: correlation of (well 1 - well 2) between plates for the same line (a fixed well position would\n  give a consistent sign; independent well states give ~0)\n  scale: within-well cross energy of drug effects on the same plate (effect vs the plate's DMSO wells, per half, 200\n  random drug samples), so the well terms can be compared with what a drug condition shows.\nUsage: tahoe_dmso_null.py <tahoe_agg dir> <out_dir>. Exploratory.",
+ "n_genes": 6221,
+ "plates": {
+  "plate1": {
+   "n_lines": 48,
+   "cross_median": 7.2506329436563,
+   "frac_pos": 1.0,
+   "pearson_median": 0.5472236605556609,
+   "common_cross": 238.3775152539047,
+   "specific_cross": 104.98969575135065,
+   "drug_cross_median": 19.145076651665526,
+   "drug_cross_q25": 14.85168680799879,
+   "n_drug_pairs": 4033,
+   "well_per_well_over_drug_median": 0.18936024847478297
+  },
+  "plate10": {
+   "n_lines": 48,
+   "cross_median": 13.804627727750502,
+   "frac_pos": 1.0,
+   "pearson_median": 0.5999507836394462,
+   "common_cross": 495.40970340849844,
+   "specific_cross": 233.59830898842296,
+   "drug_cross_median": 22.740930092783394,
+   "drug_cross_q25": 16.931492599998933,
+   "n_drug_pairs": 4492,
+   "well_per_well_over_drug_median": 0.3035194178828082
+  },
+  "plate11": {
+   "n_lines": 48,
+   "cross_median": 8.441583351094202,
+   "frac_pos": 1.0,
+   "pearson_median": 0.5266423182577853,
+   "common_cross": 308.084593511212,
+   "specific_cross": 97.15756073536343,
+   "drug_cross_median": 13.221099127662178,
+   "drug_cross_q25": 9.724545010058462,
+   "n_drug_pairs": 4492,
+   "well_per_well_over_drug_median": 0.3192466552736182
+  },
+  "plate12": {
+   "n_lines": 47,
+   "cross_median": 6.364758690599311,
+   "frac_pos": 1.0,
+   "pearson_median": 0.4539857018781141,
+   "common_cross": 232.53057787164764,
+   "specific_cross": 57.776566951339746,
+   "drug_cross_median": 17.161160922635695,
+   "drug_cross_q25": 11.908756275653813,
+   "n_drug_pairs": 4418,
+   "well_per_well_over_drug_median": 0.18544079620523074
+  },
+  "plate13": {
+   "n_lines": 47,
+   "cross_median": 23.42836573080233,
+   "frac_pos": 1.0,
+   "pearson_median": 0.581129071512597,
+   "common_cross": 933.8672644704171,
+   "specific_cross": 163.1032896366845,
+   "drug_cross_median": 15.452937080970926,
+   "drug_cross_q25": 11.078924733136082,
+   "n_drug_pairs": 4411,
+   "well_per_well_over_drug_median": 0.7580554301114872
+  },
+  "plate14": {
+   "n_lines": 48,
+   "cross_median": 8.783883334780425,
+   "frac_pos": 1.0,
+   "pearson_median": 0.4247645882617484,
+   "common_cross": 262.8898400798875,
+   "specific_cross": 197.7111926248289,
+   "drug_cross_median": 15.710544699428258,
+   "drug_cross_q25": 12.076263381024798,
+   "n_drug_pairs": 4457,
+   "well_per_well_over_drug_median": 0.2795537488620649
+  },
+  "plate2": {
+   "n_lines": 48,
+   "cross_median": 5.1903076291563135,
+   "frac_pos": 1.0,
+   "pearson_median": 0.5723549348069867,
+   "common_cross": 200.4739518822186,
+   "specific_cross": 54.04058622931625,
+   "drug_cross_median": 34.55205283386197,
+   "drug_cross_q25": 20.683776895361845,
+   "n_drug_pairs": 4317,
+   "well_per_well_over_drug_median": 0.07510852761937299
+  },
+  "plate3": {
+   "n_lines": 47,
+   "cross_median": 9.135900766232764,
+   "frac_pos": 1.0,
+   "pearson_median": 0.40652243345334055,
+   "common_cross": 309.9614203220945,
+   "specific_cross": 144.8522291059627,
+   "drug_cross_median": 35.63161982753694,
+   "drug_cross_q25": 21.45988956574664,
+   "n_drug_pairs": 4347,
+   "well_per_well_over_drug_median": 0.12819934668213329
+  },
+  "plate4": {
+   "n_lines": 48,
+   "cross_median": 16.899871401646486,
+   "frac_pos": 1.0,
+   "pearson_median": 0.6632272362782989,
+   "common_cross": 502.9326100407097,
+   "specific_cross": 317.34744482682004,
+   "drug_cross_median": 18.347687861358445,
+   "drug_cross_q25": 13.188644775813824,
+   "n_drug_pairs": 4503,
+   "well_per_well_over_drug_median": 0.46054498881133776
+  },
+  "plate5": {
+   "n_lines": 48,
+   "cross_median": 6.336862802420933,
+   "frac_pos": 1.0,
+   "pearson_median": 0.5255384046378551,
+   "common_cross": 233.62501661609917,
+   "specific_cross": 68.20627897515209,
+   "drug_cross_median": 20.001910207137186,
+   "drug_cross_q25": 15.599426333732888,
+   "n_drug_pairs": 4504,
+   "well_per_well_over_drug_median": 0.15840644060485234
+  },
+  "plate6": {
+   "n_lines": 48,
+   "cross_median": 30.140160313274965,
+   "frac_pos": 1.0,
+   "pearson_median": 0.7859872333459128,
+   "common_cross": 1092.8950662523157,
+   "specific_cross": 353.44856943635773,
+   "drug_cross_median": 24.91466601853486,
+   "drug_cross_q25": 18.788836330708033,
+   "n_drug_pairs": 4497,
+   "well_per_well_over_drug_median": 0.6048678374988588
+  },
+  "plate7": {
+   "n_lines": 47,
+   "cross_median": 6.428587141813655,
+   "frac_pos": 1.0,
+   "pearson_median": 0.31536512123382265,
+   "common_cross": 258.6076776607805,
+   "specific_cross": 63.1722140717299,
+   "drug_cross_median": 20.644411735611595,
+   "drug_cross_q25": 14.882988254673641,
+   "n_drug_pairs": 4408,
+   "well_per_well_over_drug_median": 0.15569799769892081
+  },
+  "plate8": {
+   "n_lines": 47,
+   "cross_median": 5.144179413347317,
+   "frac_pos": 1.0,
+   "pearson_median": 0.44840921085408736,
+   "common_cross": 197.43188864581984,
+   "specific_cross": 41.161895567566816,
+   "drug_cross_median": 15.083318470345379,
+   "drug_cross_q25": 10.166972957657462,
+   "n_drug_pairs": 4418,
+   "well_per_well_over_drug_median": 0.17052545245467873
+  },
+  "plate9": {
+   "n_lines": 47,
+   "cross_median": 5.8190287719872495,
+   "frac_pos": 1.0,
+   "pearson_median": 0.327810636607891,
+   "common_cross": 217.93006694258497,
+   "specific_cross": 65.28641495948779,
+   "drug_cross_median": 28.910023575946475,
+   "drug_cross_q25": 18.03810991794423,
+   "n_drug_pairs": 4402,
+   "well_per_well_over_drug_median": 0.10064033252516541
+  }
+ },
+ "cross_plate_corr": {
+  "n": 4300,
+  "mean": 0.32875709294726096,
+  "median": 0.35195298388303975,
+  "sd": 0.20389937310583903
+ },
+ "summary": {
+  "cross_median": 7.846108147375251,
+  "frac_pos": 1.0,
+  "pearson_median": 0.5260903614478202,
+  "drug_cross_median": 19.573493429401356,
+  "well_per_well_over_drug_median": 0.18740052234000687,
+  "common_share_of_cross": 0.764865214170882
+ }
+}

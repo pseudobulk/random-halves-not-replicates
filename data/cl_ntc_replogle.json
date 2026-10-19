@@ -1,0 +1,78 @@
+{
+ "rules": "Non-targeting constructs as null perturbations in cell-line screens (clone preprint, findings cc; review v11 M1).\nReplogle et al. 2022 and Nadig et al. 2025 raw single-cell files (obs: gene, sgID_AB; categorical columns stored with\nobs/__categories). One streaming pass: log1p CP10K with row sums over all genes; a random bit per cell (numpy\ndefault_rng(21) over all cells in file order). Aggregates per (group, bit): non-targeting cells grouped by construct\n(sgID_AB), targeting cells grouped by target gene.\n  genes: mean >= 0.1 over non-targeting cells; groups: >= 10 cells in each half\n  non-targeting: effect = construct mean minus the mean over kept constructs in that half (null baseline);\n    random halves vs pairs of different constructs (first half of one, second half of another; 50 random pairings)\n  targeting (reference): effect = gene mean minus the mean of all non-targeting cells in that half; random halves\n  ratio = mean non-targeting random-half cross-half signal / mean targeting random-half cross-half signal\nUsage: cl_ntc_null.py <out.json> <label>:<h5ad> [...]   (workers from env WORKERS, default 16)",
+ "k562_ess": {
+  "n_genes": 6892,
+  "n_constructs": 97,
+  "cells_per_half_median": 52.0,
+  "random_frac_pos": 0.7422680412371134,
+  "random_frac_pos_ci95": [
+   0.6494845360824743,
+   0.8247422680412371
+  ],
+  "random_mean_cross": 0.3566561444379445,
+  "pairs_frac_pos_mean": 0.49125,
+  "pairs_frac_pos_range": [
+   0.3333333333333333,
+   0.7291666666666666
+  ],
+  "pairs_mean_cross": -0.00556893092649432,
+  "n_targets": 2005,
+  "target_cells_per_half_median": 62.0,
+  "target_random_mean_cross": 15.70147036508949,
+  "target_random_median_cross": 5.950781551994403,
+  "ratio_nt_to_target_mean": 0.022714824544771976,
+  "file": "K562_essential_raw_singlecell_01.h5ad",
+  "n_cells": 310385,
+  "seconds": 11
+ },
+ "rpe1": {
+  "n_genes": 7029,
+  "n_constructs": 113,
+  "cells_per_half_median": 49.0,
+  "random_frac_pos": 0.7610619469026548,
+  "random_frac_pos_ci95": [
+   0.6814159292035398,
+   0.8407079646017699
+  ],
+  "random_mean_cross": 1.063617641925828,
+  "pairs_frac_pos_mean": 0.5092857142857142,
+  "pairs_frac_pos_range": [
+   0.375,
+   0.6964285714285714
+  ],
+  "pairs_mean_cross": -0.005236854727696852,
+  "n_targets": 2135,
+  "target_cells_per_half_median": 39.0,
+  "target_random_mean_cross": 42.13449395182258,
+  "target_random_median_cross": 27.676192922044734,
+  "ratio_nt_to_target_mean": 0.025243394239930585,
+  "file": "rpe1_raw_singlecell_01.h5ad",
+  "n_cells": 247914,
+  "seconds": 11
+ },
+ "k562_gw1": {
+  "n_genes": 6737,
+  "n_constructs": 507,
+  "cells_per_half_median": 68.0,
+  "random_frac_pos": 0.7140039447731755,
+  "random_frac_pos_ci95": [
+   0.6764792899408284,
+   0.7495562130177514
+  ],
+  "random_mean_cross": 0.2811494624129761,
+  "pairs_frac_pos_mean": 0.4988932806324112,
+  "pairs_frac_pos_range": [
+   0.4268774703557312,
+   0.5691699604743083
+  ],
+  "pairs_mean_cross": -0.0035270757831413102,
+  "n_targets": 9749,
+  "target_cells_per_half_median": 90.0,
+  "target_random_mean_cross": 4.400353672537293,
+  "target_random_median_cross": 0.9433365073067399,
+  "ratio_nt_to_target_mean": 0.06389246940936504,
+  "file": "K562_gwps_raw_singlecell_01.h5ad",
+  "n_cells": 1989578,
+  "seconds": 69
+ }
+}

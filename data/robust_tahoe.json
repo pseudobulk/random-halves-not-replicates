@@ -1,0 +1,59 @@
+{
+ "rules": "Robustness of Z1 (am) and (aj) (A100).\ncd4   donor-1 single cells, Rest vs Stim48hr, random cell halves vs guide halves, now on the SAME targets (the\n      (am) table used 9,623 vs 6,673 targets). Grid: k in (5, 10, 20, 50); gene set all expressed (control >= 0.1) vs\n      top 2,000 by control mean; target subsets all common vs guide-balanced (the two guide halves' cell counts within\n      a factor 1.5 of each other in both states). Per cell: gamma share, readout share (state = top-k PCs of half-A\n      beta, ridge with lambda from inner 2-fold CV, 2 folds over targets) and its shuffled control, inert targets'\n      frac_pos (referenced to the inert baseline, Z1 an). Template removed for the readout.\ntahoe target fixed (two-way gamma of plate P half 1), beta from the same well vs the other plate, as\n      tahoe_readout_source.py, now with k in (5, 10, 20), lambda by inner CV instead of fixed 1, and gene set all vs\n      top 2,000 by mean absolute effect on the OTHER plate (so the gene selection does not reuse the scored plate).\nUsage: robust_cd4_tahoe.py cd4 <out_Rest> <out_Stim> <out_Rest_guide> <out_Stim_guide> <out_dir>\n       robust_cd4_tahoe.py tahoe <D_arrays.npz> <out_dir>. Exploratory.",
+ "target_plate14|all": {
+  "same_well_k5": 0.23554468074042317,
+  "same_well_k5_shuffled": -0.00034049957144376575,
+  "other_plate_k5": 0.026596892298097283,
+  "other_plate_k5_shuffled": -0.00010168559316170098,
+  "same_well_k10": 0.26105120629132805,
+  "same_well_k10_shuffled": -0.00045007148351657847,
+  "other_plate_k10": 0.027236935596241865,
+  "other_plate_k10_shuffled": -0.00021921996671535898,
+  "same_well_k20": 0.3010697893436523,
+  "same_well_k20_shuffled": -0.00031174585166825224,
+  "other_plate_k20": 0.0321046391459354,
+  "other_plate_k20_shuffled": -0.0001657372397718924
+ },
+ "target_plate14|top2000_other_plate": {
+  "same_well_k5": 0.23949220321383144,
+  "same_well_k5_shuffled": -0.00034487790807243257,
+  "other_plate_k5": 0.02404790770677659,
+  "other_plate_k5_shuffled": -0.00023734085189359305,
+  "same_well_k10": 0.2674773981520746,
+  "same_well_k10_shuffled": -0.0004970258755982772,
+  "other_plate_k10": 0.027211761772030666,
+  "other_plate_k10_shuffled": -0.0006117386685224113,
+  "same_well_k20": 0.3165363380048395,
+  "same_well_k20_shuffled": -0.0005438698055772414,
+  "other_plate_k20": 0.030502156326336027,
+  "other_plate_k20_shuffled": -0.0005163045392659271
+ },
+ "target_plate6|all": {
+  "same_well_k5": 0.23388268639173773,
+  "same_well_k5_shuffled": -8.115528275490072e-05,
+  "other_plate_k5": 0.054232568609520894,
+  "other_plate_k5_shuffled": -0.00048761574032366316,
+  "same_well_k10": 0.2604405348404325,
+  "same_well_k10_shuffled": -0.00030763103974955174,
+  "other_plate_k10": 0.05749923985996459,
+  "other_plate_k10_shuffled": -0.0006238285692736345,
+  "same_well_k20": 0.30093633965705113,
+  "same_well_k20_shuffled": -0.00020740136383760942,
+  "other_plate_k20": 0.06815684843342805,
+  "other_plate_k20_shuffled": -0.0005171821822448992
+ },
+ "target_plate6|top2000_other_plate": {
+  "same_well_k5": 0.23163720353195066,
+  "same_well_k5_shuffled": -0.00010260604427049916,
+  "other_plate_k5": 0.04941786730867047,
+  "other_plate_k5_shuffled": -0.0005274387317159689,
+  "same_well_k10": 0.2573730594593535,
+  "same_well_k10_shuffled": -0.00033801318224129873,
+  "other_plate_k10": 0.05374387799986915,
+  "other_plate_k10_shuffled": -0.000545474773515247,
+  "same_well_k20": 0.2993550052171243,
+  "same_well_k20_shuffled": -0.0002943115560188735,
+  "other_plate_k20": 0.06615038537743324,
+  "other_plate_k20_shuffled": -0.0005194321528718462
+ }
+}

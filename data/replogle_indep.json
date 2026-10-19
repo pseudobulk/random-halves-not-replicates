@@ -1,0 +1,83 @@
+{
+ "rules": "Does the readout structure of Z1 (r) survive independent screens? (A100; Replogle 2022 raw single cells.)\nZ1 (aj): in Tahoe the same target gamma is explained ~26% by beta of the same well but 3-7% by beta of a replicate\nplate, i.e. most of the within-well readout reads fluctuations shared by beta and gamma of the same well. In (r) the\ntwo halves are random cells of the same screen, so a K562 clone's deviation enters half-A beta (= (K + R) / 2) and\nhalf-B gamma (= (K - R) / 2) alike. K562 has two independent screens (day 6 essential, day 8 genome-wide: different\ntransductions, library, time), RPE1 one (day 7 essential).\nData: K6 = K562_essential_raw_singlecell_01, K8 = K562_gwps_raw_singlecell_01 (part 1), R = rpe1_raw_singlecell_01.\nPerturbations with >= 20 cells in all three, minus p53 / proliferation genes and TP53 (F26 rule); genes common to the\nthree files with control mean log1p CP10K >= 0.1 in all three; per-lane control correction and CP10K as explore_V\n(Line). Responses per line: random cell halves A / B and all cells; target gene zeroed; centred over perturbations\n(template removal). gamma = (K - R) / 2, beta = (K + R) / 2.\nTarget fixed: half-B gamma of the pair (K_T, R), T = K8 (and, reversed, K6). Score = explained energy of the target\non held-out perturbations / within-design gamma cross product (half A x half B), so all feature sources are in the\nsame units. Readout: state = top-k PCs of the feature over training perturbations, ridge (lambda from inner 2-fold CV),\n2 folds over perturbations (seed 11); shuffled control permutes the training states. Feature sources:\n  pair_same     half-A beta of the same pair (as r)             shares K_T clones and R clones with the target\n  pair_indepK   (other K562 screen, all cells + R half A) / 2   shares R clones only\n  K_same        K_T half A                                      shares K_T clones\n  K_indep       other K562 screen, all cells                    shares nothing with the target\n  K_indep_half  other K562 screen, half A (cell numbers ~ K_same)\n  R_same        R half A                                        shares R clones\nAlso signal correlations between the screens: cross product of their halves / geometric mean of each screen's\nown half x half cross product.\nExpectation written before running: if the readout is a stable property of the lines, K_indep keeps roughly rho^2 or\nmore of K_same, rho = K6-K8 signal correlation (the other screen is an imperfect proxy only through day / library\ndifferences). A Tahoe-like collapse (K_indep well below rho^2 x K_same) would mean that the same-screen readout\nmostly reads clone-level coupling. The R side cannot be tested this way (one RPE1 screen).\nUsage: replogle_indep_readout.py <K6.h5ad> <K8.h5ad> <R.h5ad> <out_dir>. Exploratory.",
+ "n_perturbations": 1820,
+ "n_genes": 5677,
+ "signal_corr": {
+  "K6_K8": {
+   "within_a": 24033.65251445519,
+   "within_b": 19745.625685410134,
+   "cross": 17977.971734203056,
+   "signal_corr": 0.8252686630231123
+  },
+  "K6_R": {
+   "within_a": 24033.65251445519,
+   "within_b": 68772.37592792913,
+   "cross": 15547.181700802495,
+   "signal_corr": 0.3824148698858604
+  },
+  "K8_R": {
+   "within_a": 19745.625685410134,
+   "within_b": 68772.37592792913,
+   "cross": 12410.899812540683,
+   "signal_corr": 0.3367912544857328
+  }
+ },
+ "target_K8": {
+  "gamma_share": 0.35979236328952086,
+  "gamma_cross": 15924.050497064476,
+  "beta_cross": 28334.95030960516,
+  "pair_same_k10": 0.5697148461811156,
+  "pair_same_k10_shuffled": -0.0003042517235942363,
+  "pair_indepK_k10": 0.5824217008439516,
+  "pair_indepK_k10_shuffled": -0.00030782884903463145,
+  "K_same_k10": 0.2609689118604704,
+  "K_same_k10_shuffled": -0.0001064645193105084,
+  "K_indep_k10": 0.31561721256368325,
+  "K_indep_k10_shuffled": -0.002606903392081135,
+  "K_indep_half_k10": 0.3020099773408582,
+  "K_indep_half_k10_shuffled": -0.0025879526149195395,
+  "R_same_k10": 0.6109662966309366,
+  "R_same_k10_shuffled": -6.568653892499898e-05,
+  "pair_same_k20": 0.6306444949279564,
+  "pair_same_k20_shuffled": -0.0005036173509928464,
+  "pair_indepK_k20": 0.6235088777410387,
+  "pair_indepK_k20_shuffled": -0.000521170966343939,
+  "K_same_k20": 0.25021048677520524,
+  "K_same_k20_shuffled": -0.00019387827821615568,
+  "K_indep_k20": 0.35163729420971496,
+  "K_indep_k20_shuffled": -0.00036656163671673945,
+  "K_indep_half_k20": 0.31026040039094405,
+  "K_indep_half_k20_shuffled": -0.0004528770486169742,
+  "R_same_k20": 0.6460574835167482,
+  "R_same_k20_shuffled": -0.0001046175550426827
+ },
+ "target_K6": {
+  "gamma_share": 0.3324765970299605,
+  "gamma_cross": 15427.916260194834,
+  "beta_cross": 30975.09796099733,
+  "pair_same_k10": 0.570159507346367,
+  "pair_same_k10_shuffled": -0.0002887109745554,
+  "pair_indepK_k10": 0.5676832124131953,
+  "pair_indepK_k10_shuffled": -0.00023740803484237837,
+  "K_same_k10": 0.30266952264379204,
+  "K_same_k10_shuffled": -0.0003165490353262009,
+  "K_indep_k10": 0.2721237654179698,
+  "K_indep_k10_shuffled": -0.00018163166669196828,
+  "K_indep_half_k10": 0.25521024651785085,
+  "K_indep_half_k10_shuffled": -0.0001927866694213224,
+  "R_same_k10": 0.5985729420385805,
+  "R_same_k10_shuffled": -1.3395456320086943e-05,
+  "pair_same_k20": 0.6171880701576653,
+  "pair_same_k20_shuffled": -0.0004967878558905209,
+  "pair_indepK_k20": 0.6203828071958047,
+  "pair_indepK_k20_shuffled": -0.00039818818702686806,
+  "K_same_k20": 0.3121300700214551,
+  "K_same_k20_shuffled": -0.0005649512613985477,
+  "K_indep_k20": 0.26136363756523284,
+  "K_indep_k20_shuffled": -0.0003120209473588716,
+  "K_indep_half_k20": 0.2472058631067851,
+  "K_indep_half_k20_shuffled": -0.00033482721147443486,
+  "R_same_k20": 0.6363117310094737,
+  "R_same_k20_shuffled": -1.7511586187596573e-05
+ }
+}

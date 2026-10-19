@@ -1,0 +1,66 @@
+{
+ "rules": "Does the clone effect of cell halves (Z1 ah) also sit in Replogle's data, the base of the gamma ledger? (A100.)\nK562 genome-wide Perturb-seq (Replogle 2022, raw single cells part 01). Each gene has one dual-guide construct, so a guide\nsplit is not possible; instead compare two split designs on inert targets (target gene absent from the expressed-gene\nlist of the file, or control mean log1p CP10K < 0.01) vs expressed targets (>= 0.5):\n  random: the target's cells split at random (as line_parts / the F26 ledger)\n  lane:   the target's cells split by 10x lane (gem group parity); controls split the same way\nIf inert targets show reproducible responses under the random split, the clone effect is present here too; if the lane\nsplit removes it, lane-split denoising suffices for this design, otherwise neither does.\nResponse genes: top N_GENES by control mean. CP10K uses the per-cell UMI_count from obs. Template (mean over targets\nper half) removed before the per-target cross-half signal sum(x_A * x_B).\n10-18: added the inert-referenced check (see the comment in main); the original numbers are unchanged.\nUsage: k562_inert.py <h5ad> <out_dir>. Exploratory.",
+ "n_targets": 9675,
+ "n_inert": 2156,
+ "n_expressed": 1623,
+ "random": {
+  "n_ok": 9617,
+  "inert_referenced": {
+   "template_cross": 0.14321167928543244,
+   "inert_mean_cross": 0.011951902887530428,
+   "inert": {
+    "signal_median": 0.27479633155738364,
+    "frac_pos": 0.8317757009345794
+   },
+   "expressed": {
+    "signal_median": 2.330804084137303,
+    "frac_pos": 0.9813780260707635
+   }
+  },
+  "inert": {
+   "n": 2140,
+   "signal_median": 0.4223555588256832,
+   "frac_pos": 0.8920560747663552
+  },
+  "expressed": {
+   "n": 1611,
+   "signal_median": 2.260536909157195,
+   "frac_pos": 0.983860955927995
+  },
+  "inert_pc_crosshalf_r": [
+   0.6037227470652217,
+   0.7532603756405162,
+   0.580886583207082
+  ]
+ },
+ "lane": {
+  "n_ok": 9612,
+  "inert_referenced": {
+   "template_cross": 0.14072359312680283,
+   "inert_mean_cross": 0.012148550473919242,
+   "inert": {
+    "signal_median": 0.26559231250929205,
+    "frac_pos": 0.8160597572362278
+   },
+   "expressed": {
+    "signal_median": 2.292284646979384,
+    "frac_pos": 0.9813200498132005
+   }
+  },
+  "inert": {
+   "n": 2142,
+   "signal_median": 0.4013352895162019,
+   "frac_pos": 0.880485527544351
+  },
+  "expressed": {
+   "n": 1606,
+   "signal_median": 2.231022958137565,
+   "frac_pos": 0.9856787048567871
+  },
+  "inert_pc_crosshalf_r": [
+   0.5668815735719461,
+   0.7349936626354701,
+   0.5640022551800933
+  ]
+ }
+}

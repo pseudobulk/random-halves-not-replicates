@@ -1,0 +1,160 @@
+{
+ "rules": "CD4 state axis with DONOR halves (A100; Zhu 2026): donors {1,2} vs {3,4} are independent biological replicates and\nindependent transductions, so clone- and donor-specific states cannot appear reproducible. Guides pooled within each\nhalf (both guide ranks), which keeps more signal than the guide split. Otherwise as cd4_inert_guide.py (whose docstring\nfollows).\nIs the inert-target component (Z1 ag) a clone effect of random cell halves? (A100; CD4, Zhu 2026, donors pooled.)\nIn cd4_inert2.py the two halves were random cells of the same target, so cells descended from the same few transduced\nclones fall in both halves and any clone-specific state looks \"reproducible\". Here the halves are the target's guides\n(even / odd guide rank; independent transductions, so different clones), as in cd4_m3.py. Same comparisons as\ncd4_inert2.py variants A (no template) and B (template removed), for Rest vs Stim48hr: per-target cross-half signal\nfor inert (target control log1p CP10K < 0.01 in both states) vs expressed (>= 0.5) targets; gamma signal carried by\ninert targets; gamma share; readout share at k = 20 with shuffled control.\nIf the inert reproducibility collapses under the guide split, the component is a clone (or guide) effect of the\ncell-split design, and guide-split denoising is the appropriate default.\nUsage: cd4_inert_guide.py <pseudobulk_merged.h5ad> <out_dir>. Exploratory.",
+ "n_targets": 9958,
+ "n_inert": 1479,
+ "n_expressed": 3630,
+ "n_genes": 7643,
+ "A_original_donor_split": {
+  "gamma_share_of_specific": 0.2556440042576093,
+  "inert_gamma_signal_share": 0.0658217032964948,
+  "inert_target_share": 0.14852379995983128,
+  "inert": {
+   "rest_signal_median": 0.5402038513274708,
+   "rest_frac_pos": 0.5767410412440839,
+   "stim_signal_median": 0.26143732483762083,
+   "stim_frac_pos": 0.5584854631507775
+  },
+  "expressed": {
+   "rest_signal_median": 1.4211879754050574,
+   "rest_frac_pos": 0.6534435261707989,
+   "stim_signal_median": 0.9847062267473329,
+   "stim_frac_pos": 0.6724517906336088
+  },
+  "readout_k20": 0.043628060489578534,
+  "readout_k20_shuffled": 0.01849078556128636
+ },
+ "B_template_removed_donor_split": {
+  "gamma_share_of_specific": 0.2625143463769,
+  "inert_gamma_signal_share": 0.06136274502127982,
+  "inert_target_share": 0.14852379995983128,
+  "inert": {
+   "rest_signal_median": 0.3295775162572554,
+   "rest_frac_pos": 0.5510480054090602,
+   "stim_signal_median": 0.20734883059568954,
+   "stim_frac_pos": 0.5368492224475997
+  },
+  "expressed": {
+   "rest_signal_median": 1.1510537581659563,
+   "rest_frac_pos": 0.6377410468319559,
+   "stim_signal_median": 0.8790456084848731,
+   "stim_frac_pos": 0.6542699724517906
+  },
+  "readout_k20": 0.02308284221500117,
+  "readout_k20_shuffled": 2.3273302934358343e-05
+ },
+ "C_null_baseline_donor_split": {
+  "gamma_share_of_specific": 0.260964662865181,
+  "inert_gamma_signal_share": 0.06095160714255499,
+  "inert_target_share": 0.14852379995983128,
+  "inert": {
+   "rest_signal_median": 0.37531222822769306,
+   "rest_frac_pos": 0.5510480054090602,
+   "stim_signal_median": 0.16233760531959512,
+   "stim_frac_pos": 0.5341446923597025
+  },
+  "expressed": {
+   "rest_signal_median": 1.1788313226848595,
+   "rest_frac_pos": 0.6369146005509642,
+   "stim_signal_median": 0.8472205385982823,
+   "stim_frac_pos": 0.6509641873278237
+  },
+  "readout_k20": 0.02396569964530343,
+  "readout_k20_shuffled": 5.796215884815302e-05
+ },
+ "kd_summary": {
+  "expressed_kd_median": 0.4933790605850378,
+  "expressed_kd_q90": 0.9142055056532707
+ },
+ "C_kd_top1000": {
+  "gamma_share_of_specific": 0.2793369511836722,
+  "inert_gamma_signal_share": 0.0,
+  "inert_target_share": 0.0,
+  "inert": {
+   "rest_signal_median": NaN,
+   "rest_frac_pos": NaN,
+   "stim_signal_median": NaN,
+   "stim_frac_pos": NaN
+  },
+  "expressed": {
+   "rest_signal_median": 1.0322992231323165,
+   "rest_frac_pos": 0.643,
+   "stim_signal_median": 1.0992276288978002,
+   "stim_frac_pos": 0.683
+  },
+  "readout_k20": 0.003541699096888541,
+  "readout_k20_shuffled": -0.0002781760354492803,
+  "n": 1000,
+  "n_inert": 0,
+  "readout_k20_xden": 0.011187615474339415,
+  "readout_k20_shuffled_xden": -0.0008787100297472557
+ },
+ "C_kd_top300": {
+  "gamma_share_of_specific": 0.30600296859465953,
+  "inert_gamma_signal_share": 0.0,
+  "inert_target_share": 0.0,
+  "inert": {
+   "rest_signal_median": NaN,
+   "rest_frac_pos": NaN,
+   "stim_signal_median": NaN,
+   "stim_frac_pos": NaN
+  },
+  "expressed": {
+   "rest_signal_median": 0.9765607835291559,
+   "rest_frac_pos": 0.6333333333333333,
+   "stim_signal_median": 1.0959282562197334,
+   "stim_frac_pos": 0.6566666666666666
+  },
+  "readout_k20": 0.018840588223849326,
+  "readout_k20_shuffled": -0.0014251403888803785,
+  "n": 300,
+  "n_inert": 0,
+  "readout_k20_xden": 0.06835010285548426,
+  "readout_k20_shuffled_xden": -0.005170140709310463
+ },
+ "C_eA_top1000": {
+  "gamma_share_of_specific": 0.2510670796520967,
+  "inert_gamma_signal_share": 0.029095838621166555,
+  "inert_target_share": 0.069,
+  "inert": {
+   "rest_signal_median": 2.6575088915002416,
+   "rest_frac_pos": 0.6376811594202898,
+   "stim_signal_median": 1.603063013721823,
+   "stim_frac_pos": 0.7246376811594203
+  },
+  "expressed": {
+   "rest_signal_median": 6.451018749562342,
+   "rest_frac_pos": 0.7780040733197556,
+   "stim_signal_median": 4.15750257500763,
+   "stim_frac_pos": 0.769857433808554
+  },
+  "readout_k20": 0.1424166447226984,
+  "readout_k20_shuffled": -0.0034679193395456276,
+  "n": 1000,
+  "n_inert": 69,
+  "readout_k20_xden": 0.08591264455934165,
+  "readout_k20_shuffled_xden": -0.002092017559878413
+ },
+ "C_eA_top300": {
+  "gamma_share_of_specific": 0.2375299670106484,
+  "inert_gamma_signal_share": 0.026478799005170604,
+  "inert_target_share": 0.03333333333333333,
+  "inert": {
+   "rest_signal_median": 9.26793095053863,
+   "rest_frac_pos": 0.9,
+   "stim_signal_median": 5.6400838767177355,
+   "stim_frac_pos": 1.0
+  },
+  "expressed": {
+   "rest_signal_median": 10.907971119368245,
+   "rest_frac_pos": 0.8121212121212121,
+   "stim_signal_median": 8.025443143209694,
+   "stim_frac_pos": 0.806060606060606
+  },
+  "readout_k20": 0.5396700918596001,
+  "readout_k20_shuffled": -0.005347482273550854,
+  "n": 300,
+  "n_inert": 10,
+  "readout_k20_xden": 0.07903388727331787,
+  "readout_k20_shuffled_xden": -0.0007831308749157721
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "rules": "Non-targeting constructs as null perturbations in cell-line screens (clone preprint, findings cc; review v11 M1).\nReplogle et al. 2022 and Nadig et al. 2025 raw single-cell files (obs: gene, sgID_AB; categorical columns stored with\nobs/__categories). One streaming pass: log1p CP10K with row sums over all genes; a random bit per cell (numpy\ndefault_rng(21) over all cells in file order). Aggregates per (group, bit): non-targeting cells grouped by construct\n(sgID_AB), targeting cells grouped by target gene.\n  genes: mean >= 0.1 over non-targeting cells; groups: >= 10 cells in each half\n  non-targeting: effect = construct mean minus the mean over kept constructs in that half (null baseline);\n    random halves vs pairs of different constructs (first half of one, second half of another; 50 random pairings)\n  targeting (reference): effect = gene mean minus the mean of all non-targeting cells in that half; random halves\n  ratio = mean non-targeting random-half cross-half signal / mean targeting random-half cross-half signal\nUsage: cl_ntc_null.py <out.json> <label>:<h5ad> [...]   (workers from env WORKERS, default 16)",
+ "jurkat": {
+  "n_genes": 7365,
+  "n_constructs": 128,
+  "cells_per_half_median": 44.0,
+  "random_frac_pos": 0.734375,
+  "random_frac_pos_ci95": [
+   0.65625,
+   0.8125
+  ],
+  "random_mean_cross": 1.390077092704049,
+  "pairs_frac_pos_mean": 0.51375,
+  "pairs_frac_pos_range": [
+   0.34375,
+   0.640625
+  ],
+  "pairs_mean_cross": 0.021984390974595737,
+  "n_targets": 2228,
+  "target_cells_per_half_median": 43.0,
+  "target_random_mean_cross": 19.96284192761619,
+  "target_random_median_cross": 10.360910121803649,
+  "ratio_nt_to_target_mean": 0.06963322645865591,
+  "file": "jurkat.h5ad",
+  "n_cells": 262956,
+  "seconds": 13
+ },
+ "hepg2": {
+  "n_genes": 7321,
+  "n_constructs": 112,
+  "cells_per_half_median": 19.0,
+  "random_frac_pos": 0.5982142857142857,
+  "random_frac_pos_ci95": [
+   0.5,
+   0.6875
+  ],
+  "random_mean_cross": 1.2504784847619121,
+  "pairs_frac_pos_mean": 0.500357142857143,
+  "pairs_frac_pos_range": [
+   0.3392857142857143,
+   0.7142857142857143
+  ],
+  "pairs_mean_cross": 0.0013000882198919712,
+  "n_targets": 2062,
+  "target_cells_per_half_median": 25.0,
+  "target_random_mean_cross": 29.61489412339286,
+  "target_random_median_cross": 13.309515110152056,
+  "ratio_nt_to_target_mean": 0.042224648163579175,
+  "file": "hepg2.h5ad",
+  "n_cells": 145473,
+  "seconds": 10
+ }
+}

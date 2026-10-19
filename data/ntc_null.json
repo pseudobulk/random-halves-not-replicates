@@ -1,0 +1,91 @@
+{
+ "rules": "Non-targeting guides as null perturbations: random halves vs different guides (clone preprint v9, findings ca).\nInputs per donor-state: <ntc_dir> from cd4_ntc_extract.py and <cells_dir> from cd4_sc_extract_cells.py (TRBC counts).\n  effect of guide g in half h = its mean log1p CP10K minus the mean over all kept guides in half h (null baseline)\n  genes: mean over all non-targeting cells >= 0.1, TCR genes (TRAC, TRBC, TRAV, TRBV, TRGC, TRDC) removed\n  guides: >= 10 cells in each r1 half\n  random halves: guide g, r1 = 0 vs r1 = 1; different guides: random pairs (i, j), half r1 = 0 of i vs r1 = 1 of j\n  (same depth), 50 random pairings; cross-half signal = sum over genes of the product of the two effects\n  TRBC: per guide z of the mean TRBC1 fraction against random cells (cells with >= 2 TRBC counts, guides with >= 30),\n  var(z) and after permuting guide labels among non-targeting cells; deviation correlated between r1 halves (>= 15)\nUsage: cd4_ntc_null.py <out.json> <label>:<ntc_dir>:<cells_dir> [...]",
+ "D1_rest": {
+  "n_guides": 739,
+  "n_genes": 7843,
+  "cells_per_half_median": 39.0,
+  "random_frac_pos": 0.9824086603518268,
+  "random_frac_pos_ci95": [
+   0.9715832205683356,
+   0.9905277401894452
+  ],
+  "random_mean_cross": 13.853989553409235,
+  "pairs_frac_pos_mean": 0.4976151761517616,
+  "pairs_frac_pos_range": [
+   0.4281842818428184,
+   0.5474254742547425
+  ],
+  "pairs_mean_cross": -0.03929914863692101,
+  "trbc_var_z": 34.366012844523304,
+  "trbc_var_z_permuted": 0.9898755487936409,
+  "trbc_n_guides": 688,
+  "trbc_random_half_pearson": 0.9454733110278669,
+  "trbc_n_guides_halves": 648
+ },
+ "D1_stim": {
+  "n_guides": 785,
+  "n_genes": 8066,
+  "cells_per_half_median": 36.0,
+  "random_frac_pos": 0.9656050955414013,
+  "random_frac_pos_ci95": [
+   0.9528662420382166,
+   0.978343949044586
+  ],
+  "random_mean_cross": 13.52798496907318,
+  "pairs_frac_pos_mean": 0.4983163265306122,
+  "pairs_frac_pos_range": [
+   0.45153061224489793,
+   0.5510204081632653
+  ],
+  "pairs_mean_cross": -0.01201246755073198,
+  "trbc_var_z": 29.121352401647222,
+  "trbc_var_z_permuted": 1.0055518298351673,
+  "trbc_n_guides": 709,
+  "trbc_random_half_pearson": 0.9371683873551122,
+  "trbc_n_guides_halves": 669
+ },
+ "D2_rest": {
+  "n_guides": 578,
+  "n_genes": 7979,
+  "cells_per_half_median": 41.0,
+  "random_frac_pos": 0.9878892733564014,
+  "random_frac_pos_ci95": [
+   0.9792387543252595,
+   0.9948096885813149
+  ],
+  "random_mean_cross": 20.163075817445623,
+  "pairs_frac_pos_mean": 0.48775086505190307,
+  "pairs_frac_pos_range": [
+   0.4359861591695502,
+   0.5674740484429066
+  ],
+  "pairs_mean_cross": -0.1316292182559668,
+  "trbc_var_z": 79.93181392390711,
+  "trbc_var_z_permuted": 0.97846889570474,
+  "trbc_n_guides": 540,
+  "trbc_random_half_pearson": 0.967225883530902,
+  "trbc_n_guides_halves": 508
+ },
+ "D2_stim": {
+  "n_guides": 622,
+  "n_genes": 8032,
+  "cells_per_half_median": 40.0,
+  "random_frac_pos": 0.9871382636655949,
+  "random_frac_pos_ci95": [
+   0.977491961414791,
+   0.9951768488745981
+  ],
+  "random_mean_cross": 21.280481194788834,
+  "pairs_frac_pos_mean": 0.4983279742765273,
+  "pairs_frac_pos_range": [
+   0.4340836012861736,
+   0.5659163987138264
+  ],
+  "pairs_mean_cross": 0.00961877642542276,
+  "trbc_var_z": 76.00273724951234,
+  "trbc_var_z_permuted": 1.002894106822306,
+  "trbc_n_guides": 581,
+  "trbc_random_half_pearson": 0.9712015218645949,
+  "trbc_n_guides_halves": 554
+ }
+}

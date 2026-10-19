@@ -1,0 +1,104 @@
+{
+ "rules": "Robustness of Z1 (am) and (aj) (A100).\ncd4   donor-1 single cells, Rest vs Stim48hr, random cell halves vs guide halves, now on the SAME targets (the\n      (am) table used 9,623 vs 6,673 targets). Grid: k in (5, 10, 20, 50); gene set all expressed (control >= 0.1) vs\n      top 2,000 by control mean; target subsets all common vs guide-balanced (the two guide halves' cell counts within\n      a factor 1.5 of each other in both states). Per cell: gamma share, readout share (state = top-k PCs of half-A\n      beta, ridge with lambda from inner 2-fold CV, 2 folds over targets) and its shuffled control, inert targets'\n      frac_pos (referenced to the inert baseline, Z1 an). Template removed for the readout.\ntahoe target fixed (two-way gamma of plate P half 1), beta from the same well vs the other plate, as\n      tahoe_readout_source.py, now with k in (5, 10, 20), lambda by inner CV instead of fixed 1, and gene set all vs\n      top 2,000 by mean absolute effect on the OTHER plate (so the gene selection does not reuse the scored plate).\nUsage: robust_cd4_tahoe.py cd4 <out_Rest> <out_Stim> <out_Rest_guide> <out_Stim_guide> <out_dir>\n       robust_cd4_tahoe.py tahoe <D_arrays.npz> <out_dir>. Exploratory.",
+ "n_targets": 7089,
+ "n_inert": 1241,
+ "n_balanced": 1097,
+ "median_cells_per_half": {
+  "cell_rest": [
+   80.0,
+   79.0
+  ],
+  "cell_stim": [
+   75.0,
+   74.0
+  ],
+  "guide_rest": [
+   70.0,
+   68.0
+  ],
+  "guide_stim": [
+   67.0,
+   65.0
+  ]
+ },
+ "all_common|all_expressed|cell": {
+  "inert_frac_pos_rest": 0.983883964544722,
+  "inert_frac_pos_stim": 0.9774375503626108,
+  "gamma_share": 0.3050042725826816,
+  "readout_k5": 0.27480104716410536,
+  "readout_k10": 0.3836808794221191,
+  "readout_k20": 0.45899704510446954,
+  "readout_k50": 0.4406984203036125,
+  "readout_k20_shuffled": -1.3738100514555888e-06
+ },
+ "all_common|all_expressed|guide": {
+  "inert_frac_pos_rest": 0.48106365834004833,
+  "inert_frac_pos_stim": 0.5431103948428686,
+  "gamma_share": 0.340693023509499,
+  "readout_k5": 0.0002770645499301488,
+  "readout_k10": 0.0006024100308134683,
+  "readout_k20": 0.0011421074709859554,
+  "readout_k50": 0.002152341988628735,
+  "readout_k20_shuffled": 0.00026483977013947905
+ },
+ "all_common|top2000|cell": {
+  "inert_frac_pos_rest": 0.983883964544722,
+  "inert_frac_pos_stim": 0.9750201450443191,
+  "gamma_share": 0.3078484240760719,
+  "readout_k5": 0.23528052168328134,
+  "readout_k10": 0.3887372885407012,
+  "readout_k20": 0.4662434937876162,
+  "readout_k50": 0.5060176109677011,
+  "readout_k20_shuffled": -1.6492428190796813e-06
+ },
+ "all_common|top2000|guide": {
+  "inert_frac_pos_rest": 0.47461724415793716,
+  "inert_frac_pos_stim": 0.5310233682514102,
+  "gamma_share": 0.34420144726047536,
+  "readout_k5": 0.0007437718279295432,
+  "readout_k10": 0.0017848021542804318,
+  "readout_k20": 0.0011401684533560964,
+  "readout_k50": 0.002214511060789367,
+  "readout_k20_shuffled": 0.0003251313909726432
+ },
+ "guide_balanced|all_expressed|cell": {
+  "inert_frac_pos_rest": 0.9899497487437185,
+  "inert_frac_pos_stim": 0.9698492462311558,
+  "gamma_share": 0.3101922165065526,
+  "readout_k5": 0.17007696089794064,
+  "readout_k10": 0.22287145088547175,
+  "readout_k20": 0.25695920179320597,
+  "readout_k50": 0.2889021315841067,
+  "readout_k20_shuffled": -8.808527492254493e-06
+ },
+ "guide_balanced|all_expressed|guide": {
+  "inert_frac_pos_rest": 0.49748743718592964,
+  "inert_frac_pos_stim": 0.5728643216080402,
+  "gamma_share": 0.3043551129050456,
+  "readout_k5": 0.0002422796577065686,
+  "readout_k10": 0.0006882157032584247,
+  "readout_k20": 0.0010504400265912072,
+  "readout_k50": 0.0018984464920439612,
+  "readout_k20_shuffled": 0.00024165159920091505
+ },
+ "guide_balanced|top2000|cell": {
+  "inert_frac_pos_rest": 0.9849246231155779,
+  "inert_frac_pos_stim": 0.9748743718592965,
+  "gamma_share": 0.3150638732262149,
+  "readout_k5": 0.17387692872175536,
+  "readout_k10": 0.23773834319573026,
+  "readout_k20": 0.2837909293373596,
+  "readout_k50": 0.3182655922651999,
+  "readout_k20_shuffled": -7.635609310399606e-06
+ },
+ "guide_balanced|top2000|guide": {
+  "inert_frac_pos_rest": 0.49748743718592964,
+  "inert_frac_pos_stim": 0.5678391959798995,
+  "gamma_share": 0.3129832887010198,
+  "readout_k5": 0.0004313839482989889,
+  "readout_k10": 0.0006272741669985059,
+  "readout_k20": 0.0010466144026005306,
+  "readout_k50": 0.0020486685132342286,
+  "readout_k20_shuffled": 0.0012046754780999057
+ }
+}

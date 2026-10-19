@@ -1,0 +1,63 @@
+{
+ "rules": "TRBC clone marker: (cd) do resting and stimulated cells of a perturbation come from the same clones, and (ce) an\nupper bound on the effective number of clones per perturbation (clone preprint, review v11 M2a/M2c; A100).\nInputs: per-cell extractions of cd4_sc_extract_cells.py (cells.npz + meta.json) for the two states of one donor.\n  TRBC1 fraction f per cell (cells with >= 2 TRBC1 + TRBC2 counts); per perturbation (all guides pooled):\n  deviation d = mean f - f0 and z = d / (sd_f / sqrt(n)), with f0, sd_f over all cells of the state.\n  (cd) Pearson r of d between resting and stimulated over perturbations with >= 30 such cells in both states\n       (matched by perturbation name), and the same between random halves within each state for reference.\n  (ce) var(z) - 1 = n ICC / K_eff - ICC for K_eff equal-weight clones and intra-clone correlation ICC <= 1, so\n       K_eff <= n / z^2 per perturbation (ICC = 1); reported as the median over perturbations with z^2 > 1, the bound\n       from the pooled variance (mean n / var(z)), and the per-perturbation distribution.\nUsage: cd4_trbc_state_keff.py <out.json> <label>:<rest_cells_dir>:<stim_cells_dir> [...]",
+ "D1": {
+  "n_common": 9830,
+  "pearson_rest_vs_stim": 0.8943559174939093,
+  "pearson_random_halves_rest": 0.9278182895084433,
+  "keff_rest": {
+   "n_perts": 10165,
+   "n_cells_median": 131.0,
+   "var_z": 34.0601131161771,
+   "frac_z2_gt1": 0.8545007378258731,
+   "keff_upper_median": 6.526834282971256,
+   "keff_upper_q25_q75": [
+    2.926056044303164,
+    17.674247486937247
+   ],
+   "keff_upper_pooled": 4.755256795702338
+  },
+  "pearson_random_halves_stim": 0.919345447094622,
+  "keff_stim": {
+   "n_perts": 10355,
+   "n_cells_median": 119.0,
+   "var_z": 28.453644584107526,
+   "frac_z2_gt1": 0.8404635441815548,
+   "keff_upper_median": 6.751512058647208,
+   "keff_upper_q25_q75": [
+    3.0524084328926397,
+    18.45907347470538
+   ],
+   "keff_upper_pooled": 5.059956903915087
+  }
+ },
+ "D2": {
+  "n_common": 9037,
+  "pearson_rest_vs_stim": 0.9444354515068575,
+  "pearson_random_halves_rest": 0.9612605213358651,
+  "keff_rest": {
+   "n_perts": 9334,
+   "n_cells_median": 125.0,
+   "var_z": 81.13546334369711,
+   "frac_z2_gt1": 0.9078637240197128,
+   "keff_upper_median": 3.8603252581368235,
+   "keff_upper_q25_q75": [
+    1.9794576536786004,
+    10.57783164924166
+   ],
+   "keff_upper_pooled": 2.454939644334506
+  },
+  "pearson_random_halves_stim": 0.9599113133279628,
+  "keff_stim": {
+   "n_perts": 9621,
+   "n_cells_median": 123.0,
+   "var_z": 77.92551674015863,
+   "frac_z2_gt1": 0.8956449433530818,
+   "keff_upper_median": 4.033582124413026,
+   "keff_upper_q25_q75": [
+    2.015959878822691,
+    10.594385143894142
+   ],
+   "keff_upper_pooled": 2.52094445840741
+  }
+ }
+}

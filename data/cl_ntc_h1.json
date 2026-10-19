@@ -1,0 +1,28 @@
+{
+ "rules": "Non-targeting constructs as null perturbations in cell-line screens (clone preprint, findings cc, cf; review v11 M1).\nReplogle et al. 2022 and Nadig et al. 2025 raw single-cell files (obs: gene, sgID_AB; categorical columns stored with\nobs/__categories), and the VCC 2025 H1 hESC training data (obs: target_gene, guide_id). One streaming pass: log1p CP10K with row sums over all genes; a random bit per cell (numpy\ndefault_rng(21) over all cells in file order). Aggregates per (group, bit): non-targeting cells grouped by construct\n(sgID_AB), targeting cells grouped by target gene.\n  genes: mean >= 0.1 over non-targeting cells; groups: >= 10 cells in each half\n  non-targeting: effect = construct mean minus the mean over kept constructs in that half (null baseline);\n    random halves vs pairs of different constructs (first half of one, second half of another; 50 random pairings)\n  targeting (reference): effect = gene mean minus the mean of all non-targeting cells in that half; random halves\n  ratio = mean non-targeting random-half cross-half signal / mean targeting random-half cross-half signal\nUsage: cl_ntc_null.py <out.json> <label>:<h5ad> [...]   (workers from env WORKERS, default 16)",
+ "h1": {
+  "n_genes": 9297,
+  "n_constructs": 31,
+  "cells_per_half_median": 574.0,
+  "random_frac_pos": 0.7096774193548387,
+  "random_frac_pos_ci95": [
+   0.5483870967741935,
+   0.8709677419354839
+  ],
+  "random_mean_cross": 0.09257753998070246,
+  "pairs_frac_pos_mean": 0.49200000000000005,
+  "pairs_frac_pos_range": [
+   0.13333333333333333,
+   0.8
+  ],
+  "pairs_mean_cross": -0.0002920799513824692,
+  "n_targets": 150,
+  "target_cells_per_half_median": 529.5,
+  "target_random_mean_cross": 16.650571945885503,
+  "target_random_median_cross": 5.141984736416198,
+  "ratio_nt_to_target_mean": 0.005560021618571436,
+  "file": "adata_Training.h5ad",
+  "n_cells": 221273,
+  "seconds": 62
+ }
+}

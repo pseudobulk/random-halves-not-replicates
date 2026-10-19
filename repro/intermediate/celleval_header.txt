@@ -1,0 +1,1 @@
+cells 60238 genes 10333 perturbations 301 median cells per guide side 62.0

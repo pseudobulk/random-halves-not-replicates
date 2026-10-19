@@ -1,0 +1,263 @@
+{
+ "rules": "Minimal model of non-independent replicate units in pooled perturbation screens (Z1 ap). Simulation, no data.\nCell i of perturbation p in context c, from unit k (clone or well):\n    y_i = mu_pc (1 + g_k) + a_k + e_i\n  additive a_k ~ N(0, SIG_A^2 I): the unit's own state, present whatever the perturbation does (inert targets too)\n  gain     g_k ~ N(0, SIG_G^2):   the unit scales the perturbation's response (e.g. drug exposure of a well,\n                                  responsiveness / activation of a clone); zero for inert targets\n  e_i ~ N(0, SIG_E^2 I). K units per perturbation and transduction, Dirichlet(ALPHA) weights (jackpots).\n  truth: beta_p = s_p (z_p W); gamma_p = s_p (0.5 (z_p Rm) W2 + 0.3 d_p); X = beta + gamma, Y = beta - gamma;\n         20% inert (s_p = 0). The true readout share (state from beta -> gamma) is about 0.7.\n  shared units (one well holding all lines; one clone in two states): the same units enter X and Y, the additive\n  part scaled by RHO in Y, the gain identical. separate (lines screened apart): X and Y have their own units.\nDesigns with the same cells per half: random = one transduction, cells split at random (both halves share its units);\nindependent = each half from its own transduction.\nExpectations (one context, gene-summed cross products, w = unit weights, K_eff = 1 / sum w^2):\n  random:      E[x_A . x_B] = |mu|^2 (1 + SIG_G^2 / K_eff) + G SIG_A^2 / K_eff\n  independent: E[x_A . x_B] = |mu|^2\n  -> the additive term makes inert targets reproducible and inflates ceilings; neither unit term shrinks with more\n     cells, so the Spearman-Brown doubling is wrong for them; the gain inflates beta and gamma by the same factor, so\n     the gamma share is unchanged; with shared units the gain scales beta_A and gamma_B together, so a readout from\n     beta to gamma keeps working within a transduction and loses accuracy across transductions.\nAttenuation block (10-18 audit): true readout ~0.7, shared additive units with SIG_A 0.2 / 0.6 / 1.2 (iso or along\nW); reports inert vs expressed cross energy per target, so the unit-to-signal ratio can be matched to CD4 (inert\nrandom-half cross about 4x the expressed guide-half cross), and the readout seen by random vs independent designs.\nFabrication block: truth without any readout (gamma unrelated to the state), weak effects (scale 0.1), additive units\nalong the shared response directions W, shared vs separate: can non-independent halves create a readout from nothing?\nOutputs per scenario x design (seed-averaged): inert frac_pos, gamma share, readout share (k = 10, 2-fold, ridge),\npearson_delta ceiling (Spearman-Brown) for all and inert perturbations in context X.\nUsage: clone_model_sim.py <out_json>. Exploratory.",
+ "params": {
+  "G": 1000,
+  "P": 800,
+  "R": 10,
+  "KREAD": 10,
+  "NCELL": 120,
+  "K": 6,
+  "ALPHA": 0.5,
+  "SIG_E": 1.0,
+  "RHO": 0.5,
+  "SIG_A": 0.2,
+  "SIG_G": 0.6,
+  "seeds": [
+   1,
+   2,
+   3
+  ]
+ },
+ "truth": {
+  "gamma_share": 0.2448080081603254,
+  "readout_share": 0.6995629146187406
+ },
+ "none|random": {
+  "inert_frac_pos": 0.46458333333333335,
+  "gamma_share": 0.2446319272041418,
+  "readout_share": 0.6910375765683646,
+  "ceiling_pearson_all": 0.7899242816620887,
+  "ceiling_pearson_inert": NaN
+ },
+ "none|independent": {
+  "inert_frac_pos": 0.49583333333333335,
+  "gamma_share": 0.2449358572438547,
+  "readout_share": 0.6921331649962795,
+  "ceiling_pearson_all": 0.7898865167087953,
+  "ceiling_pearson_inert": 0.005099311566557394
+ },
+ "additive_separate|random": {
+  "inert_frac_pos": 1.0,
+  "gamma_share": 0.268034206213861,
+  "readout_share": 0.5682955244273483,
+  "ceiling_pearson_all": 0.8713653696465372,
+  "ceiling_pearson_inert": 0.630232502657076
+ },
+ "additive_separate|independent": {
+  "inert_frac_pos": 0.48125,
+  "gamma_share": 0.2446303940254931,
+  "readout_share": 0.685973876200705,
+  "ceiling_pearson_all": 0.7312622333861326,
+  "ceiling_pearson_inert": 0.002734223503727369
+ },
+ "additive_shared|random": {
+  "inert_frac_pos": 1.0,
+  "gamma_share": 0.23633341119980833,
+  "readout_share": 0.6732403665010502,
+  "ceiling_pearson_all": 0.8713330472961777,
+  "ceiling_pearson_inert": 0.6309159479230315
+ },
+ "additive_shared|independent": {
+  "inert_frac_pos": 0.49583333333333335,
+  "gamma_share": 0.2446817981950585,
+  "readout_share": 0.6892940516560229,
+  "ceiling_pearson_all": 0.7305538030440761,
+  "ceiling_pearson_inert": 0.005376756022492319
+ },
+ "gain_separate|random": {
+  "inert_frac_pos": 0.4937500000000001,
+  "gamma_share": 0.274085590030815,
+  "readout_share": 0.5693404181141513,
+  "ceiling_pearson_all": 0.7663503683220411,
+  "ceiling_pearson_inert": 0.0027231511175571863
+ },
+ "gain_separate|independent": {
+  "inert_frac_pos": 0.5083333333333333,
+  "gamma_share": 0.2415177713595519,
+  "readout_share": 0.6563365318076954,
+  "ceiling_pearson_all": 0.7537947160486803,
+  "ceiling_pearson_inert": 0.006474612885378081
+ },
+ "gain_shared|random": {
+  "inert_frac_pos": 0.49374999999999997,
+  "gamma_share": 0.24363188328689,
+  "readout_share": 0.6882369008123046,
+  "ceiling_pearson_all": 0.7639851356668942,
+  "ceiling_pearson_inert": 0.0029517151309888558
+ },
+ "gain_shared|independent": {
+  "inert_frac_pos": 0.50625,
+  "gamma_share": 0.24527382318592608,
+  "readout_share": 0.5611354615772547,
+  "ceiling_pearson_all": 0.7528969480315988,
+  "ceiling_pearson_inert": 0.0019047117146598566
+ },
+ "both_shared|random": {
+  "inert_frac_pos": 1.0,
+  "gamma_share": 0.2351017789166593,
+  "readout_share": 0.6582627451009841,
+  "ceiling_pearson_all": 0.8585143447791297,
+  "ceiling_pearson_inert": 0.6238763599305961
+ },
+ "both_shared|independent": {
+  "inert_frac_pos": 0.50625,
+  "gamma_share": 0.24689471062445842,
+  "readout_share": 0.5875166003411102,
+  "ceiling_pearson_all": 0.6912807845292993,
+  "ceiling_pearson_inert": 0.0032340267699797237
+ },
+ "fab_truth": {
+  "gamma_share": 0.08075058565929392,
+  "readout_share": 8.708045780173574e-07
+ },
+ "fab_low_shared|random": {
+  "inert_frac_pos": 1.0,
+  "gamma_share": 0.08898566842523675,
+  "readout_share": 0.09674097415124776,
+  "ceiling_pearson_all": 0.7162345921704775,
+  "ceiling_pearson_inert": 0.6067169191510019
+ },
+ "fab_low_shared|independent": {
+  "inert_frac_pos": 0.4708333333333334,
+  "gamma_share": 0.08001935515124131,
+  "readout_share": 1.2020583608208938e-05,
+  "ceiling_pearson_all": 0.3604606538493909,
+  "ceiling_pearson_inert": 0.021457509733937202
+ },
+ "fab_low_separate|random": {
+  "inert_frac_pos": 1.0,
+  "gamma_share": 0.2949625007864674,
+  "readout_share": -0.00020509408773269325,
+  "ceiling_pearson_all": 0.7224394708749351,
+  "ceiling_pearson_inert": 0.6171533298908466
+ },
+ "fab_low_separate|independent": {
+  "inert_frac_pos": 0.5020833333333333,
+  "gamma_share": 0.08287480927173729,
+  "readout_share": -4.320046287477318e-05,
+  "ceiling_pearson_all": 0.3596960300105902,
+  "ceiling_pearson_inert": NaN
+ },
+ "fab_none|random": {
+  "inert_frac_pos": 0.53125,
+  "gamma_share": 0.08059383600434111,
+  "readout_share": -2.599224724761753e-05,
+  "ceiling_pearson_all": 0.47745931144882436,
+  "ceiling_pearson_inert": 0.004265578981876918
+ },
+ "fab_none|independent": {
+  "inert_frac_pos": 0.4791666666666667,
+  "gamma_share": 0.08013522165823304,
+  "readout_share": -3.2855155418584773e-06,
+  "ceiling_pearson_all": 0.4773468945964292,
+  "ceiling_pearson_inert": 0.00067961906945538
+ },
+ "atten_sa0.2_iso|random": {
+  "inert_frac_pos": 1.0,
+  "gamma_share": 0.2479125446601994,
+  "readout_share": 0.6946367956802991,
+  "ceiling_pearson_all": 0.873227907356252,
+  "ceiling_pearson_inert": 0.6238232751961496,
+  "inert_cross_per_target": 14.807115000314704,
+  "expressed_cross_per_target": 210.6269753998545
+ },
+ "atten_sa0.2_iso|independent": {
+  "inert_frac_pos": 0.4729166666666667,
+  "gamma_share": 0.25670468703717214,
+  "readout_share": 0.7107179477854828,
+  "ceiling_pearson_all": 0.7389336830162967,
+  "ceiling_pearson_inert": NaN,
+  "inert_cross_per_target": -0.0475255649467634,
+  "expressed_cross_per_target": 195.93056191223113
+ },
+ "atten_sa0.2_low|random": {
+  "inert_frac_pos": 1.0,
+  "gamma_share": 0.2476944268341896,
+  "readout_share": 0.6471209071201013,
+  "ceiling_pearson_all": 0.8679557659293226,
+  "ceiling_pearson_inert": 0.6001282800204999,
+  "inert_cross_per_target": 14.491014669297272,
+  "expressed_cross_per_target": 211.47129453685616
+ },
+ "atten_sa0.2_low|independent": {
+  "inert_frac_pos": 0.4958333333333334,
+  "gamma_share": 0.2571539273943674,
+  "readout_share": 0.6597058455301736,
+  "ceiling_pearson_all": 0.7383223256120798,
+  "ceiling_pearson_inert": 0.010674611009329597,
+  "inert_cross_per_target": -0.08717221665060852,
+  "expressed_cross_per_target": 195.6527485159903
+ },
+ "atten_sa0.6_iso|random": {
+  "inert_frac_pos": 1.0,
+  "gamma_share": 0.20163780137531415,
+  "readout_share": 0.5776593113937064,
+  "ceiling_pearson_all": 0.95284340269056,
+  "ceiling_pearson_inert": 0.9240827156223141,
+  "inert_cross_per_target": 132.73390810605358,
+  "expressed_cross_per_target": 332.1922669733899
+ },
+ "atten_sa0.6_iso|independent": {
+  "inert_frac_pos": 0.4583333333333333,
+  "gamma_share": 0.25663858660363686,
+  "readout_share": 0.6989509030306156,
+  "ceiling_pearson_all": 0.5159136576594792,
+  "ceiling_pearson_inert": NaN,
+  "inert_cross_per_target": -0.4259306387776978,
+  "expressed_cross_per_target": 195.88754256053173
+ },
+ "atten_sa0.6_low|random": {
+  "inert_frac_pos": 1.0,
+  "gamma_share": 0.2011526658180569,
+  "readout_share": 0.4074775022292445,
+  "ceiling_pearson_all": 0.9473005286854955,
+  "ceiling_pearson_inert": 0.9155056193004029,
+  "inert_cross_per_target": 138.7662115493537,
+  "expressed_cross_per_target": 331.3420159197174
+ },
+ "atten_sa0.6_low|independent": {
+  "inert_frac_pos": 0.5187499999999999,
+  "gamma_share": 0.2540872763396649,
+  "readout_share": 0.41060206845995123,
+  "ceiling_pearson_all": 0.5166466159674507,
+  "ceiling_pearson_inert": 0.025430227582391773,
+  "inert_cross_per_target": 0.07081916539781741,
+  "expressed_cross_per_target": 198.0078529801797
+ },
+ "atten_sa1.2_iso|random": {
+  "inert_frac_pos": 1.0,
+  "gamma_share": 0.1498161389132807,
+  "readout_share": 0.3578371839299755,
+  "ceiling_pearson_all": 0.9751097704980206,
+  "ceiling_pearson_inert": 0.971242930617736,
+  "inert_cross_per_target": 556.1223581343758,
+  "expressed_cross_per_target": 740.3718696934271
+ },
+ "atten_sa1.2_iso|independent": {
+  "inert_frac_pos": 0.5020833333333333,
+  "gamma_share": 0.2567135320392649,
+  "readout_share": 0.6634740361947734,
+  "ceiling_pearson_all": 0.2877332419236843,
+  "ceiling_pearson_inert": 0.003223158318680411,
+  "inert_cross_per_target": 1.0628233398308042,
+  "expressed_cross_per_target": 195.1731226491215
+ },
+ "atten_sa1.2_low|random": {
+  "inert_frac_pos": 1.0,
+  "gamma_share": 0.1492112033247962,
+  "readout_share": 0.4133599890195303,
+  "ceiling_pearson_all": 0.971635956424277,
+  "ceiling_pearson_inert": 0.9660070364694691,
+  "inert_cross_per_target": 545.4832623754313,
+  "expressed_cross_per_target": 746.7192686530494
+ },
+ "atten_sa1.2_low|independent": {
+  "inert_frac_pos": 0.4708333333333334,
+  "gamma_share": 0.2586316293571737,
+  "readout_share": 0.1224873809196471,
+  "ceiling_pearson_all": 0.28497203110803243,
+  "ceiling_pearson_inert": 0.051669769537677976,
+  "inert_cross_per_target": 4.308757578388527,
+  "expressed_cross_per_target": 191.838152889492
+ }
+}

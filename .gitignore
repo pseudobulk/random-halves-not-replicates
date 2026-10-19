@@ -1,0 +1,15 @@
+# local configuration and outputs
+config.env
+figures/
+results/
+__pycache__/
+*.pyc
+# large data never go here; the small result files in data/ are the exception
+*.h5ad
+*.h5
+*.h5mu
+*.parquet
+*.npy
+*.log
+*.npz
+!data/*.npz

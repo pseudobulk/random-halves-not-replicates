@@ -1,0 +1,123 @@
+{
+ "rules": "Same guide vs different guide across independent donors (A100; preprint review: can guide-specific effects explain\nwhat random halves see and guide halves do not?). Released 4-donor pseudobulk of Zhu 2026 (GWCD4i.pseudobulk_merged).\nFor each target, four pseudobulk effects per state (resting, stimulated 48 h): guide rank g in {0, 1} x donor set {1, 2}\nor {3, 4}; both sequencing runs pooled; log1p CP10K of the summed counts minus that of the summed non-targeting controls\nof the same donors and state; at least MIN_CELLS cells each. Two designs pair the same four effects:\n  same guide   (g0 D12, g0 D34) and (g1 D12, g1 D34): independent transductions and donors, same guide\n  diff guide   (g0 D12, g1 D34) and (g1 D12, g0 D34): independent transductions and donors, different guides\nBoth designs exclude clones and donor-specific responses; they differ only in whether the two halves share the guide.\nThe difference of their cross-half signals estimates the energy of guide-specific effects (off-target activity, guide\nefficiency, guide-level effects at the target locus), which the within-donor guide halves of the single-cell analysis\ncannot separate from clones. Reported per design (mean over its two pairings): unexpressed targets' share of positive\ncross-half signal and mean signal (null baseline), expressed targets' mean signal (null baseline), context-specific\nshare and the shared-to-specific predictor (k = 20, template removed; cd4_inert2.stats) with its shuffled control.\nUnexpressed = pooled control mean < 0.01 in both states; expressed >= 0.5 in both. Genes: control >= 0.1 in every donor\nand state. Usage: cd4_guide_donor.py <pseudobulk_merged.h5ad> <out_dir>. Exploratory.",
+ "n_targets": 6450,
+ "n_inert": 998,
+ "n_expressed": 1642,
+ "n_genes": 7643,
+ "same_guide": {
+  "inert_frac_pos_rest": 0.5741482965931863,
+  "inert_mean_rest": 1.6636854876148042,
+  "expressed_mean_rest": 3.091042962328461,
+  "expressed_frac_pos_rest": 0.6272838002436054,
+  "inert_frac_pos_stim": 0.5365731462925851,
+  "inert_mean_stim": 0.6486594084357202,
+  "expressed_mean_stim": 2.8543872921714932,
+  "expressed_frac_pos_stim": 0.6309378806333739,
+  "gamma_share": 0.26503069677914504,
+  "readout_k20": 0.01190412902705574,
+  "readout_k20_shuffled": -3.6352627502667774e-05,
+  "beta_cross_expressed": 2.139132495091081,
+  "gamma_cross_expressed": 0.8108774303853619
+ },
+ "same_guide_pairings": [
+  {
+   "inert_frac_pos_rest": 0.591182364729459,
+   "inert_mean_rest": 1.757522992188684,
+   "expressed_mean_rest": 3.0983356971447535,
+   "expressed_frac_pos_rest": 0.618148599269184,
+   "inert_frac_pos_stim": 0.5140280561122245,
+   "inert_mean_stim": 0.670254403849163,
+   "expressed_mean_stim": 3.050601509847899,
+   "expressed_frac_pos_stim": 0.633373934226553,
+   "gamma_share": 0.25561198259139123,
+   "readout_k20": 0.012646358662291782,
+   "readout_k20_shuffled": -4.6400739463597535e-05,
+   "beta_cross_expressed": 2.2545256323720855,
+   "gamma_cross_expressed": 0.7959629672027863
+  },
+  {
+   "inert_frac_pos_rest": 0.5571142284569138,
+   "inert_mean_rest": 1.5698479830409244,
+   "expressed_mean_rest": 3.0837502275121693,
+   "expressed_frac_pos_rest": 0.6364190012180267,
+   "inert_frac_pos_stim": 0.5591182364729459,
+   "inert_mean_stim": 0.6270644130222773,
+   "expressed_mean_stim": 2.658173074495088,
+   "expressed_frac_pos_stim": 0.6285018270401949,
+   "gamma_share": 0.2744494109668988,
+   "readout_k20": 0.0111618993918197,
+   "readout_k20_shuffled": -2.6304515541738017e-05,
+   "beta_cross_expressed": 2.023739357810077,
+   "gamma_cross_expressed": 0.8257918935679375
+  }
+ ],
+ "diff_guide": {
+  "inert_frac_pos_rest": 0.5095190380761523,
+  "inert_mean_rest": 0.1949787473869871,
+  "expressed_mean_rest": 1.7144305791345549,
+  "expressed_frac_pos_rest": 0.5758221680876979,
+  "inert_frac_pos_stim": 0.5070140280561122,
+  "inert_mean_stim": 0.17614303957807517,
+  "expressed_mean_stim": 1.9222345078552243,
+  "expressed_frac_pos_stim": 0.5937880633373934,
+  "gamma_share": 0.2724869228317703,
+  "readout_k20": 0.0002358876338617858,
+  "readout_k20_shuffled": -4.129699657734598e-05,
+  "beta_cross_expressed": 1.3009706262599274,
+  "gamma_cross_expressed": 0.4958095829483441
+ },
+ "diff_guide_pairings": [
+  {
+   "inert_frac_pos_rest": 0.5070140280561122,
+   "inert_mean_rest": 0.19089734196643898,
+   "expressed_mean_rest": 1.6692109704137306,
+   "expressed_frac_pos_rest": 0.5791717417783191,
+   "inert_frac_pos_stim": 0.5040080160320641,
+   "inert_mean_stim": 0.24515867827123894,
+   "expressed_mean_stim": 1.9910300804351606,
+   "expressed_frac_pos_stim": 0.607795371498173,
+   "gamma_share": 0.2747452776853438,
+   "readout_k20": 0.00011963992376563535,
+   "readout_k20_shuffled": -1.2499525125902064e-05,
+   "beta_cross_expressed": 1.2903460704366672,
+   "gamma_cross_expressed": 0.5132280350095598
+  },
+  {
+   "inert_frac_pos_rest": 0.5120240480961924,
+   "inert_mean_rest": 0.1990601528075352,
+   "expressed_mean_rest": 1.7596501878553792,
+   "expressed_frac_pos_rest": 0.5724725943970768,
+   "inert_frac_pos_stim": 0.5100200400801603,
+   "inert_mean_stim": 0.1071274008849114,
+   "expressed_mean_stim": 1.853438935275288,
+   "expressed_frac_pos_stim": 0.5797807551766139,
+   "gamma_share": 0.2702285679781968,
+   "readout_k20": 0.0003521353439579363,
+   "readout_k20_shuffled": -7.00944680287899e-05,
+   "beta_cross_expressed": 1.3115951820831875,
+   "gamma_cross_expressed": 0.4783911308871283
+  }
+ ],
+ "guide_specific_over_diff_guide_rest": 0.8029560368019222,
+ "guide_specific_over_diff_guide_stim": 0.484931875120866,
+ "bootstrap_over_targets": {
+  "ratio_rest": [
+   0.5260418907900491,
+   1.1902711107106738
+  ],
+  "inert_frac_pos_diff_rest": [
+   0.1000370741482966,
+   0.056087174348697345,
+   0.14328657314629262
+  ],
+  "ratio_stim": [
+   0.31259529464112507,
+   0.7636383339020326
+  ],
+  "inert_frac_pos_diff_stim": [
+   0.04062925851703406,
+   -0.0010270541082164867,
+   0.08319138276553106
+  ]
+ }
+}

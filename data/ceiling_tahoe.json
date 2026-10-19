@@ -1,0 +1,78 @@
+{
+ "rules": "How much does a random-half \"ceiling\" (cell-eval, Arc Institute) overstate what an independent replicate reaches?\n(A100.) cell-eval --ceiling: each perturbation's cells and the control's are split into two disjoint random halves,\none half is scored as \"real\" and the other as \"prediction\", per-perturbation metrics are averaged and the\nSpearman-Brown correction r' = 2r / (1 + r) maps the mean to full depth (README, _evaluator.py, checked 2026-10-18).\nHere the same construction is computed twice on the same perturbations: halves = random cells (as cell-eval) and\nhalves = independent units, then compared.\n  cd4    donor-1 single cells (Zhu / Marson 2025): random cells vs guides (guide rank parity; independent\n         transductions). Rest and Stim48hr separately. Aggregates from cd4_sc_extract.py / cd4_sc_extract_guide.py.\n  tahoe  48 lines x 91 conditions (plates 6 / 14, tahoe_plate_recompute.py): within-well halves vs replicate plates.\nMetrics (cell-eval definitions on pseudobulk means of log1p CP10K; effect = perturbation mean - control mean, each\nhalf against its own control half):\n  pearson_delta        Pearson over genes between the two halves' effects, per perturbation\n  discrimination_l1    1 - rank / n of the true perturbation when the \"prediction\" half's effect is matched by L1\n                       distance against all \"real\" effects (target gene excluded); computed on random panels of\n                       PANEL perturbations (5 panels, same panels for both designs), since cell-eval's all-pairs\n                       loop is too large here; for Tahoe within each line across its 91 conditions\n  top_overlap_N        PROXY for cell-eval's DE overlap_at_N (which needs a cell-level Wilcoxon test): overlap of the\n                       top-N genes by |effect| between halves, N = 50, 100\nEach metric: mean over perturbations, then Spearman-Brown if the mean is > 0 (as cell-eval). Subsets (cd4): all;\nexpressed targets (control >= 0.5); inert targets (< 0.01; nothing to predict beyond clone / guide structure);\nstrongest knockdowns (top 1000 expressed targets by the drop of the target gene itself, a criterion that does not\nreuse the response genes).\nUsage: ceiling_compare.py cd4 <cell_split_dir> <guide_split_dir> <label> <out_dir>\n       ceiling_compare.py tahoe <D_arrays.npz> <out_dir>. Exploratory.",
+ "n_lines": 48,
+ "n_conditions": 91,
+ "n_genes": 6583,
+ "within_well_plate6": {
+  "pearson_delta": {
+   "mean": 0.7656918971670632,
+   "ceiling": 0.8672995536713575
+  },
+  "top_overlap_50": {
+   "mean": 0.6554807692307693,
+   "ceiling": 0.7918917349131673
+  },
+  "top_overlap_100": {
+   "mean": 0.6386149267399268,
+   "ceiling": 0.7794569868962078
+  },
+  "discrimination_l1_within_line": {
+   "mean": 0.9795968683331321,
+   "ceiling": 0.9896932895817078
+  }
+ },
+ "within_well_plate14": {
+  "pearson_delta": {
+   "mean": 0.6280172812119267,
+   "ceiling": 0.7715118118947961
+  },
+  "top_overlap_50": {
+   "mean": 0.5323443223443224,
+   "ceiling": 0.6948103172136829
+  },
+  "top_overlap_100": {
+   "mean": 0.512209249084249,
+   "ceiling": 0.6774317104520137
+  },
+  "discrimination_l1_within_line": {
+   "mean": 0.97804462021495,
+   "ceiling": 0.9889004628304774
+  }
+ },
+ "across_plates": {
+  "pearson_delta": {
+   "mean": 0.47306280563369035,
+   "ceiling": 0.6422846382713269
+  },
+  "top_overlap_50": {
+   "mean": 0.343246336996337,
+   "ceiling": 0.5110698276890563
+  },
+  "top_overlap_100": {
+   "mean": 0.34398580586080585,
+   "ceiling": 0.5118890457931397
+  },
+  "discrimination_l1_within_line": {
+   "mean": 0.7949145634585195,
+   "ceiling": 0.8857408365185289
+  }
+ },
+ "across_plates_rev": {
+  "pearson_delta": {
+   "mean": 0.47539154660062166,
+   "ceiling": 0.64442764050797
+  },
+  "top_overlap_50": {
+   "mean": 0.3433608058608058,
+   "ceiling": 0.5111967006373769
+  },
+  "top_overlap_100": {
+   "mean": 0.34453296703296704,
+   "ceiling": 0.5124946363989293
+  },
+  "discrimination_l1_within_line": {
+   "mean": 0.855824578352051,
+   "ceiling": 0.9223119343661377
+  }
+ }
+}

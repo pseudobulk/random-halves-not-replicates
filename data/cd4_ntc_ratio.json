@@ -1,0 +1,21 @@
+{
+ "rules": "CD4 counterpart of the cell-line comparison in cl_ntc_null.py (findings cc): mean random-half cross-half signal of\nnon-targeting guides divided by that of targeting perturbations, with the same definitions (genes with mean >= 0.1\nover non-targeting cells; >= 10 cells per half; targeting effects referenced to all non-targeting cells of the half\nand centred over perturbations; non-targeting effects referenced to the mean over kept guides).\nInputs: <ntc_dir> of cd4_ntc_extract.py (sum2.npy, n2.npy) and <cells_dir> of cd4_sc_extract_cells.py (sum8.npy,\nn8.npy; index gp * 4 + r1 * 2 + r2; last group = controls). The random bit r1 is the same in both extractions.\nUsage: cd4_ntc_ratio.py <out.json> <label>:<ntc_dir>:<cells_dir> [...]",
+ "D1_rest": {
+  "n_genes": 7843,
+  "n_constructs": 739,
+  "random_mean_cross": 13.853989553409235,
+  "n_targets": 10522,
+  "target_random_mean_cross": 10.53586693091235,
+  "target_random_median_cross": 7.834305123212124,
+  "ratio_nt_to_target_mean": 1.3149358894009449
+ },
+ "D2_rest": {
+  "n_genes": 7979,
+  "n_constructs": 578,
+  "random_mean_cross": 20.163075817445623,
+  "n_targets": 9806,
+  "target_random_mean_cross": 17.379671311416693,
+  "target_random_median_cross": 13.04579125516111,
+  "ratio_nt_to_target_mean": 1.1601528852965426
+ }
+}

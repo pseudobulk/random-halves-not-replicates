@@ -1,0 +1,2 @@
+# Separate environment for run_celleval_ceiling.py (CELLEVAL_PYTHON in config.env); Python 3.11 was used
+cell-eval==0.8.2

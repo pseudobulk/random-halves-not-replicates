@@ -1,0 +1,44 @@
+{
+ "rules": "Confidence intervals for the headline numbers (preprint writing step; A100). Readout predictions are computed once\n(5-fold CV, verify_headline.cv_readout) and held fixed; the bootstrap resamples the units (targets for CD4, conditions\nfor Tahoe, 1,000 draws) and recomputes ratio-of-sums statistics. Split-to-split variation is shown separately.\ncd4   donor-1 per-cell aggregates after the audit fixes (cells_D1_*_v2; code = gp * 4 + r1 * 2 + r2). Designs:\n        random_r1, random_r2, random_xor   three different random halvings of the same cells\n        guide                              gp = 0 vs 1 (independent transductions)\n      Targets present in both states with >= 10 cells on every side of every design, target gene measured; genes with\n      control mean >= 0.1 in both states; inert = control mean < 0.01 in both states; expressed >= 0.5 in both.\n      Per design: inert frac_pos per state (inert baseline), gamma share (template removed), readout share k = 20 and\n      a shuffled control, mean per-target Pearson (rest) and its Spearman-Brown value, and the share of targets that\n      Wang et al. 2026 would call reliable (rho = SB of the per-target Pearson, median over the three random halvings for\n      the random design; rho >= 0.5), for all / inert / expressed targets.\ntahoe fixed-target readout (k = 10, 5-fold) on the plate 6 / 14 arrays of tahoe_plate_recompute.py, beta from the same\n      well vs the other plate, and the across-plate gamma share; bootstrap over conditions.\nUsage: ci_bootstrap.py cd4 <cells_Rest> <cells_Stim> <out_dir> | tahoe <D_arrays.npz> <out_dir>. Exploratory.",
+ "n_lines": 48,
+ "n_conditions": 91,
+ "readout_target_plate14": {
+  "same_well": [
+   0.32988967065126173,
+   0.28005079291204604,
+   0.41024036617248
+  ],
+  "other_plate": [
+   0.03926338256120402,
+   -0.04812186817019355,
+   0.07475847773586436
+  ]
+ },
+ "readout_target_plate6": {
+  "same_well": [
+   0.2982340588842019,
+   0.24314824250322456,
+   0.360550836343275
+  ],
+  "other_plate": [
+   0.09448762495135511,
+   0.032897886901858214,
+   0.13636660249388338
+  ]
+ },
+ "gamma_share_across_plates": [
+  0.3575494532668272,
+  0.2515126041603292,
+  0.39972947518319535
+ ],
+ "gamma_share_within_well_plate6": [
+  0.3872411054914275,
+  0.33776240403744695,
+  0.4217650791112523
+ ],
+ "gamma_share_within_well_plate14": [
+  0.3840302248230549,
+  0.32060278909292567,
+  0.416961541259133
+ ]
+}

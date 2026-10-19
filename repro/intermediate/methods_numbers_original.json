@@ -1,0 +1,82 @@
+{
+ "inert2_cell_keys": [
+  "A_original",
+  "B_template_removed",
+  "C_template_and_inert_dirs_removed",
+  "D_template_removed_expressed_only",
+  "n_expressed",
+  "n_inert",
+  "n_targets",
+  "rules"
+ ],
+ "verify_keys": [
+  "guide",
+  "n_genes",
+  "n_inert",
+  "n_targets",
+  "random",
+  "rules"
+ ],
+ "null_share_rest_min_max": [
+  0.48426150121065376,
+  0.9903147699757869
+ ],
+ "null_share_stim_min_max": [
+  0.5423728813559322,
+  0.9774375503626108
+ ],
+ "null_share_rest_all": [
+  0.9887005649717514,
+  0.9902834008097166,
+  0.9862348178137652,
+  0.9870445344129555,
+  0.983883964544722,
+  0.9868342309994016,
+  0.9844404548174746,
+  0.9903147699757869,
+  0.48426150121065376
+ ],
+ "null_share_stim_all": [
+  0.9620661824051655,
+  0.9651821862348178,
+  0.977327935222672,
+  0.9765182186234818,
+  0.9774375503626108,
+  0.9682824655894674,
+  0.9670855774985039,
+  0.9661016949152542,
+  0.5423728813559322
+ ],
+ "inert2_cell_readout": {
+  "/A_original/readout_k20": 0.4614107531476405,
+  "/A_original/readout_k20_shuffled": 0.004540541683821932,
+  "/B_template_removed/readout_k20": 0.4463909293788707,
+  "/B_template_removed/readout_k20_shuffled": 2.0811086606546822e-05,
+  "/C_template_and_inert_dirs_removed/readout_k20": 0.24767468985340882,
+  "/C_template_and_inert_dirs_removed/readout_k20_shuffled": 4.33346411221831e-05,
+  "/D_template_removed_expressed_only/readout_k20": 0.32182943022271443,
+  "/D_template_removed_expressed_only/readout_k20_shuffled": -0.00023606107373265808
+ },
+ "inert2_guide_readout": {
+  "/A_original/readout_k20": 0.02983090545903394,
+  "/A_original/readout_k20_shuffled": 0.010312258209428521,
+  "/B_template_removed/readout_k20": 0.0005700088612996478,
+  "/B_template_removed/readout_k20_shuffled": -7.121748518077092e-05,
+  "/C_template_and_inert_dirs_removed/readout_k20": 0.00029590815607294043,
+  "/C_template_and_inert_dirs_removed/readout_k20_shuffled": 3.15173959579093e-05,
+  "/D_template_removed_expressed_only/readout_k20": 0.0019071289619791278,
+  "/D_template_removed_expressed_only/readout_k20_shuffled": 0.0003233831513566177
+ },
+ "ci_D1_random_r1_readout": 0.46915856741746736,
+ "robust_tahoe_readout": {},
+ "verify_tahoe": {
+  "/n_lines": 48,
+  "/n_conditions": 91,
+  "/n_genes": 6585,
+  "/target_plate14/same_well": 0.32986892734071444,
+  "/target_plate14/other_plate": 0.03925987499567418,
+  "/target_plate6/same_well": 0.298216980115834,
+  "/target_plate6/other_plate": 0.0944799754560632,
+  "/rules": "Independent recomputation of the headline numbers (preprint correctness check 1; A100). Written from scratch, no\nimports from the earlier analysis modules, and deliberately different implementation choices:\n  - CD4 data from the per-cell extraction cd4_sc_extract_cells.py (its random halves r1 are unrelated to the halves\n    of the original extraction); guide halves = gp.\n  - Readout: state = top-k right singular vectors of half-A beta on the training perturbations; ridge solved as an\n    augmented least-squares problem (not the normal equations); lambda (absolute, scaled by the mean squared state)\n    chosen by 5-fold CV inside the training set; 5-fold outer CV over perturbations (earlier: 2-fold / 2-fold).\n  - Tahoe rebuilt directly from tahoe_agg with a different line filter (line kept if usable in >= 90% of the shared\n    conditions; earlier 85%).\nReported: CD4 - inert frac_pos per state (inert baseline), gamma share, readout share k = 20 and shuffled, for random\nvs guide halves; Tahoe - fixed-target readout (target = two-way gamma of plate P half 1, scored against the plate's\nwithin-well gamma cross product) with beta from the same well (half 0) vs the other plate (pooled).\nUsage: verify_headline.py cd4 <cells_Rest> <cells_Stim> <out_dir> | tahoe <tahoe_agg> <out_dir>. Exploratory."
+ }
+}

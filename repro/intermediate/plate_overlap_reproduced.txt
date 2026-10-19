@@ -1,0 +1,18 @@
+['sample', 'plate', 'mean_gene_count', 'mean_tscp_count', 'mean_mread_count', 'mean_pcnt_mito', 'drug', 'drugname_drugconc']
+{'plate1': 92, 'plate2': 92, 'plate3': 92, 'plate4': 94, 'plate5': 94, 'plate6': 94, 'plate7': 92, 'plate8': 93, 'plate9': 93, 'plate10': 94, 'plate11': 94, 'plate12': 94, 'plate13': 93, 'plate14': 94}
+('plate6', 'plate14', 94, 94)
+('plate1', 'plate13', 13, 13)
+('plate7', 'plate13', 13, 13)
+('plate8', 'plate13', 13, 13)
+('plate9', 'plate13', 13, 13)
+('plate5', 'plate13', 6, 6)
+('plate1', 'plate10', 3, 3)
+('plate2', 'plate11', 3, 3)
+('plate2', 'plate13', 3, 13)
+('plate3', 'plate12', 3, 3)
+('plate3', 'plate13', 3, 13)
+('plate10', 'plate13', 3, 3)
+('plate1', 'plate7', 2, 2)
+('plate2', 'plate8', 2, 2)
+('plate3', 'plate9', 2, 2)
+drugs 378 on >1 plate 366

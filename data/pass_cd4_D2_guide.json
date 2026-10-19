@@ -1,0 +1,107 @@
+{
+ "rules": "Does the readout pass non-biological (clone / guide) structure into its gamma prediction? A within-screen test for\npairs without independent units (Nadig Jurkat-HepG2; the RPE1 side of K562-RPE1). (5090 / A100)\nPair of contexts X, Y (two lines, or CD4 Rest / Stim); responses per random half (template removed); beta = (X + Y) / 2,\ngamma = (X - Y) / 2. Readout as (r): state = top-k PCs of half-A beta on training perturbations, ridge (lambda by inner\n2-fold CV) to half-B gamma; predictions F for held-out perturbations (2 folds over perturbations, seed 11).\nInert in X = target gene not expressed in X (absent from X's gene list, or control mean log1p CP10K < 0.01). For such\ntargets X's reproducible response (X_A . X_B > 0) cannot be the knockdown's biology; it is clone / guide structure.\nGamma contains +X / 2, so a readout that reads half-A clone deviations (they enter beta_A) passes them on to its\nprediction. Measure, per context and target set S:\n  pass_X(S) = 2 * sum_S F . X_B / sum_S X_A . X_B   (sign -1 for Y, since gamma contains -Y / 2)\nthe share of X's within-screen reproducible response energy that reappears in the gamma prediction. Expressed targets\n(>= 0.5) give the same quantity for real responses. Shuffled control: features permuted across perturbations before\nfitting and predicting. Bootstrap over the targets in S (500) for a 95% interval.\nReading: pass(inert) near 0 -> the readout does not read clone structure in this screen; pass(inert) comparable to\npass(expressed) -> it does. Calibration on CD4 donor-1 single cells: cell split (coupling present, Z1 am) vs guide\nsplit (coupling absent).\nUsage: readout_inert_line.py h5ad <lineX.h5ad> <lineY.h5ad> <labelX> <labelY> <out_dir>\n       readout_inert_line.py cd4 <out_Rest> <out_Stim> <out_dir>. Exploratory.",
+ "labels": [
+  "rest",
+  "stim"
+ ],
+ "n_perturbations": 5046,
+ "n_genes": 7529,
+ "n_inert": 874,
+ "gamma_share": 0.31443145127275757,
+ "k10": {
+  "readout_share": -0.0006543159642959058,
+  "readout_share_shuffled": 0.0007794738181505779,
+  "rest_inert": {
+   "n": 874,
+   "pass_share": 0.00020791957982611948,
+   "ci95": [
+    -0.03668635050647131,
+    0.0385895635664036
+   ],
+   "pass_share_shuffled": -0.0003707764123778877,
+   "reproducible_energy": 299.2356302011266,
+   "frac_pos": 0.5274599542334096
+  },
+  "rest_expressed": {
+   "n": 1124,
+   "pass_share": 0.001344365277595145,
+   "ci95": [
+    -1.8191614074115968e-06,
+    0.0028453395274783398
+   ],
+   "pass_share_shuffled": 0.00020360943830502747,
+   "reproducible_energy": 2336.8104342913425,
+   "frac_pos": 0.5845195729537367
+  },
+  "stim_inert": {
+   "n": 874,
+   "pass_share": -0.01448906579007525,
+   "ci95": [
+    -0.10829736452773099,
+    0.08367587856237396
+   ],
+   "pass_share_shuffled": 0.007915918013403526,
+   "reproducible_energy": 114.3133147620545,
+   "frac_pos": 0.4977116704805492
+  },
+  "stim_expressed": {
+   "n": 1068,
+   "pass_share": 0.0012624419149177668,
+   "ci95": [
+    0.00025754046759963957,
+    0.00231898084284929
+   ],
+   "pass_share_shuffled": 7.097990544257817e-05,
+   "reproducible_energy": 3072.0829707877037,
+   "frac_pos": 0.5730337078651685
+  }
+ },
+ "k20": {
+  "readout_share": 0.0006243104636945448,
+  "readout_share_shuffled": 0.0002624236003735182,
+  "rest_inert": {
+   "n": 874,
+   "pass_share": 0.0002376212023357248,
+   "ci95": [
+    -0.006338458659210503,
+    0.006342432013856194
+   ],
+   "pass_share_shuffled": 0.0003782837201289996,
+   "reproducible_energy": 299.2356302011266,
+   "frac_pos": 0.5274599542334096
+  },
+  "rest_expressed": {
+   "n": 1124,
+   "pass_share": 0.0004643405906005959,
+   "ci95": [
+    9.092916313693088e-05,
+    0.0008746613936021394
+   ],
+   "pass_share_shuffled": 0.0001451323171009484,
+   "reproducible_energy": 2336.8104342913425,
+   "frac_pos": 0.5845195729537367
+  },
+  "stim_inert": {
+   "n": 874,
+   "pass_share": -0.001967288067463175,
+   "ci95": [
+    -0.030116632251522467,
+    0.020620522219726645
+   ],
+   "pass_share_shuffled": 0.002929118231300633,
+   "reproducible_energy": 114.3133147620545,
+   "frac_pos": 0.4977116704805492
+  },
+  "stim_expressed": {
+   "n": 1068,
+   "pass_share": 0.0002725202066508526,
+   "ci95": [
+    -5.8417835093873576e-05,
+    0.0005352399223386753
+   ],
+   "pass_share_shuffled": -0.00016845714304357186,
+   "reproducible_energy": 3072.0829707877037,
+   "frac_pos": 0.5730337078651685
+  }
+ }
+}

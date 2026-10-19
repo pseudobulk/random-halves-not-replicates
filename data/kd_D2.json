@@ -1,0 +1,49 @@
+{
+ "rules": "Does the readout vanish under the guide split only because the two guides knock down differently? (preprint review\n2.7; A100; CD4 donor-1 single cells, Rest vs Stim48hr; aggregates of cd4_sc_extract.py / cd4_sc_extract_guide.py.)\nExpressed targets (control >= 0.5 in both states, target measured) present in both designs. Knockdown of each guide\nhalf = target gene mean in that half - control mean of the same half (log1p CP10K), per state. Subsets:\n  expressed      all such targets\n  kd_matched     both guide halves knock down (<= KD in both states) and the weaker guide reaches >= RATIO of the\n                 stronger one in both states, i.e. the two halves are the same perturbation in strength\nFor each subset and design (random cell halves vs guide halves): gamma share, readout share (k = 10, 20; state = top-k\nPCs of half-A beta, ridge with lambda from inner CV, 2 folds; template = subset mean) and shuffled control.\nIf the readout stays ~0 under the guide split in kd_matched, guide efficiency mismatch does not explain its loss.\nUsage: cd4_kd_matched.py <out_Rest> <out_Stim> <out_Rest_guide> <out_Stim_guide> <out_dir>. Exploratory.",
+ "n_expressed": 862,
+ "n_kd_matched": 470,
+ "KD": -0.25,
+ "RATIO": 0.7,
+ "kd_matched_median_kd": {
+  "rest": [
+   -0.6985801388394601,
+   -0.7047446684382026
+  ],
+  "stim": [
+   -0.6871623622457292,
+   -0.6963679672608788
+  ]
+ },
+ "expressed|cell": {
+  "n": 862,
+  "gamma_share": 0.297928374588847,
+  "gamma_cross_per_target": 5.061758465988641,
+  "readout_k10": 0.2952481417203062,
+  "readout_k20": 0.3547666974787108,
+  "readout_k20_shuffled": 0.00026037942675359306
+ },
+ "expressed|guide": {
+  "n": 862,
+  "gamma_share": 0.3656102297778215,
+  "gamma_cross_per_target": 1.06651343704808,
+  "readout_k10": 0.003177469152964061,
+  "readout_k20": 0.000714632126317774,
+  "readout_k20_shuffled": 0.00011750885112979369
+ },
+ "kd_matched|cell": {
+  "n": 470,
+  "gamma_share": 0.2986429395238924,
+  "gamma_cross_per_target": 5.135173079403137,
+  "readout_k10": 0.28584890022148307,
+  "readout_k20": 0.33707999769839203,
+  "readout_k20_shuffled": 1.749412153421114e-05
+ },
+ "kd_matched|guide": {
+  "n": 470,
+  "gamma_share": 0.3555209030178622,
+  "gamma_cross_per_target": 1.353831247944492,
+  "readout_k10": 0.0011726120252932926,
+  "readout_k20": 0.0015462081444163232,
+  "readout_k20_shuffled": 0.00035379035983001045
+ }
+}

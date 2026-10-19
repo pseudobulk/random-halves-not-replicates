@@ -1,0 +1,223 @@
+{
+ "rules": "Direct clone tests on CD4 single cells (preprint review 2.1 and 2.3; A100; output of cd4_sc_extract_cells.py).\nPer state (Rest, Stim48hr), on targets whose gene is measured:\nDEPTH  Designs from the 8-way aggregates (code = gp * 4 + r1 * 2 + r2):\n         random_half  r1 = 0 vs 1            random_quarter  (r1 = 0, r2 = 0) vs (r1 = 1, r2 = 0)\n         guide_half   gp = 0 vs 1            guide_quarter   (gp = 0, r2 = 0) vs (gp = 1, r2 = 0)\n       Effect = subset mean - control mean of the same subset (log1p CP10K; genes with control mean >= 0.1).\n       Same targets for all designs (>= MINQ cells in every quarter side). For inert (control mean < 0.01) and\n       expressed (>= 0.5) targets: cross energy per target (referenced to the inert mean, Z1 an), frac_pos,\n       mean Pearson between sides and its Spearman-Brown value.\n       Expected under the unit model (Z1 ap): random designs - inert cross energy about equal at quarter and half\n       depth (the unit term does not shrink), Pearson / frac_pos rise with depth; guide designs - about 0 at both.\nTRBC   Per cell TRBC1 fraction f = TRBC1 / (TRBC1 + TRBC2) (cells with >= MINTR counts). A clone carries one TCR beta\n       rearrangement, so cells of one clone share f; a perturbation drawn from few clones has a mean f away from the\n       population mean.\n         overdispersion   var over targets of z = (mean f - f0) / (sd_f / sqrt(n)); 1 under random assignment;\n                          compared with a label permutation of the same cells\n         reproducibility  Pearson over targets of (mean f - f0) between sides, random halves vs guide halves\n         link             Spearman over inert targets between the TRBC skew |z| and the expression cross energy of\n                          the random halves (and the TRBC cross product d_A d_B vs expression cross energy)\nUsage: clone_tests_cd4.py <cells_dir_state1> <label1> [<cells_dir_state2> <label2>] <out_dir>. Exploratory.",
+ "rest": {
+  "label": "rest",
+  "n_targets": 3708,
+  "n_inert": 909,
+  "n_expressed": 787,
+  "depth": {
+   "random_half": {
+    "median_cells_per_side": [
+     102.0,
+     103.0
+    ],
+    "inert": {
+     "cross_per_target": 6.791597558738299,
+     "frac_pos": 0.9933993399339934,
+     "pearson_mean": 0.2423874225004033,
+     "pearson_sb": 0.39019619502035746
+    },
+    "expressed": {
+     "cross_per_target": 8.883168604246984,
+     "frac_pos": 0.9987293519695044,
+     "pearson_mean": 0.2807872005116557,
+     "pearson_sb": 0.43846034751047686
+    }
+   },
+   "random_quarter": {
+    "median_cells_per_side": [
+     52.0,
+     52.0
+    ],
+    "inert": {
+     "cross_per_target": 6.67667727497852,
+     "frac_pos": 0.9625962596259626,
+     "pearson_mean": 0.14425369691659476,
+     "pearson_sb": 0.2521358634109084
+    },
+    "expressed": {
+     "cross_per_target": 8.826176095769885,
+     "frac_pos": 0.9707750952986023,
+     "pearson_mean": 0.17411361490569405,
+     "pearson_sb": 0.2965873365154343
+    }
+   },
+   "guide_half": {
+    "median_cells_per_side": [
+     94.0,
+     91.0
+    ],
+    "inert": {
+     "cross_per_target": -0.036271246214057216,
+     "frac_pos": 0.49944994499449946,
+     "pearson_mean": -0.00026886374194222,
+     "pearson_sb": NaN
+    },
+    "expressed": {
+     "cross_per_target": 1.6869427375385995,
+     "frac_pos": 0.5616264294790343,
+     "pearson_mean": 0.03701120920828157,
+     "pearson_sb": 0.0713805383772818
+    }
+   },
+   "guide_quarter": {
+    "median_cells_per_side": [
+     47.0,
+     45.0
+    ],
+    "inert": {
+     "cross_per_target": -0.05693368925158669,
+     "frac_pos": 0.506050605060506,
+     "pearson_mean": 0.00039420706644695074,
+     "pearson_sb": 0.0007881034569420837
+    },
+    "expressed": {
+     "cross_per_target": 1.7256309790647357,
+     "frac_pos": 0.565438373570521,
+     "pearson_mean": 0.026108399365553224,
+     "pearson_sb": 0.050888189555209074
+    }
+   }
+  },
+  "trbc": {
+   "cells_valid": 1746685,
+   "cells_total": 1752037,
+   "frac_only_trbc1": 0.010925839518860012,
+   "frac_only_trbc2": 0.27545378817588745,
+   "f_mean": 0.30508220195770264,
+   "f_sd": 0.31180816888809204,
+   "overdispersion": {
+    "n_targets": 10165,
+    "var_z": 34.094540033477415,
+    "var_z_permuted": 1.0047780782573579
+   },
+   "reproducibility_random_half": {
+    "n": 9961,
+    "pearson": 0.9278182895084433,
+    "pearson_inert": 0.934215507988851
+   },
+   "reproducibility_guide_half": {
+    "n": 6668,
+    "pearson": 0.002365839243340288,
+    "pearson_inert": -0.008842202618603487
+   },
+   "link_inert": {
+    "n": 909,
+    "spearman_skew_vs_expr_cross": 0.22910965541052342,
+    "spearman_trbc_cross_vs_expr_cross": 0.22909500467401633,
+    "expr_cross_top_quartile_skew": 8.802274952924902,
+    "expr_cross_bottom_quartile_skew": 5.119067495690016
+   }
+  }
+ },
+ "stim48": {
+  "label": "stim48",
+  "n_targets": 3932,
+  "n_inert": 856,
+  "n_expressed": 847,
+  "depth": {
+   "random_half": {
+    "median_cells_per_side": [
+     95.0,
+     95.0
+    ],
+    "inert": {
+     "cross_per_target": 7.082021324997401,
+     "frac_pos": 0.9719626168224299,
+     "pearson_mean": 0.2615069579584972,
+     "pearson_sb": 0.41459455504184484
+    },
+    "expressed": {
+     "cross_per_target": 8.423876319076037,
+     "frac_pos": 0.9893742621015348,
+     "pearson_mean": 0.2770192658766633,
+     "pearson_sb": 0.4338529155807087
+    }
+   },
+   "random_quarter": {
+    "median_cells_per_side": [
+     48.0,
+     48.0
+    ],
+    "inert": {
+     "cross_per_target": 7.118519995689557,
+     "frac_pos": 0.9240654205607477,
+     "pearson_mean": 0.16201329931613356,
+     "pearson_sb": 0.278849303035484
+    },
+    "expressed": {
+     "cross_per_target": 8.544192387473107,
+     "frac_pos": 0.9492325855962219,
+     "pearson_mean": 0.17110325743476804,
+     "pearson_sb": 0.292208661103991
+    }
+   },
+   "guide_half": {
+    "median_cells_per_side": [
+     86.0,
+     84.0
+    ],
+    "inert": {
+     "cross_per_target": 0.2324918500433565,
+     "frac_pos": 0.5280373831775701,
+     "pearson_mean": 0.007398920555348854,
+     "pearson_sb": 0.014689157203523805
+    },
+    "expressed": {
+     "cross_per_target": 1.3264750862803545,
+     "frac_pos": 0.5832349468713105,
+     "pearson_mean": 0.02856388600938143,
+     "pearson_sb": 0.05554129674959422
+    }
+   },
+   "guide_quarter": {
+    "median_cells_per_side": [
+     43.0,
+     42.0
+    ],
+    "inert": {
+     "cross_per_target": 0.489947777425709,
+     "frac_pos": 0.5478971962616822,
+     "pearson_mean": 0.010093380244255417,
+     "pearson_sb": 0.01998504384181726
+    },
+    "expressed": {
+     "cross_per_target": 1.4126855403403273,
+     "frac_pos": 0.5726092089728453,
+     "pearson_mean": 0.018408495595004848,
+     "pearson_sb": 0.03615149652546779
+    }
+   }
+  },
+  "trbc": {
+   "cells_valid": 1584876,
+   "cells_total": 1647835,
+   "frac_only_trbc1": 0.04348983769077202,
+   "frac_only_trbc2": 0.311105726883365,
+   "f_mean": 0.335185170173645,
+   "f_sd": 0.3419271409511566,
+   "overdispersion": {
+    "n_targets": 10355,
+    "var_z": 28.48543358782622,
+    "var_z_permuted": 0.9954650617270046
+   },
+   "reproducibility_random_half": {
+    "n": 10116,
+    "pearson": 0.919345447094622,
+    "pearson_inert": 0.9231675323559247
+   },
+   "reproducibility_guide_half": {
+    "n": 7268,
+    "pearson": -0.008338774449555775,
+    "pearson_inert": -0.02549138541183813
+   },
+   "link_inert": {
+    "n": 856,
+    "spearman_skew_vs_expr_cross": 0.1591084714042492,
+    "spearman_trbc_cross_vs_expr_cross": 0.1474426723741272,
+    "expr_cross_top_quartile_skew": 8.77898695021214,
+    "expr_cross_bottom_quartile_skew": 6.195448615324737
+   }
+  }
+ }
+}
