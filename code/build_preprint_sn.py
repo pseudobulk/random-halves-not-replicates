@@ -142,8 +142,11 @@ def main():
         h = re.search(r"## Supplementary Figure S%d \|[^\n]*\n" % n, s)
         s = s[:h.end()] + "\n```{=latex}\n\\begin{center}\\makebox[\\textwidth][c]{\\includegraphics[width=170mm]{%s/%s.pdf}}\\end{center}\n```\n" % (rel, stem) + s[h.end():]
     s = re.sub(r"(## Supplementary (Table|Figure) S)", lambda g: "```{=latex}\n\\clearpage\n```\n\n" + g.group(1), s)
+    # a table with panels (a, b, ...) starts each later panel on a new page, and so does the cell-line part of
+    # Table S1, so that no table is split across pages
+    s = re.sub(r"\n(\*\*[b-z], |\*\*Cell-line screens\.\*\*)", lambda g: "\n```{=latex}\n\\clearpage\n```\n\n" + g.group(1), s)
     supp = pandoc(common(s), cols=40)
-    supp = supp.replace("\\begin{longtable}", "{\\fontsize{7}{8.5}\\selectfont\\begin{longtable}").replace("\\end{longtable}", "\\end{longtable}}")
+    supp = supp.replace("\\begin{longtable}", "{\\fontsize{7}{8.5}\\selectfont\\setlength{\\tabcolsep}{3pt}\\begin{longtable}").replace("\\end{longtable}", "\\end{longtable}}")
     supp = supp.replace("\\section*{", "\\section{").replace("\\subsection*{", "\\subsection{")
     doc = (PREAMBLE % {"short": SHORT, "title": TITLE}
            + "\\abstract{%s}\n" % pandoc(common(abstract)).strip()

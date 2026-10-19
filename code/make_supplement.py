@@ -27,8 +27,13 @@ def f2(x, nd=2):
     return "–" if x is None or (isinstance(x, float) and np.isnan(x)) else ("%.*f" % (nd, x)).replace("-", "−")
 
 
+def span(lo, hi):
+    """a range as an en dash, or with "to" when an end is negative, where a dash would read as a minus sign"""
+    return "%s to %s" % (lo, hi) if "−" in lo + hi else "%s–%s" % (lo, hi)
+
+
 def ci(v, nd=2):
-    return "%s (%s to %s)" % (f2(v[0], nd), f2(v[1], nd), f2(v[2], nd))
+    return "%s (%s)" % (f2(v[0], nd), span(f2(v[1], nd), f2(v[2], nd)))
 
 
 def rng_(vals, nd=2):
@@ -36,7 +41,7 @@ def rng_(vals, nd=2):
     if not vals:
         return "–"
     lo, hi = f2(min(vals), nd), f2(max(vals), nd)
-    return lo if lo == hi else "%s to %s" % (lo, hi)
+    return lo if lo == hi else span(lo, hi)
 
 
 # ------------------------------------------------------------------------------------------------------------ tables
@@ -73,7 +78,7 @@ def table_s1(d):
 def table_s2(d):
     out = []
     head = ("| Donor | Targets | Genes | Halves | Unexpressed positive, resting / stimulated | Context-specific share | "
-            "Explained share, k = 5 / 10 / 20 / 50 | Shuffled, k = 20 |\n|-|----|---|---|----|---|-----|--|")
+            "Explained share, k = 5 / 10 / 20 / 50 | Shuffled, k = 20 |\n|--|----|---|---|----|---|-----|--|")
     out.append(head)
     for donor in ("D1", "D2"):
         r = P.J(d, "robust_%s.json" % donor)

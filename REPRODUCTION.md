@@ -2,7 +2,8 @@
 
 The whole analysis was rerun from the raw public data with the code in this repository, following
 `pipelines/run_all.sh`. Every result was compared with the original outputs behind the preprint, and every printed
-number, figure and the Supplementary Information was checked against preprint v16. `repro/comparison.tsv` lists each
+number, figure and the Supplementary Information was checked against preprint v16. Preprint v17 differs from v16 only in the layout of the supplementary tables (ranges
+written with an en dash, as in the main text, and no table split across pages); every value is unchanged. `repro/comparison.tsv` lists each
 comparison; `repro/number_inventory.tsv` classifies every number in the manuscript text (422), and
 `repro/printed_numbers.md` checks the 182 printed results one by one (`repro/intermediate/` holds the few values
 taken from intermediate outputs); `repro/tools/` holds
