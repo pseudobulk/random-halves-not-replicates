@@ -181,3 +181,7 @@ A few numbers in the text are simple ratios of the outputs above:
   the authors' analysis log and are kept so that each script can be traced to the record it was written for.
 - The `collect` stage fills `sim_v5.json` (Supplementary Fig. S1) from the current simulation; the values used by
   Fig. S1 are unchanged between the two versions (largest difference 2 × 10⁻¹⁶).
+
+## License
+
+The code is released under the MIT License (see `LICENSE`). If you use the code or the result files in `data/`, please cite the preprint.
