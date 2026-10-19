@@ -8,7 +8,8 @@ fig3_clones.{pdf,png}     direct clone evidence (TRBC marker), depth, compositio
 fig4_ceilings.{pdf,png}   consequences for ceilings and reliability labels (cell-eval itself, Wang-style labels,
                           Spearman-Brown at chance, Tahoe)
 fig5_contexts.{pdf,png}   cross-context structure (shared vs separate units, absolute energy, predictors, model)
-Panel titles state the message in plain words; a grey line under a title gives the data it rests on (v5, 10-19).
+Panel titles are short labels; the message of each figure is in its legend title. Axis labels in sentence case with
+units in parentheses; error bars wherever an interval exists (defined in the legends).
 Usage: plot_main_figs.py <data_dir> <out_dir>"""
 import sys, os, json
 import numpy as np
@@ -54,7 +55,27 @@ def floor_type(fig, minimum=MIN_PT):
             t.set_fontsize(minimum)
 
 
+def sentence_case(fig):
+    """axis labels start with a capital letter (journal style); tick and key labels are left as written"""
+    for ax in fig.axes:
+        for get, put in ((ax.get_xlabel, ax.set_xlabel), (ax.get_ylabel, ax.set_ylabel)):
+            s = get()
+            if s and s[0].islower():
+                put(s[0].upper() + s[1:])
+
+
+def share_ci(p, n, n_boot=1000, seed=0):
+    """bootstrap 95% interval of a share over n items; resampling a 0/1 vector is a binomial draw, so this is exact"""
+    b = np.random.default_rng(seed).binomial(int(n), p, n_boot) / n
+    return np.percentile(b, [2.5, 97.5])
+
+
+def err(ax, x, v, lo, hi, scale=1.0):
+    ax.errorbar(x, scale * v, yerr=[[scale * (v - lo)], [scale * (hi - v)]], color="k", lw=0.6, capsize=1.5, ls="none")
+
+
 def save(fig, out, name):
+    sentence_case(fig)
     floor_type(fig)
     fig.savefig(os.path.join(out, name + ".pdf")); fig.savefig(os.path.join(out, name + ".png"), dpi=300); plt.close(fig)
 
@@ -95,12 +116,15 @@ def fig2(d, out):
     groups = [("D1\nrest", D1, "rest"), ("D1\nstim", D1, "stim"), ("D2\nrest", D2, "rest"), ("D2\nstim", D2, "stim")]
     x = np.arange(4); w = 0.36
     for j, (k, col) in enumerate((("random", RED), ("guide", BLUE))):
-        ax.bar(x + (j - 0.5) * w, [100 * (dd["cross_%s_%s" % (k, s)][dd["inert"]] > 0).mean() for _, dd, s in groups], w, color=col)
-    ax.bar([4.15, 4.85], [100 * ds["rest_frac_pos"], 100 * ds["stim_frac_pos"]], w, color=BLUE)
+        for xi, (_, dd, s) in zip(x, groups):
+            ind = dd["cross_%s_%s" % (k, s)][dd["inert"]] > 0
+            ax.bar(xi + (j - 0.5) * w, 100 * ind.mean(), w, color=col); err(ax, xi + (j - 0.5) * w, ind.mean(), *share_ci(ind.mean(), ind.size), scale=100)
+    for xi, s in ((4.15, "rest"), (4.85, "stim")):   # donor halves: 1,479 unexpressed targets (donors 1-2 against 3-4)
+        p = ds["%s_frac_pos" % s]; ax.bar(xi, 100 * p, w, color=BLUE); err(ax, xi, p, *share_ci(p, 1479), scale=100)
     ax.axhline(50, color="k", lw=0.6, ls="--"); ax.text(3.58, 51.5, "chance", fontsize=5.4, ha="center", va="bottom")
     ax.set_ylim(0, 118); ax.set_yticks([0, 25, 50, 75, 100])
     ax.set_xticks(list(x) + [4.15, 4.85]); ax.set_xticklabels([g for g, _, _ in groups] + ["donors\nrest", "donors\nstim"], fontsize=5.6)
-    ax.set_ylabel("% of targets with\npositive cross-half signal")
+    ax.set_ylabel("Targets with positive\ncross-half signal (%)")
     ax.legend(handles=patches(((RED, "random halves"), (BLUE, "guide or donor halves"))), fontsize=5.6, loc="upper center",
               ncol=2, handlelength=1, columnspacing=1)
     title(ax, "Unexpressed targets")
@@ -123,8 +147,11 @@ def fig2(d, out):
     axl = axmm(fig, W, H, 13, 72, 78, 30)
     axl.bar(x - w / 2, [100 * r[1]["random_frac_pos"] for r in rows], w, color=RED)
     axl.bar(x + w / 2, [100 * r[1]["pairs_frac_pos_mean"] for r in rows], w, color=BLUE)
+    for xi, r in zip(x, rows):   # random halves: bootstrap 95% interval over guides; different guides: range over the 50 pairings
+        err(axl, xi - w / 2, r[1]["random_frac_pos"], *r[1]["random_frac_pos_ci95"], scale=100)
+        err(axl, xi + w / 2, r[1]["pairs_frac_pos_mean"], *r[1]["pairs_frac_pos_range"], scale=100)
     axl.axhline(50, color="k", lw=0.6, ls="--"); axl.set_ylim(0, 118); axl.set_yticks([0, 25, 50, 75, 100])
-    axl.set_xticks(x); axl.set_xticklabels([r[0] for r in rows], fontsize=5.4); axl.set_ylabel("% of guides with\npositive cross-half signal")
+    axl.set_xticks(x); axl.set_xticklabels([r[0] for r in rows], fontsize=5.4); axl.set_ylabel("Guides with positive\ncross-half signal (%)")
     axl.legend(handles=patches(((RED, "random halves"), (BLUE, "different guides"))), fontsize=5.6, loc="upper right", ncol=2, handlelength=1, columnspacing=1)
     title(axl, "Non-targeting guides")
     axr = axmm(fig, W, H, 113, 72, 65, 30)
@@ -150,7 +177,7 @@ def fig3(d, out):
     ax = axmm(fig, W, H, 104, 14, 74, 33); letter(fig, W, H, 95, 3, "b")
     z, zp = D1["trbc_z_rest"], D1["trbc_zperm_rest"]; ok = D1["trbc_n_rest"] >= 30
     bins = np.linspace(-25, 25, 81)
-    ax.hist(np.clip(zp[ok], -25, 25), bins=bins, color=GREY, alpha=0.8, label="cells assigned at random", histtype="stepfilled", lw=0)
+    ax.hist(np.clip(zp[ok], -25, 25), bins=bins, color=GREY, alpha=0.8, label="perturbation labels permuted", histtype="stepfilled", lw=0)
     ax.hist(np.clip(z[ok], -25, 25), bins=bins, color=ORANGE, alpha=0.75, label="observed", histtype="stepfilled", lw=0)
     ax.set_yscale("log"); edge_ticks(ax, -25, 25, [-25, -10, 0, 10, 25])
     ax.set_yticks([1, 10, 100, 1000]); ax.set_yticklabels(["1", "10", "100", "1,000"]); ax.minorticks_off()   # no superscripts (type floor)
@@ -167,7 +194,7 @@ def fig3(d, out):
         lim = 0.45; ax.set_xlim(-lim, lim); ax.set_ylim(-lim, lim); ax.axhline(0, color="k", lw=0.4); ax.axvline(0, color="k", lw=0.4)
         r = np.corrcoef(a[okk], b[okk])[0, 1]
         ax.text(-0.42, 0.37, "r = %s" % ("%.2f" % r).replace("-", "−"), fontsize=6.5)
-        ax.set_xlabel("TRBC1 share deviation, half A"); ax.set_ylabel("half B" if j == 0 else "")
+        ax.set_xlabel("TRBC1 share deviation, half A"); ax.set_ylabel("TRBC1 share deviation, half B" if j == 0 else "")
         ax.set_title(nm[0].upper() + nm[1:], loc="left", fontsize=6.5, pad=3)
     # d: link to expression on unexpressed targets
     ax = axmm(fig, W, H, 122, 70, 56, 32); letter(fig, W, H, 112, 58, "d")
@@ -215,7 +242,7 @@ def fig3(d, out):
         ax.bar(xi, 100 * rep, w, bottom=100 * (tr + gsp), color=BLUE)
         ax.text(xi, 100 * tr / 2, "%d%%" % round(100 * tr), ha="center", va="center", fontsize=5.6, color="white")
     ax.set_xticks(x); ax.set_xticklabels([b[0] for b in bars], fontsize=5.4)
-    ax.set_ylim(0, 135); ax.set_yticks([0, 25, 50, 75, 100]); ax.set_ylabel("% of random-half signal")
+    ax.set_ylim(0, 135); ax.set_yticks([0, 25, 50, 75, 100]); ax.set_ylabel("Share of random-half signal (%)")
     ax.legend(handles=patches(((RED, "shared within one transduction"), ("#e6b0aa", "specific to the guide"), (BLUE, "reproduced by the other guide"))),
               fontsize=4.8, loc="upper left", ncol=1, handlelength=0.9, borderaxespad=0.1, labelspacing=0.2)
     title(ax, "Expressed targets")
@@ -231,7 +258,7 @@ def fig4(d, out):
             ("de_direction_match", "DE direction match*"), ("pearson_delta", "Pearson Δ"), ("discrimination_score_l1", "discrimination (L1)*"),
             ("discrimination_score_cosine", "discrimination (cosine)*")]
     letter(fig, W, H, 2, 3, "a")
-    for j, (sub, nm) in enumerate((("all", "all 300 perturbations"), ("inert", "150 unexpressed targets"), ("strong", "150 strong knockdowns, guides matched"))):
+    for j, (sub, nm) in enumerate((("all", "all 300 perturbations"), ("inert", "150 unexpressed targets"), ("strong", "150 strength-matched knockdowns"))):
         ax = axmm(fig, W, H, 36 + j * 49, 11, 44, 44)
         for i, (m, lab) in enumerate(mets):
             r = np.nanmean([ce["random_%d" % s][sub]["ceiling"].get(m) or np.nan for s in (0, 1, 2)])
@@ -257,9 +284,12 @@ def fig4(d, out):
     ci = J(d, "ci_cd4.json")["wang_reliable_share_rest"]
     ax = axmm(fig, W, H, 12, 85, 44, 30); letter(fig, W, H, 2, 73, "b")
     x = np.arange(3); w = 0.36
+    nn = {"all": 6615, "inert": 1235, "expressed": 1097}   # perturbations of resting cells of donor 1 (legend)
     for j, (k, col, nm) in enumerate((("random", RED, "random halves"), ("guide", BLUE, "guide halves"))):
         ax.bar(x + (j - 0.5) * w, [100 * ci[k][s] for s in ("all", "inert", "expressed")], w, color=col, label=nm)
-    ax.set_xticks(x); ax.set_xticklabels(["all", "unexpressed", "expressed"]); ax.set_ylabel("% labeled reliable")
+        for xi, s in zip(x, ("all", "inert", "expressed")):
+            err(ax, xi + (j - 0.5) * w, ci[k][s], *share_ci(ci[k][s], nn[s]), scale=100)
+    ax.set_xticks(x); ax.set_xticklabels(["all", "unexpressed", "expressed"]); ax.set_ylabel("Labelled reliable (%)")
     ax.set_ylim(0, 34); ax.legend(fontsize=5.6, loc="upper left")
     title(ax, "Reliability labels")
     # c: Spearman-Brown at chance
@@ -324,6 +354,10 @@ def fig5(d, out):
     x = np.arange(len(bars)); w = 0.36
     ax.bar(x - w / 2, [b[1] for b in bars], w, color=RED, label="same cells or screen")
     ax.bar(x + w / 2, [b[2] for b in bars], w, color=BLUE, label="independent guides or screen")
+    # bootstrap 95% intervals over targets, available for all CD4 targets (ci_cd4*.json); not computed for the subsets
+    for xi, cc in ((0, ci), (2, ci2)):
+        for dx, k in ((-w / 2, "random_r1"), (w / 2, "guide")):
+            err(ax, xi + dx, *cc[k]["readout_k20"])
     for xi, b in zip(x, bars):
         if abs(b[2]) < 0.01:
             ax.text(xi + w / 2, 0.015, "≈0", ha="center", fontsize=5.5)

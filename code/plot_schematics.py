@@ -23,7 +23,7 @@ def canvas(w, h):
     return fig, ax
 
 
-def card(ax, x, y, w, h, fc=LIGHT, ec="#d5d8dc", lw=0.6, r=1.6, z=0):
+def card(ax, x, y, w, h, fc="white", ec="#d5d8dc", lw=0.6, r=1.6, z=0):
     ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0,rounding_size=%g" % r, fc=fc, ec=ec, lw=lw, zorder=z))
 
 
@@ -83,7 +83,7 @@ def fig1(out):
         for k, c in enumerate(cols):
             cx = 28.5 + k * 8.6; cy = gy + (1.2 if k == 1 else -0.6)
             cluster(ax, cx, cy, c, 6 if k == 0 else (4 if k == 1 else 3), rng, spread=2.2)
-    label(ax, 29, 69, "a few clones per guide, of unequal size", ha="center", fontsize=6, color=GREY, style="italic")
+    label(ax, 29, 69, "a few clones per guide, of unequal size", ha="center", fontsize=6)
     # random halves
     card(ax, 60, 66, 56, 46, ec=RED, lw=0.9)
     label(ax, 88, 108.5, "random cell halves", ha="center", fontsize=8, color=RED, fontweight="bold")
@@ -94,7 +94,7 @@ def fig1(out):
         scatter_cells(ax, x0 + 0.5, 76.5, 23, 26, cols, rng)
         label(ax, x0 + 12, 73.8, nm, ha="center", fontsize=6.5, color="#34495e")
     ax.plot([88, 88], [76, 103], color=RED, lw=0.8, ls=(0, (2, 1.5)), zorder=2)
-    label(ax, 88, 69, "both halves contain the same clones\n→ they agree even when the perturbation does nothing", ha="center", fontsize=6, color=RED)
+    label(ax, 88, 69, "same clones in both halves", ha="center", fontsize=6.5, color=RED)
     # independent units
     card(ax, 122, 66, 57, 46, ec=BLUE, lw=0.9)
     label(ax, 150.5, 108.5, "independent units", ha="center", fontsize=8, color=BLUE, fontweight="bold")
@@ -102,7 +102,7 @@ def fig1(out):
         ax.add_patch(FancyBboxPatch((x0, 76), 25, 27, boxstyle="round,pad=0,rounding_size=1.2", fc="white", ec="#e5e8e8", lw=0.6, zorder=1))
         scatter_cells(ax, x0 + 0.5, 76.5, 24, 26, list(rng.permutation(cols)), rng)
         label(ax, x0 + 12.5, 73.8, nm, ha="center", fontsize=6.5, color="#34495e")
-    label(ax, 150.5, 69, "no clone in common\n→ they agree only through the perturbation's effect", ha="center", fontsize=6, color=BLUE)
+    label(ax, 150.5, 69, "no clone in common", ha="center", fontsize=6.5, color=BLUE)
     arrow(ax, 54.5, 89, 59.5, 89, lw=0.9)
     label(ax, 119, 89, "vs", ha="center", fontsize=8, color=GREY, fontweight="bold")
     # ---------- b ----------
@@ -136,7 +136,6 @@ def fig1(out):
             card(ax, gx + 13, gy + 6, 9, 8, fc="white", ec=RED, r=1)
             label(ax, gx + 17.5, gy + 10, "specific\n(B)", ha="center", fontsize=5.3, color=RED)
             label(ax, gx + 10.5, gy - 3.5, "model fit on A, scored on B", ha="center", fontsize=6)
-        label(ax, x0 + 14.75, 14.5, s, ha="center", fontsize=5.8, color=GREY, style="italic")
     # ---------- c ----------
     panel_letter(ax, 100, 61, "c")
     label(ax, 106, 58.5, "Datasets", fontsize=7)
@@ -157,7 +156,6 @@ def fig1(out):
         for x, t in zip(xs, r):
             col = BLUE if (x == 145 and t != "none") else ("#b03a2e" if t == "none" else "#212f3c")
             label(ax, x, y, t, fontsize=5.8, color=col)
-    label(ax, 101, 4.5, "* in phenotype-selected libraries this structure is guide-level, not clonal", fontsize=5.3, color=GREY, style="italic")
     save(fig, out, "fig1_schematic")
 
 
@@ -177,19 +175,17 @@ def draw_fig3a(ax, letter=True):
     for x, t, c, w in segs:
         ax.add_patch(Rectangle((x, y - 2.2), w, 4.4, fc=c, ec="white", lw=0.5, zorder=2)); label(ax, x + w / 2, y, t, ha="center", fontsize=5.8, color="white", fontweight="bold")
     label(ax, 61, y, "TCR beta locus", fontsize=6, color=GREY)
-    label(ax, 44, 30.5, "each clone's rearrangement fixes its TRBC1 : TRBC2 usage", ha="center", fontsize=6, color="#34495e")
     # clones
     fr = [0.9, 0.15, 0.6, 0.05, 0.75]
     for k, f in enumerate(fr):
-        cx = 10 + k * 15; cy = 20
+        cx = 10 + k * 15; cy = 23
         n = 5
         for j in range(n):
             a = 2 * np.pi * j / n; c = ORANGE if rng.random() < f else "#f8c471"
             cell(ax, cx + 2.6 * np.cos(a), cy + 2.6 * np.sin(a), c, r=1.25)
         label(ax, cx, cy - 5.2, "clone %d" % (k + 1), ha="center", fontsize=5.5, color=GREY)
-    ax.add_patch(Circle((70, 8), 1.2, fc=ORANGE, ec="white")); label(ax, 72, 8, "TRBC1-high", fontsize=5.5)
-    ax.add_patch(Circle((70, 4), 1.2, fc="#f8c471", ec="white")); label(ax, 72, 4, "TRBC2-high", fontsize=5.5)
-    label(ax, 4, 6, "a perturbation drawn from few clones has a skewed\nTRBC1 share; random halves share it, guides do not", fontsize=5.8, color="#34495e")
+    ax.add_patch(Circle((8, 9), 1.2, fc=ORANGE, ec="white")); label(ax, 10, 9, "TRBC1-high cell", fontsize=5.8)
+    ax.add_patch(Circle((33, 9), 1.2, fc="#f8c471", ec="white")); label(ax, 35, 9, "TRBC2-high cell", fontsize=5.8)
 
 
 def fig5a(out):
@@ -209,17 +205,16 @@ def draw_fig5a(ax, letter=True):
         else:
             ax.add_patch(Rectangle((x - 1.2, y - 1.2), 2.4, 2.4, fc=c, ec="white", lw=0.5, zorder=3))
     # shared: one well, many lines
-    card(ax, 4, 4, 56, 36, ec=RED, lw=0.9)
+    card(ax, 4, 4, 56, 36, fc="white", ec=RED, lw=0.9)
     label(ax, 32, 36.5, "one well, several lines (Tahoe)", ha="center", fontsize=6.5, fontweight="bold", color=RED)
     ax.add_patch(Circle((20, 19), 11, fc="white", ec="#aab7b8", lw=0.8, zorder=1))
     for i in range(14):
         a = rng.uniform(0, 2 * np.pi); rr = rng.uniform(0, 8.5)
         line_glyph(20 + rr * np.cos(a), 19 + rr * np.sin(a), i % 3, ["#5d6d7e", "#85929e", "#aeb6bf"][i % 3])
-    label(ax, 20, 5.8, "well state: exposure, density, depth", ha="center", fontsize=5.5, color=GREY, style="italic")
     arrow(ax, 31.5, 23, 41, 27, c=RED, lw=0.8); arrow(ax, 31.5, 15, 41, 11, c=RED, lw=0.8)
     label(ax, 42, 27, "shared response\n(mean over lines)", fontsize=5.8); label(ax, 42, 11, "line-specific parts\n(each line reacts\nin its own way)", fontsize=5.8)
     # shared: one clone, two states
-    card(ax, 64, 4, 56, 36, ec=RED, lw=0.9)
+    card(ax, 64, 4, 56, 36, fc="white", ec=RED, lw=0.9)
     label(ax, 92, 36.5, "one clone, two states (CD4)", ha="center", fontsize=6.5, fontweight="bold", color=RED)
     cluster(ax, 76, 19, G1[0], 6, rng)
     arrow(ax, 80, 22, 92, 27, c=G1[0], lw=0.8); arrow(ax, 80, 16, 92, 11, c=G1[0], lw=0.8)
@@ -227,13 +222,11 @@ def draw_fig5a(ax, letter=True):
         for j in range(3):
             cell(ax, 95 + j * 2.6, yy, G1[0], r=1.1)
         label(ax, 104, yy, nm, fontsize=6)
-    label(ax, 92, 5.8, "the clone's deviation appears in both states", ha="center", fontsize=5.5, color=GREY, style="italic")
     # separate screens
-    card(ax, 124, 4, 55, 36, ec=BLUE, lw=0.9)
+    card(ax, 124, 4, 55, 36, fc="white", ec=BLUE, lw=0.9)
     label(ax, 151.5, 36.5, "separate screens (K562 vs RPE1)", ha="center", fontsize=6.5, fontweight="bold", color=BLUE)
     cluster(ax, 137, 24, G1[1], 5, rng); cluster(ax, 137, 13, G2[1], 5, rng)
     label(ax, 143, 24, "line 1 clones", fontsize=6); label(ax, 143, 13, "line 2 clones", fontsize=6)
-    label(ax, 151.5, 5.8, "a clone exists in one context only", ha="center", fontsize=5.5, color=GREY, style="italic")
 
 
 def fig6(out):

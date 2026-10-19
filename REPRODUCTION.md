@@ -3,7 +3,12 @@
 The whole analysis was rerun from the raw public data with the code in this repository, following
 `pipelines/run_all.sh`. Every result was compared with the original outputs behind the preprint, and every printed
 number, figure and the Supplementary Information was checked against preprint v16. Preprint v17 differs from v16 only in the layout of the supplementary tables (ranges
-written with an en dash, as in the main text, and no table split across pages); every value is unchanged. `repro/comparison.tsv` lists each
+written with an en dash, as in the main text, and no table split across pages); every value is unchanged.
+Preprint v18 changes only the presentation of the figures and legends: axis labels in sentence case with units,
+error bars drawn wherever an interval exists (from the same result files; the Fig. 2b bootstrap half-widths listed below
+are now drawn rather than printed), sentences moved from the schematics into the legends, exact n in every legend (from
+data/), shorter Results headings and one name for the strength-matched knockdowns. No reported value changed; the v18
+figures and supplement regenerated from data/ match the preprint pixel for pixel and line for line. `repro/comparison.tsv` lists each
 comparison; `repro/number_inventory.tsv` classifies every number in the manuscript text (422), and
 `repro/printed_numbers.md` checks the 182 printed results one by one (`repro/intermediate/` holds the few values
 taken from intermediate outputs); `repro/tools/` holds

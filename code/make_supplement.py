@@ -118,7 +118,7 @@ def table_s3(d):
     c = P.J(d, "celleval.json")["shared"]
     rnd = ["random_0", "random_1", "random_2"]; gd = ["guide_0real_1pred_0", "guide_1real_0pred_0"]
     def block(kind):
-        rows = ["| Metric | All: random | All: guide | Unexpressed: random | Unexpressed: guide | Strong: random | Strong: guide |",
+        rows = ["| Metric | All: random | All: guide | Unexpressed: random | Unexpressed: guide | Knockdowns: random | Knockdowns: guide |",
                 "|------|---|---|---|---|---|---|"]
         for m, name in METRICS:
             cells = []
@@ -187,7 +187,7 @@ def fig_s1(d, out):
         for xi, vv in zip(np.arange(2) + (j - 0.5) * w, vals):
             ax.text(xi, vv + 1.5, "%.0f" % vv, ha="center", fontsize=5.6)
     ax.axhline(50, color="k", lw=0.6, ls="--"); ax.set_ylim(0, 122)
-    ax.set_xticks([0, 1]); ax.set_xticklabels(["template\nremoved", "null\nbaseline"]); ax.set_ylabel("% unexpressed targets\nwith positive signal")
+    ax.set_xticks([0, 1]); ax.set_xticklabels(["template\nremoved", "null\nbaseline"]); ax.set_ylabel("Unexpressed targets with\npositive signal (%)")
     ax.legend(fontsize=5.6, loc="upper center", ncol=2, handlelength=1); P.title(ax, "K562 genome-wide screen: reference")
     P.save(fig, out, "figS3_k562")
 
