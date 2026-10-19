@@ -8,7 +8,10 @@ Preprint v18 changes only the presentation of the figures and legends: axis labe
 error bars drawn wherever an interval exists (from the same result files; the Fig. 2b bootstrap half-widths listed below
 are now drawn rather than printed), sentences moved from the schematics into the legends, exact n in every legend (from
 data/), shorter Results headings and one name for the strength-matched knockdowns. No reported value changed; the v18
-figures and supplement regenerated from data/ match the preprint pixel for pixel and line for line. `repro/comparison.tsv` lists each
+figures and supplement regenerated from data/ match the preprint pixel for pixel and line for line.
+Preprint v19 changes only text: a shorter abstract (150 words) and a tighter Methods section (under 3,000 words),
+with the code archive cited (Zenodo, v1.0.0). No value changed; a few robustness values that the Methods no longer
+repeat remain in the Supplementary Information or in this record. `repro/comparison.tsv` lists each
 comparison; `repro/number_inventory.tsv` classifies every number in the manuscript text (422), and
 `repro/printed_numbers.md` checks the 182 printed results one by one (`repro/intermediate/` holds the few values
 taken from intermediate outputs); `repro/tools/` holds

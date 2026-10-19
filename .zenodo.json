@@ -1,0 +1,19 @@
+{
+  "title": "random-halves-not-replicates: analysis code for \"Random cell halves are not independent replicates in pooled perturbation screens\"",
+  "description": "Analysis code, the result files behind every figure and table, and a record of the reproduction of all reported numbers from the raw data, for the preprint \"Random cell halves are not independent replicates in pooled perturbation screens\".",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Huang, Xuanrui",
+      "affiliation": "National University of Singapore"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Perturb-seq",
+    "pooled CRISPR screens",
+    "reproducibility",
+    "pseudoreplication",
+    "benchmarking"
+  ]
+}

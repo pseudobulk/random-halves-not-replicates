@@ -3,6 +3,9 @@
 Analysis code for the preprint *Random cell halves are not independent replicates in pooled perturbation screens*
 (Xuanrui Huang, National University of Singapore).
 
+Archived at Zenodo: version 1.0.0, https://doi.org/10.5281/zenodo.23476350; all versions,
+https://doi.org/10.5281/zenodo.23476349.
+
 The scripts are the ones that produced the numbers in the paper. For release, only paths and imports were changed:
 input and output locations are command-line arguments or come from one configuration file, and the scripts import each
 other from the `code/` folder. No computation was changed.
