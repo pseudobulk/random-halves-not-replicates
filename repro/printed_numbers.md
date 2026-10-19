@@ -1,4 +1,4 @@
-| Item | printed (v15) | original result files | reproduced (released code) | printed in |
+| Item | printed (v16) | original result files | reproduced (released code) | printed in |
 |---|---|---|---|---|
 | Unexpressed targets, donor 1 / donor 2 (n) | 1,239 / 872 | 1,239 / 872 | 1,239 / 872 | manuscript_v2.md, preprint_clone_ledger.md |
 | Null positive, random halves, D1 rest | 98.9% | 98.9% | 98.9% | preprint_clone_ledger.md |
@@ -25,10 +25,10 @@
 | DMSO cross-plate correlation, median | 0.35 | 0.35 | 0.35 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
 | TRBC var(z), D1 rest | 34 | 34 | 34 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
 | TRBC var(z), D2 rest | 81 | 81 | 81 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
-| TRBC var(z) permuted, D1 rest | 1.0 | 1.0 | 1.0 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
+| TRBC var(z) permuted, D1 rest | 1.0 | 1.0 | 1.0 | supplementary_v1.md, preprint_clone_ledger.md |
 | TRBC deviation r, random halves, D1 (npz, Fig. 3c) | 0.93 | 0.93 | 0.93 | manuscript_v2.md, preprint_clone_ledger.md |
 | TRBC deviation r, random halves, D2 | 0.96 | 0.96 | 0.96 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
-| TRBC deviation r, guide halves, D1 | −0.01 | -0.01 | -0.01 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
+| TRBC deviation r, guide halves, D1 | −0.01 | -0.01 | -0.01 | supplementary_v1.md, preprint_clone_ledger.md |
 | TRBC deviation r, guide halves, D2 | 0.02 | 0.02 | 0.02 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
 | Clone skew Spearman (per-state def.), D1 rest | 0.229 | 0.229 | 0.229 | manuscript_v2.md, preprint_clone_ledger.md |
 | Clone skew Spearman (per-state def.), D2 rest | 0.227 | 0.227 | 0.227 | manuscript_v2.md, preprint_clone_ledger.md |
@@ -42,7 +42,7 @@
 | Different guides across donors, null positive stim | 51% | 51% | 51% | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
 | K562 unexpressed recurrence across screens | 0.85 | 0.85 | 0.85 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
 | K562 unexpressed recurrence CI low | 0.75 | 0.75 | 0.75 | supplementary_v1.md, preprint_clone_ledger.md |
-| K562 unexpressed recurrence CI high | 0.92 | 0.92 | 0.92 | manuscript_v2.md, preprint_clone_ledger.md |
+| K562 unexpressed recurrence CI high | 0.92 | 0.92 | 0.92 | preprint_clone_ledger.md |
 | K562 unexpressed targets (n) | 178 | 178 | 178 | manuscript_v2.md, supplementary_v1.md |
 | K562 expressed targets (n) | 651 | 651 | 651 | supplementary_v1.md |
 | Depth: random quarter cross, null, D1 rest | 6.7 | 6.7 | 6.7 | supplementary_v1.md, preprint_clone_ledger.md |
@@ -125,7 +125,7 @@
 | cell-eval, all 300, discrimination (cosine) | 0.98 vs 0.69 | 0.98 vs 0.69 | 0.98 vs 0.69 | supplementary_v1.md, preprint_clone_ledger.md |
 | cell-eval, strong knockdowns, Pearson | 0.38 vs 0.13 | 0.38 vs 0.13 | 0.38 vs 0.13 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
 | cell-eval, unexpressed, Pearson random | 0.26 | 0.26 | 0.26 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
-| cell-eval, unexpressed, Pearson guide split-half r (ceiling n.d.) | −0.01 | -0.01 | -0.01 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
+| cell-eval, unexpressed, Pearson guide split-half r (ceiling n.d.) | −0.01 | -0.01 | -0.01 | supplementary_v1.md, preprint_clone_ledger.md |
 | cell-eval, unexpressed, direction match random | 0.81 | 0.81 | 0.81 | supplementary_v1.md, preprint_clone_ledger.md |
 | cell-eval, unexpressed, direction match guide (range) | 0.57–0.61 | 0.57–0.61 | 0.57–0.61 | preprint_clone_ledger.md |
 | cell-eval, unexpressed, discrimination (cosine) random | 0.97 | 0.97 | 0.97 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
@@ -170,19 +170,15 @@
 | Tahoe second implementation, same wells / replicate plate | 0.23–0.32 / 0.02–0.07 | 0.23–0.32 / 0.02–0.07 | 0.23–0.32 / 0.02–0.07 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
 | Effective-clone bound: perturbations with z² > 1, D1 / D2 rest | 85–91% | 85–91% | 85–91% | manuscript_v2.md |
 | cell-eval median cells per side | 62 | 62 | 62 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
-| Fig. 2b bootstrap half-widths, guide / random (percentage points) | about ±3 / below ±1 | 3.6 / 1.1 | 3.6 / 1.1 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
-| Fig. 3b histogram perturbations (D1 rest, >= 30 TRBC cells) | 6,610 | 6,610 | 6,610 | manuscript_v2.md |
-| Fig. 3b var(z) n, D1 / D2 | 10,165 / 9,334 | 10,165 / 9,334 | 10,165 / 9,334 | manuscript_v2.md |
-| Fig. 3c n, random / guide (>= 15 TRBC cells per half) | 6,568 / 6,072 | 6,568 / 6,072 | 6,568 / 6,072 | manuscript_v2.md, preprint_clone_ledger.md |
-| Fig. 3c r, guide halves, D1 | −0.01 | -0.01 | -0.01 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
-| Fig. 3e targets: D1 rest / stim, D2 rest / stim | 909 / 856 / 520 / 523 | 909 / 856 / 520 / 523 | 909 / 856 / 520 / 523 | manuscript_v2.md |
+| Fig. 2b bootstrap half-widths, guide / random (percentage points) | about ±3 / about ±1 | 3.6 / 1.1 | 3.6 / 1.1 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
+| Fig. 3c n, random / guide (>= 15 TRBC cells per half) | 6,568 / 6,072 | 6,568 / 6,072 | 6,568 / 6,072 | preprint_clone_ledger.md |
+| Fig. 3c r, guide halves, D1 | −0.01 | -0.01 | -0.01 | supplementary_v1.md, preprint_clone_ledger.md |
 | Fig. 4b / 5b n: all / unexpressed / expressed | 6,615 / 1,235 / 1,097 | 6,615 / 1,235 / 1,097 | 6,615 / 1,235 / 1,097 | manuscript_v2.md |
 | Fig. 5d n, CD4 donor 2 | 5,003 | 5,003 | 5,003 | manuscript_v2.md, preprint_clone_ledger.md |
-| Fig. 5d n, K562–RPE1 | 1,820 | 1,820 | 1,820 | manuscript_v2.md |
 | Fig. 2b n, donor halves | 1,479 | 1,479 | 1,479 | manuscript_v2.md, preprint_clone_ledger.md |
 | DMSO lines per plate | 47–48 | 47–48 | 47–48 | manuscript_v2.md, supplementary_v1.md |
 | Tahoe lines × conditions | 48 lines × 91 conditions | 48 lines × 91 conditions | 48 lines × 91 conditions | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
-| Tahoe ceilings, reverse direction (Pearson, discrimination) | 0.64 and 0.92 | 0.64 and 0.92 | 0.64 and 0.92 | manuscript_v2.md, preprint_clone_ledger.md |
+| Tahoe ceilings, reverse direction (Pearson, discrimination) | 0.64 and 0.92 | 0.64 and 0.92 | 0.64 and 0.92 | preprint_clone_ledger.md |
 | Model perturbations | 800 | 800 | 800 | manuscript_v2.md |
 | Tahoe plates 6 / 14 shared conditions; largest other pair | 94; 13 | 94; 13 | 94; 13 | manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md |
 | Largest spread of D1 null shares across extractions and halvings (percentage points) | 1.5 | 1.5 | 1.5 | manuscript_v2.md |

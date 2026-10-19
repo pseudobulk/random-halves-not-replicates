@@ -63,7 +63,7 @@ TEXT_ROUNDING = {"K562 expressed recurrence": "text 0.84 (84%)", "K562 bound, on
                  "Energy inflation, context-specific / shared (printed as 8–9 times)": "7.6 and 9.1 printed as 8–9",
                  "CD4 predictor, random halves, D1 / D2 (printed as about 0.5)": "0.47 and 0.52 printed as about 0.5",
                  "CD4 predictor near 0: guide D1, guide D2, matched D1, matched D2, same guide across donors": "all |x| <= 0.012, printed as about 0",
-                 "Fig. 2b bootstrap half-widths, guide / random (percentage points)": "TEXT-SIDE: largest random-half half-width 1.1 points (donor 1, stimulated) against 'below ±1 point' in the Fig. 2 legend; guide 3.6 against 'about ±3'"}
+                 "Fig. 2b bootstrap half-widths, guide / random (percentage points)": "largest half-widths 3.6 (guide) and 1.1 (random) points, printed as about ±3 and about ±1"}
 lines = [l for l in open(num_md, encoding="utf-8") if l.startswith("| ") and not l.startswith("| Item")]
 for l in lines:
     c = cells(l)
@@ -76,16 +76,16 @@ for l in lines:
     note = TEXT_ROUNDING.get(item, "")
     if rep2 is not None and rep2 != rep:
         note = (note + "; " if note else "") + "with the released cell-eval subset (v2): %s" % rep2
-    rows.append(("printed number", item, orig, rep, "identical at printed precision", res, "printed (v15) in %s: %s%s" % (where or "text", text, ("; " + note) if note else "")))
+    rows.append(("printed number", item, orig, rep, "identical at printed precision", res, "printed (v16) in %s: %s%s" % (where or "text", text, ("; " + note) if note else "")))
 for path, lab in ((figs1, "figure (reproduced data)"), (figs2, "figure (shipped data/)")):
     if not path:
         continue
     for l in open(path, encoding="utf-8"):
         if l.startswith("| fig") or l.startswith("| supp/"):
             c = cells(l)
-            rows.append((lab, c[0], "published v15 (figures/preprint)", "redrawn with the released code", "visually identical; noise-level pixels only", c[1], ""))
+            rows.append((lab, c[0], "published v16 (figures/preprint)", "redrawn with the released code", "visually identical; noise-level pixels only", c[1], ""))
         if l.startswith("Supplementary Information text"):
-            rows.append((lab.replace("figure", "supplement"), "supplementary_v1.md (whole text, Tables S1-S6)", "published v15", "regenerated", "identical", l.split(",")[-1].strip(), l.strip()))
+            rows.append((lab.replace("figure", "supplement"), "supplementary_v1.md (whole text, Tables S1-S6)", "published v16", "regenerated", "identical", l.split(",")[-1].strip(), l.strip()))
 with open(out, "w", encoding="utf-8", newline="\n") as f:
     for r in rows:
         f.write("\t".join(str(x).replace("\t", " ") for x in r) + "\n")

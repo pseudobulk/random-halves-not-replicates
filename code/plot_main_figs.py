@@ -44,7 +44,18 @@ def title(ax, s, sub=None):
     ax.set_title(s, loc="left", fontsize=6.5, pad=3)
 
 
+MIN_PT = 5.6   # smallest type at native size (183 mm); printed at 170 mm this stays above the 5-pt minimum
+
+
+def floor_type(fig, minimum=MIN_PT):
+    import matplotlib.text as mtext
+    for t in fig.findobj(mtext.Text):
+        if t.get_text().strip() and t.get_fontsize() < minimum:
+            t.set_fontsize(minimum)
+
+
 def save(fig, out, name):
+    floor_type(fig)
     fig.savefig(os.path.join(out, name + ".pdf")); fig.savefig(os.path.join(out, name + ".png"), dpi=300); plt.close(fig)
 
 
@@ -142,6 +153,7 @@ def fig3(d, out):
     ax.hist(np.clip(zp[ok], -25, 25), bins=bins, color=GREY, alpha=0.8, label="cells assigned at random", histtype="stepfilled", lw=0)
     ax.hist(np.clip(z[ok], -25, 25), bins=bins, color=ORANGE, alpha=0.75, label="observed", histtype="stepfilled", lw=0)
     ax.set_yscale("log"); edge_ticks(ax, -25, 25, [-25, -10, 0, 10, 25])
+    ax.set_yticks([1, 10, 100, 1000]); ax.set_yticklabels(["1", "10", "100", "1,000"]); ax.minorticks_off()   # no superscripts (type floor)
     ax.set_xlabel("TRBC1 share of a perturbation (z-score)"); ax.set_ylabel("perturbations")
     ax.legend(fontsize=5.6, loc="upper left")
     title(ax, "TRBC1 share per perturbation")
@@ -259,10 +271,15 @@ def fig4(d, out):
     # d: Tahoe ceilings
     ct = J(d, "ceiling_tahoe.json")
     ax = axmm(fig, W, H, 126, 85, 52, 30); letter(fig, W, H, 117, 73, "d")
-    cats = [("within_well_plate6", "same well, plate 6", RED), ("within_well_plate14", "same well, plate 14", "#e6b0aa"), ("across_plates", "replicate plates", BLUE)]
+    # both within-well designs are random halves (red); plate 14 is hatched rather than pink, which means "guide-specific" in Fig. 3f
+    cats = [("within_well_plate6", "same well, plate 6", RED, None), ("within_well_plate14", "same well, plate 14", RED, "////"), ("across_plates", "replicate plates", BLUE, None)]
     x = np.arange(2); w = 0.26
-    for j, (k, lab, col) in enumerate(cats):
-        ax.bar(x + (j - 1) * w, [ct[k]["pearson_delta"]["ceiling"], ct[k]["discrimination_l1_within_line"]["ceiling"]], w, color=col, label=lab)
+    for j, (k, lab, col, hatch) in enumerate(cats):
+        vals = [ct[k]["pearson_delta"]["ceiling"], ct[k]["discrimination_l1_within_line"]["ceiling"]]
+        if hatch:
+            ax.bar(x + (j - 1) * w, vals, w, facecolor="white", edgecolor=col, hatch=hatch, lw=0.6, label=lab)
+        else:
+            ax.bar(x + (j - 1) * w, vals, w, color=col, label=lab)
     ax.set_xticks(x); ax.set_xticklabels(["Pearson Δ", "discrimination\n(within line)"]); ax.set_ylim(0, 1.38); ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
     ax.set_ylabel("noise ceiling")
     title(ax, "Tahoe-100M")
@@ -336,7 +353,7 @@ def fig5(d, out):
             ratio.append(a["inert_cross_per_target"] / b["expressed_cross_per_target"]); ri.append(b["readout_share"])
         ax.plot(ratio, ri, "-" + mk, color=BLUE, ms=3.2, lw=0.8, label=lab, alpha=1 if kind == "low" else 0.45)
     ax.axvspan(4.0, 7.5, color="#eaecee", zorder=0); ax.text(5.75, 0.93, "CD4 donors", fontsize=5.5, ha="center")
-    ax.axhline(0.70, color=GREY, lw=0.6, ls="--"); ax.text(0.1, 0.72, "true value", fontsize=5.5, ha="left")
+    ax.axhline(0.70, color=GREY, lw=0.6, ls="--"); ax.text(2.0, 0.72, "true value", fontsize=5.5, ha="left")
     ax.set_xlabel("unit-to-signal energy ratio"); ax.set_ylabel("explained share,\nindependent units"); ax.set_ylim(0, 1.0)
     ax.set_yticks([0, 0.2, 0.4, 0.6, 0.8]); ax.legend(fontsize=5.4, loc="upper left", bbox_to_anchor=(0.12, 1.0))
     title(ax, "Model, true explained share 0.70")

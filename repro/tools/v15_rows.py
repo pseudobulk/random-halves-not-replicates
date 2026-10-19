@@ -126,7 +126,7 @@ ROWS15 = [
     ("Tahoe second implementation, same wells / replicate plate", "0.23–0.32 / 0.02–0.07", _robust_tahoe),
     ("Effective-clone bound: perturbations with z² > 1, D1 / D2 rest", "85–91%", lambda d: rng([_J(d, "trbc_state_keff.json")[D]["keff_rest"]["frac_z2_gt1"] for D in ("D1", "D2")])),
     ("cell-eval median cells per side", "62", lambda d: "%.0f" % celleval_median(d)),
-    ("Fig. 2b bootstrap half-widths, guide / random (percentage points)", "about ±3 / below ±1", lambda d: "%.1f / %.1f" % (ci_halfwidth(d, "guide"), ci_halfwidth(d, "random"))),
+    ("Fig. 2b bootstrap half-widths, guide / random (percentage points)", "about ±3 / about ±1", lambda d: "%.1f / %.1f" % (ci_halfwidth(d, "guide"), ci_halfwidth(d, "random"))),
     ("Fig. 3b histogram perturbations (D1 rest, >= 30 TRBC cells)", "6,610", lambda d: format(n_trbc(d, "D1", "hist"), ",")),
     ("Fig. 3b var(z) n, D1 / D2", "10,165 / 9,334", lambda d: "%s / %s" % (format(clone(d, "D1", "rest/trbc/overdispersion/n_targets"), ","), format(clone(d, "D2", "rest/trbc/overdispersion/n_targets"), ","))),
     ("Fig. 3c n, random / guide (>= 15 TRBC cells per half)", "6,568 / 6,072", lambda d: "%s / %s" % (format(n_trbc(d, "D1", "random"), ","), format(n_trbc(d, "D1", "guide"), ","))),

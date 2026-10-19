@@ -2,9 +2,9 @@
 
 The whole analysis was rerun from the raw public data with the code in this repository, following
 `pipelines/run_all.sh`. Every result was compared with the original outputs behind the preprint, and every printed
-number, figure and the Supplementary Information was checked against preprint v15. `repro/comparison.tsv` lists each
-comparison; `repro/number_inventory.tsv` classifies every number in the manuscript text (464), and
-`repro/printed_numbers.md` checks the 186 printed results one by one (`repro/intermediate/` holds the few values
+number, figure and the Supplementary Information was checked against preprint v16. `repro/comparison.tsv` lists each
+comparison; `repro/number_inventory.tsv` classifies every number in the manuscript text (422), and
+`repro/printed_numbers.md` checks the 182 printed results one by one (`repro/intermediate/` holds the few values
 taken from intermediate outputs); `repro/tools/` holds
 the comparison scripts.
 
@@ -41,7 +41,7 @@ the comparison scripts.
 | Nadig (Jurkat–HepG2 pass test) | 1 | bit-identical |
 | Simulation | 1 | identical up to 4 × 10⁻¹⁶ |
 | cell-eval 0.8.2 | 1 | see below |
-| Printed numbers (manuscript, Supplementary Information, ledger) | 186 | all identical between the original and the rerun at printed precision; every value found in the v15 text, supplement or ledger; one text-side note (Fig. 2 legend: a random-half interval of ±1.1 points is described as below ±1) |
+| Printed numbers (manuscript, Supplementary Information, ledger) | 182 | all identical between the original and the rerun at printed precision; every value found in the v16 text, supplement or ledger |
 | Figures 1–5, Supplementary Figures S1–S3 | 10 images | identical from `data/`; from the rerun, identical except Fig. 3 (6 pixels by 1/255, anti-aliasing) |
 | Supplementary Information text (Tables S1–S6) | 201 lines | identical |
 
@@ -57,7 +57,7 @@ cell-eval on it reproduces the original output exactly (1,476 values). The relea
 the corrected extraction, as the Methods describe: 60,238 instead of 60,310 cells, median 62 instead of 66 cells per
 side and a different random draw of the 150 unexpressed targets (the 150 strong knockdowns are the same). Eight
 printed cell-eval values changed in the second decimal and one guide-half ceiling became undefined (split-half
-correlation −0.01; cell-eval reports no ceiling for r ≤ 0). Preprints v12 to v15 use the released result, `data/celleval.json`,
+correlation −0.01; cell-eval reports no ceiling for r ≤ 0). Preprints v12 to v16 use the released result, `data/celleval.json`,
 and all its conclusions hold. All other inputs were produced from post-audit extractions or by scripts the audit did
 not change, and they reproduce as listed above.
 
@@ -70,5 +70,5 @@ not change, and they reproduce as listed above.
 ## Not covered
 
 - Supplementary Table S6 is text written before the donor-2 analysis; it is not computed.
-- `code/build_preprint_pdf.py` was not rerun; the published PDF was built with the Springer Nature template, which is
-  not part of this repository.
+- `code/build_preprint_sn.py` was not rerun here; it needs the Springer Nature LaTeX template, which is not part of this
+  repository.

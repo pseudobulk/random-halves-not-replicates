@@ -25,7 +25,9 @@ Supplementary Information text with Tables S1–S6 (`paper/supplementary_v1.temp
 drawn this way are identical to the published ones (pixel for pixel and line for line; checked with Python 3.14,
 NumPy 2.5, Matplotlib 3.11 on Windows). Arial is used if installed, otherwise DejaVu Sans, which changes the glyphs but
 not the content. `paper/` holds the manuscript text and the Supplementary Information template the tables are filled
-into; `code/build_preprint_pdf.py` assembles a simple PDF from them (pandoc and xelatex).
+into; `code/build_preprint_sn.py` typesets the preprint PDF from them with pandoc and pdflatex, using the Springer
+Nature LaTeX template (journal article template package, December 2024), which is not redistributed here: place its
+files in `paper/sn_template/` and the generated `supplementary_v1.md` in `paper/` first.
 `data/README.md` lists, for every file, the script and stage that produce it.
 
 ## Full analysis

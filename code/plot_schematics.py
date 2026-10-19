@@ -267,6 +267,10 @@ def fig6(out):
 
 
 def save(fig, out, name):
+    import matplotlib.text as mtext
+    for t in fig.findobj(mtext.Text):          # same type floor as plot_main_figs.MIN_PT
+        if t.get_text().strip() and t.get_fontsize() < 5.6:
+            t.set_fontsize(5.6)
     fig.savefig("%s/%s.pdf" % (out, name)); fig.savefig("%s/%s.png" % (out, name), dpi=300); plt.close(fig)
 
 
