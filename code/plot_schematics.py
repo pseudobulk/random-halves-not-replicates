@@ -108,9 +108,7 @@ def fig1(out):
     # ---------- b ----------
     panel_letter(ax, 2, 61, "b")
     label(ax, 8, 58.5, "Uses of random halves", fontsize=7)
-    uses = [("reliability and\nnoise ceilings", "how well could any\nmodel score?"),
-            ("denoising and variance\ncomponents", "how much is reproducible,\nhow much context-specific?"),
-            ("cross-context\nprediction", "predict context-specific\nresponses from shared ones")]
+    uses = [("noise ceilings and\nreliability labels", ""), ("shared and context-\nspecific parts", ""), ("transfer across\ncontexts", "")]
     for k, (t, s) in enumerate(uses):
         x0 = 4 + k * 31.5
         card(ax, x0, 8, 29.5, 46)
@@ -147,7 +145,8 @@ def fig1(out):
     ax.plot([101.5, 178], [47, 47], color="#d5d8dc", lw=0.6)
     rows = [("primary CD4 T\n(4 donors)", "CRISPRi,\ngenome-wide", "guides; donors", "unexpressed\ntargets;\nNT guides"),
             ("K562 / RPE1", "CRISPRi,\nessential", "two K562\nscreens", "unexpressed\ntargets*;\nNT guides"),
-            ("Jurkat / HepG2", "CRISPRi,\nessential", "none", "unexpressed\ntargets*;\nNT guides")]
+            ("Jurkat / HepG2", "CRISPRi,\nessential", "none", "unexpressed\ntargets*;\nNT guides"),
+            ("H1 hESC\n(VCC 2025)", "CRISPRi,\n150 targets", "none", "NT\nconstructs")]
     for i, r in enumerate(rows):
         y = 41.5 - i * 8.6
         if i % 2 == 0:
