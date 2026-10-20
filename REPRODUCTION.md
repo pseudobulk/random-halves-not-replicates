@@ -24,11 +24,13 @@ against stimulated cells. The correlation between states is now computed on the 
 donor 1 and 0.94 (n = 4,963) in donor 2, replacing 0.89 (n = 9,830) and 0.94 (n = 9,037) computed on all perturbations
 (`trbc_state_keff.json`). The other panels of Fig. 5 move from b–d to c–e.
 
-The record below was last checked against preprint v22. `repro/comparison.tsv` lists each comparison;
-`repro/number_inventory.tsv` classifies every number in the v22 manuscript text (361); `repro/printed_numbers.md`
-checks the 141 results printed in v22 one by one and keeps, in separate sections, the 55 results checked against
-earlier versions that v22 no longer prints (31 of them Tahoe-100M results, now in the same-well paper; 15 only in the
-authors' number ledger). `repro/intermediate/` holds the few values taken from intermediate outputs, and `repro/tools/`
+The record below was last checked against the manuscript of commit 55d555a (title "Shared clones make random cell halves
+look reproducible in pooled screens"). `repro/comparison.tsv` lists each comparison; `repro/number_inventory.tsv`
+classifies every number in the manuscript text (371); `repro/printed_numbers.md` checks the 144 results printed in it one
+by one and keeps, in separate sections, the 56 results checked against earlier versions that are no longer printed (31
+of them Tahoe-100M results, now in the same-well paper; 16 only in the authors' number ledger). All 200 agree between the
+original results and the rerun. One printed range differs from its computed value: "10–20%" of the random-half signal
+reproduced by the other guide, where the three Fig. 3f bars give 19.0%, 15.7% and 10.3% (10–19%). `repro/intermediate/` holds the few values taken from intermediate outputs, and `repro/tools/`
 the comparison scripts.
 
 ## Acceptance criteria
@@ -64,9 +66,9 @@ the comparison scripts.
 | Nadig (Jurkat–HepG2 pass test) | 1 | bit-identical |
 | Simulation | 1 | identical up to 4 × 10⁻¹⁶ |
 | cell-eval 0.8.2 | 1 | see below |
-| Printed numbers (v22 manuscript and Supplementary Information) | 141 | all identical between the original and the rerun at printed precision; the 55 results checked against earlier versions agree as well |
-| Figures 1–5, Supplementary Figures S1–S2 (v22) | 9 images | identical from `data/`; from the rerun, identical except Fig. 3 (6 pixels by 1/255, anti-aliasing) |
-| Supplementary Information text (v22, Tables S1–S5) | 168 lines | identical |
+| Printed numbers (manuscript of 55d555a and Supplementary Information) | 144 | all identical between the original and the rerun at printed precision, and so are the 56 results checked against earlier versions; one printed range in the text (10–20%) is wider than the computed 10–19% |
+| Figures 1–5, Supplementary Figures S1–S3 | 10 images | identical from `data/`; from the rerun, identical except Fig. 3 (6 pixels by 1/255, anti-aliasing) |
+| Supplementary Information text (Tables S1–S5) | 172 lines | identical |
 
 Files present only in the original output folders were written by scripts outside this repository
 (`cd4_sc_analyze.py` and two exploratory Tahoe scripts); no number in the paper depends on them.

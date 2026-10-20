@@ -95,6 +95,19 @@ def _tahoe_ceil(d):
     return "%.2f–%.2f against %.2f" % (min(w), max(w), t["across_plates"]["pearson_delta"]["ceiling"])
 
 
+def trbc_states(d, donor):
+    """TRBC1 deviation z/sqrt(n) per state, perturbations of the main analysis (cd4_D*.npz) with >= 30 TRBC cells in both"""
+    z = _npz(d, donor); m = (z["trbc_n_rest"] >= 30) & (z["trbc_n_stim"] >= 30)
+    a = z["trbc_z_rest"][m] / np.sqrt(z["trbc_n_rest"][m]); b = z["trbc_z_stim"][m] / np.sqrt(z["trbc_n_stim"][m])
+    k = np.isfinite(a) & np.isfinite(b)
+    return float(np.corrcoef(a[k], b[k])[0, 1]), int(k.sum())
+
+
+def _rep(d, donor, st):
+    c = _J(d, "clone_%s.json" % donor)[st]["depth"]
+    return c["guide_half"]["expressed"]["cross_per_target"] / c["random_half"]["expressed"]["cross_per_target"]
+
+
 DS = (("D1", "rest", "rest"), ("D1", "stim48", "stim"), ("D2", "rest", "rest"))
 
 ROWS15 = [
@@ -140,6 +153,10 @@ ROWS15 = [
     ("Tahoe lines × conditions", "48 lines × 91 conditions", lambda d: "%d lines × %d conditions" % (_J(d, "ci_tahoe.json")["n_lines"], _J(d, "ci_tahoe.json")["n_conditions"])),
     ("Tahoe ceilings, reverse direction (Pearson, discrimination)", "0.64 and 0.92", lambda d: "%.2f and %.2f" % (_J(d, "ceiling_tahoe.json")["across_plates_rev"]["pearson_delta"]["ceiling"], _J(d, "ceiling_tahoe.json")["across_plates_rev"]["discrimination_l1_within_line"]["ceiling"])),
     ("Fig. 2c n: CD4 NT guides D1 / D2 rest; NT constructs K562 essential / K562 GW / RPE1 / Jurkat / HepG2 / H1", "739 / 578; 97 / 507 / 113 / 128 / 112 / 31", lambda d: "%d / %d; %s" % (_J(d, "ntc_null.json")["D1_rest"]["n_guides"], _J(d, "ntc_null.json")["D2_rest"]["n_guides"], " / ".join(str(_J(d, f)[k]["n_constructs"]) for f, k in (("cl_ntc_replogle.json", "k562_ess"), ("cl_ntc_replogle.json", "k562_gw1"), ("cl_ntc_replogle.json", "rpe1"), ("cl_ntc_nadig.json", "jurkat"), ("cl_ntc_nadig.json", "hepg2"), ("cl_ntc_h1.json", "h1"))))),
+    ("TRBC1 deviation, resting vs stimulated, D1 / D2 (cd4_D*.npz, >= 30 TRBC cells in both states)", "0.90 and 0.94", lambda d: "%.2f and %.2f" % (trbc_states(d, "D1")[0], trbc_states(d, "D2")[0])),
+    ("TRBC1 resting vs stimulated, perturbations D1 / D2", "6,582 / 4,963", lambda d: "%s / %s" % (format(trbc_states(d, "D1")[1], ","), format(trbc_states(d, "D2")[1], ","))),
+    ("Random-half signal reproduced by the other guide, range", "10–20%", lambda d: rng([_rep(d, D, s) for D, s, r in DS])),
+    ("Fig. 4b n, donor 2: all / unexpressed / expressed", "5,003; 869; 859", lambda d: "%s; %s; %s" % tuple(format(_J(d, "ci_cd4_D2.json")[k], ",") for k in ("n_targets", "n_inert", "n_expressed"))),
     ("Model perturbations", "800", lambda d: "%d" % _J(d, "sim_v6.json")["params"]["P"]),
     ("Tahoe plates 6 / 14 shared conditions; largest other pair", "94; 13", lambda d: open(os.path.join(d, "plate_overlap.txt")).read().strip()),
 ]

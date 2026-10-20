@@ -69,6 +69,7 @@ code, at the precision printed in the text. The later sections keep rows checked
 | Wang reliable, random, unexpressed, D2 | 42% | 42% | 42% | manuscript_v2.md, supplementary_v1.md |
 | Wang reliable, random, expressed, D2 | 52% | 52% | 52% | manuscript_v2.md, supplementary_v1.md |
 | Wang reliable, guide, unexpressed, D2 | 0.9% | 0.9% | 0.9% | manuscript_v2.md, supplementary_v1.md |
+| Wang reliable, guide, expressed, D2 | 2.3% | 2.3% | 2.3% | manuscript_v2.md |
 | CD4 context-specific share, random, D1 (CI) | 0.30 (0.30–0.31) | 0.30 (0.30–0.31) | 0.30 (0.30–0.31) | supplementary_v1.md |
 | Context-specific energy ratio random / guide | 7.6 | 7.6 | 7.6 | manuscript_v2.md, supplementary_v1.md |
 | Shared energy ratio | 9 | 9 | 9 | manuscript_v2.md, supplementary_v1.md |
@@ -109,9 +110,7 @@ code, at the precision printed in the text. The later sections keep rows checked
 | H1 NT / targeting random-half signal | 0.6% | 0.6% | 0.6% | manuscript_v2.md, supplementary_v1.md |
 | H1 cells / targets / NT constructs | 221,273 / 150 / 31 | 221,273 / 150 / 31 | 221,273 / 150 / 31 | manuscript_v2.md |
 | CD4 NT / targeting random-half signal, D1 / D2 rest | 1.2–1.3 | 1.16 / 1.31 | 1.16 / 1.31 | manuscript_v2.md |
-| TRBC1 deviation, rest vs stim, D1 | 0.89 | 0.89 | 0.89 | manuscript_v2.md |
 | TRBC1 deviation, rest vs stim, D2 | 0.94 | 0.94 | 0.94 | manuscript_v2.md, supplementary_v1.md |
-| TRBC rest-vs-stim perturbations, D1 / D2 | 9,830 / 9,037 | 9,830 / 9,037 | 9,830 / 9,037 | manuscript_v2.md |
 | Effective clones, median upper bound, D1 rest | about 7 | 7 | 7 | manuscript_v2.md, supplementary_v1.md |
 | Effective clones, median upper bound, D2 rest | 4 | 4 | 4 | manuscript_v2.md, supplementary_v1.md |
 | Null positive, random halves, all donors and states | 96–99% | 96–99% | 96–99% | manuscript_v2.md, supplementary_v1.md |
@@ -144,6 +143,10 @@ code, at the precision printed in the text. The later sections keep rows checked
 | Fig. 5c n, CD4 donor 2 | 5,003 | 5,003 | 5,003 | manuscript_v2.md |
 | Fig. 2b n, donor halves | 1,479 | 1,479 | 1,479 | manuscript_v2.md |
 | Fig. 2c n: CD4 NT guides D1 / D2 rest; NT constructs K562 essential / K562 GW / RPE1 / Jurkat / HepG2 / H1 | 739 / 578; 97 / 507 / 113 / 128 / 112 / 31 | 739 / 578; 97 / 507 / 113 / 128 / 112 / 31 | 739 / 578; 97 / 507 / 113 / 128 / 112 / 31 | manuscript_v2.md, supplementary_v1.md |
+| TRBC1 deviation, resting vs stimulated, D1 / D2 (cd4_D*.npz, >= 30 TRBC cells in both states) | 0.90 and 0.94 | 0.90 and 0.94 | 0.90 and 0.94 | manuscript_v2.md |
+| TRBC1 resting vs stimulated, perturbations D1 / D2 | 6,582 / 4,963 | 6,582 / 4,963 | 6,582 / 4,963 | manuscript_v2.md |
+| Random-half signal reproduced by the other guide, range | 10–20% | 10–19% | 10–19% | manuscript_v2.md |
+| Fig. 4b n, donor 2: all / unexpressed / expressed | 5,003; 869; 859 | 5,003; 869; 859 | 5,003; 869; 859 | manuscript_v2.md |
 | Model perturbations | 800 | 800 | 800 | manuscript_v2.md |
 | Largest spread of D1 null shares across extractions and halvings (percentage points) | 1.5 | 1.5 | 1.5 | manuscript_v2.md, supplementary_v1.md |
 
@@ -158,7 +161,6 @@ code, at the precision printed in the text. The later sections keep rows checked
 | K562 unexpressed recurrence CI high | 0.92 | 0.92 | 0.92 | ledger only |
 | Expressed energy, random halves, D1 rest | 8.9 | 8.9 | 8.9 | ledger only |
 | Expressed energy, random halves, D2 rest | 16.3 | 16.3 | 16.3 | ledger only |
-| Wang reliable, guide, expressed, D2 | 2.3% | 2.3% | 2.3% | ledger only |
 | Context-specific energy, random / guide | 2.58 / 0.34 | 2.58 / 0.34 | 2.58 / 0.34 | ledger only |
 | Shared energy, random / guide | 5.88 / 0.65 | 5.88 / 0.65 | 5.88 / 0.65 | ledger only |
 | CD4 predictor, guide, D1 (CI) | 0.004 (0.000–0.007) | 0.004 (0.000–0.007) | 0.004 (0.000–0.007) | ledger only |
@@ -166,6 +168,8 @@ code, at the precision printed in the text. The later sections keep rows checked
 | Same-guide predictor across donors | 0.012 | 0.012 | 0.012 | ledger only |
 | K562-RPE1 predictor, same pair (targets K8, K6; k 10-20) | 0.57–0.63 | 0.57–0.63 | 0.57–0.63 | ledger only |
 | Cell-line and H1 NT constructs, different constructs positive, min-max | 49–51% | 49–51% | 49–51% | ledger only |
+| TRBC1 deviation, rest vs stim, D1 | 0.89 | 0.89 | 0.89 | ledger only |
+| TRBC rest-vs-stim perturbations, D1 / D2 | 9,830 / 9,037 | 9,830 / 9,037 | 9,830 / 9,037 | ledger only |
 
 ## Tahoe-100M results, moved to the same-well paper in v22
 

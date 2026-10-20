@@ -64,6 +64,7 @@ MANUAL = {"1.5": "result (row: largest spread of D1 null shares)", "0.67": "anal
 SMALL = {"0", "1", "2", "3", "4", "0,", "1,", "2,", "0.5", "10", "20", "6", "14", "14,"}
 FIX = [("about 0 under guide halves", "0", "result (row: CD4 predictor near 0)"),
        ("true value of 0", "0", "result (row: Model: fabricated predictor, true value 0)"),
+       ("true value is 0", "0", "result (row: Model: fabricated predictor, true value 0)"),
        ("about 0.5 under random", "0.5", "result (row: CD4 predictor, random halves, about 0.5)"),
        ("±3 point", "3", "result (row: Fig. 2b bootstrap half-widths)"), ("about ±1 point", "1", "result (row: Fig. 2b bootstrap half-widths)"),
        ("dashed line, 1.", "1", "plot element (ratio of 1)"), ("clipped to [−15, 30]", "30", "plot element (axis clipping)"),
@@ -84,10 +85,10 @@ for l in lines:
     cat = next((c for key, t, c in FIX if key in ctx and tok == t), None)
     if cat is None and tok.strip(",") in MANUAL:
         cat = MANUAL[tok.strip(",")]
-    if cat is None:
-        cat = next((name for rx, name in PARAM if re.search(rx, pre[-30:])), None)
     if cat is None and parts and all(p in covered for p in parts) and tok not in SMALL:
         cat = "result (row: %s)" % covered[parts[0]]
+    if cat is None:
+        cat = next((name for rx, name in PARAM if re.search(rx, pre[-30:])), None)
     if cat is None and re.search(DESIGN, post):
         cat = "parameter or design count"
     if cat is None and re.search(r"(2025|2026|20029387|10\.25452|23476350|10\.5281)", tok):
