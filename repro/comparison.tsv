@@ -31,9 +31,9 @@ extraction	extract/D2_Stim48hr_ntc/sum2.npy	n=32706520	max abs 0.000977	float32 
 extraction	extract/D2_Stim48hr_random/ctrl_moments.npz	n=1383963	max abs 1.44e+04	float32 noise; printed values unchanged	float noise (max rel 9.48e-08)	float32 sums: per-worker accumulation order (WORKERS 32 here, 48/16 originally; Tahoe batched as downloaded)
 extraction	extract/D2_Stim48hr_random/sum_half.npy	n=438202100	max abs 0.0312	float32 noise; printed values unchanged	float noise (max rel 6.98e-07)	float32 sums: per-worker accumulation order (WORKERS 32 here, 48/16 originally; Tahoe batched as downloaded)
 extraction	extract/D2_Stim48hr_random/sum_phase.npy	n=657303150	max abs 0.0469	float32 noise; printed values unchanged	float noise (max rel 6.63e-07)	float32 sums: per-worker accumulation order (WORKERS 32 here, 48/16 originally; Tahoe batched as downloaded)
-extraction	extract/tahoe_agg/index.json	n=1	max abs 2	float32 noise; printed values unchanged	same content except the number of merged partial files	Tahoe reduce: 14 vs 16 partial files
-extraction	extract/tahoe_agg/phase_sums.npy	n=48787200	max abs 0.00017	float32 noise; printed values unchanged	float noise (max rel 1.14e-07)	float32 sums: per-worker accumulation order (WORKERS 32 here, 48/16 originally; Tahoe batched as downloaded)
-extraction	extract/tahoe_agg/sums64.npy	n=2439494400	max abs 0.00127	float32 noise; printed values unchanged	float noise (max rel 1.47e-07)	float32 sums: per-worker accumulation order (WORKERS 32 here, 48/16 originally; Tahoe batched as downloaded)
+extraction	extract/tahoe_agg/index.json	n=1	max abs 2	float32 noise; printed values unchanged	same content except the number of merged partial files	Tahoe reduce: 14 vs 16 partial files; Tahoe-100M: not in the paper since v22 (same-well paper)
+extraction	extract/tahoe_agg/phase_sums.npy	n=48787200	max abs 0.00017	float32 noise; printed values unchanged	float noise (max rel 1.14e-07)	float32 sums: per-worker accumulation order (WORKERS 32 here, 48/16 originally; Tahoe batched as downloaded); Tahoe-100M: not in the paper since v22 (same-well paper)
+extraction	extract/tahoe_agg/sums64.npy	n=2439494400	max abs 0.00127	float32 noise; printed values unchanged	float noise (max rel 1.47e-07)	float32 sums: per-worker accumulation order (WORKERS 32 here, 48/16 originally; Tahoe batched as downloaded); Tahoe-100M: not in the paper since v22 (same-well paper)
 extraction	extract/D1_Rest_cells/cells.npz	n=27670464	max abs 0	bit-identical	bit-identical	
 extraction	extract/D1_Rest_cells/n8.npy	n=96824	max abs 0	bit-identical	bit-identical	
 extraction	extract/D1_Rest_guide/cells.npz	n=33819456	max abs 0	bit-identical	bit-identical	
@@ -54,7 +54,7 @@ extraction	extract/D2_Stim48hr_cells/n8.npy	n=96680	max abs 0	bit-identical	bit-
 extraction	extract/D2_Stim48hr_guide/cells.npz	n=31499281	max abs 0	bit-identical	bit-identical	
 extraction	extract/D2_Stim48hr_ntc/n2.npy	n=1804	max abs 0	bit-identical	bit-identical	
 extraction	extract/D2_Stim48hr_random/cells.npz	n=31499281	max abs 0	bit-identical	bit-identical	
-extraction	extract/tahoe_agg/counts.npy	n=672000	max abs 0	bit-identical	bit-identical	
+extraction	extract/tahoe_agg/counts.npy	n=672000	max abs 0	bit-identical	bit-identical	Tahoe-100M: not in the paper since v22 (same-well paper)
 extraction	replogle/indep/metrics_replogle_indep_readout.json	n=68	max abs 0	bit-identical	bit-identical	
 extraction	replogle/indep/responses.npz	n=92996757	max abs 0	bit-identical	bit-identical	
 extraction	replogle/inert_line_k562_rpe1/metrics_readout_inert_line.json	n=65	max abs 0	bit-identical	bit-identical	
@@ -95,15 +95,15 @@ results	ntc/metrics_ntc_null.json	n=64	max abs 4.79e-08	float32 noise; printed v
 results	donor_split/metrics_cd4_donor_split.json	n=113	max abs 0	bit-identical	bit-identical	
 results	guide_donor/metrics_cd4_guide_donor.json	n=94	max abs 0	bit-identical	bit-identical	
 results	guide_donor/per_target_cross.npz	n=45150	max abs 0	bit-identical	bit-identical	
-results	tahoe/plate_recompute/metrics_tahoe_alpha_strength.json	present	absent	-	not produced by the release	written by tahoe_alpha_strength.py (exploratory, not in the release); not used by the paper
-results	tahoe/plate_recompute/metrics_tahoe_readout_source.json	present	absent	-	not produced by the release	written by tahoe_readout_source.py (exploratory, not in the release); not used by the paper
-results	tahoe/plate_recompute/D_arrays.npz	n=172533986	max abs 0	bit-identical	bit-identical	
-results	tahoe/plate_recompute/metrics_tahoe_plate_recompute.json	n=98	max abs 0	bit-identical	bit-identical	
-results	tahoe/dmso/metrics_tahoe_dmso_null.json	n=151	max abs 2.41e-06	float32 noise; printed values unchanged	float noise (max rel 4.04e-08; 0 values round differently at 1-3 significant digits)	/cross_plate_corr/median: 0.35195298388303975 vs 0.3519529815214607
-results	tahoe/ceiling/metrics_ceiling_compare.json	n=35	max abs 0	bit-identical	bit-identical	
-results	tahoe/robust/metrics_robust.json	n=48	max abs 0	bit-identical	bit-identical	
-results	tahoe/ci/metrics_ci_bootstrap.json	n=23	max abs 0	bit-identical	bit-identical	
-results	tahoe/verify/metrics_verify_headline.json	n=7	max abs 0	bit-identical	bit-identical	
+results	tahoe/plate_recompute/metrics_tahoe_alpha_strength.json	present	absent	-	not produced by the release	written by tahoe_alpha_strength.py (exploratory, not in the release); not used by the paper; Tahoe-100M: not in the paper since v22 (same-well paper)
+results	tahoe/plate_recompute/metrics_tahoe_readout_source.json	present	absent	-	not produced by the release	written by tahoe_readout_source.py (exploratory, not in the release); not used by the paper; Tahoe-100M: not in the paper since v22 (same-well paper)
+results	tahoe/plate_recompute/D_arrays.npz	n=172533986	max abs 0	bit-identical	bit-identical	Tahoe-100M: not in the paper since v22 (same-well paper)
+results	tahoe/plate_recompute/metrics_tahoe_plate_recompute.json	n=98	max abs 0	bit-identical	bit-identical	Tahoe-100M: not in the paper since v22 (same-well paper)
+results	tahoe/dmso/metrics_tahoe_dmso_null.json	n=151	max abs 2.41e-06	float32 noise; printed values unchanged	float noise (max rel 4.04e-08; 0 values round differently at 1-3 significant digits)	/cross_plate_corr/median: 0.35195298388303975 vs 0.3519529815214607; Tahoe-100M: not in the paper since v22 (same-well paper)
+results	tahoe/ceiling/metrics_ceiling_compare.json	n=35	max abs 0	bit-identical	bit-identical	Tahoe-100M: not in the paper since v22 (same-well paper)
+results	tahoe/robust/metrics_robust.json	n=48	max abs 0	bit-identical	bit-identical	Tahoe-100M: not in the paper since v22 (same-well paper)
+results	tahoe/ci/metrics_ci_bootstrap.json	n=23	max abs 0	bit-identical	bit-identical	Tahoe-100M: not in the paper since v22 (same-well paper)
+results	tahoe/verify/metrics_verify_headline.json	n=7	max abs 0	bit-identical	bit-identical	Tahoe-100M: not in the paper since v22 (same-well paper)
 results	replogle/indep/metrics_replogle_indep_readout.json	n=68	max abs 0	bit-identical	bit-identical	
 results	replogle/indep/responses.npz	n=92996757	max abs 0	bit-identical	bit-identical	
 results	replogle/k562_inert_screens/metrics_k562_inert_screens.json	n=27	max abs 0	bit-identical	bit-identical	
@@ -118,207 +118,219 @@ results	ntc/cd4_ntc_ratio.json	n=14	max abs 2.47e-07	float32 noise; printed valu
 results	replogle/cl_ntc/cl_ntc_replogle.json	n=51	max rel 1.9e-06	float32 noise; printed values unchanged	float noise (max rel 1.9e-06; 0 values round differently at 1-3 significant digits)	values compared without the run-time (seconds) and file-name fields
 results	replogle/cl_ntc/cl_ntc_nadig.json	n=34	max rel 1.8e-06	float32 noise; printed values unchanged	float noise (max rel 1.8e-06; 0 values round differently at 1-3 significant digits)	values compared without the run-time (seconds) and file-name fields
 results	replogle/cl_ntc/cl_ntc_h1.json	n=17	max rel 1.9e-06	float32 noise; printed values unchanged	float noise (max rel 1.9e-06; 0 values round differently at 1-3 significant digits)	values compared without the run-time (seconds) and file-name fields
-printed number	Unexpressed targets, donor 1 / donor 2 (n)	1,239 / 872	1,239 / 872	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 1,239 / 872
-printed number	Null positive, random halves, D1 rest	98.9%	98.9%	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 98.9%
-printed number	Null positive, random halves, D1 stim	96.2%	96.2%	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 96.2%
-printed number	Null positive, random halves, D2 rest	99.2%	99.2%	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 99.2%
-printed number	Null positive, random halves, D2 stim	98.5%	98.5%	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 98.5%
-printed number	Null positive, guide halves, D1 rest	48.6%	48.6%	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 48.6%
-printed number	Null positive, guide halves, D1 stim	53.7%	53.7%	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 53.7%
-printed number	Null positive, guide halves, D2 rest	52.2%	52.2%	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 52.2%
-printed number	Null positive, guide halves, D2 stim	49.9%	49.9%	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 49.9%
-printed number	Donor halves, null positive, rest	55%	55%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 55%
-printed number	Donor halves, null positive, stim	53%	53%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 53%
-printed number	NTC random halves positive, min	96.6%	96.6%	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 96.6%
-printed number	NTC random halves positive, max	98.8%	98.8%	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 98.8%
-printed number	NTC different guides positive, min	48.8%	48.8%	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 48.8%
-printed number	NTC different guides positive, max	49.8%	49.8%	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 49.8%
-printed number	DMSO between-half Pearson, median over plates	0.53	0.53	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.53
-printed number	DMSO Pearson range across plates, min	0.32	0.32	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.32
-printed number	DMSO Pearson range across plates, max	0.79	0.79	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.79
-printed number	DMSO well effect per well / drug, median	0.19	0.19	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.19
-printed number	DMSO well effect range, min	0.08	0.08	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.08
-printed number	DMSO well effect range, max	0.76	0.76	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.76
-printed number	DMSO share common to all lines	76%	76%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 76%
-printed number	DMSO cross-plate correlation, median	0.35	0.35	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.35
-printed number	TRBC var(z), D1 rest	34	34	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 34
-printed number	TRBC var(z), D2 rest	81	81	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 81
-printed number	TRBC var(z) permuted, D1 rest	1.0	1.0	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 1.0
-printed number	TRBC deviation r, random halves, D1 (npz, Fig. 3c)	0.93	0.93	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 0.93
-printed number	TRBC deviation r, random halves, D2	0.96	0.96	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.96
-printed number	TRBC deviation r, guide halves, D1	-0.01	-0.01	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: −0.01
-printed number	TRBC deviation r, guide halves, D2	0.02	0.02	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.02
-printed number	Clone skew Spearman (per-state def.), D1 rest	0.229	0.229	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 0.229
-printed number	Clone skew Spearman (per-state def.), D2 rest	0.227	0.227	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 0.227
-printed number	Clone skew Spearman (per-state def.), D1 stim	0.159	0.159	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 0.159
-printed number	Clone skew Spearman (per-state def.), D2 stim	0.160	0.160	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 0.160
-printed number	TRBC valid cells, D1 rest (millions)	1.75	1.75	identical at printed precision	match	printed (v16) in manuscript_v2.md: 1.75
-printed number	TRBC valid cells, D1 stim (millions)	1.58	1.58	identical at printed precision	match	printed (v16) in manuscript_v2.md: 1.58
-printed number	Same guide across donors, null positive rest	57%	57%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 57%
-printed number	Same guide across donors, null positive stim	54%	54%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 54%
-printed number	Different guides across donors, null positive rest	51%	51%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 51%
-printed number	Different guides across donors, null positive stim	51%	51%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 51%
-printed number	K562 unexpressed recurrence across screens	0.85	0.85	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.85
-printed number	K562 unexpressed recurrence CI low	0.75	0.75	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.75
-printed number	K562 unexpressed recurrence CI high	0.92	0.92	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 0.92
-printed number	K562 unexpressed targets (n)	178	178	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md: 178
-printed number	K562 expressed targets (n)	651	651	identical at printed precision	match	printed (v16) in supplementary_v1.md: 651
-printed number	Depth: random quarter cross, null, D1 rest	6.7	6.7	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 6.7
-printed number	Depth: random half cross, null, D1 rest	6.8	6.8	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 6.8
-printed number	Depth: random quarter cross, null, D2 rest	12.6	12.6	identical at printed precision	match	printed (v16) in supplementary_v1.md: 12.6
-printed number	Depth: random half cross, null, D2 rest	12.6	12.6	identical at printed precision	match	printed (v16) in supplementary_v1.md: 12.6
-printed number	Depth: Pearson quarter, null, D1 rest	0.14	0.14	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.14
-printed number	Depth: Pearson half, null, D1 rest	0.24	0.24	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.24
-printed number	Depth: Pearson quarter, null, D2 rest	0.27	0.27	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.27
-printed number	Depth: Pearson half, null, D2 rest	0.40	0.40	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.40
-printed number	Depth: SB from quarter, D1 rest	0.25	0.25	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.25
-printed number	Expressed energy, random halves, D1 rest	8.9	8.9	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 8.9
-printed number	Expressed energy, guide halves, D1 rest	1.7	1.7	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 1.7
-printed number	Expressed energy, random halves, D2 rest	16.3	16.3	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 16.3
-printed number	Expressed energy, guide halves, D2 rest	1.7	1.7	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 1.7
-printed number	Same guide, expressed signal, rest	3.09	3.09	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 3.09
-printed number	Different guides, expressed signal, rest	1.71	1.71	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 1.71
-printed number	Same guide, expressed signal, stim	2.85	2.85	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 2.85
-printed number	Different guides, expressed signal, stim	1.92	1.92	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 1.92
-printed number	Guide-donor targets (n)	6,450	6,450	identical at printed precision	match	printed (v16) in supplementary_v1.md: 6,450
-printed number	Guide-specific ratio, rest	0.80	0.80	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.80
-printed number	Guide-specific ratio, stim	0.48	0.48	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.48
-printed number	Guide-specific share of random-half signal, D1 rest	15%	15%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 15%
-printed number	Guide-specific share, D1 stim	8%	8%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 8%
-printed number	Guide-specific share, D2 rest	8%	8%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 8%
-printed number	Transduction-level share, D1 rest	66%	66%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 66%
-printed number	Transduction-level share, D1 stim	77%	77%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 77%
-printed number	Transduction-level share, D2 rest	81%	81%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 81%
-printed number	K562 expressed recurrence	0.84	0.84	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.84 (84%); text 0.84 (84%)
-printed number	K562 bound, one screen	16%	16%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: ≤16%; text <=16%
-printed number	K562 additive clonal part	4%	4%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: ≈4%; text about 4%
-printed number	Tahoe within-well / cross-plate energy (gamma / beta)	1.54 / 1.36	1.54 / 1.36	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 1.4–1.5; 1.54 and 1.36 printed as 1.4-1.5
-printed number	Tahoe cross-plate signal correlation gamma / beta / alpha (ledger)	0.65 / 0.73 / 0.78	0.65 / 0.73 / 0.78	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.65 / 0.73 / 0.78
-printed number	Wang reliable, random, unexpressed, D1	18%	18%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 18%
-printed number	Wang reliable, random, expressed, D1	24%	24%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 24%
-printed number	Wang reliable, guide, unexpressed, D1	0.6%	0.6%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.6%
-printed number	Wang reliable, guide, expressed, D1	2.2%	2.2%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 2.2%
-printed number	Wang reliable, random, unexpressed, D2	42%	42%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 42%
-printed number	Wang reliable, random, expressed, D2	52%	52%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 52%
-printed number	Wang reliable, guide, unexpressed, D2	0.9%	0.9%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.9%
-printed number	Wang reliable, guide, expressed, D2	2.3%	2.3%	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 2.3%
-printed number	Tahoe Pearson ceiling, plate 6	0.87	0.87	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.87
-printed number	Tahoe Pearson ceiling, plate 14	0.77	0.77	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.77
-printed number	Tahoe Pearson ceiling, across plates	0.64	0.64	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.64
-printed number	Tahoe discrimination ceiling, within (6 / 14)	0.99 / 0.99	0.99 / 0.99	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.99; both 0.99
-printed number	Tahoe discrimination ceiling, across (both directions)	0.89–0.92	0.89–0.92	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 0.89–0.92
-printed number	Context-specific energy ratio random / guide	7.6	7.6	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 7.6
-printed number	Context-specific energy, random / guide	2.58 / 0.34	2.58 / 0.34	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 2.58 / 0.34
-printed number	Shared energy, random / guide	5.88 / 0.65	5.88 / 0.65	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 5.88 / 0.65
-printed number	Shared energy ratio	9	9	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 9
-printed number	Tahoe context-specific share, within wells (6 / 14)	0.387 / 0.384	0.387 / 0.384	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.39; 0.387 / 0.384 printed as 0.39
-printed number	Tahoe predictor, other plate, target 14 (CI)	0.04 (-0.05 to 0.07)	0.04 (-0.05 to 0.07)	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.04 (−0.05 to 0.07)
-printed number	CD4 predictor, random, D2 (CI)	0.52 (0.51–0.52)	0.52 (0.51–0.52)	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 0.52 (0.51–0.52)
-printed number	CD4 predictor, guide, D1 (CI)	0.004 (0.000–0.007)	0.004 (0.000–0.007)	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 0.004 (0.000–0.007)
-printed number	CD4 predictor, guide, D2 (CI)	-0.002 (-0.007 to 0.002)	-0.002 (-0.007 to 0.002)	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: −0.002 (−0.007 to 0.002)
-printed number	CD4 predictor, three random halvings, D1	0.468–0.471	0.468–0.471	identical at printed precision	match	printed (v16) in manuscript_v2.md: 0.468–0.471
-printed number	Strength-matched predictor, random, D1 (k=20)	0.24	0.24	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.24
-printed number	Strength-matched predictor, random, D2 (k=20)	0.34	0.34	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.34
-printed number	Strength-matched targets D1 / D2	615 / 470	615 / 470	identical at printed precision	match	printed (v16) in manuscript_v2.md: 615 / 470
-printed number	Strength-matched predictor k=10, D1 / D2	0.20 / 0.29	0.20 / 0.29	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md: 0.20 / 0.29
-printed number	Strength-matched predictor, guide, D1 / D2	-0.001 / 0.002	-0.001 / 0.002	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: ≈0; printed as approximately 0
-printed number	Same-guide predictor across donors	0.012	0.012	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 0.012
-printed number	Different-guide predictor across donors	0.0002	0.0002	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.0002
-printed number	K562-RPE1 predictor, same pair (targets K8, K6; k 10-20)	0.57–0.63	0.57–0.63	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 0.57–0.63
-printed number	K562-RPE1 predictor, independent K562	0.57–0.62	0.57–0.62	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 0.57–0.62
-printed number	Model: fabricated predictor, shared units	0.10	0.10	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.10
-printed number	Model: fabricated, independent / separate	0.00 / -0.00	0.00 / -0.00	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.00; 0.00 and -0.00 printed as 0.00
-printed number	Model: true explained share (attenuation)	0.70	0.70	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.70
-printed number	Unit-to-signal ratio, D1	4.0	4.0	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 4.0
-printed number	Unit-to-signal ratio, D2	7.5	7.5	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 7.5
-printed number	Model ratios at sigma_a 1.5 (low / iso)	4.1 / 4.2	4.1 / 4.2	identical at printed precision	match	printed (v16) in manuscript_v2.md: 4.1–4.2; printed as a range
-printed number	Model ratios at sigma_a 2.0 (low / iso)	7.2 / 7.6	7.2 / 7.6	identical at printed precision	match	printed (v16) in manuscript_v2.md: 7.2–7.6; printed as a range
-printed number	Model explained share at sigma_a 1.5, along response	0.10	0.10	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.10
-printed number	Model explained share at sigma_a 2.0, along response	0.03	0.03	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.03
-printed number	Tahoe signal correlation across plates (beta)	0.73	0.73	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.73
-printed number	K562 template artefact, inert-referenced -> template removed	83% → 89%	83% → 89%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 83% → 89%
-printed number	cell-eval, all 300, Pearson ceiling random vs guide	0.32 vs 0.06	0.32 vs 0.06	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.32 vs 0.06
-printed number	cell-eval, all 300, DE overlap	0.31 vs 0.11	0.31 vs 0.11	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.31 vs 0.11
-printed number	cell-eval, all 300, DE direction match	0.84 vs 0.63	0.84 vs 0.63	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.84 vs 0.63
-printed number	cell-eval, all 300, discrimination (cosine)	0.98 vs 0.69	0.98 vs 0.69	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.98 vs 0.69
-printed number	cell-eval, strong knockdowns, Pearson	0.38 vs 0.13	0.38 vs 0.13	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.38 vs 0.13
-printed number	cell-eval, unexpressed, Pearson random	0.26	0.26	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.26
-printed number	cell-eval, unexpressed, Pearson guide split-half r (ceiling n.d.)	-0.01	-0.01	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: −0.01
-printed number	cell-eval, unexpressed, direction match random	0.81	0.81	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: 0.81
-printed number	cell-eval, unexpressed, direction match guide (range)	0.57–0.61	0.57–0.61	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 0.57–0.61
-printed number	cell-eval, unexpressed, discrimination (cosine) random	0.97	0.97	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.97
-printed number	cell-eval, unexpressed, discrimination (cosine) guide (range)	0.63–0.65	0.63–0.65	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 0.63–0.65
-printed number	cell-eval, perturbations in all runs	300	300	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 300
-printed number	Cell-line and H1 NT constructs, random halves positive, min-max	60–76%	60–76%	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 60–76%
-printed number	Cell-line and H1 NT constructs, different constructs positive, min-max	49–51%	49–51%	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 49–51%
-printed number	Cell-line and H1 NT / targeting random-half signal, min-max	0.6–7%	0.6–7%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.6–7%
-printed number	H1 NT / targeting random-half signal	0.6%	0.6%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.6%
-printed number	H1 cells / targets / NT constructs	221,273 / 150 / 31	221,273 / 150 / 31	identical at printed precision	match	printed (v16) in manuscript_v2.md: 221,273 / 150 / 31
-printed number	CD4 NT / targeting random-half signal, D1 / D2 rest	1.16 / 1.31	1.16 / 1.31	identical at printed precision	match	printed (v16) in manuscript_v2.md: 1.2–1.3; 1.16 and 1.31 printed as 1.2-1.3
-printed number	TRBC1 deviation, rest vs stim, D1	0.89	0.89	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 0.89
-printed number	TRBC1 deviation, rest vs stim, D2	0.94	0.94	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.94
-printed number	TRBC rest-vs-stim perturbations, D1 / D2	9,830 / 9,037	9,830 / 9,037	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 9,830 / 9,037
-printed number	Effective clones, median upper bound, D1 rest	7	7	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: about 7; 6.5 printed as about 7
-printed number	Effective clones, median upper bound, D2 rest	4	4	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 4
-printed number	Null positive, random halves, all donors and states	96–99%	96–99%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md: 96–99%
-printed number	Null positive, guide halves, all donors and states	49–54%	49–54%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md: 49–54%
-printed number	Null positive, donor halves, rest and stim	53–55%	53–55%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md: 53–55%
-printed number	NT guides positive, random halves, CD4	97–99%	97–99%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md: 97–99%
-printed number	NT guides positive, different guides, CD4	49–50%	49–50%	identical at printed precision	match	printed (v16) in manuscript_v2.md: 49–50%
-printed number	TRBC var(z), D1 / D2	34 / 81	34 / 81	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 34 / 81
-printed number	TRBC deviation r, guide halves, D1 / D2 (printed as r ≈ 0)	-0.01 / 0.02	-0.01 / 0.02	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: ≈ 0; -0.01 and 0.02 printed as r ≈ 0
-printed number	Clone-skew Spearman, D1 / D2 (Fig. 3d)	0.21 and 0.24	0.21 and 0.24	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.21 and 0.24
-printed number	Fig. 3d targets, D1 / D2	1,234 / 864	1,234 / 864	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 1,234 / 864
-printed number	K562 unexpressed recurrence across screens	85%	85%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 85%
-printed number	Expressed energy lost under guide halves, D1 / D2	81% / 90%	81% / 90%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: about 80% / 90%; 81% printed as about 80%
-printed number	Guide-specific share, range	8–15%	8–15%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md: 8–15%
-printed number	Transduction-level share, range	66–81%	66–81%	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 66–81%
-printed number	Tahoe Pearson ceilings within wells vs across plates	0.77–0.87 against 0.64	0.77–0.87 against 0.64	identical at printed precision	match	printed (v16) in manuscript_v2.md: 0.77–0.87 against 0.64
-printed number	Context-specific share, CD4 random / guide (printed as about 0.3)	0.30 / 0.34	0.30 / 0.34	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: about 0.3; 0.30 and 0.34 printed as about 0.3
-printed number	Context-specific share, Tahoe range	0.36–0.39	0.36–0.39	identical at printed precision	match	printed (v16) in manuscript_v2.md: 0.36–0.39
-printed number	Energy inflation, context-specific / shared (printed as 8–9 times)	7.6 / 9.1	7.6 / 9.1	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md: 8–9; 7.6 and 9.1 printed as 8–9
-printed number	Tahoe predictor, same wells, range	0.30–0.33	0.30–0.33	identical at printed precision	match	printed (v16) in manuscript_v2.md: 0.30–0.33
-printed number	Tahoe predictor, replicate plate, range	0.04–0.09	0.04–0.09	identical at printed precision	match	printed (v16) in manuscript_v2.md: 0.04–0.09
-printed number	CD4 predictor, random halves, D1 / D2 (printed as about 0.5)	0.47 / 0.52	0.47 / 0.52	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: about 0.5; 0.47 and 0.52 printed as about 0.5
-printed number	CD4 predictor near 0: guide D1, guide D2, matched D1, matched D2, same guide across donors	0.004 / -0.002 / -0.001 / 0.002 / 0.012	0.004 / -0.002 / -0.001 / 0.002 / 0.012	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: about 0; all |x| <= 0.012, printed as about 0
-printed number	Null shares over extractions and halvings, D1 rest	98.4–99.0%	98.4–99.0%	identical at printed precision	match	printed (v16) in manuscript_v2.md: 98.4–99.0%
-printed number	Null shares over extractions and halvings, D1 stim	96.2–97.7%	96.2–97.7%	identical at printed precision	match	printed (v16) in manuscript_v2.md: 96.2–97.7%
-printed number	Second / main implementation, CD4 D1 random	0.446 and 0.469	0.446 and 0.469	identical at printed precision	match	printed (v16) in manuscript_v2.md: 0.446 and 0.469
-printed number	Both implementations, CD4 D1 guide (at most)	0.004	0.004	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 0.004
-printed number	Tahoe second implementation, same wells / replicate plate	0.23–0.32 / 0.02–0.07	0.23–0.32 / 0.02–0.07	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 0.23–0.32 / 0.02–0.07
-printed number	Effective-clone bound: perturbations with z² > 1, D1 / D2 rest	85–91%	85–91%	identical at printed precision	match	printed (v16) in manuscript_v2.md: 85–91%
-printed number	cell-eval median cells per side	62	62	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 62
-printed number	Fig. 2b bootstrap half-widths, guide / random (percentage points)	3.6 / 1.1	3.6 / 1.1	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: about ±3 / about ±1; largest half-widths 3.6 (guide) and 1.1 (random) points, printed as about ±3 and about ±1
-printed number	Fig. 3c n, random / guide (>= 15 TRBC cells per half)	6,568 / 6,072	6,568 / 6,072	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 6,568 / 6,072
-printed number	Fig. 3c r, guide halves, D1	-0.01	-0.01	identical at printed precision	match	printed (v16) in supplementary_v1.md, preprint_clone_ledger.md: −0.01
-printed number	Fig. 4b / 5b n: all / unexpressed / expressed	6,615 / 1,235 / 1,097	6,615 / 1,235 / 1,097	identical at printed precision	match	printed (v16) in manuscript_v2.md: 6,615 / 1,235 / 1,097
-printed number	Fig. 5d n, CD4 donor 2	5,003	5,003	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 5,003
-printed number	Fig. 2b n, donor halves	1,479	1,479	identical at printed precision	match	printed (v16) in manuscript_v2.md, preprint_clone_ledger.md: 1,479
-printed number	DMSO lines per plate	47–48	47–48	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md: 47–48
-printed number	Tahoe lines × conditions	48 lines × 91 conditions	48 lines × 91 conditions	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 48 lines × 91 conditions
-printed number	Tahoe ceilings, reverse direction (Pearson, discrimination)	0.64 and 0.92	0.64 and 0.92	identical at printed precision	match	printed (v16) in preprint_clone_ledger.md: 0.64 and 0.92
-printed number	Model perturbations	800	800	identical at printed precision	match	printed (v16) in manuscript_v2.md: 800
-printed number	Tahoe plates 6 / 14 shared conditions; largest other pair	94; 13	94; 13	identical at printed precision	match	printed (v16) in manuscript_v2.md, supplementary_v1.md, preprint_clone_ledger.md: 94; 13
-printed number	Largest spread of D1 null shares across extractions and halvings (percentage points)	1.5	1.5	identical at printed precision	match	printed (v16) in manuscript_v2.md: 1.5
-figure (reproduced data)	fig1_schematic.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (reproduced data)	fig2_null.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (reproduced data)	fig3_clones.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	differs: 0.0001% of pixels, max channel difference 0.004	6 of 4.3 million pixels near x 1185-1192, y 1500-1502 (panel e), each by 1/255 (anti-aliasing; the plotted values differ by less than 1e-5)
-figure (reproduced data)	fig3a_trbc.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (reproduced data)	fig4_ceilings.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (reproduced data)	fig5_contexts.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (reproduced data)	fig5a_units.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (reproduced data)	supp/figS1_model.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (reproduced data)	supp/figS2_dmso.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (reproduced data)	supp/figS3_k562.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-supplement (reproduced data)	supplementary_v1.md (whole text, Tables S1-S6)	published v16	regenerated	identical	identical	Supplementary Information text: 201 lines published, 201 regenerated, identical
-figure (shipped data/)	fig1_schematic.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (shipped data/)	fig2_null.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (shipped data/)	fig3_clones.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (shipped data/)	fig3a_trbc.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (shipped data/)	fig4_ceilings.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (shipped data/)	fig5_contexts.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (shipped data/)	fig5a_units.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (shipped data/)	supp/figS1_model.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (shipped data/)	supp/figS2_dmso.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-figure (shipped data/)	supp/figS3_k562.png	published v16 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
-supplement (shipped data/)	supplementary_v1.md (whole text, Tables S1-S6)	published v16	regenerated	identical	identical	Supplementary Information text: 201 lines published, 201 regenerated, identical
+printed number	Unexpressed targets, donor 1 / donor 2 (n)	1,239 / 872	1,239 / 872	identical at printed precision	match	printed (v22) in manuscript_v2.md: 1,239 / 872
+printed number	Null positive, random halves, D2 rest	99.2%	99.2%	identical at printed precision	match	printed (v22) in supplementary_v1.md: 99.2%
+printed number	Null positive, random halves, D2 stim	98.5%	98.5%	identical at printed precision	match	printed (v22) in supplementary_v1.md: 98.5%
+printed number	Null positive, guide halves, D1 stim	53.7%	53.7%	identical at printed precision	match	printed (v22) in supplementary_v1.md: 53.7%
+printed number	Null positive, guide halves, D2 stim	49.9%	49.9%	identical at printed precision	match	printed (v22) in supplementary_v1.md: 49.9%
+printed number	Donor halves, null positive, rest	55%	55%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 55%
+printed number	Donor halves, null positive, stim	53%	53%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 53%
+printed number	NTC random halves positive, min	96.6%	96.6%	identical at printed precision	match	printed (v22) in supplementary_v1.md: 96.6%
+printed number	NTC random halves positive, max	98.8%	98.8%	identical at printed precision	match	printed (v22) in supplementary_v1.md: 98.8%
+printed number	NTC different guides positive, min	48.8%	48.8%	identical at printed precision	match	printed (v22) in supplementary_v1.md: 48.8%
+printed number	NTC different guides positive, max	49.8%	49.8%	identical at printed precision	match	printed (v22) in supplementary_v1.md: 49.8%
+printed number	TRBC var(z), D1 rest	34	34	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 34
+printed number	TRBC var(z), D2 rest	81	81	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 81
+printed number	TRBC var(z) permuted, D1 rest	1.0	1.0	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 1.0
+printed number	TRBC deviation r, random halves, D1 (npz, Fig. 3c)	0.93	0.93	identical at printed precision	match	printed (v22) in manuscript_v2.md: 0.93
+printed number	TRBC deviation r, random halves, D2	0.96	0.96	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.96
+printed number	TRBC deviation r, guide halves, D1	-0.01	-0.01	identical at printed precision	match	printed (v22) in supplementary_v1.md: −0.01
+printed number	TRBC deviation r, guide halves, D2	0.02	0.02	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.02
+printed number	Clone skew Spearman (per-state def.), D1 rest	0.229	0.229	identical at printed precision	match	printed (v22) in manuscript_v2.md: 0.229
+printed number	Clone skew Spearman (per-state def.), D2 rest	0.227	0.227	identical at printed precision	match	printed (v22) in manuscript_v2.md: 0.227
+printed number	Clone skew Spearman (per-state def.), D1 stim	0.159	0.159	identical at printed precision	match	printed (v22) in manuscript_v2.md: 0.159
+printed number	Clone skew Spearman (per-state def.), D2 stim	0.160	0.160	identical at printed precision	match	printed (v22) in manuscript_v2.md: 0.160
+printed number	TRBC valid cells, D1 rest (millions)	1.75	1.75	identical at printed precision	match	printed (v22) in manuscript_v2.md: 1.75
+printed number	TRBC valid cells, D1 stim (millions)	1.58	1.58	identical at printed precision	match	printed (v22) in manuscript_v2.md: 1.58
+printed number	Same guide across donors, null positive rest	57%	57%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 57%
+printed number	Same guide across donors, null positive stim	54%	54%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 54%
+printed number	Different guides across donors, null positive rest	51%	51%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 51%
+printed number	Different guides across donors, null positive stim	51%	51%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 51%
+printed number	K562 unexpressed recurrence across screens	0.85	0.85	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.85
+printed number	K562 unexpressed recurrence CI low	0.75	0.75	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.75
+printed number	K562 unexpressed targets (n)	178	178	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 178
+printed number	K562 expressed targets (n)	651	651	identical at printed precision	match	printed (v22) in supplementary_v1.md: 651
+printed number	Depth: random quarter cross, null, D1 rest	6.7	6.7	identical at printed precision	match	printed (v22) in supplementary_v1.md: 6.7
+printed number	Depth: random half cross, null, D1 rest	6.8	6.8	identical at printed precision	match	printed (v22) in supplementary_v1.md: 6.8
+printed number	Depth: Pearson quarter, null, D1 rest	0.14	0.14	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.14
+printed number	Depth: Pearson half, null, D1 rest	0.24	0.24	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.24
+printed number	Depth: Pearson quarter, null, D2 rest	0.27	0.27	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.27
+printed number	Depth: Pearson half, null, D2 rest	0.40	0.40	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.40
+printed number	Depth: SB from quarter, D1 rest	0.25	0.25	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.25
+printed number	Expressed energy, guide halves, D1 rest	1.7	1.7	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 1.7
+printed number	Expressed energy, guide halves, D2 rest	1.7	1.7	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 1.7
+printed number	Same guide, expressed signal, rest	3.09	3.09	identical at printed precision	match	printed (v22) in supplementary_v1.md: 3.09
+printed number	Different guides, expressed signal, rest	1.71	1.71	identical at printed precision	match	printed (v22) in supplementary_v1.md: 1.71
+printed number	Same guide, expressed signal, stim	2.85	2.85	identical at printed precision	match	printed (v22) in supplementary_v1.md: 2.85
+printed number	Different guides, expressed signal, stim	1.92	1.92	identical at printed precision	match	printed (v22) in supplementary_v1.md: 1.92
+printed number	Guide-donor targets (n)	6,450	6,450	identical at printed precision	match	printed (v22) in supplementary_v1.md: 6,450
+printed number	Guide-specific ratio, rest	0.80	0.80	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.80
+printed number	Guide-specific ratio, stim	0.48	0.48	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.48
+printed number	Guide-specific share of random-half signal, D1 rest	15%	15%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 15%
+printed number	Guide-specific share, D1 stim	8%	8%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 8%
+printed number	Guide-specific share, D2 rest	8%	8%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 8%
+printed number	Transduction-level share, D1 rest	66%	66%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 66%
+printed number	Transduction-level share, D1 stim	77%	77%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 77%
+printed number	Transduction-level share, D2 rest	81%	81%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 81%
+printed number	K562 expressed recurrence	0.84	0.84	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.84 (84%); text 0.84 (84%)
+printed number	K562 bound, one screen	16%	16%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: ≤16%; text <=16%
+printed number	K562 additive clonal part	4%	4%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: ≈4%; text about 4%
+printed number	Wang reliable, random, unexpressed, D1	18%	18%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 18%
+printed number	Wang reliable, random, expressed, D1	24%	24%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 24%
+printed number	Wang reliable, guide, unexpressed, D1	0.6%	0.6%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.6%
+printed number	Wang reliable, guide, expressed, D1	2.2%	2.2%	identical at printed precision	match	printed (v22) in manuscript_v2.md: 2.2%
+printed number	Wang reliable, random, unexpressed, D2	42%	42%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 42%
+printed number	Wang reliable, random, expressed, D2	52%	52%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 52%
+printed number	Wang reliable, guide, unexpressed, D2	0.9%	0.9%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.9%
+printed number	CD4 context-specific share, random, D1 (CI)	0.30 (0.30–0.31)	0.30 (0.30–0.31)	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.30 (0.30–0.31)
+printed number	Context-specific energy ratio random / guide	7.6	7.6	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 7.6
+printed number	Shared energy ratio	9	9	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 9
+printed number	CD4 predictor, random, D1 (CI)	0.47 (0.46–0.48)	0.47 (0.46–0.48)	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.47 (0.46–0.48)
+printed number	CD4 predictor, random, D2 (CI)	0.52 (0.51–0.52)	0.52 (0.51–0.52)	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.52 (0.51–0.52)
+printed number	CD4 predictor, three random halvings, D1	0.468–0.471	0.468–0.471	identical at printed precision	match	printed (v22) in manuscript_v2.md: 0.468–0.471
+printed number	Strength-matched predictor, random, D1 (k=20)	0.24	0.24	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.24
+printed number	Strength-matched predictor, random, D2 (k=20)	0.34	0.34	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.34
+printed number	Strength-matched targets D1 / D2	615 / 470	615 / 470	identical at printed precision	match	printed (v22) in manuscript_v2.md: 615 / 470
+printed number	Strength-matched predictor k=10, D1 / D2	0.20 / 0.29	0.20 / 0.29	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.20 / 0.29
+printed number	Strength-matched predictor, guide, D1 / D2	-0.001 / 0.002	-0.001 / 0.002	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: ≈0; printed as approximately 0
+printed number	Different-guide predictor across donors	0.0002	0.0002	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.0002
+printed number	K562-RPE1 predictor, independent K562	0.57–0.62	0.57–0.62	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.57–0.62
+printed number	Model: fabricated predictor, shared units	0.10	0.10	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.10
+printed number	Model: fabricated, independent / separate	0.00 / -0.00	0.00 / -0.00	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.00; 0.00 and -0.00 printed as 0.00
+printed number	Model: true explained share (attenuation)	0.70	0.70	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.70
+printed number	Unit-to-signal ratio, D1	4.0	4.0	identical at printed precision	match	printed (v22) in manuscript_v2.md: 4.0
+printed number	Unit-to-signal ratio, D2	7.5	7.5	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 7.5
+printed number	Model ratios at sigma_a 1.5 (low / iso)	4.1 / 4.2	4.1 / 4.2	identical at printed precision	match	printed (v22) in manuscript_v2.md: 4.1–4.2; printed as a range
+printed number	Model ratios at sigma_a 2.0 (low / iso)	7.2 / 7.6	7.2 / 7.6	identical at printed precision	match	printed (v22) in manuscript_v2.md: 7.2–7.6; printed as a range
+printed number	Model explained share at sigma_a 1.5, along response	0.10	0.10	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.10
+printed number	Model explained share at sigma_a 2.0, along response	0.03	0.03	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.03
+printed number	K562 template artefact, inert-referenced -> template removed	83% → 89%	83% → 89%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 83% → 89%
+printed number	cell-eval, all 300, Pearson ceiling random vs guide	0.32 vs 0.06	0.32 vs 0.06	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.32 vs 0.06
+printed number	cell-eval, all 300, DE overlap	0.31 vs 0.11	0.31 vs 0.11	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.31 vs 0.11
+printed number	cell-eval, all 300, DE direction match	0.84 vs 0.63	0.84 vs 0.63	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.84 vs 0.63
+printed number	cell-eval, all 300, discrimination (cosine)	0.98 vs 0.69	0.98 vs 0.69	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.98 vs 0.69
+printed number	cell-eval, strong knockdowns, Pearson	0.38 vs 0.13	0.38 vs 0.13	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.38 vs 0.13
+printed number	cell-eval, unexpressed, Pearson random	0.26	0.26	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.26
+printed number	cell-eval, unexpressed, Pearson guide split-half r (ceiling n.d.)	-0.01	-0.01	identical at printed precision	match	printed (v22) in supplementary_v1.md: −0.01
+printed number	cell-eval, unexpressed, direction match random	0.81	0.81	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.81
+printed number	cell-eval, unexpressed, direction match guide (range)	0.57–0.61	0.57–0.61	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.57–0.61
+printed number	cell-eval, unexpressed, discrimination (cosine) random	0.97	0.97	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.97
+printed number	cell-eval, unexpressed, discrimination (cosine) guide (range)	0.63–0.65	0.63–0.65	identical at printed precision	match	printed (v22) in supplementary_v1.md: 0.63–0.65
+printed number	cell-eval, perturbations in all runs	300	300	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 300
+printed number	Cell-line and H1 NT constructs, random halves positive, min-max	60–76%	60–76%	identical at printed precision	match	printed (v22) in manuscript_v2.md: 60–76%
+printed number	Cell-line and H1 NT / targeting random-half signal, min-max	0.6–7%	0.6–7%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.6–7%
+printed number	H1 NT / targeting random-half signal	0.6%	0.6%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.6%
+printed number	H1 cells / targets / NT constructs	221,273 / 150 / 31	221,273 / 150 / 31	identical at printed precision	match	printed (v22) in manuscript_v2.md: 221,273 / 150 / 31
+printed number	CD4 NT / targeting random-half signal, D1 / D2 rest	1.16 / 1.31	1.16 / 1.31	identical at printed precision	match	printed (v22) in manuscript_v2.md: 1.2–1.3; 1.16 and 1.31 printed as 1.2-1.3
+printed number	TRBC1 deviation, rest vs stim, D1	0.89	0.89	identical at printed precision	match	printed (v22) in manuscript_v2.md: 0.89
+printed number	TRBC1 deviation, rest vs stim, D2	0.94	0.94	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.94
+printed number	TRBC rest-vs-stim perturbations, D1 / D2	9,830 / 9,037	9,830 / 9,037	identical at printed precision	match	printed (v22) in manuscript_v2.md: 9,830 / 9,037
+printed number	Effective clones, median upper bound, D1 rest	7	7	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: about 7; 6.5 printed as about 7
+printed number	Effective clones, median upper bound, D2 rest	4	4	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 4
+printed number	Null positive, random halves, all donors and states	96–99%	96–99%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 96–99%
+printed number	Null positive, guide halves, all donors and states	49–54%	49–54%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 49–54%
+printed number	Null positive, donor halves, rest and stim	53–55%	53–55%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 53–55%
+printed number	NT guides positive, random halves, CD4	97–99%	97–99%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 97–99%
+printed number	NT guides positive, different guides, CD4	49–50%	49–50%	identical at printed precision	match	printed (v22) in manuscript_v2.md: 49–50%
+printed number	TRBC var(z), D1 / D2	34 / 81	34 / 81	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 34 / 81
+printed number	TRBC deviation r, guide halves, D1 / D2 (printed as r ≈ 0)	-0.01 / 0.02	-0.01 / 0.02	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: ≈ 0; -0.01 and 0.02 printed as r ≈ 0
+printed number	Clone-skew Spearman, D1 / D2 (Fig. 3d)	0.21 and 0.24	0.21 and 0.24	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 0.21 and 0.24
+printed number	Fig. 3d targets, D1 / D2	1,234 / 864	1,234 / 864	identical at printed precision	match	printed (v22) in manuscript_v2.md: 1,234 / 864
+printed number	K562 unexpressed recurrence across screens	85%	85%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 85%
+printed number	Expressed energy lost under guide halves, D1 / D2	81% / 90%	81% / 90%	identical at printed precision	match	printed (v22) in manuscript_v2.md: about 80% / 90%; 81% printed as about 80%
+printed number	Guide-specific share, range	8–15%	8–15%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 8–15%
+printed number	Transduction-level share, range	66–81%	66–81%	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 66–81%
+printed number	Context-specific share, CD4 random / guide (printed as about 0.3)	0.30 / 0.34	0.30 / 0.34	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: about 0.3; 0.30 and 0.34 printed as about 0.3
+printed number	Energy inflation, context-specific / shared (printed as 8–9 times)	7.6 / 9.1	7.6 / 9.1	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 8–9; 7.6 and 9.1 printed as 8–9
+printed number	CD4 predictor, random halves, D1 / D2 (printed as about 0.5)	0.47 / 0.52	0.47 / 0.52	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: about 0.5; 0.47 and 0.52 printed as about 0.5
+printed number	CD4 predictor near 0: guide D1, guide D2, matched D1, matched D2, same guide across donors	0.004 / -0.002 / -0.001 / 0.002 / 0.012	0.004 / -0.002 / -0.001 / 0.002 / 0.012	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: about 0; all |x| <= 0.012, printed as about 0
+printed number	Second / main implementation, CD4 D1 random	0.446 and 0.469	0.446 and 0.469	identical at printed precision	match	printed (v22) in manuscript_v2.md: 0.446 and 0.469
+printed number	Both implementations, CD4 D1 guide (at most)	0.004	0.004	identical at printed precision	match	printed (v22) in manuscript_v2.md: 0.004
+printed number	Effective-clone bound: perturbations with z² > 1, D1 / D2 rest	85–91%	85–91%	identical at printed precision	match	printed (v22) in manuscript_v2.md: 85–91%
+printed number	cell-eval median cells per side	62	62	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 62
+printed number	Fig. 2b bootstrap half-widths, guide / random (percentage points)	3.6 / 1.1	3.6 / 1.1	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: about ±3 / about ±1; largest half-widths 3.6 (guide) and 1.1 (random) points, printed as about ±3 and about ±1
+printed number	Fig. 3b histogram perturbations (D1 rest, >= 30 TRBC cells)	6,610	6,610	identical at printed precision	match	printed (v22) in manuscript_v2.md: 6,610
+printed number	Fig. 3c n, random / guide (>= 15 TRBC cells per half)	6,568 / 6,072	6,568 / 6,072	identical at printed precision	match	printed (v22) in manuscript_v2.md: 6,568 / 6,072
+printed number	Fig. 3c r, guide halves, D1	-0.01	-0.01	identical at printed precision	match	printed (v22) in supplementary_v1.md: −0.01
+printed number	Fig. 3e targets: D1 rest / stim, D2 rest / stim	909 / 856 / 520 / 523	909 / 856 / 520 / 523	identical at printed precision	match	printed (v22) in manuscript_v2.md: 909 / 856 / 520 / 523
+printed number	Fig. 4b / 5b n: all / unexpressed / expressed	6,615 / 1,235 / 1,097	6,615 / 1,235 / 1,097	identical at printed precision	match	printed (v22) in manuscript_v2.md: 6,615 / 1,235 / 1,097
+printed number	Fig. 5c n, CD4 donor 2	5,003	5,003	identical at printed precision	match	printed (v22) in manuscript_v2.md: 5,003
+printed number	Fig. 2b n, donor halves	1,479	1,479	identical at printed precision	match	printed (v22) in manuscript_v2.md: 1,479
+printed number	Fig. 2c n: CD4 NT guides D1 / D2 rest; NT constructs K562 essential / K562 GW / RPE1 / Jurkat / HepG2 / H1	739 / 578; 97 / 507 / 113 / 128 / 112 / 31	739 / 578; 97 / 507 / 113 / 128 / 112 / 31	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 739 / 578; 97 / 507 / 113 / 128 / 112 / 31
+printed number	Model perturbations	800	800	identical at printed precision	match	printed (v22) in manuscript_v2.md: 800
+printed number	Largest spread of D1 null shares across extractions and halvings (percentage points)	1.5	1.5	identical at printed precision	match	printed (v22) in manuscript_v2.md, supplementary_v1.md: 1.5
+figure (reproduced data)	fig1_schematic.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (reproduced data)	fig2_null.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (reproduced data)	fig3_clones.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	differs: 0.0001% of pixels, max channel difference 0.004	6 of 4.3 million pixels near x 1185-1192, y 1500-1502 (panel e), each by 1/255 (anti-aliasing; the plotted values differ by less than 1e-5)
+figure (reproduced data)	fig3a_trbc.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (reproduced data)	fig4_ceilings.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (reproduced data)	fig5_contexts.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (reproduced data)	fig5a_units.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (reproduced data)	supp/figS1_model.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (reproduced data)	supp/figS2_k562.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+supplement (reproduced data)	supplementary_v1.md (whole text, Tables S1-S6)	published v22	regenerated	identical	identical	Supplementary Information text: 168 lines published, 168 regenerated, identical
+figure (shipped data/)	fig1_schematic.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (shipped data/)	fig2_null.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (shipped data/)	fig3_clones.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (shipped data/)	fig3a_trbc.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (shipped data/)	fig4_ceilings.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (shipped data/)	fig5_contexts.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (shipped data/)	fig5a_units.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (shipped data/)	supp/figS1_model.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+figure (shipped data/)	supp/figS2_k562.png	published v22 (figures/preprint)	redrawn with the released code	visually identical; noise-level pixels only	identical	
+supplement (shipped data/)	supplementary_v1.md (whole text, Tables S1-S6)	published v22	regenerated	identical	identical	Supplementary Information text: 168 lines published, 168 regenerated, identical
+earlier check (In the authors' number ledger only)	Null positive, random halves, D1 rest	98.9%	98.9%	identical at printed precision	match	printed earlier: 98.9%; ledger only
+earlier check (In the authors' number ledger only)	Null positive, random halves, D1 stim	96.2%	96.2%	identical at printed precision	match	printed earlier: 96.2%; ledger only
+earlier check (In the authors' number ledger only)	Null positive, guide halves, D1 rest	48.6%	48.6%	identical at printed precision	match	printed earlier: 48.6%; ledger only
+earlier check (In the authors' number ledger only)	Null positive, guide halves, D2 rest	52.2%	52.2%	identical at printed precision	match	printed earlier: 52.2%; ledger only
+earlier check (In the authors' number ledger only)	K562 unexpressed recurrence CI high	0.92	0.92	identical at printed precision	match	printed earlier: 0.92; ledger only
+earlier check (In the authors' number ledger only)	Expressed energy, random halves, D1 rest	8.9	8.9	identical at printed precision	match	printed earlier: 8.9; ledger only
+earlier check (In the authors' number ledger only)	Expressed energy, random halves, D2 rest	16.3	16.3	identical at printed precision	match	printed earlier: 16.3; ledger only
+earlier check (In the authors' number ledger only)	Wang reliable, guide, expressed, D2	2.3%	2.3%	identical at printed precision	match	printed earlier: 2.3%; ledger only
+earlier check (In the authors' number ledger only)	Context-specific energy, random / guide	2.58 / 0.34	2.58 / 0.34	identical at printed precision	match	printed earlier: 2.58 / 0.34; ledger only
+earlier check (In the authors' number ledger only)	Shared energy, random / guide	5.88 / 0.65	5.88 / 0.65	identical at printed precision	match	printed earlier: 5.88 / 0.65; ledger only
+earlier check (In the authors' number ledger only)	CD4 predictor, guide, D1 (CI)	0.004 (0.000–0.007)	0.004 (0.000–0.007)	identical at printed precision	match	printed earlier: 0.004 (0.000–0.007); ledger only
+earlier check (In the authors' number ledger only)	CD4 predictor, guide, D2 (CI)	-0.002 (-0.007 to 0.002)	-0.002 (-0.007 to 0.002)	identical at printed precision	match	printed earlier: −0.002 (−0.007 to 0.002); ledger only
+earlier check (In the authors' number ledger only)	Same-guide predictor across donors	0.012	0.012	identical at printed precision	match	printed earlier: 0.012; ledger only
+earlier check (In the authors' number ledger only)	K562-RPE1 predictor, same pair (targets K8, K6; k 10-20)	0.57–0.63	0.57–0.63	identical at printed precision	match	printed earlier: 0.57–0.63; ledger only
+earlier check (In the authors' number ledger only)	Cell-line and H1 NT constructs, different constructs positive, min-max	49–51%	49–51%	identical at printed precision	match	printed earlier: 49–51%; ledger only
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	DMSO between-half Pearson, median over plates	0.53	0.53	identical at printed precision	match	printed earlier: 0.53; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	DMSO Pearson range across plates, min	0.32	0.32	identical at printed precision	match	printed earlier: 0.32; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	DMSO Pearson range across plates, max	0.79	0.79	identical at printed precision	match	printed earlier: 0.79; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	DMSO well effect per well / drug, median	0.19	0.19	identical at printed precision	match	printed earlier: 0.19; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	DMSO well effect range, min	0.08	0.08	identical at printed precision	match	printed earlier: 0.08; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	DMSO well effect range, max	0.76	0.76	identical at printed precision	match	printed earlier: 0.76; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	DMSO share common to all lines	76%	76%	identical at printed precision	match	printed earlier: 76%; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	DMSO cross-plate correlation, median	0.35	0.35	identical at printed precision	match	printed earlier: 0.35; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe within-well / cross-plate energy (gamma / beta)	1.54 / 1.36	1.54 / 1.36	identical at printed precision	match	printed earlier: 1.4–1.5; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe cross-plate signal correlation gamma / beta / alpha (ledger)	0.65 / 0.73 / 0.78	0.65 / 0.73 / 0.78	identical at printed precision	match	printed earlier: 0.65 / 0.73 / 0.78; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe Pearson ceiling, plate 6	0.87	0.87	identical at printed precision	match	printed earlier: 0.87; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe Pearson ceiling, plate 14	0.77	0.77	identical at printed precision	match	printed earlier: 0.77; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe Pearson ceiling, across plates	0.64	0.64	identical at printed precision	match	printed earlier: 0.64; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe discrimination ceiling, within (6 / 14)	0.99 / 0.99	0.99 / 0.99	identical at printed precision	match	printed earlier: 0.99; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe discrimination ceiling, across (both directions)	0.89–0.92	0.89–0.92	identical at printed precision	match	printed earlier: 0.89–0.92; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe context-specific share, within wells (6 / 14)	0.387 / 0.384	0.387 / 0.384	identical at printed precision	match	printed earlier: 0.39; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe context-specific share, across plates (CI)	0.36 (0.25–0.40)	0.36 (0.25–0.40)	identical at printed precision	match	printed earlier: 0.36 (0.25–0.40); same-well paper
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe predictor, same well, target plate 14 (CI)	0.33 (0.28–0.41)	0.33 (0.28–0.41)	identical at printed precision	match	printed earlier: 0.33 (0.28–0.41); same-well paper
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe predictor, same well, target plate 6 (CI)	0.30 (0.24–0.36)	0.30 (0.24–0.36)	identical at printed precision	match	printed earlier: 0.30 (0.24–0.36); same-well paper
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe predictor, other plate, target 14 (CI)	0.04 (-0.05 to 0.07)	0.04 (-0.05 to 0.07)	identical at printed precision	match	printed earlier: 0.04 (−0.05 to 0.07); same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe predictor, other plate, target 6 (CI)	0.09 (0.03–0.14)	0.09 (0.03–0.14)	identical at printed precision	match	printed earlier: 0.09 (0.03–0.14); same-well paper
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe signal correlation across plates (beta)	0.73	0.73	identical at printed precision	match	printed earlier: 0.73; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe Pearson ceilings within wells vs across plates	0.77–0.87 against 0.64	0.77–0.87 against 0.64	identical at printed precision	match	printed earlier: 0.77–0.87 against 0.64; same-well paper
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Context-specific share, Tahoe range	0.36–0.39	0.36–0.39	identical at printed precision	match	printed earlier: 0.36–0.39; same-well paper
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe predictor, same wells, range	0.30–0.33	0.30–0.33	identical at printed precision	match	printed earlier: 0.30–0.33; same-well paper
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe predictor, replicate plate, range	0.04–0.09	0.04–0.09	identical at printed precision	match	printed earlier: 0.04–0.09; same-well paper
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe second implementation, same wells / replicate plate	0.23–0.32 / 0.02–0.07	0.23–0.32 / 0.02–0.07	identical at printed precision	match	printed earlier: 0.23–0.32 / 0.02–0.07; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	DMSO lines per plate	47–48	47–48	identical at printed precision	match	printed earlier: 47–48; same-well paper
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe lines × conditions	48 lines × 91 conditions	48 lines × 91 conditions	identical at printed precision	match	printed earlier: 48 lines × 91 conditions; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe ceilings, reverse direction (Pearson, discrimination)	0.64 and 0.92	0.64 and 0.92	identical at printed precision	match	printed earlier: 0.64 and 0.92; same-well paper; still in the ledger
+earlier check (Tahoe-100M results, moved to the same-well paper in v22)	Tahoe plates 6 / 14 shared conditions; largest other pair	94; 13	94; 13	identical at printed precision	match	printed earlier: 94; 13; same-well paper; still in the ledger
+earlier check (Checked earlier, no longer printed)	NTC guides per donor-state, min-max	578–785	578–785	identical at printed precision	match	printed earlier: 578–785; no longer printed
+earlier check (Checked earlier, no longer printed)	Depth: random quarter cross, null, D2 rest	12.6	12.6	identical at printed precision	match	printed earlier: 12.6; no longer printed
+earlier check (Checked earlier, no longer printed)	Depth: random half cross, null, D2 rest	12.6	12.6	identical at printed precision	match	printed earlier: 12.6; no longer printed
+earlier check (Checked earlier, no longer printed)	K562 expressed CI	83–86%	83–86%	identical at printed precision	match	printed earlier: 83–86%; no longer printed
+earlier check (Checked earlier, no longer printed)	CD4 context-specific share, guide, D1 (CI)	0.34 (0.31–0.38)	0.34 (0.31–0.38)	identical at printed precision	match	printed earlier: 0.34 (0.31–0.38); no longer printed
+earlier check (Checked earlier, no longer printed)	Null shares over extractions and halvings, D1 rest	98.4–99.0%	98.4–99.0%	identical at printed precision	match	printed earlier: 98.4–99.0%; no longer printed
+earlier check (Checked earlier, no longer printed)	Null shares over extractions and halvings, D1 stim	96.2–97.7%	96.2–97.7%	identical at printed precision	match	printed earlier: 96.2–97.7%; no longer printed
+earlier check (Checked earlier, no longer printed)	Fig. 3b var(z) n, D1 / D2	10,165 / 9,334	10,165 / 9,334	identical at printed precision	match	printed earlier: 10,165 / 9,334; no longer printed
+earlier check (Checked earlier, no longer printed)	Fig. 5c n, K562–RPE1	1,820	1,820	identical at printed precision	match	printed earlier: 1,820; no longer printed

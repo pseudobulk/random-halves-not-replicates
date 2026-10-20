@@ -76,16 +76,16 @@ for l in lines:
     note = TEXT_ROUNDING.get(item, "")
     if rep2 is not None and rep2 != rep:
         note = (note + "; " if note else "") + "with the released cell-eval subset (v2): %s" % rep2
-    rows.append(("printed number", item, orig, rep, "identical at printed precision", res, "printed (v16) in %s: %s%s" % (where or "text", text, ("; " + note) if note else "")))
+    rows.append(("printed number", item, orig, rep, "identical at printed precision", res, "printed (v22) in %s: %s%s" % (where or "text", text, ("; " + note) if note else "")))
 for path, lab in ((figs1, "figure (reproduced data)"), (figs2, "figure (shipped data/)")):
     if not path:
         continue
     for l in open(path, encoding="utf-8"):
         if l.startswith("| fig") or l.startswith("| supp/"):
             c = cells(l)
-            rows.append((lab, c[0], "published v16 (figures/preprint)", "redrawn with the released code", "visually identical; noise-level pixels only", c[1], ""))
+            rows.append((lab, c[0], "published v22 (figures/preprint)", "redrawn with the released code", "visually identical; noise-level pixels only", c[1], ""))
         if l.startswith("Supplementary Information text"):
-            rows.append((lab.replace("figure", "supplement"), "supplementary_v1.md (whole text, Tables S1-S6)", "published v16", "regenerated", "identical", l.split(",")[-1].strip(), l.strip()))
+            rows.append((lab.replace("figure", "supplement"), "supplementary_v1.md (whole text, Tables S1-S6)", "published v22", "regenerated", "identical", l.split(",")[-1].strip(), l.strip()))
 with open(out, "w", encoding="utf-8", newline="\n") as f:
     for r in rows:
         f.write("\t".join(str(x).replace("\t", " ") for x in r) + "\n")

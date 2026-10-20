@@ -10,9 +10,6 @@ Null perturbations look reproducible under random halves	49–54%	donors and bot
 Null perturbations look reproducible under random halves	1–2	(). With one guide in each half the share was 49–54%, and with donors 1–2 against donors 3–4 it was 53–55%, close	label (donor)
 Null perturbations look reproducible under random halves	3–4	in each half the share was 49–54%, and with donors 1–2 against donors 3–4 it was 53–55%, close to chance (). Rand	label (donor)
 Null perturbations look reproducible under random halves	53–55%	f the share was 49–54%, and with donors 1–2 against donors 3–4 it was 53–55%, close to chance (). Random halves ther	label (donor)
-Null perturbations look reproducible under random halves	100	The same holds in a multiplexed drug screen. In Tahoe-100M, about 50 cancer cell lines share each	dataset name
-Null perturbations look reproducible under random halves	50	The same holds in a multiplexed drug screen. In Tahoe-100M, about 50 cancer cell lines share each well, and	dataset name
-Null perturbations look reproducible under random halves	0.53	ery cell line on every plate (median between-half Pearson correlation 0.53; ), and most of it was common to all li	result (row: DMSO between-half Pearson, median over plates)
 Null perturbations look reproducible under random halves	97–99%	no target at all, behaved like unexpressed targets in the CD4 screen: 97–99% were positive under random halves, agai	result (row: NT guides positive, random halves, CD4)
 Null perturbations look reproducible under random halves	49–50%	in the CD4 screen: 97–99% were positive under random halves, against 49–50% for halves taken from two different non	result (row: Null positive, guide halves, all donors and states)
 The shared state points to clones	1	ulation, the z-score of their mean TRBC1 fraction would have variance 1; it was 34 in donor 1 and 81 in donor 2	label or parameter (reviewed)
@@ -36,11 +33,11 @@ The shared state points to clones	57%	he null signal, and pairing the same guide
 The shared state points to clones	54%	signal, and pairing the same guide across donors adds little (57% and 54% positive, against 51% for different gui	result (row: Same guide across donors, null positive stim)
 The shared state points to clones	51%	e same guide across donors adds little (57% and 54% positive, against 51% for different guides; ). The shared com	result (row: Different guides across donors, null positive rest)
 The shared state points to clones	85%	have reproducible effects that recur across two independent screens (85% of their within-screen structure; ), mo	result (row: K562 unexpressed recurrence across screens)
-Sampling more cells does not remove the shared component	0.14	lation of these null perturbations nevertheless rose with depth, from 0.14 to 0.24 in donor 1: with more cells, sa	result (row: Depth: Pearson quarter, null, D1 rest)
-Sampling more cells does not remove the shared component	0.24	f these null perturbations nevertheless rose with depth, from 0.14 to 0.24 in donor 1: with more cells, sampling n	result (row: Depth: Pearson half, null, D1 rest)
-Sampling more cells does not remove the shared component	1	erturbations nevertheless rose with depth, from 0.14 to 0.24 in donor 1: with more cells, sampling noise falls	label or parameter (reviewed)
-Sampling more cells does not remove the shared component	0.25	lones. The Spearman–Brown extrapolation predicts this rise correctly (0.25 against an observed 0.24); what it extr	result (row: Depth: SB from quarter, D1 rest)
-Sampling more cells does not remove the shared component	0.24	extrapolation predicts this rise correctly (0.25 against an observed 0.24); what it extrapolates is the agreement	result (row: Depth: Pearson half, null, D1 rest)
+More cells do not remove the shared component	0.14	lation of these null perturbations nevertheless rose with depth, from 0.14 to 0.24 in donor 1: with more cells, sa	result (row: Depth: Pearson quarter, null, D1 rest)
+More cells do not remove the shared component	0.24	f these null perturbations nevertheless rose with depth, from 0.14 to 0.24 in donor 1: with more cells, sampling n	result (row: Depth: Pearson half, null, D1 rest)
+More cells do not remove the shared component	1	erturbations nevertheless rose with depth, from 0.14 to 0.24 in donor 1: with more cells, sampling noise falls	label or parameter (reviewed)
+More cells do not remove the shared component	0.25	lones. The Spearman–Brown extrapolation predicts this rise correctly (0.25 against an observed 0.24); what it extr	result (row: Depth: SB from quarter, D1 rest)
+More cells do not remove the shared component	0.24	extrapolation predicts this rise correctly (0.25 against an observed 0.24); what it extrapolates is the agreement	result (row: Depth: Pearson half, null, D1 rest)
 How large the shared component is, and where	80%	ide halves the reproducible energy of expressed targets fell by about 80% in donor 1 and 90% in donor 2. Pairing	result (row: Expressed energy lost under guide halves, D1 / D2)
 How large the shared component is, and where	1	e reproducible energy of expressed targets fell by about 80% in donor 1 and 90% in donor 2. Pairing the same an	label (donor)
 How large the shared component is, and where	90%	oducible energy of expressed targets fell by about 80% in donor 1 and 90% in donor 2. Pairing the same and differ	label (donor)
@@ -51,294 +48,223 @@ How large the shared component is, and where	2,	nal, and 66–81% is shared only
 How large the shared component is, and where	2025	ll-line CRISPRi screens and in the H1 embryonic stem cell data of the 2025 Virtual Cell Challenge, non-targeting c	year / accession
 How large the shared component is, and where	60–76%	ts were positive somewhat more often than chance under random halves (60–76%), but their random-half signal was 0.6–	result (row: Cell-line and H1 NT constructs, random halves positive, min-max)
 How large the shared component is, and where	0.6–7%	chance under random halves (60–76%), but their random-half signal was 0.6–7% of that of a typical targeting perturba	result (row: Wang reliable, guide, unexpressed, D1)
-How large the shared component is, and where	1.2–1.3	f a typical targeting perturbation; in the CD4 screen it exceeded it (1.2–1.3 times; ). In Tahoe, the reproducible en	result (row: CD4 NT / targeting random-half signal, D1 / D2 rest)
-How large the shared component is, and where	1.4–1.5	(1.2–1.3 times; ). In Tahoe, the reproducible energy within wells was 1.4–1.5 times that across replicate plates. The	result (row: Tahoe within-well / cross-plate energy (gamma / beta))
-Random-half ceilings and reliability labels are inflated	0.8	We ran cell-eval (version 0.8.2), the evaluation tool of the Virtual	software version
-Random-half ceilings and reliability labels are inflated	300	version 0.8.2), the evaluation tool of the Virtual Cell Challenge, on 300 perturbations from resting cells of don	result (row: cell-eval, perturbations in all runs)
-Random-half ceilings and reliability labels are inflated	1,	tual Cell Challenge, on 300 perturbations from resting cells of donor 1, half of them unexpressed targets and ha	label (donor)
-Random-half ceilings and reliability labels are inflated	0.32	g on every metric (; ). For the Pearson correlation of effects it was 0.32 against 0.06 over all 300 perturbations	result (row: DMSO Pearson range across plates, min)
-Random-half ceilings and reliability labels are inflated	0.06	tric (; ). For the Pearson correlation of effects it was 0.32 against 0.06 over all 300 perturbations, and 0.38 ag	result (row: cell-eval, all 300, Pearson ceiling random vs guide)
-Random-half ceilings and reliability labels are inflated	300	the Pearson correlation of effects it was 0.32 against 0.06 over all 300 perturbations, and 0.38 against 0.13 fo	result (row: cell-eval, perturbations in all runs)
-Random-half ceilings and reliability labels are inflated	0.38	n of effects it was 0.32 against 0.06 over all 300 perturbations, and 0.38 against 0.13 for the strength-matched k	result (row: cell-eval, strong knockdowns, Pearson)
-Random-half ceilings and reliability labels are inflated	0.13	it was 0.32 against 0.06 over all 300 perturbations, and 0.38 against 0.13 for the strength-matched knockdowns, so	result (row: cell-eval, strong knockdowns, Pearson)
-Random-half ceilings and reliability labels are inflated	0.26	with no expected effect received high achievable scores, for example 0.26 for the Pearson correlation and 0.97 fo	result (row: cell-eval, unexpressed, Pearson random)
-Random-half ceilings and reliability labels are inflated	0.97	h achievable scores, for example 0.26 for the Pearson correlation and 0.97 for discrimination between perturbation	result (row: cell-eval, unexpressed, discrimination (cosine) random)
-Random-half ceilings and reliability labels are inflated	0.5	ed near the corrected chance level. For metrics whose chance level is 0.5, the Spearman–Brown correction itself m	parameter (threshold)
-Random-half ceilings and reliability labels are inflated	0.67	nce level is 0.5, the Spearman–Brown correction itself maps chance to 0.67 (), a separate problem that applying th	analytic (Spearman–Brown value of chance 0.5)
-Random-half ceilings and reliability labels are inflated	18%	abels behave the same way. Under a recently proposed split-half rule, 18% of unexpressed and 24% of expressed tar	result (row: Wang reliable, random, unexpressed, D1)
-Random-half ceilings and reliability labels are inflated	24%	ay. Under a recently proposed split-half rule, 18% of unexpressed and 24% of expressed targets in donor 1 were la	result (row: Wang reliable, random, expressed, D1)
-Random-half ceilings and reliability labels are inflated	1	t-half rule, 18% of unexpressed and 24% of expressed targets in donor 1 were labeled reliable with random halve	label or parameter (reviewed)
-Random-half ceilings and reliability labels are inflated	0.6%	targets in donor 1 were labeled reliable with random halves, against 0.6% and 2.2% with guide halves (); in donor	result (row: Wang reliable, guide, unexpressed, D1)
-Random-half ceilings and reliability labels are inflated	2.2%	in donor 1 were labeled reliable with random halves, against 0.6% and 2.2% with guide halves (); in donor 2, whose	result (row: Wang reliable, guide, expressed, D1)
-Random-half ceilings and reliability labels are inflated	2,	h random halves, against 0.6% and 2.2% with guide halves (); in donor 2, whose perturbations were more clonal, t	label (donor)
-Random-half ceilings and reliability labels are inflated	42%	2, whose perturbations were more clonal, the random-half shares were 42% and 52%. In Tahoe, ceilings from random	result (row: Wang reliable, random, unexpressed, D2)
-Random-half ceilings and reliability labels are inflated	52%	e perturbations were more clonal, the random-half shares were 42% and 52%. In Tahoe, ceilings from random halves	result (row: Wang reliable, random, expressed, D2)
-Random-half ceilings and reliability labels are inflated	0.77–0.87	ells exceeded those between the replicate plates (Pearson correlation 0.77–0.87 against 0.64; ).	result (row: Tahoe Pearson ceiling, plate 14)
-Random-half ceilings and reliability labels are inflated	0.64	e between the replicate plates (Pearson correlation 0.77–0.87 against 0.64; ).	result (row: Tahoe Pearson ceiling, across plates)
-Shared units carry cross-context structure that independent units do not reproduce	0.89	tween the two states nearly as strongly as between random halves (r = 0.89 and 0.94).	result (row: TRBC1 deviation, rest vs stim, D1)
-Shared units carry cross-context structure that independent units do not reproduce	0.94	two states nearly as strongly as between random halves (r = 0.89 and 0.94).	result (row: TRBC1 deviation, rest vs stim, D2)
-Shared units carry cross-context structure that independent units do not reproduce	0.3	ible energy that is context-specific was stable across designs, about 0.3 in CD4 and 0.36–0.39 in Tahoe, but the	result (row: Context-specific share, CD4 random / guide (printed as about 0.3))
-Shared units carry cross-context structure that independent units do not reproduce	0.36–0.39	t is context-specific was stable across designs, about 0.3 in CD4 and 0.36–0.39 in Tahoe, but the energies behind it we	result (row: Context-specific share, Tahoe range)
-Shared units carry cross-context structure that independent units do not reproduce	8–9	in Tahoe, but the energies behind it were not: in CD4 both parts were 8–9 times larger under random halves than u	result (row: Guide-specific share, D1 stim)
-Shared units carry cross-context structure that independent units do not reproduce	0.30–0.33	h the target fixed, the shared response from the same wells explained 0.30–0.33 of the target's reproducible energy, an	result (row: Tahoe predictor, same wells, range)
-Shared units carry cross-context structure that independent units do not reproduce	0.04–0.09	f the target's reproducible energy, and that from the replicate plate 0.04–0.09 (). In CD4 it explained about 0.5 under	label (plate)
-Shared units carry cross-context structure that independent units do not reproduce	0.5	that from the replicate plate 0.04–0.09 (). In CD4 it explained about 0.5 under random halves and about 0 under g	label or parameter (reviewed)
-Shared units carry cross-context structure that independent units do not reproduce	0	–0.09 (). In CD4 it explained about 0.5 under random halves and about 0 under guide halves, including strong kn	result (row: CD4 predictor near 0)
-Shared units carry cross-context structure that independent units do not reproduce	0.10	s share units, a predictor appears where none exists (explained share 0.10 with a true value of 0). The model also	result (row: Model: fabricated predictor, shared units)
-Shared units carry cross-context structure that independent units do not reproduce	0	appears where none exists (explained share 0.10 with a true value of 0). The model also shows the reverse risk	result (row: Model: fabricated predictor, true value 0)
-Shared units carry cross-context structure that independent units do not reproduce	4.0	pendent units. At the unit-to-signal energy ratios of the CD4 screen (4.0 and 7.5; Methods), a true explained sha	result (row: Unit-to-signal ratio, D1)
-Shared units carry cross-context structure that independent units do not reproduce	7.5	units. At the unit-to-signal energy ratios of the CD4 screen (4.0 and 7.5; Methods), a true explained share of 0.	result (row: Unit-to-signal ratio, D2)
-Shared units carry cross-context structure that independent units do not reproduce	0.70	s of the CD4 screen (4.0 and 7.5; Methods), a true explained share of 0.70 is reduced to 0.10 and 0.03, so the abs	result (row: Model: true explained share (attenuation))
-Shared units carry cross-context structure that independent units do not reproduce	0.10	(4.0 and 7.5; Methods), a true explained share of 0.70 is reduced to 0.10 and 0.03, so the absence of a predictor	result (row: Model: fabricated predictor, shared units)
-Shared units carry cross-context structure that independent units do not reproduce	0.03	7.5; Methods), a true explained share of 0.70 is reduced to 0.10 and 0.03, so the absence of a predictor across g	result (row: Model explained share at sigma_a 2.0, along response)
-When can random halves be trusted?	2025	ons. It was small in five cell-line screens and in the H1 data of the 2025 Virtual Cell Challenge, where the rando	year / accession
-When can random halves be trusted?	0.6–7%	allenge, where the random-half signal of non-targeting constructs was 0.6–7% of that of a typical targeting perturba	result (row: Wang reliable, guide, unexpressed, D1)
-Discussion	100	the CD4 study modeled donors as biological replicates, and the Tahoe-100M study included a replicate plate and r	dataset name
-Discussion	100	cate plates that the context-specific part of drug responses in Tahoe-100M is weakly reproducible, consistent wit	dataset name
-Discussion	2025	cible, consistent with our cross-plate results. In the H1 data of the 2025 Virtual Cell Challenge the shared compo	year / accession
-Discussion	100	Our analysis has limitations. Tahoe-100M contains one full pair of replicate pl	dataset name
-Discussion	6	s limitations. Tahoe-100M contains one full pair of replicate plates (6 and 14, sharing 94 conditions; no other	formula, model parameter or name
-Discussion	14,	tations. Tahoe-100M contains one full pair of replicate plates (6 and 14, sharing 94 conditions; no other pair of	label or parameter (reviewed)
-Discussion	94	oe-100M contains one full pair of replicate plates (6 and 14, sharing 94 conditions; no other pair of plates sha	result (row: Tahoe plates 6 / 14 shared conditions; largest other pair)
-Discussion	13	d 14, sharing 94 conditions; no other pair of plates shares more than 13), and we analyzed only this pair. The D	result (row: Tahoe plates 6 / 14 shared conditions; largest other pair)
-Discussion	0.35	component that recurred across plates (median cross-plate correlation 0.35 for the same line), possibly reflecting	result (row: DMSO cross-plate correlation, median)
-Data	48	e-based readout in cells from four donors, in resting and stimulated (48 h) states, with two guides per target.	result (row: Tahoe lines × conditions)
-Data	1	, with two guides per target. We used the single-cell files of donors 1 and 2 in both states, after removing ce	label (donor)
-Data	2	two guides per target. We used the single-cell files of donors 1 and 2 in both states, after removing cells fl	label (donor)
-Data	100	**Tahoe-100M.** In Tahoe-100M, about 50 cancer cell	dataset name
-Data	100	**Tahoe-100M.** In Tahoe-100M, about 50 cancer cell lines are pooled	dataset name
-Data	50	**Tahoe-100M.** In Tahoe-100M, about 50 cancer cell lines are pooled in each we	dataset name
-Data	14	In Tahoe-100M, about 50 cancer cell lines are pooled in each well of 14 plates; plate 14 is a biological replic	label or parameter (reviewed)
-Data	14	bout 50 cancer cell lines are pooled in each well of 14 plates; plate 14 is a biological replicate of plate 6. W	label or parameter (reviewed)
-Data	6	n each well of 14 plates; plate 14 is a biological replicate of plate 6. We streamed all cells, normalized each	label (plate)
-Data	10,000	replicate of plate 6. We streamed all cells, normalized each cell to 10,000 counts over all genes, applied log1p an	parameter or design count
-Data	6	* We used the raw single cells of the K562 essential-gene screen (day 6), part 1 of the K562 genome-wide screen	label or parameter (reviewed)
-Data	1	the raw single cells of the K562 essential-gene screen (day 6), part 1 of the K562 genome-wide screen (day 8)	label
-Data	8	ntial-gene screen (day 6), part 1 of the K562 genome-wide screen (day 8) and the RPE1 essential-gene screen. Co	label (day)
-Data	10,000	(day 8) and the RPE1 essential-gene screen. Counts were normalized to 10,000 over the genes common to the three scre	label or parameter (reviewed)
-Data	10	an additive correction of the control mean within each GEM group (one 10x Genomics channel).	parameter or design count
-Data	2025	**Virtual Cell Challenge 2025.** The H1 hESC training data (221,273 c	year / accession
-Data	221,273	**Virtual Cell Challenge 2025.** The H1 hESC training data (221,273 cells, 150 targets and 31 non-targeting	result (row: H1 cells / targets / NT constructs)
-Data	150	tual Cell Challenge 2025.** The H1 hESC training data (221,273 cells, 150 targets and 31 non-targeting constructs	result (row: H1 cells / targets / NT constructs)
-Data	31	nge 2025.** The H1 hESC training data (221,273 cells, 150 targets and 31 non-targeting constructs, 10x Flex) wer	result (row: H1 cells / targets / NT constructs)
-Data	10	ing data (221,273 cells, 150 targets and 31 non-targeting constructs, 10x Flex) were used only for the non-targe	parameter or design count
-Effects and gene filters	0.1	their control mean log1p CP10K. In CD4 single cells the threshold was 0.1 in both states for analyses that combin	parameter (threshold)
-Effects and gene filters	0.1	d in the analyzed state otherwise; in the CD4 donor pseudobulk it was 0.1 in every donor and state; in Tahoe, 0.1	label or parameter (reviewed)
-Effects and gene filters	0.1	e CD4 donor pseudobulk it was 0.1 in every donor and state; in Tahoe, 0.1 in the plate-6 DMSO cells of all lines;	label or parameter (reviewed)
-Effects and gene filters	6	obulk it was 0.1 in every donor and state; in Tahoe, 0.1 in the plate-6 DMSO cells of all lines; and in the Rep	label (plate)
-Effects and gene filters	0.1	0.1 in the plate-6 DMSO cells of all lines; and in the Replogle data, 0.1 in all three screens, with the 2,000 ge	label or parameter (reviewed)
-Effects and gene filters	2,000	l lines; and in the Replogle data, 0.1 in all three screens, with the 2,000 genes of highest control mean used for	parameter or design count
-Effects and gene filters	0.01	he template check. For cell-eval, genes with control mean of at least 0.01 in resting cells were kept, together wi	parameter (threshold)
-Splits	21	ries two independent random bits, r1 and r2, drawn with a fixed seed (21). Random halves are r1 = 0 against r1 =	parameter (seed)
-Splits	0	bits, r1 and r2, drawn with a fixed seed (21). Random halves are r1 = 0 against r1 = 1; for the bootstrap and t	label
-Splits	1	, drawn with a fixed seed (21). Random halves are r1 = 0 against r1 = 1; for the bootstrap and the reliability	formula, model parameter or name
-Splits	0,	, two further halvings used r2 and r1 ⊕ r2. Random quarters are (r1 = 0, r2 = 0) against (r1 = 1, r2 = 0). Guide	label
-Splits	0	rther halvings used r2 and r1 ⊕ r2. Random quarters are (r1 = 0, r2 = 0) against (r1 = 1, r2 = 0). Guide halves	label
-Splits	1,	ed r2 and r1 ⊕ r2. Random quarters are (r1 = 0, r2 = 0) against (r1 = 1, r2 = 0). Guide halves are defined by th	label
-Splits	0	d r1 ⊕ r2. Random quarters are (r1 = 0, r2 = 0) against (r1 = 1, r2 = 0). Guide halves are defined by the parit	label
-Splits	-1	ned by the parity of the guide number in the guide name (for example "-1" against "-2"), so each guide falls on	formula, model parameter or name
-Splits	-2	rity of the guide number in the guide name (for example "-1" against "-2"), so each guide falls on the same side	formula, model parameter or name
-Splits	0,	it in the same way by non-targeting guide; guide quarters are (parity 0, r2 = 0) against (parity 1, r2 = 0). Don	label
-Splits	0	e same way by non-targeting guide; guide quarters are (parity 0, r2 = 0) against (parity 1, r2 = 0). Donor halv	label
-Splits	1,	argeting guide; guide quarters are (parity 0, r2 = 0) against (parity 1, r2 = 0). Donor halves, of which there i	label
-Splits	0	guide; guide quarters are (parity 0, r2 = 0) against (parity 1, r2 = 0). Donor halves, of which there is a sin	label
-Splits	1–2	single pairing of donor groups, sum the pseudobulk counts over donors 1–2 or 3–4, over both guides and both seque	label (donor)
-Splits	3–4,	pairing of donor groups, sum the pseudobulk counts over donors 1–2 or 3–4, over both guides and both sequencing ru	label (donor)
-Splits	40	of the summed counts minus that of the summed controls, with at least 40 cells per half and state. In the Replog	parameter (threshold)
+How large the shared component is, and where	1.2–1.3	f a typical targeting perturbation; in the CD4 screen it exceeded it (1.2–1.3 times; ). The inflation is large where	result (row: CD4 NT / targeting random-half signal, D1 / D2 rest)
+Ceilings and reliability labels are inflated	0.8	We ran cell-eval (version 0.8.2), the evaluation tool of the Virtual	software version
+Ceilings and reliability labels are inflated	300	version 0.8.2), the evaluation tool of the Virtual Cell Challenge, on 300 perturbations from resting cells of don	result (row: cell-eval, perturbations in all runs)
+Ceilings and reliability labels are inflated	1,	tual Cell Challenge, on 300 perturbations from resting cells of donor 1, half of them unexpressed targets and ha	label (donor)
+Ceilings and reliability labels are inflated	0.32	g on every metric (; ). For the Pearson correlation of effects it was 0.32 against 0.06 over all 300 perturbations	result (row: cell-eval, all 300, Pearson ceiling random vs guide)
+Ceilings and reliability labels are inflated	0.06	tric (; ). For the Pearson correlation of effects it was 0.32 against 0.06 over all 300 perturbations, and 0.38 ag	result (row: cell-eval, all 300, Pearson ceiling random vs guide)
+Ceilings and reliability labels are inflated	300	the Pearson correlation of effects it was 0.32 against 0.06 over all 300 perturbations, and 0.38 against 0.13 fo	result (row: cell-eval, perturbations in all runs)
+Ceilings and reliability labels are inflated	0.38	n of effects it was 0.32 against 0.06 over all 300 perturbations, and 0.38 against 0.13 for the strength-matched k	result (row: cell-eval, strong knockdowns, Pearson)
+Ceilings and reliability labels are inflated	0.13	it was 0.32 against 0.06 over all 300 perturbations, and 0.38 against 0.13 for the strength-matched knockdowns, so	result (row: cell-eval, strong knockdowns, Pearson)
+Ceilings and reliability labels are inflated	0.26	with no expected effect received high achievable scores, for example 0.26 for the Pearson correlation and 0.97 fo	result (row: cell-eval, unexpressed, Pearson random)
+Ceilings and reliability labels are inflated	0.97	h achievable scores, for example 0.26 for the Pearson correlation and 0.97 for discrimination between perturbation	result (row: cell-eval, unexpressed, discrimination (cosine) random)
+Ceilings and reliability labels are inflated	0.5	ed near the corrected chance level. For metrics whose chance level is 0.5, the Spearman–Brown correction itself m	parameter (threshold)
+Ceilings and reliability labels are inflated	0.67	nce level is 0.5, the Spearman–Brown correction itself maps chance to 0.67 (), a separate problem that applying th	analytic (Spearman–Brown value of chance 0.5)
+Ceilings and reliability labels are inflated	18%	abels behave the same way. Under a recently proposed split-half rule, 18% of unexpressed and 24% of expressed tar	result (row: Wang reliable, random, unexpressed, D1)
+Ceilings and reliability labels are inflated	24%	ay. Under a recently proposed split-half rule, 18% of unexpressed and 24% of expressed targets in donor 1 were la	result (row: Wang reliable, random, expressed, D1)
+Ceilings and reliability labels are inflated	1	t-half rule, 18% of unexpressed and 24% of expressed targets in donor 1 were labeled reliable with random halve	label or parameter (reviewed)
+Ceilings and reliability labels are inflated	0.6%	targets in donor 1 were labeled reliable with random halves, against 0.6% and 2.2% with guide halves (); in donor	result (row: Wang reliable, guide, unexpressed, D1)
+Ceilings and reliability labels are inflated	2.2%	in donor 1 were labeled reliable with random halves, against 0.6% and 2.2% with guide halves (); in donor 2, whose	result (row: Wang reliable, guide, expressed, D1)
+Ceilings and reliability labels are inflated	2,	h random halves, against 0.6% and 2.2% with guide halves (); in donor 2, whose perturbations were more clonal, t	label (donor)
+Ceilings and reliability labels are inflated	42%	2, whose perturbations were more clonal, the random-half shares were 42% and 52%.	result (row: Wang reliable, random, unexpressed, D2)
+Ceilings and reliability labels are inflated	52%	e perturbations were more clonal, the random-half shares were 42% and 52%.	result (row: Wang reliable, random, expressed, D2)
+Cross-context structure comes from shared units	0.89	tween the two states nearly as strongly as between random halves (r = 0.89 and 0.94).	result (row: TRBC1 deviation, rest vs stim, D1)
+Cross-context structure comes from shared units	0.94	two states nearly as strongly as between random halves (r = 0.89 and 0.94).	result (row: TRBC1 deviation, rest vs stim, D2)
+Cross-context structure comes from shared units	0.3	ible energy that is context-specific was stable across designs, about 0.3, but the energies behind it were not: b	result (row: Context-specific share, CD4 random / guide (printed as about 0.3))
+Cross-context structure comes from shared units	8–9	igns, about 0.3, but the energies behind it were not: both parts were 8–9 times larger under random halves than u	result (row: Guide-specific share, D1 stim)
+Cross-context structure comes from shared units	0.5	worked within units and failed across them. In CD4 it explained about 0.5 under random halves and about 0 under g	result (row: CD4 predictor, random halves, about 0.5)
+Cross-context structure comes from shared units	0	oss them. In CD4 it explained about 0.5 under random halves and about 0 under guide halves, including strength-	result (row: CD4 predictor near 0)
+Cross-context structure comes from shared units	0.10	s share units, a predictor appears where none exists (explained share 0.10 with a true value of 0). The model also	result (row: Model: fabricated predictor, shared units)
+Cross-context structure comes from shared units	0	appears where none exists (explained share 0.10 with a true value of 0). The model also shows the reverse risk	result (row: Model: fabricated predictor, true value 0)
+Cross-context structure comes from shared units	4.0	pendent units. At the unit-to-signal energy ratios of the CD4 screen (4.0 and 7.5; Methods), a true explained sha	result (row: Unit-to-signal ratio, D1)
+Cross-context structure comes from shared units	7.5	units. At the unit-to-signal energy ratios of the CD4 screen (4.0 and 7.5; Methods), a true explained share of 0.	result (row: Unit-to-signal ratio, D2)
+Cross-context structure comes from shared units	0.70	s of the CD4 screen (4.0 and 7.5; Methods), a true explained share of 0.70 is reduced to 0.10 and 0.03, so the abs	result (row: Model: true explained share (attenuation))
+Cross-context structure comes from shared units	0.10	(4.0 and 7.5; Methods), a true explained share of 0.70 is reduced to 0.10 and 0.03, so the absence of a predictor	result (row: Model: fabricated predictor, shared units)
+Cross-context structure comes from shared units	0.03	7.5; Methods), a true explained share of 0.70 is reduced to 0.10 and 0.03, so the absence of a predictor across g	result (row: Model explained share at sigma_a 2.0, along response)
+Cross-context structure comes from shared units	2025	ons. It was small in five cell-line screens and in the H1 data of the 2025 Virtual Cell Challenge, where the rando	year / accession
+Cross-context structure comes from shared units	0.6–7%	allenge, where the random-half signal of non-targeting constructs was 0.6–7% of that of a typical targeting perturba	result (row: Wang reliable, guide, unexpressed, D1)
+Discussion	2025	y labels, denoising and cross-context modeling. In the H1 data of the 2025 Virtual Cell Challenge the shared compo	year / accession
+Data	48	of Zhu et al. profiles cells of four donors, resting and stimulated (48 h), with a probe-based readout and two	parameter or design count
+Data	1	ut and two guides per target. We used the single-cell files of donors 1 and 2, without cells flagged as low qua	label (donor)
+Data	2,	two guides per target. We used the single-cell files of donors 1 and 2, without cells flagged as low quality or	label (donor)
+Data	6	reens.** We used the raw single cells of the K562 essential-gene (day 6), K562 genome-wide (day 8, part 1) and	label or parameter (reviewed)
+Data	8,	ingle cells of the K562 essential-gene (day 6), K562 genome-wide (day 8, part 1) and RPE1 essential-gene screens	label (day)
+Data	1	lls of the K562 essential-gene (day 6), K562 genome-wide (day 8, part 1) and RPE1 essential-gene screens of Rep	label
+Data	10,000	1) and RPE1 essential-gene screens of Replogle et al., normalized to 10,000 counts over the genes common to the thr	parameter or design count
+Data	10	and corrected additively for the control mean of each GEM group (one 10x Genomics channel); the Jurkat and HepG	parameter or design count
+Data	2025	e screens of Nadig et al. (nd ); and the H1 hESC training data of the 2025 Virtual Cell Challenge (221,273 cells,	year / accession
+Data	221,273	); and the H1 hESC training data of the 2025 Virtual Cell Challenge (221,273 cells, 150 targets and 31 non-targeting	result (row: H1 cells / targets / NT constructs)
+Data	150	hESC training data of the 2025 Virtual Cell Challenge (221,273 cells, 150 targets and 31 non-targeting constructs	result (row: H1 cells / targets / NT constructs)
+Data	31	ta of the 2025 Virtual Cell Challenge (221,273 cells, 150 targets and 31 non-targeting constructs, 10x Flex; nly	result (row: H1 cells / targets / NT constructs)
+Data	10	hallenge (221,273 cells, 150 targets and 31 non-targeting constructs, 10x Flex; nly).	parameter or design count
+Effects and gene filters	0.1	Genes were kept if their control mean log1p CP10K was at least 0.1: in CD4 single cells, in both states fo	parameter (threshold)
+Effects and gene filters	2,000	donor and state; and in the Replogle data, in all three screens (the 2,000 genes of highest control mean for the t	parameter or design count
+Effects and gene filters	0.01	check). cell-eval used genes with a resting control mean of at least 0.01, together with the target genes. TCR ge	parameter (threshold)
+Splits	21	In CD4, each cell carries two random bits, r1 and r2 (seed 21). Random halves split on r1; the bootst	parameter (seed)
+Splits	0,	lity labels also used r2 and r1 ⊕ r2. Random quarters are (r1, r2) = (0, 0) against (1, 0). Guide halves split o	formula, model parameter or name
+Splits	0	y labels also used r2 and r1 ⊕ r2. Random quarters are (r1, r2) = (0, 0) against (1, 0). Guide halves split on	formula, model parameter or name
+Splits	1,	o used r2 and r1 ⊕ r2. Random quarters are (r1, r2) = (0, 0) against (1, 0). Guide halves split on the parity of	formula, model parameter or name
+Splits	0	sed r2 and r1 ⊕ r2. Random quarters are (r1, r2) = (0, 0) against (1, 0). Guide halves split on the parity of t	formula, model parameter or name
+Splits	0	s were split likewise by non-targeting guide; guide quarters add r2 = 0. Donor halves sum the pseudobulk counts	label
+Splits	1–2	arters add r2 = 0. Donor halves sum the pseudobulk counts over donors 1–2 or 3–4, both guides and both sequencing	label (donor)
+Splits	3–4,	add r2 = 0. Donor halves sum the pseudobulk counts over donors 1–2 or 3–4, both guides and both sequencing runs (l	label (donor)
+Splits	40	P10K of the summed counts minus that of the summed controls; at least 40 cells per half and state). In the Replo	parameter (threshold)
 Splits	0,	he Replogle data, the cells of each perturbation were permuted (seeds 0, 1 and 2 for the three screens) and cut	parameter (seed)
 Splits	1	Replogle data, the cells of each perturbation were permuted (seeds 0, 1 and 2 for the three screens) and cut in	label or parameter (reviewed)
-Splits	2	le data, the cells of each perturbation were permuted (seeds 0, 1 and 2 for the three screens) and cut into two	label or parameter (reviewed)
-Unexpressed and expressed targets	0.01	rgets measured by the probe panel with control mean log1p CP10K below 0.01; expressed targets have a control mean	parameter (threshold)
-Unexpressed and expressed targets	0.5	p CP10K below 0.01; expressed targets have a control mean of at least 0.5. Unexpressed targets are an operational	parameter (threshold)
-Unexpressed and expressed targets	178	ere treated as unexpressed. The K562 analysis across screens used the 178 targets that were unexpressed in both K	result (row: K562 unexpressed targets (n))
-Unexpressed and expressed targets	10	In CD4, perturbations entered  if they had at least 10 cells on each side of both the random a	parameter (threshold)
-Unexpressed and expressed targets	1,239	on each side of both the random and the guide halves in both states (1,239 unexpressed targets in donor 1 and 872	result (row: Unexpressed targets, donor 1 / donor 2 (n))
-Unexpressed and expressed targets	1	d the guide halves in both states (1,239 unexpressed targets in donor 1 and 872 in donor 2), the depth and clon	formula, model parameter or name
-Unexpressed and expressed targets	872	guide halves in both states (1,239 unexpressed targets in donor 1 and 872 in donor 2), the depth and clone tests	label (donor)
-Unexpressed and expressed targets	2	in both states (1,239 unexpressed targets in donor 1 and 872 in donor 2), the depth and clone tests if they had	formula, model parameter or name
-Unexpressed and expressed targets	8	1 and 872 in donor 2), the depth and clone tests if they had at least 8 cells on each side of every quarter des	result (row: Guide-specific share, D1 stim)
-Unexpressed and expressed targets	10	r, context-specific share and reliability labels if they had at least 10 cells on each side of all four halvings	parameter (threshold)
-Non-targeting guides	1	Each non-targeting guide of CD4 donors 1 and 2, resting and stimulated, was trea	label (donor)
-Non-targeting guides	2,	Each non-targeting guide of CD4 donors 1 and 2, resting and stimulated, was treated as	label (donor)
-Non-targeting guides	0.1	kept non-targeting guides in that half. Genes had a mean of at least 0.1 over all non-targeting cells, TCR genes	parameter (threshold)
-Non-targeting guides	10	l non-targeting cells, TCR genes excluded, and guides needed at least 10 cells in each half. Random halves split	parameter (threshold)
-Non-targeting guides	50	gns have the same depth; the share of positive pairs is the mean over 50 random pairings. The TRBC clone marker	parameter or design count
-Non-targeting guides	30	uted as for targeting guides, over non-targeting guides with at least 30 cells carrying TRBC counts. The same an	parameter (threshold)
-Non-targeting guides	6	run on the raw single cells of the Replogle K562 essential-gene (day 6), K562 genome-wide (day 8, part 1) and	label or parameter (reviewed)
-Non-targeting guides	8,	ls of the Replogle K562 essential-gene (day 6), K562 genome-wide (day 8, part 1) and RPE1 screens the Nadig Jurk	label (day)
-Non-targeting guides	1	e Replogle K562 essential-gene (day 6), K562 genome-wide (day 8, part 1) and RPE1 screens the Nadig Jurkat and	label
-Non-targeting guides	2025	PE1 screens the Nadig Jurkat and HepG2 screens and the H1 data of the 2025 Virtual Cell Challenge, with one pseudo	year / accession
-Non-targeting guides	0.1	hat of targeting perturbations, with the same genes (mean of at least 0.1 over non-targeting cells) and at least	parameter (threshold)
-Non-targeting guides	10	me genes (mean of at least 0.1 over non-targeting cells) and at least 10 cells per half. In CD4 the same ratio w	parameter (threshold)
-Cross-half signal and null perturbations	9	K562 genome-wide screen, with halves from a random bit per cell (seed 9) and at least 15 cells per half; the sh	parameter (seed)
-Cross-half signal and null perturbations	15	screen, with halves from a random bit per cell (seed 9) and at least 15 cells per half; the share of reproducib	parameter (threshold)
-Cross-half signal and null perturbations	83%	t 15 cells per half; the share of reproducible null targets rose from 83% to 89%.	result (row: K562 template artefact, inert-referenced -> template removed)
-Cross-half signal and null perturbations	89%	lls per half; the share of reproducible null targets rose from 83% to 89%.	result (row: K562 template artefact, inert-referenced -> template removed)
+Splits	2	le data, the cells of each perturbation were permuted (seeds 0, 1 and 2 for the three screens) and cut into equ	label or parameter (reviewed)
+Unexpressed and expressed targets	0.01	ressed targets are probed targets with control mean log1p CP10K below 0.01; expressed targets have at least 0.5. T	parameter (threshold)
+Unexpressed and expressed targets	0.5	control mean log1p CP10K below 0.01; expressed targets have at least 0.5. They are an operational null: their kn	parameter (threshold)
+Unexpressed and expressed targets	178	ist counted as unexpressed; the analysis across K562 screens used the 178 unexpressed in both.	result (row: K562 unexpressed targets (n))
+Unexpressed and expressed targets	10	In CD4, perturbations needed at least 10 cells on each side of both the random a	parameter (threshold)
+Unexpressed and expressed targets	1,239	ach side of both the random and the guide halves in both states for  (1,239 unexpressed targets in donor 1 and 872	result (row: Unexpressed targets, donor 1 / donor 2 (n))
+Unexpressed and expressed targets	1	guide halves in both states for  (1,239 unexpressed targets in donor 1 and 872 in donor 2), at least 8 on each	formula, model parameter or name
+Unexpressed and expressed targets	872	halves in both states for  (1,239 unexpressed targets in donor 1 and 872 in donor 2), at least 8 on each side of	label (donor)
+Unexpressed and expressed targets	2	th states for  (1,239 unexpressed targets in donor 1 and 872 in donor 2), at least 8 on each side of every quar	formula, model parameter or name
+Unexpressed and expressed targets	8	(1,239 unexpressed targets in donor 1 and 872 in donor 2), at least 8 on each side of every quarter design fo	label (donor)
+Unexpressed and expressed targets	10	e of every quarter design for the depth and clone tests, and at least 10 on each side of all four halvings in bo	parameter (threshold)
+Non-targeting guides	1	Each non-targeting guide of CD4 donors 1 and 2 was treated as a perturbation, wi	label (donor)
+Non-targeting guides	2	Each non-targeting guide of CD4 donors 1 and 2 was treated as a perturbation, with the	label (donor)
+Non-targeting guides	0.1	l kept non-targeting guides in the half. Genes had a mean of at least 0.1 over non-targeting cells (TCR genes exc	parameter (threshold)
+Non-targeting guides	10	non-targeting cells (TCR genes excluded), and guides needed at least 10 cells per half. For halves from differe	parameter (threshold)
+Non-targeting guides	50	ther, at the same depth; the share of positive pairs is the mean over 50 pairings. The TRBC marker was computed	parameter or design count
+Non-targeting guides	10	ting cells of the half and centered, with the same genes and at least 10 cells per half (CD4: resting cells, TCR	parameter (threshold)
+Cross-half signal and null perturbations	9	oth halves; in the K562 genome-wide screen (random bit per cell, seed 9; at least 15 cells per half) it raised	parameter (seed)
+Cross-half signal and null perturbations	15	in the K562 genome-wide screen (random bit per cell, seed 9; at least 15 cells per half) it raised the share of	parameter (threshold)
+Cross-half signal and null perturbations	83%	cells per half) it raised the share of reproducible null targets from 83% to 89%.	result (row: K562 template artefact, inert-referenced -> template removed)
+Cross-half signal and null perturbations	89%	er half) it raised the share of reproducible null targets from 83% to 89%.	result (row: K562 template artefact, inert-referenced -> template removed)
 Cross-half signal and null perturbations	1	ignal of expressed targets that the other guide does not reproduce is 1 minus the ratio of the guide-half to th	analytic
-Cross-half signal and null perturbations	0	r each target we formed four pseudobulk effects per state: guide rank 0 or 1 (the guide's rank within its targe	label
-Cross-half signal and null perturbations	1	h target we formed four pseudobulk effects per state: guide rank 0 or 1 (the guide's rank within its target) in	formula, model parameter or name
-Cross-half signal and null perturbations	1–2	ate: guide rank 0 or 1 (the guide's rank within its target) in donors 1–2 or 3–4, each the log1p CP10K of the sum	label (donor)
-Cross-half signal and null perturbations	3–4,	ide rank 0 or 1 (the guide's rank within its target) in donors 1–2 or 3–4, each the log1p CP10K of the summed coun	label (donor)
-Cross-half signal and null perturbations	20	ed non-targeting controls of the same donors and state, with at least 20 cells each. The same-guide design pairs	parameter (threshold)
-Cross-half signal and null perturbations	0	state, with at least 20 cells each. The same-guide design pairs guide 0 in donors 1–2 with guide 0 in donors 3–	parameter or design count
-Cross-half signal and null perturbations	1–2	at least 20 cells each. The same-guide design pairs guide 0 in donors 1–2 with guide 0 in donors 3–4, and likewis	label (donor)
-Cross-half signal and null perturbations	0	ls each. The same-guide design pairs guide 0 in donors 1–2 with guide 0 in donors 3–4, and likewise for guide 1	label
-Cross-half signal and null perturbations	3–4,	same-guide design pairs guide 0 in donors 1–2 with guide 0 in donors 3–4, and likewise for guide 1; the different	label (donor)
-Cross-half signal and null perturbations	1	de 0 in donors 1–2 with guide 0 in donors 3–4, and likewise for guide 1; the different-guide design pairs guide	label (donor)
-Cross-half signal and null perturbations	0	3–4, and likewise for guide 1; the different-guide design pairs guide 0 in donors 1–2 with guide 1 in donors 3–	label
-Cross-half signal and null perturbations	1–2	ewise for guide 1; the different-guide design pairs guide 0 in donors 1–2 with guide 1 in donors 3–4, and vice ve	label (donor)
-Cross-half signal and null perturbations	1	1; the different-guide design pairs guide 0 in donors 1–2 with guide 1 in donors 3–4, and vice versa. Both des	label or parameter (reviewed)
-Cross-half signal and null perturbations	3–4,	erent-guide design pairs guide 0 in donors 1–2 with guide 1 in donors 3–4, and vice versa. Both designs use the sa	label (donor)
-Cross-half signal and null perturbations	0.80	es guide-specific energy relative to the signal shared across guides (0.80 resting, 0.48 stimulated). Multiplying	result (row: Guide-specific ratio, rest)
-Cross-half signal and null perturbations	0.48	fic energy relative to the signal shared across guides (0.80 resting, 0.48 stimulated). Multiplying it by the sing	result (row: Guide-specific ratio, stim)
-Cross-half signal and null perturbations	6	by the geometric mean of the summed within-screen signals of the day-6 and day-8 screens, which gave 0.85. The	label (day)
-Cross-half signal and null perturbations	8	ometric mean of the summed within-screen signals of the day-6 and day-8 screens, which gave 0.85. The unit-to-s	label (day)
-Cross-half signal and null perturbations	0.85	mmed within-screen signals of the day-6 and day-8 screens, which gave 0.85. The unit-to-signal energy ratio used i	result (row: K562 unexpressed recurrence across screens)
-TRBC clone marker	1.75	We used each cell with at least two TRBC1 plus TRBC2 counts (1.75 million resting and 1.58 million stimul	result (row: TRBC valid cells, D1 rest (millions))
-TRBC clone marker	1.58	l with at least two TRBC1 plus TRBC2 counts (1.75 million resting and 1.58 million stimulated cells of donor 1) an	result (row: TRBC valid cells, D1 stim (millions))
-TRBC clone marker	1	unts (1.75 million resting and 1.58 million stimulated cells of donor 1) and computed its TRBC1 fraction f = TR	formula, model parameter or name
-TRBC clone marker	1	standard deviation over all cells; under random assignment, var(z) ≈ 1. The variance of z was computed over pe	analytic
-TRBC clone marker	30	≈ 1. The variance of z was computed over perturbations with at least 30 cells, and the permutation value is the	parameter (threshold)
-TRBC clone marker	15	Pearson correlation between halves across perturbations with at least 15 cells per half. Clonal skew is |z|. Its	parameter (threshold)
-TRBC clone marker	30	f expression signal () used the unexpressed targets of  with at least 30 cells carrying TRBC counts (1,234 in do	parameter (threshold)
+Cross-half signal and null perturbations	0	udobulk effects per target and state from all four donors: guide rank 0 or 1 in donors 1–2 or 3–4 (both sequenc	label
+Cross-half signal and null perturbations	1	lk effects per target and state from all four donors: guide rank 0 or 1 in donors 1–2 or 3–4 (both sequencing r	label or parameter (reviewed)
+Cross-half signal and null perturbations	1–2	er target and state from all four donors: guide rank 0 or 1 in donors 1–2 or 3–4 (both sequencing runs, minus the	label (donor)
+Cross-half signal and null perturbations	3–4	et and state from all four donors: guide rank 0 or 1 in donors 1–2 or 3–4 (both sequencing runs, minus the non-ta	label (donor)
+Cross-half signal and null perturbations	20	nus the non-targeting controls of the same donors and state; at least 20 cells each). The same-guide design pair	parameter (threshold)
+Cross-half signal and null perturbations	0	ross the two donor groups, and the different-guide design pairs guide 0 with guide 1, on the same cells. Their	label
+Cross-half signal and null perturbations	1,	donor groups, and the different-guide design pairs guide 0 with guide 1, on the same cells. Their difference, di	label
+Cross-half signal and null perturbations	0.80	es guide-specific energy relative to the signal shared across guides (0.80 resting, 0.48 stimulated). Multiplied b	result (row: Guide-specific ratio, rest)
+Cross-half signal and null perturbations	0.48	fic energy relative to the signal shared across guides (0.80 resting, 0.48 stimulated). Multiplied by the single-c	result (row: Guide-specific ratio, stim)
+Cross-half signal and null perturbations	0.85	al divided by the geometric mean of the summed within-screen signals (0.85). The unit-to-signal energy ratio is th	result (row: K562 unexpressed recurrence across screens)
+TRBC clone marker	1.75	We used cells with at least two TRBC1 plus TRBC2 counts (1.75 million resting and 1.58 million stimul	result (row: TRBC valid cells, D1 rest (millions))
+TRBC clone marker	1.58	s with at least two TRBC1 plus TRBC2 counts (1.75 million resting and 1.58 million stimulated cells of donor 1) an	result (row: TRBC valid cells, D1 stim (millions))
+TRBC clone marker	1	unts (1.75 million resting and 1.58 million stimulated cells of donor 1) and their TRBC1 fraction f = TRBC1 / (	formula, model parameter or name
+TRBC clone marker	1	are the mean and standard deviation over all cells, so that var(z) ≈ 1 under random assignment. var(z) used pe	analytic
+TRBC clone marker	30	≈ 1 under random assignment. var(z) used perturbations with at least 30 cells, and its permutation value is the	parameter (threshold)
+TRBC clone marker	15	ation (mean f − f0) is its between-half Pearson correlation (at least 15 cells per half). Clonal skew is |z|; it	parameter (threshold)
+TRBC clone marker	30	e cross-half signal () used the unexpressed targets of  with at least 30 cells carrying TRBC counts (1,234 in do	parameter (threshold)
 TRBC clone marker	1,234	unexpressed targets of  with at least 30 cells carrying TRBC counts (1,234 in donor 1 and 864 in donor 2), with qu	result (row: Fig. 3d targets, D1 / D2)
-TRBC clone marker	1	rgets of  with at least 30 cells carrying TRBC counts (1,234 in donor 1 and 864 in donor 2), with quartiles tak	formula, model parameter or name
-TRBC clone marker	864	of  with at least 30 cells carrying TRBC counts (1,234 in donor 1 and 864 in donor 2), with quartiles taken over	label (donor)
-TRBC clone marker	2	east 30 cells carrying TRBC counts (1,234 in donor 1 and 864 in donor 2), with quartiles taken over these targe	formula, model parameter or name
-TRBC clone marker	0.229	state definition of unexpressed targets gave Spearman correlations of 0.229 and 0.227 (resting) and 0.159 and 0.160	result (row: Clone skew Spearman (per-state def.), D1 rest)
-TRBC clone marker	0.227	nition of unexpressed targets gave Spearman correlations of 0.229 and 0.227 (resting) and 0.159 and 0.160 (stimulat	result (row: Clone skew Spearman (per-state def.), D2 rest)
-TRBC clone marker	0.159	d targets gave Spearman correlations of 0.229 and 0.227 (resting) and 0.159 and 0.160 (stimulated) in donors 1 and	result (row: Clone skew Spearman (per-state def.), D1 stim)
-TRBC clone marker	0.160	gave Spearman correlations of 0.229 and 0.227 (resting) and 0.159 and 0.160 (stimulated) in donors 1 and 2.	result (row: Clone skew Spearman (per-state def.), D2 stim)
+TRBC clone marker	1	rgets of  with at least 30 cells carrying TRBC counts (1,234 in donor 1 and 864 in donor 2), with quartiles ove	formula, model parameter or name
+TRBC clone marker	864	of  with at least 30 cells carrying TRBC counts (1,234 in donor 1 and 864 in donor 2), with quartiles over these	label (donor)
+TRBC clone marker	2	east 30 cells carrying TRBC counts (1,234 in donor 1 and 864 in donor 2), with quartiles over these targets. Wi	formula, model parameter or name
+TRBC clone marker	0.229	ate definition of unexpressed targets, the Spearman correlations were 0.229 and 0.227 (resting) and 0.159 and 0.160	result (row: Clone skew Spearman (per-state def.), D1 rest)
+TRBC clone marker	0.227	tion of unexpressed targets, the Spearman correlations were 0.229 and 0.227 (resting) and 0.159 and 0.160 (stimulat	result (row: Clone skew Spearman (per-state def.), D2 rest)
+TRBC clone marker	0.159	targets, the Spearman correlations were 0.229 and 0.227 (resting) and 0.159 and 0.160 (stimulated) in donors 1 and	result (row: Clone skew Spearman (per-state def.), D1 stim)
+TRBC clone marker	0.160	he Spearman correlations were 0.229 and 0.227 (resting) and 0.159 and 0.160 (stimulated) in donors 1 and 2.	result (row: Clone skew Spearman (per-state def.), D2 stim)
 TRBC clone marker	1	0.229 and 0.227 (resting) and 0.159 and 0.160 (stimulated) in donors 1 and 2.	label or parameter (reviewed)
 TRBC clone marker	2	and 0.227 (resting) and 0.159 and 0.160 (stimulated) in donors 1 and 2.	label or parameter (reviewed)
-TRBC clone marker	1	es with intra-clone correlation ICC of the TRBC1 fraction has E[z²] ≈ 1 + ICC(n/K − 1), so K ≤ n/z² for ICC ≤ 1	label or parameter (reviewed)
-TRBC clone marker	1	clone correlation ICC of the TRBC1 fraction has E[z²] ≈ 1 + ICC(n/K − 1), so K ≤ n/z² for ICC ≤ 1. We report th	label or parameter (reviewed)
-TRBC clone marker	1	he TRBC1 fraction has E[z²] ≈ 1 + ICC(n/K − 1), so K ≤ n/z² for ICC ≤ 1. We report the median of n/z² over pert	label or parameter (reviewed)
-TRBC clone marker	1	or ICC ≤ 1. We report the median of n/z² over perturbations with z² > 1 (85–91% of them) in resting cells, with	label or parameter (reviewed)
-TRBC clone marker	85–91%	ICC ≤ 1. We report the median of n/z² over perturbations with z² > 1 (85–91% of them) in resting cells, with all gui	result (row: K562 unexpressed recurrence across screens)
-TRBC clone marker	30	h all guides of a perturbation pooled. The original design transduced 30 million cells per donor at a multiplici	parameter or design count
-TRBC clone marker	0.2	ed 30 million cells per donor at a multiplicity of infection of about 0.2 with 23,256 guides, of the order of 250	external (original screen design: multiplicity of infection)
-TRBC clone marker	23,256	lion cells per donor at a multiplicity of infection of about 0.2 with 23,256 guides, of the order of 250 transduced	external (original screen design: guides)
-TRBC clone marker	250	plicity of infection of about 0.2 with 23,256 guides, of the order of 250 transduced cells per guide and 500 per	parameter or design count
-TRBC clone marker	500	ith 23,256 guides, of the order of 250 transduced cells per guide and 500 per perturbation. For the comparison of	external (original screen design: cells per perturbation)
-TRBC clone marker	30	son of states, the TRBC1 deviation of each perturbation with at least 30 cells carrying TRBC counts in both rest	parameter (threshold)
-TRBC clone marker	9,830	h resting and stimulated cells was correlated between the two states (9,830 perturbations in donor 1 and 9,037 in d	result (row: TRBC rest-vs-stim perturbations, D1 / D2)
-TRBC clone marker	1	s was correlated between the two states (9,830 perturbations in donor 1 and 9,037 in donor 2).	label (donor)
-TRBC clone marker	9,037	correlated between the two states (9,830 perturbations in donor 1 and 9,037 in donor 2).	label (donor)
-TRBC clone marker	2	een the two states (9,830 perturbations in donor 1 and 9,037 in donor 2).	label (donor)
-Depth	1	ns on the same targets. In the model below, the unit term scales with 1/K_eff, the inverse effective number of	formula, model parameter or name
-Depth	2	target correlation between half-effects, and the Spearman–Brown value 2r/(1 + r) was applied to that mean.	formula, model parameter or name
-Depth	1	et correlation between half-effects, and the Spearman–Brown value 2r/(1 + r) was applied to that mean.	formula, model parameter or name
+TRBC clone marker	1	lones with intra-clone correlation ICC of the TRBC1 fraction, E[z²] ≈ 1 + ICC(n/K − 1), so K ≤ n/z² for ICC ≤ 1	label or parameter (reviewed)
+TRBC clone marker	1	ra-clone correlation ICC of the TRBC1 fraction, E[z²] ≈ 1 + ICC(n/K − 1), so K ≤ n/z² for ICC ≤ 1. We report th	label or parameter (reviewed)
+TRBC clone marker	1	f the TRBC1 fraction, E[z²] ≈ 1 + ICC(n/K − 1), so K ≤ n/z² for ICC ≤ 1. We report the median of n/z² over rest	label or parameter (reviewed)
+TRBC clone marker	1	1. We report the median of n/z² over resting perturbations with z² > 1 (85–91% of them), with all guides of a	label or parameter (reviewed)
+TRBC clone marker	85–91%	We report the median of n/z² over resting perturbations with z² > 1 (85–91% of them), with all guides of a perturba	result (row: K562 unexpressed recurrence across screens)
+TRBC clone marker	30	hem), with all guides of a perturbation pooled. The screen transduced 30 million cells per donor at a multiplici	parameter or design count
+TRBC clone marker	0.2	ed 30 million cells per donor at a multiplicity of infection of about 0.2 with 23,256 guides, about 250 transduce	external (original screen design: multiplicity of infection)
+TRBC clone marker	23,256	lion cells per donor at a multiplicity of infection of about 0.2 with 23,256 guides, about 250 transduced cells per	external (original screen design: guides)
+TRBC clone marker	250	at a multiplicity of infection of about 0.2 with 23,256 guides, about 250 transduced cells per guide and 500 per	parameter or design count
+TRBC clone marker	500	bout 0.2 with 23,256 guides, about 250 transduced cells per guide and 500 per perturbation. Between states, the T	external (original screen design: cells per perturbation)
+TRBC clone marker	30	, the TRBC1 deviation was correlated over perturbations with at least 30 cells carrying TRBC counts in both stat	parameter (threshold)
+TRBC clone marker	9,830	urbations with at least 30 cells carrying TRBC counts in both states (9,830 in donor 1 and 9,037 in donor 2).	result (row: TRBC rest-vs-stim perturbations, D1 / D2)
+TRBC clone marker	1	at least 30 cells carrying TRBC counts in both states (9,830 in donor 1 and 9,037 in donor 2).	label (donor)
+TRBC clone marker	9,037	st 30 cells carrying TRBC counts in both states (9,830 in donor 1 and 9,037 in donor 2).	label (donor)
+TRBC clone marker	2	rying TRBC counts in both states (9,830 in donor 1 and 9,037 in donor 2).	label (donor)
+Depth	2	arget correlation between half-effects, with the Spearman–Brown value 2r/(1 + r) applied to that mean. In the m	formula, model parameter or name
+Depth	1	t correlation between half-effects, with the Spearman–Brown value 2r/(1 + r) applied to that mean. In the model	formula, model parameter or name
+Depth	1	) applied to that mean. In the model below, the unit term scales with 1/K_eff, the inverse effective number of	formula, model parameter or name
 Shared and context-specific responses	2	For two contexts X and Y, the shared response is (X + Y)/2 and the context-specific response is (X	formula, model parameter or name
 Shared and context-specific responses	2,	ed response is (X + Y)/2 and the context-specific response is (X − Y)/2, after centering each context over pertu	formula, model parameter or name
-Shared and context-specific responses	10	n) pairs present on both plates. Lines were kept if they had at least 10 cells per half on both plates in at lea	parameter (threshold)
-Shared and context-specific responses	85%	ept if they had at least 10 cells per half on both plates in at least 85% of conditions, and conditions were kept	parameter (threshold)
-Shared and context-specific responses	48	tions, and conditions were kept if every kept line qualified, leaving 48 lines and 91 conditions. The context-sp	result (row: Tahoe lines × conditions)
-Shared and context-specific responses	91	nditions were kept if every kept line qualified, leaving 48 lines and 91 conditions. The context-specific share	result (row: Tahoe lines × conditions)
-Shared and context-specific responses	6	wo halves of one plate, the cross-plate energy is that between plates 6 and 14, and the signal correlation is t	label (plate)
-Shared and context-specific responses	14,	ves of one plate, the cross-plate energy is that between plates 6 and 14, and the signal correlation is the cross	label or parameter (reviewed)
-Shared-to-specific predictor	1	In the main implementation, used for CD4 donors 1 and 2 and for Tahoe, the features of a	label (donor)
-Shared-to-specific predictor	2	In the main implementation, used for CD4 donors 1 and 2 and for Tahoe, the features of a pertur	label (donor)
-Shared-to-specific predictor	20	ar vectors of the shared responses of the training perturbations (k = 20 for CD4 and 10 for Tahoe). A ridge regr	parameter (k)
-Shared-to-specific predictor	10	he shared responses of the training perturbations (k = 20 for CD4 and 10 for Tahoe). A ridge regression maps the	label or parameter (reviewed)
+Shared-to-specific predictor	1	In the main implementation (CD4 donors 1 and 2), the features of a perturbation	label (donor)
+Shared-to-specific predictor	2	In the main implementation (CD4 donors 1 and 2), the features of a perturbation are it	label (donor)
+Shared-to-specific predictor	20	singular vectors of the training perturbations' shared responses (k = 20). A ridge regression maps the features	parameter (k)
 Shared-to-specific predictor	10	tures to the context-specific response in half B, with λ chosen from {10⁻³, 10⁻², …, 10²} × tr(ZᵀZ)/k by five-fo	label or parameter (reviewed)
 Shared-to-specific predictor	10	to the context-specific response in half B, with λ chosen from {10⁻³, 10⁻², …, 10²} × tr(ZᵀZ)/k by five-fold inn	label or parameter (reviewed)
 Shared-to-specific predictor	10	ntext-specific response in half B, with λ chosen from {10⁻³, 10⁻², …, 10²} × tr(ZᵀZ)/k by five-fold inner cross-	label or parameter (reviewed)
-Shared-to-specific predictor	1	e regression was fitted separately for each line; the target was half 1 of one plate, and the shared response c	label (half)
-Shared-to-specific predictor	0	as half 1 of one plate, and the shared response came either from half 0 of the same wells or from the other pla	label (half)
-Shared-to-specific predictor	10	ubsets and for K562–RPE1, uses two outer and two inner folds, λ up to 10³ and k = 10 and 20 (5–50 in the robustn	label or parameter (reviewed)
-Shared-to-specific predictor	10	or K562–RPE1, uses two outer and two inner folds, λ up to 10³ and k = 10 and 20 (5–50 in the robustness checks;	label or parameter (reviewed)
+Shared-to-specific predictor	10	ed subsets and K562–RPE1, uses two outer and two inner folds, λ up to 10³ and k = 10 and 20 (5–50 in the robustn	label or parameter (reviewed)
+Shared-to-specific predictor	10	nd K562–RPE1, uses two outer and two inner folds, λ up to 10³ and k = 10 and 20 (5–50 in the robustness checks;	label or parameter (reviewed)
 Shared-to-specific predictor	20	–RPE1, uses two outer and two inner folds, λ up to 10³ and k = 10 and 20 (5–50 in the robustness checks; ). For	formula, model parameter or name
 Shared-to-specific predictor	5–50	1, uses two outer and two inner folds, λ up to 10³ and k = 10 and 20 (5–50 in the robustness checks; ). For K562–R	formula, model parameter or name
-Shared-to-specific predictor	20	he robustness checks; ). For K562–RPE1, perturbations needed at least 20 cells in all three screens, and p53-pat	parameter (threshold)
-Shared-to-specific predictor	2	half by the full other K562 screen, (other K562 screen + RPE1 half A)/2. Strength-matched knockdowns in CD4 are	label or parameter (reviewed)
+Shared-to-specific predictor	20	he robustness checks; ). For K562–RPE1, perturbations needed at least 20 cells in all three screens, p53-pathway	parameter (threshold)
+Shared-to-specific predictor	2	the independent shared response was (other K562 screen + RPE1 half A)/2. Strength-matched knockdowns in CD4 are	label or parameter (reviewed)
 Shared-to-specific predictor	0.5	2. Strength-matched knockdowns in CD4 are expressed targets (at least 0.5 in both states) whose two guides both k	parameter (threshold)
-Shared-to-specific predictor	−0.25	d down the target, with the weaker guide reaching a Δlog1p of at most −0.25 and at least 70% of the stronger guide,	parameter (threshold)
-Shared-to-specific predictor	70%	with the weaker guide reaching a Δlog1p of at most −0.25 and at least 70% of the stronger guide, in both states;	parameter (threshold)
-Shared-to-specific predictor	615	n both states; effects were re-centered within the subset, which held 615 targets in donor 1 and 470 in donor 2.	result (row: Strength-matched targets D1 / D2)
-Shared-to-specific predictor	1	s were re-centered within the subset, which held 615 targets in donor 1 and 470 in donor 2. The text and ive k	label or parameter (reviewed)
-Shared-to-specific predictor	470	re-centered within the subset, which held 615 targets in donor 1 and 470 in donor 2. The text and ive k = 20; wi	label (donor)
-Shared-to-specific predictor	2	within the subset, which held 615 targets in donor 1 and 470 in donor 2. The text and ive k = 20; with k = 10 t	label (donor)
-Shared-to-specific predictor	20	held 615 targets in donor 1 and 470 in donor 2. The text and ive k = 20; with k = 10 the explained shares were	label (donor)
-Shared-to-specific predictor	10	gets in donor 1 and 470 in donor 2. The text and ive k = 20; with k = 10 the explained shares were 0.20 and 0.29	parameter (k)
-Shared-to-specific predictor	0.20	nor 2. The text and ive k = 20; with k = 10 the explained shares were 0.20 and 0.29.	result (row: Strength-matched predictor k=10, D1 / D2)
-Shared-to-specific predictor	0.29	e text and ive k = 20; with k = 10 the explained shares were 0.20 and 0.29.	result (row: Strength-matched predictor k=10, D1 / D2)
-Shared-to-specific predictor	1,	ridge solver and filters, and gave the same conclusions: in CD4 donor 1, 0.446 and 0.469 under random halves and	label (donor)
-Shared-to-specific predictor	0.446	ge solver and filters, and gave the same conclusions: in CD4 donor 1, 0.446 and 0.469 under random halves and at mo	label (donor)
-Shared-to-specific predictor	0.469	and filters, and gave the same conclusions: in CD4 donor 1, 0.446 and 0.469 under random halves and at most 0.004 u	label (donor)
-Shared-to-specific predictor	0.004	ions: in CD4 donor 1, 0.446 and 0.469 under random halves and at most 0.004 under guide halves; in Tahoe, 0.23–0.32	parameter (threshold)
-Shared-to-specific predictor	0.23–0.32	9 under random halves and at most 0.004 under guide halves; in Tahoe, 0.23–0.32 and 0.30–0.33 for the same wells and 0.	parameter (threshold)
-Shared-to-specific predictor	0.30–0.33	halves and at most 0.004 under guide halves; in Tahoe, 0.23–0.32 and 0.30–0.33 for the same wells and 0.02–0.07 and 0.	result (row: Tahoe predictor, same wells, range)
-Shared-to-specific predictor	0.02–0.07	uide halves; in Tahoe, 0.23–0.32 and 0.30–0.33 for the same wells and 0.02–0.07 and 0.04–0.09 for the replicate plate.	result (row: TRBC deviation r, guide halves, D2)
-Shared-to-specific predictor	0.04–0.09	n Tahoe, 0.23–0.32 and 0.30–0.33 for the same wells and 0.02–0.07 and 0.04–0.09 for the replicate plate.	result (row: Tahoe predictor, replicate plate, range)
-Ceilings	0.8	We installed cell-eval version 0.8.2 (PyPI, 27 July 2026) in an isolated e	software version
-Ceilings	27	We installed cell-eval version 0.8.2 (PyPI, 27 July 2026) in an isolated environment.	date
-Ceilings	2026	We installed cell-eval version 0.8.2 (PyPI, 27 July 2026) in an isolated environment. Perturbati	date
-Ceilings	1,	ted environment. Perturbations were taken from resting cells of donor 1, with at least 40 cells per guide: 150 u	label (donor)
-Ceilings	40	Perturbations were taken from resting cells of donor 1, with at least 40 cells per guide: 150 unexpressed target	label (donor)
-Ceilings	150	aken from resting cells of donor 1, with at least 40 cells per guide: 150 unexpressed targets drawn at random, an	result (row: H1 cells / targets / NT constructs)
-Ceilings	150	40 cells per guide: 150 unexpressed targets drawn at random, and the 150 strong knockdowns with the largest mean	result (row: H1 cells / targets / NT constructs)
-Ceilings	400	matching rule above in resting cells. Each perturbation was capped at 400 cells and 15,000 control cells were dra	parameter (threshold)
-Ceilings	15,000	above in resting cells. Each perturbation was capped at 400 cells and 15,000 control cells were drawn; cells were th	parameter (control cells drawn)
-Ceilings	62	drawn; cells were then downsampled to equal numbers per guide (median 62 per side), and perturbations with fewer	result (row: cell-eval median cells per side)
-Ceilings	10	ers per guide (median 62 per side), and perturbations with fewer than 10 cells per side were dropped. Both desig	parameter (threshold)
+Shared-to-specific predictor	−0.25	both knocked down the target, the weaker reaching a Δlog1p of at most −0.25 and at least 70% of the stronger, in bo	parameter (threshold)
+Shared-to-specific predictor	70%	he target, the weaker reaching a Δlog1p of at most −0.25 and at least 70% of the stronger, in both states; effect	parameter (threshold)
+Shared-to-specific predictor	615	stronger, in both states; effects were re-centered within the subset (615 targets in donor 1 and 470 in donor 2).	result (row: Strength-matched targets D1 / D2)
+Shared-to-specific predictor	1	tes; effects were re-centered within the subset (615 targets in donor 1 and 470 in donor 2). The text and ive k	formula, model parameter or name
+Shared-to-specific predictor	470	ffects were re-centered within the subset (615 targets in donor 1 and 470 in donor 2). The text and ive k = 20; w	label (donor)
+Shared-to-specific predictor	2	e-centered within the subset (615 targets in donor 1 and 470 in donor 2). The text and ive k = 20; with k = 10	label (donor)
+Shared-to-specific predictor	20	set (615 targets in donor 1 and 470 in donor 2). The text and ive k = 20; with k = 10 the explained shares were	parameter (k)
+Shared-to-specific predictor	10	ets in donor 1 and 470 in donor 2). The text and ive k = 20; with k = 10 the explained shares were 0.20 and 0.29	parameter (k)
+Shared-to-specific predictor	0.20	or 2). The text and ive k = 20; with k = 10 the explained shares were 0.20 and 0.29. The two implementations gave	result (row: Strength-matched predictor k=10, D1 / D2)
+Shared-to-specific predictor	0.29	e text and ive k = 20; with k = 10 the explained shares were 0.20 and 0.29. The two implementations gave the same	result (row: Strength-matched predictor k=10, D1 / D2)
+Shared-to-specific predictor	1,	0.29. The two implementations gave the same conclusions (in CD4 donor 1, 0.446 and 0.469 under random halves and	label (donor)
+Shared-to-specific predictor	0.446	9. The two implementations gave the same conclusions (in CD4 donor 1, 0.446 and 0.469 under random halves and at mo	label (donor)
+Shared-to-specific predictor	0.469	implementations gave the same conclusions (in CD4 donor 1, 0.446 and 0.469 under random halves and at most 0.004 u	label (donor)
+Shared-to-specific predictor	0.004	ions (in CD4 donor 1, 0.446 and 0.469 under random halves and at most 0.004 under guide halves).	parameter (threshold)
+Ceilings	0.8	We ran cell-eval version 0.8.2 (PyPI, 27 July 2026) in an isolated e	software version
+Ceilings	27	We ran cell-eval version 0.8.2 (PyPI, 27 July 2026) in an isolated environment o	date
+Ceilings	2026	We ran cell-eval version 0.8.2 (PyPI, 27 July 2026) in an isolated environment on resting	date
+Ceilings	1,	I, 27 July 2026) in an isolated environment on resting cells of donor 1, with at least 40 cells per guide: 150 u	label (donor)
+Ceilings	40	in an isolated environment on resting cells of donor 1, with at least 40 cells per guide: 150 unexpressed target	label (donor)
+Ceilings	150	onment on resting cells of donor 1, with at least 40 cells per guide: 150 unexpressed targets drawn at random and	result (row: H1 cells / targets / NT constructs)
+Ceilings	150	t 40 cells per guide: 150 unexpressed targets drawn at random and the 150 targets with the largest mean knockdown	result (row: H1 cells / targets / NT constructs)
+Ceilings	400	ength-matching rule in resting cells. Each perturbation was capped at 400 cells, 15,000 control cells were drawn,	parameter (threshold)
+Ceilings	15,000	ing rule in resting cells. Each perturbation was capped at 400 cells, 15,000 control cells were drawn, and cells wer	parameter (control cells drawn)
+Ceilings	62	drawn, and cells were downsampled to equal numbers per guide (median 62 per side); perturbations with fewer tha	result (row: cell-eval median cells per side)
+Ceilings	10	numbers per guide (median 62 per side); perturbations with fewer than 10 cells per side were dropped. Both desig	parameter (threshold)
 Ceilings	0–2	s. The random-half ceiling is the tool's `compute_ceiling` with seeds 0–2. The guide ceiling runs the tool's `com	parameter (seed)
-Ceilings	0	ed with the same definitions on pseudobulk means; across plates, half 0 of one plate was compared with half 1 o	label (half)
-Ceilings	1	bulk means; across plates, half 0 of one plate was compared with half 1 of the other.	label (half)
-Reliability labels	0.5	e median between-half Pearson correlation, and perturbations with ρ ≥ 0.5 are labeled reliable. For random halves	parameter (threshold)
+Reliability labels	0.5	e median between-half Pearson correlation, and perturbations with ρ ≥ 0.5 are labelled reliable. For random halve	parameter (threshold)
 Reliability labels	1	Undefined values were counted as not reliable. Resting cells of donor 1 were used.	label (donor)
-Tahoe DMSO wells	20	For each plate and cell line with at least 20 cells per half in both of the first two	parameter (threshold)
-Tahoe DMSO wells	1	the first two DMSO wells, the well difference in half h is x_h = well 1 (half h) − well 2 (half h). Its cross-h	formula, model parameter or name
-Tahoe DMSO wells	2	wells, the well difference in half h is x_h = well 1 (half h) − well 2 (half h). Its cross-half signal and bet	formula, model parameter or name
-Tahoe DMSO wells	47–48	n were computed over genes, for plates with at least five such lines (47–48 lines on every plate). The size of the	result (row: DMSO lines per plate)
-Tahoe DMSO wells	200	divided by the median within-well cross-half signal of drug effects (200 random drug samples per plate, referenc	parameter or design count
 Model and simulation	1	A cell of perturbation p in context c from unit k has expression μ_pc(1 + g_k) + a_k + e, with unit state a_k ~	formula, model parameter or name
 Model and simulation	0,	nit k has expression μ_pc(1 + g_k) + a_k + e, with unit state a_k ~ N(0, σ_a²I), unit gain g_k ~ N(0, σ_g²) and	formula, model parameter or name
 Model and simulation	0,	g_k) + a_k + e, with unit state a_k ~ N(0, σ_a²I), unit gain g_k ~ N(0, σ_g²) and noise e ~ N(0, σ_e²I). For ra	formula, model parameter or name
 Model and simulation	0,	t state a_k ~ N(0, σ_a²I), unit gain g_k ~ N(0, σ_g²) and noise e ~ N(0, σ_e²I). For random halves, E[x_A · x_B]	formula, model parameter or name
 Model and simulation	1	g²) and noise e ~ N(0, σ_e²I). For random halves, E[x_A · x_B] = |μ|²(1 + σ_g²/K_eff) + Gσ_a²/K_eff, with K_eff	formula, model parameter or name
-Model and simulation	1	lves, E[x_A · x_B] = |μ|²(1 + σ_g²/K_eff) + Gσ_a²/K_eff, with K_eff = 1/Σ_k w_k², where w_k are the unit weight	formula, model parameter or name
-Model and simulation	1,000	t weights; for independent halves it is |μ|². The simulation used G = 1,000 genes, 800 perturbations (20% null) and	parameter or design count
-Model and simulation	800	r independent halves it is |μ|². The simulation used G = 1,000 genes, 800 perturbations (20% null) and true respo	result (row: Model perturbations)
-Model and simulation	20%	s it is |μ|². The simulation used G = 1,000 genes, 800 perturbations (20% null) and true responses of rank 10, wi	formula, model parameter or name
-Model and simulation	10,	1,000 genes, 800 perturbations (20% null) and true responses of rank 10, with effect sizes s_p drawn from a log-	label
-Model and simulation	0.3	h effect sizes s_p drawn from a log-normal distribution (log-mean log 0.3, s.d. 0.5) and context-specific part s_	result (row: Context-specific share, CD4 random / guide (printed as about 0.3))
-Model and simulation	0.5	izes s_p drawn from a log-normal distribution (log-mean log 0.3, s.d. 0.5) and context-specific part s_p(0.5 z_p	label or parameter (reviewed)
-Model and simulation	0.5	stribution (log-mean log 0.3, s.d. 0.5) and context-specific part s_p(0.5 z_p R W₂ + 0.3 d_p). Each perturbation	label or parameter (reviewed)
-Model and simulation	0.3	-mean log 0.3, s.d. 0.5) and context-specific part s_p(0.5 z_p R W₂ + 0.3 d_p). Each perturbation and transductio	result (row: Context-specific share, CD4 random / guide (printed as about 0.3))
+Model and simulation	1	lves, E[x_A · x_B] = |μ|²(1 + σ_g²/K_eff) + Gσ_a²/K_eff, with K_eff = 1/Σ_k w_k² for unit weights w_k; for inde	formula, model parameter or name
+Model and simulation	1,000	ights w_k; for independent halves it is |μ|². The simulation used G = 1,000 genes, 800 perturbations (20% null), tr	parameter or design count
+Model and simulation	800	r independent halves it is |μ|². The simulation used G = 1,000 genes, 800 perturbations (20% null), true response	result (row: Model perturbations)
+Model and simulation	20%	s it is |μ|². The simulation used G = 1,000 genes, 800 perturbations (20% null), true responses of rank 10, log-n	formula, model parameter or name
+Model and simulation	10,	G = 1,000 genes, 800 perturbations (20% null), true responses of rank 10, log-normal effect sizes s_p (log-mean l	label
+Model and simulation	0.3	true responses of rank 10, log-normal effect sizes s_p (log-mean log 0.3, s.d. 0.5) and context-specific parts s	result (row: Context-specific share, CD4 random / guide (printed as about 0.3))
+Model and simulation	0.5	onses of rank 10, log-normal effect sizes s_p (log-mean log 0.3, s.d. 0.5) and context-specific parts s_p(0.5 z_p	label or parameter (reviewed)
+Model and simulation	0.5	sizes s_p (log-mean log 0.3, s.d. 0.5) and context-specific parts s_p(0.5 z_p R W₂ + 0.3 d_p). Each perturbation	label or parameter (reviewed)
+Model and simulation	0.3	mean log 0.3, s.d. 0.5) and context-specific parts s_p(0.5 z_p R W₂ + 0.3 d_p). Each perturbation and transductio	result (row: Context-specific share, CD4 random / guide (printed as about 0.3))
 Model and simulation	6	p(0.5 z_p R W₂ + 0.3 d_p). Each perturbation and transduction has K = 6 units with Dirichlet(0.5) weights, σ_a	parameter or design count
 Model and simulation	0.5	p). Each perturbation and transduction has K = 6 units with Dirichlet(0.5) weights, σ_a = 0.2, σ_g = 0.6 and σ_e	formula, model parameter or name
 Model and simulation	0.2	n and transduction has K = 6 units with Dirichlet(0.5) weights, σ_a = 0.2, σ_g = 0.6 and σ_e = 1, and each half d	external (original screen design: multiplicity of infection)
 Model and simulation	0.6	duction has K = 6 units with Dirichlet(0.5) weights, σ_a = 0.2, σ_g = 0.6 and σ_e = 1, and each half draws 60 cel	result (row: Wang reliable, guide, unexpressed, D1)
-Model and simulation	1,	= 6 units with Dirichlet(0.5) weights, σ_a = 0.2, σ_g = 0.6 and σ_e = 1, and each half draws 60 cells across uni	formula, model parameter or name
-Model and simulation	60	t(0.5) weights, σ_a = 0.2, σ_g = 0.6 and σ_e = 1, and each half draws 60 cells across units from a multinomial d	result (row: Cell-line and H1 NT constructs, random halves positive, min-max)
-Model and simulation	0.5	either shared between contexts, with the additive part scaled by ρ = 0.5 in the second context, or separate. In	formula, model parameter or name
-Model and simulation	0.1	context, or separate. In the fabrication block, the effect scale was 0.1, there was no true shared-to-specific s	label or parameter (reviewed)
+Model and simulation	1,	= 6 units with Dirichlet(0.5) weights, σ_a = 0.2, σ_g = 0.6 and σ_e = 1, and each half draws 60 cells from the u	formula, model parameter or name
+Model and simulation	60	t(0.5) weights, σ_a = 0.2, σ_g = 0.6 and σ_e = 1, and each half draws 60 cells from the units (multinomial). Uni	result (row: Cell-line and H1 NT constructs, random halves positive, min-max)
+Model and simulation	0.5	mial). Units are shared between contexts (additive part scaled by ρ = 0.5 in the second) or separate. In the fabr	formula, model parameter or name
+Model and simulation	0.1	e second) or separate. In the fabrication block, the effect scale was 0.1, there was no true shared-to-specific s	label or parameter (reviewed)
 Model and simulation	0.70	ections. In the attenuation block, the true explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or	result (row: Model: true explained share (attenuation))
-Model and simulation	0.2	ttenuation block, the true explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or 2.5, either isot	external (original screen design: multiplicity of infection)
-Model and simulation	0.6	ation block, the true explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or 2.5, either isotropic	result (row: Wang reliable, guide, unexpressed, D1)
-Model and simulation	1.2	block, the true explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or 2.5, either isotropic or a	result (row: CD4 NT / targeting random-half signal, D1 / D2 rest)
-Model and simulation	1.5	k, the true explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or 2.5, either isotropic or along	result (row: largest spread of D1 null shares)
-Model and simulation	2.0	e true explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or 2.5, either isotropic or along the s	label or parameter (reviewed)
-Model and simulation	2.5	explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or 2.5, either isotropic or along the shared r	label or parameter (reviewed)
-Model and simulation	1.5	2.5, either isotropic or along the shared response directions; σ_a of 1.5 and 2.0 give unit-to-signal energy rati	result (row: largest spread of D1 null shares)
-Model and simulation	2.0	her isotropic or along the shared response directions; σ_a of 1.5 and 2.0 give unit-to-signal energy ratios of 4.	label or parameter (reviewed)
+Model and simulation	0.2	ttenuation block, the true explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or 2.5, isotropic o	external (original screen design: multiplicity of infection)
+Model and simulation	0.6	ation block, the true explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or 2.5, isotropic or alo	result (row: Wang reliable, guide, unexpressed, D1)
+Model and simulation	1.2	block, the true explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or 2.5, isotropic or along th	result (row: CD4 NT / targeting random-half signal, D1 / D2 rest)
+Model and simulation	1.5	k, the true explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or 2.5, isotropic or along the sha	result (row: largest spread of D1 null shares)
+Model and simulation	2.0	e true explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or 2.5, isotropic or along the shared r	label or parameter (reviewed)
+Model and simulation	2.5	explained share was about 0.70 and σ_a was 0.2, 0.6, 1.2, 1.5, 2.0 or 2.5, isotropic or along the shared response	label or parameter (reviewed)
+Model and simulation	1.5	2.0 or 2.5, isotropic or along the shared response directions; σ_a of 1.5 and 2.0 give unit-to-signal energy rati	result (row: largest spread of D1 null shares)
+Model and simulation	2.0	.5, isotropic or along the shared response directions; σ_a of 1.5 and 2.0 give unit-to-signal energy ratios of 4.	label or parameter (reviewed)
 Model and simulation	4.1–4.2	e directions; σ_a of 1.5 and 2.0 give unit-to-signal energy ratios of 4.1–4.2 and 7.2–7.6, the range of the CD4 scree	result (row: Model ratios at sigma_a 1.5 (low / iso))
 Model and simulation	7.2–7.6	; σ_a of 1.5 and 2.0 give unit-to-signal energy ratios of 4.1–4.2 and 7.2–7.6, the range of the CD4 screen. The predi	result (row: Model ratios at sigma_a 2.0 (low / iso))
 Model and simulation	10,	D4 screen. The predictor was a two-fold version of the one above (k = 10, λ from 10⁻² to 10³), and results are me	parameter (k)
 Model and simulation	10	The predictor was a two-fold version of the one above (k = 10, λ from 10⁻² to 10³), and results are means over t	parameter (k)
 Model and simulation	10	ictor was a two-fold version of the one above (k = 10, λ from 10⁻² to 10³), and results are means over three see	parameter (k)
-Statistics	2.5	Confidence intervals are within-experiment intervals: 2.5th–97.5th bootstrap percentiles over 1,0	parameter or design count
-Statistics	97.5	Confidence intervals are within-experiment intervals: 2.5th–97.5th bootstrap percentiles over 1,000 resa	parameter or design count
-Statistics	1,000	within-experiment intervals: 2.5th–97.5th bootstrap percentiles over 1,000 resamples of perturbations (in Tahoe, c	parameter or design count
-Statistics	500	erturbations (in Tahoe, conditions), with predictions held fixed; sed 500 resamples. These intervals describe var	external (original screen design: cells per perturbation)
-Statistics	0.468–0.471	, gave nearly identical estimates (for example, an explained share of 0.468–0.471 in donor 1). Shares of positive null pe	result (row: CD4 predictor, three random halvings, D1)
-Statistics	1	al estimates (for example, an explained share of 0.468–0.471 in donor 1). Shares of positive null perturbations	label or parameter (reviewed)
-Statistics	1.5	with different random halves and minimum-cell filters, agreed within 1.5 percentage points (for example, 98.4–99	result (row: largest spread of D1 null shares)
-Statistics	98.4–99.0%	nimum-cell filters, agreed within 1.5 percentage points (for example, 98.4–99.0% in resting and 96.2–97.7% in stimulated	result (row: Null shares over extractions and halvings, D1 rest)
-Statistics	96.2–97.7%	within 1.5 percentage points (for example, 98.4–99.0% in resting and 96.2–97.7% in stimulated cells of donor 1). Figure	result (row: Null positive, random halves, D1 stim)
-Statistics	1	le, 98.4–99.0% in resting and 96.2–97.7% in stimulated cells of donor 1). Figures and text use the per-cell ext	label (donor)
-Statistics	2	guide parity, two random bits and TRBC counts. Expectations for donor 2 were written and committed in two sets,	label (donor)
+Statistics	2.5	Confidence intervals are 2.5th–97.5th bootstrap percentiles over 1,0	parameter or design count
+Statistics	97.5	Confidence intervals are 2.5th–97.5th bootstrap percentiles over 1,000 resa	parameter or design count
+Statistics	1,000	Confidence intervals are 2.5th–97.5th bootstrap percentiles over 1,000 resamples of perturbations, with predic	parameter or design count
+Statistics	500	er 1,000 resamples of perturbations, with predictions held fixed; sed 500 resamples. They describe variation over	external (original screen design: cells per perturbation)
+Statistics	0.468–0.471	esamples; they gave nearly identical estimates (an explained share of 0.468–0.471 in donor 1). Shares of positive null pe	result (row: CD4 predictor, three random halvings, D1)
+Statistics	1	early identical estimates (an explained share of 0.468–0.471 in donor 1). Shares of positive null perturbations	label or parameter (reviewed)
+Statistics	1.5	separate extractions, halvings and minimum-cell filters agreed within 1.5 percentage points.	result (row: largest spread of D1 null shares)
 Software	3.11	Analyses ran in Python 3.11 with NumPy 2.4, SciPy 1.17, h5py 3.16 a	software version
 Software	2.4	Analyses ran in Python 3.11 with NumPy 2.4, SciPy 1.17, h5py 3.16 and PyArrow 20;	software version
 Software	1.17	Analyses ran in Python 3.11 with NumPy 2.4, SciPy 1.17, h5py 3.16 and PyArrow 20; cell-eval 0.	software version
@@ -348,10 +274,8 @@ Software	0.8	3.11 with NumPy 2.4, SciPy 1.17, h5py 3.16 and PyArrow 20; cell-eva
 Software	3.11	16 and PyArrow 20; cell-eval 0.8.2 ran in its own environment (Python 3.11, AnnData 0.12); figures were drawn with	software version
 Software	0.12	20; cell-eval 0.8.2 ran in its own environment (Python 3.11, AnnData 0.12); figures were drawn with Matplotlib 3.	software version
 Software	3.10	nment (Python 3.11, AnnData 0.12); figures were drawn with Matplotlib 3.10.	software version
-Data availability	100	enome-scale-tcell-perturb-seq.s3.amazonaws.com/marson2025_data, Tahoe-100M at https://huggingface.co/datasets/tah	dataset name
-Data availability	100	25_data, Tahoe-100M at https://huggingface.co/datasets/tahoebio/Tahoe-100M, the data of Replogle et al. as figsha	dataset name
-Data availability	20029387	tahoebio/Tahoe-100M, the data of Replogle et al. as figshare+ article 20029387 (https://doi.org/10.25452/figshare.plus	year / accession
-Data availability	10.25452	ata of Replogle et al. as figshare+ article 20029387 (https://doi.org/10.25452/figshare.plus.20029387) the data of Nad	year / accession
+Data availability	20029387	com/marson2025_data, the data of Replogle et al. as figshare+ article 20029387 (https://doi.org/10.25452/figshare.plus	year / accession
+Data availability	10.25452	ata of Replogle et al. as figshare+ article 20029387 (https://doi.org/10.25452/figshare.plus.20029387), the data of Na	year / accession
 Data availability	2025	of Nadig et al. under GEO accession GSE264667, and the H1 data of the 2025 Virtual Cell Challenge through the Arc	year / accession
 Figure legends	1	s-half signal of unexpressed targets in resting CD4+ T cells of donor 1 (n = 1,239) under random (red) and guid	label (donor)
 Figure legends	1,239	signal of unexpressed targets in resting CD4+ T cells of donor 1 (n = 1,239) under random (red) and guide (blue) ha	label (donor)
@@ -361,27 +285,49 @@ Figure legends	1	ge of unexpressed targets with a positive cross-half signal in 
 Figure legends	1,239	nexpressed targets with a positive cross-half signal in donors 1 (n = 1,239) and 2 (n = 872), under random halves (	label (donor)
 Figure legends	2	targets with a positive cross-half signal in donors 1 (n = 1,239) and 2 (n = 872), under random halves (red) an	label (donor)
 Figure legends	872	with a positive cross-half signal in donors 1 (n = 1,239) and 2 (n = 872), under random halves (red) and guide o	result (row: Unexpressed targets, donor 1 / donor 2 (n))
-Figure legends	1–2	2), under random halves (red) and guide or donor halves (blue; donors 1–2 against 3–4, n = 1,479). Bootstrap 95%	label (donor)
-Figure legends	3–4,	ndom halves (red) and guide or donor halves (blue; donors 1–2 against 3–4, n = 1,479). Bootstrap 95% intervals are	label (donor)
-Figure legends	1,479	es (red) and guide or donor halves (blue; donors 1–2 against 3–4, n = 1,479). Bootstrap 95% intervals are about ±1	label (donor)
-Figure legends	95%	or donor halves (blue; donors 1–2 against 3–4, n = 1,479). Bootstrap 95% intervals are about ±1 point for random	parameter (interval level)
-Figure legends	1	onors 1–2 against 3–4, n = 1,479). Bootstrap 95% intervals are about ±1 point for random and ±3 points for guid	result (row: Fig. 2b bootstrap half-widths)
-Figure legends	3	= 1,479). Bootstrap 95% intervals are about ±1 point for random and ±3 points for guide halves; dashed line, 5	result (row: Fig. 2b bootstrap half-widths)
-Figure legends	50%	bout ±1 point for random and ±3 points for guide halves; dashed line, 50%. **c**, Tahoe-100M: between-half Pearso	plot element (chance line)
-Figure legends	100	random and ±3 points for guide halves; dashed line, 50%. **c**, Tahoe-100M: between-half Pearson correlation of t	dataset name
-Figure legends	47–48	the difference between two vehicle-only (DMSO) wells, median over the 47–48 cell lines of each plate. **d**, Non-ta	result (row: DMSO lines per plate)
-Figure legends	2025	lls, in five cell-line CRISPRi screens and in the H1 hESC data of the 2025 Virtual Cell Challenge. Left, percentag	year / accession
-Figure legends	50	ed) and between two different guides at the same depth (blue; mean of 50 pairings). Right, random-half signal of	parameter or design count
+Figure legends	1–2	2), under random halves (red) and guide or donor halves (blue; donors 1–2 against 3–4, n = 1,479). Error bars, bo	label (donor)
+Figure legends	3–4,	ndom halves (red) and guide or donor halves (blue; donors 1–2 against 3–4, n = 1,479). Error bars, bootstrap 95% i	label (donor)
+Figure legends	1,479	es (red) and guide or donor halves (blue; donors 1–2 against 3–4, n = 1,479). Error bars, bootstrap 95% intervals o	label (donor)
+Figure legends	95%	lves (blue; donors 1–2 against 3–4, n = 1,479). Error bars, bootstrap 95% intervals over targets (1,000 resamples	parameter (interval level)
+Figure legends	1,000	st 3–4, n = 1,479). Error bars, bootstrap 95% intervals over targets (1,000 resamples); dashed line, 50%. **c**, No	parameter or design count
+Figure legends	50%	bootstrap 95% intervals over targets (1,000 resamples); dashed line, 50%. **c**, Non-targeting guides in resting	plot element (chance line)
+Figure legends	1	ine, 50%. **c**, Non-targeting guides in resting CD4+ T cells (donors 1 and 2, n = 739 and 578), in five cell-l	label (donor)
+Figure legends	2,	0%. **c**, Non-targeting guides in resting CD4+ T cells (donors 1 and 2, n = 739 and 578), in five cell-line CRI	label (donor)
+Figure legends	739	**, Non-targeting guides in resting CD4+ T cells (donors 1 and 2, n = 739 and 578), in five cell-line CRISPRi scr	label (donor)
+Figure legends	578	targeting guides in resting CD4+ T cells (donors 1 and 2, n = 739 and 578), in five cell-line CRISPRi screens (K5	label (donor)
+Figure legends	97	n = 739 and 578), in five cell-line CRISPRi screens (K562 essential, 97; K562 GW, 507; RPE1, 113; Jurkat, 128;	result (row: NT guides positive, random halves, CD4)
+Figure legends	507	578), in five cell-line CRISPRi screens (K562 essential, 97; K562 GW, 507; RPE1, 113; Jurkat, 128; HepG2, 112) an	result (row: Fig. 2c n: CD4 NT guides D1 / D2 rest; NT constructs K562 essential / K562 GW / RPE1 / Jurkat / HepG2 / H1)
+Figure legends	113	ve cell-line CRISPRi screens (K562 essential, 97; K562 GW, 507; RPE1, 113; Jurkat, 128; HepG2, 112) and in the H1	result (row: Fig. 2c n: CD4 NT guides D1 / D2 rest; NT constructs K562 essential / K562 GW / RPE1 / Jurkat / HepG2 / H1)
+Figure legends	128	CRISPRi screens (K562 essential, 97; K562 GW, 507; RPE1, 113; Jurkat, 128; HepG2, 112) and in the H1 hESC data of	result (row: Fig. 2c n: CD4 NT guides D1 / D2 rest; NT constructs K562 essential / K562 GW / RPE1 / Jurkat / HepG2 / H1)
+Figure legends	112	ens (K562 essential, 97; K562 GW, 507; RPE1, 113; Jurkat, 128; HepG2, 112) and in the H1 hESC data of the 2025 Vi	result (row: Fig. 2c n: CD4 NT guides D1 / D2 rest; NT constructs K562 essential / K562 GW / RPE1 / Jurkat / HepG2 / H1)
+Figure legends	2025	7; RPE1, 113; Jurkat, 128; HepG2, 112) and in the H1 hESC data of the 2025 Virtual Cell Challenge (31). Left, perc	year / accession
+Figure legends	31	pG2, 112) and in the H1 hESC data of the 2025 Virtual Cell Challenge (31). Left, percentage with a positive cros	result (row: H1 cells / targets / NT constructs)
+Figure legends	95%	ive cross-half signal under random halves (red; error bars, bootstrap 95% intervals over guides) and between two	parameter (interval level)
+Figure legends	50	een two different guides at the same depth (blue; mean and range over 50 pairings). Right, random-half signal of	parameter or design count
 Figure legends	1	relative to targeting perturbations of the same screen; dashed line, 1. Numbers in . GW, genome-wide.	plot element (ratio of 1)
-Figure legends	1,	nd after permuting perturbation labels (grey); resting cells of donor 1, perturbations with at least 30 cells ca	label (donor)
-Figure legends	30	labels (grey); resting cells of donor 1, perturbations with at least 30 cells carrying TRBC counts. **c**, Devi	parameter (threshold)
-Figure legends	1,	A against half B under random (left) and guide (right) halves; donor 1, resting. **d**, Random-half cross-half	label (donor)
+Figure legends	1,	and with perturbation labels permuted (grey); resting cells of donor 1, perturbations with at least 30 cells ca	label (donor)
+Figure legends	30	ermuted (grey); resting cells of donor 1, perturbations with at least 30 cells carrying TRBC counts (n = 6,610).	parameter (threshold)
+Figure legends	6,610	nor 1, perturbations with at least 30 cells carrying TRBC counts (n = 6,610). **c**, Deviation of the TRBC1 fractio	result (row: Fig. 3b histogram perturbations (D1 rest, >= 30 TRBC cells))
+Figure legends	1,	A against half B under random (left) and guide (right) halves; donor 1, resting; perturbations with at least 15	label (donor)
+Figure legends	15	d guide (right) halves; donor 1, resting; perturbations with at least 15 cells carrying TRBC counts in each half	parameter (threshold)
+Figure legends	6,568	bations with at least 15 cells carrying TRBC counts in each half (n = 6,568 and 6,072). **d**, Random-half cross-ha	result (row: Fig. 3c n, random / guide (>= 15 TRBC cells per half))
+Figure legends	6,072	th at least 15 cells carrying TRBC counts in each half (n = 6,568 and 6,072). **d**, Random-half cross-half signal	result (row: Fig. 3c n, random / guide (>= 15 TRBC cells per half))
 Figure legends	1	ts by quartile of clonal skew |z|, TCR genes excluded; circles, donor 1 (n = 1,234); squares, donor 2 (n = 864)	label (donor)
 Figure legends	1,234	uartile of clonal skew |z|, TCR genes excluded; circles, donor 1 (n = 1,234); squares, donor 2 (n = 864); error bar	label (donor)
 Figure legends	2	|z|, TCR genes excluded; circles, donor 1 (n = 1,234); squares, donor 2 (n = 864); error bars, s.e.m. **e**, Cr	label (donor)
 Figure legends	864	R genes excluded; circles, donor 1 (n = 1,234); squares, donor 2 (n = 864); error bars, s.e.m. **e**, Cross-half	label (donor)
-Figure legends	1	n's cells, under random (red) and guide (blue) splits; circles, donor 1; squares, donor 2; solid lines, resting	label (donor)
-Figure legends	2	andom (red) and guide (blue) splits; circles, donor 1; squares, donor 2; solid lines, resting; dashed lines, st	label (donor)
+Figure legends	1	n's cells, under random (red) and guide (blue) splits; circles, donor 1 (n = 909 resting, 856 stimulated); squa	label (donor)
+Figure legends	909	ls, under random (red) and guide (blue) splits; circles, donor 1 (n = 909 resting, 856 stimulated); squares, dono	label (donor)
+Figure legends	856	dom (red) and guide (blue) splits; circles, donor 1 (n = 909 resting, 856 stimulated); squares, donor 2 (n = 520	label (donor)
+Figure legends	2	s; circles, donor 1 (n = 909 resting, 856 stimulated); squares, donor 2 (n = 520 and 523); solid lines, resting	label (donor)
+Figure legends	520	les, donor 1 (n = 909 resting, 856 stimulated); squares, donor 2 (n = 520 and 523); solid lines, resting; dashed	label (donor)
+Figure legends	523	or 1 (n = 909 resting, 856 stimulated); squares, donor 2 (n = 520 and 523); solid lines, resting; dashed lines, s	label (donor)
+Figure legends	787	fic to the guide (pink) and reproduced by the other guide (blue); n = 787 (donor 1, resting), 847 (donor 1, stimu	formula, model parameter or name
+Figure legends	1,	guide (pink) and reproduced by the other guide (blue); n = 787 (donor 1, resting), 847 (donor 1, stimulated) and	label (donor)
+Figure legends	847	and reproduced by the other guide (blue); n = 787 (donor 1, resting), 847 (donor 1, stimulated) and 515 (donor 2,	label (donor)
+Figure legends	1,	ced by the other guide (blue); n = 787 (donor 1, resting), 847 (donor 1, stimulated) and 515 (donor 2, resting)	label (donor)
+Figure legends	515	ide (blue); n = 787 (donor 1, resting), 847 (donor 1, stimulated) and 515 (donor 2, resting) expressed targets (M	label (donor)
+Figure legends	2,	n = 787 (donor 1, resting), 847 (donor 1, stimulated) and 515 (donor 2, resting) expressed targets (Methods).	label (donor)
 Figure legends	0.8	inflate benchmark ceilings and reliability labels.** **a**, cell-eval 0.8.2 ceilings (Spearman–Brown corrected) u	software version
 Figure legends	300	of three seeds) and guide halves (blue; mean of both directions) for 300 perturbations of resting cells of donor	result (row: cell-eval, perturbations in all runs)
 Figure legends	1,	n of both directions) for 300 perturbations of resting cells of donor 1, median 62 cells per side. Asterisks, me	label (donor)
@@ -392,32 +338,25 @@ Figure legends	0	evel; open marker, no ceiling defined (split-half correlation a
 Figure legends	0	er, no ceiling defined (split-half correlation at most 0), plotted at 0. Ranges in . **b**, Percentage of pertu	plot element (undefined ceiling drawn at 0)
 Figure legends	0.5	Ranges in . **b**, Percentage of perturbations labelled reliable (ρ ≥ 0.5) under the split-half rule of ; donor 1	parameter (reliability threshold)
 Figure legends	1,	ions labelled reliable (ρ ≥ 0.5) under the split-half rule of ; donor 1, resting (all, n = 6,615; unexpressed, 1	label (donor)
-Figure legends	6,615	e (ρ ≥ 0.5) under the split-half rule of ; donor 1, resting (all, n = 6,615; unexpressed, 1,235; expressed, 1,097).	label (donor)
-Figure legends	1,235	e split-half rule of ; donor 1, resting (all, n = 6,615; unexpressed, 1,235; expressed, 1,097). **c**, The Spearman	result (row: Fig. 4b / 5b n: all / unexpressed / expressed)
-Figure legends	1,097	of ; donor 1, resting (all, n = 6,615; unexpressed, 1,235; expressed, 1,097). **c**, The Spearman–Brown correction	result (row: Fig. 4b / 5b n: all / unexpressed / expressed)
-Figure legends	2	essed, 1,235; expressed, 1,097). **c**, The Spearman–Brown correction 2r/(1 + r) maps 0.5 to 0.67; dotted line,	label or parameter (reviewed)
-Figure legends	1	d, 1,235; expressed, 1,097). **c**, The Spearman–Brown correction 2r/(1 + r) maps 0.5 to 0.67; dotted line, ide	label or parameter (reviewed)
-Figure legends	0.5	pressed, 1,097). **c**, The Spearman–Brown correction 2r/(1 + r) maps 0.5 to 0.67; dotted line, identity. **d**,	analytic (chance level)
-Figure legends	0.67	, 1,097). **c**, The Spearman–Brown correction 2r/(1 + r) maps 0.5 to 0.67; dotted line, identity. **d**, Tahoe-10	analytic (Spearman–Brown value of chance 0.5)
-Figure legends	100	tion 2r/(1 + r) maps 0.5 to 0.67; dotted line, identity. **d**, Tahoe-100M ceilings (48 lines × 91 conditions) un	dataset name
-Figure legends	48	maps 0.5 to 0.67; dotted line, identity. **d**, Tahoe-100M ceilings (48 lines × 91 conditions) under random hal	dataset name
-Figure legends	91	o 0.67; dotted line, identity. **d**, Tahoe-100M ceilings (48 lines × 91 conditions) under random halves within	result (row: Tahoe lines × conditions)
-Figure legends	6	lines × 91 conditions) under random halves within the wells of plates 6 and 14 and between the replicate plates	label (plate)
-Figure legends	14	× 91 conditions) under random halves within the wells of plates 6 and 14 and between the replicate plates. DE, d	label or parameter (reviewed)
+Figure legends	6,615	e (ρ ≥ 0.5) under the split-half rule of ; donor 1, resting (all, n = 6,615; unexpressed, 1,235; expressed, 1,097);	label (donor)
+Figure legends	1,235	e split-half rule of ; donor 1, resting (all, n = 6,615; unexpressed, 1,235; expressed, 1,097); error bars, bootstr	result (row: Fig. 4b / 5b n: all / unexpressed / expressed)
+Figure legends	1,097	of ; donor 1, resting (all, n = 6,615; unexpressed, 1,235; expressed, 1,097); error bars, bootstrap 95% intervals o	result (row: Fig. 4b / 5b n: all / unexpressed / expressed)
+Figure legends	95%	= 6,615; unexpressed, 1,235; expressed, 1,097); error bars, bootstrap 95% intervals over perturbations. **c**, Th	parameter (interval level)
+Figure legends	2	5% intervals over perturbations. **c**, The Spearman–Brown correction 2r/(1 + r) maps 0.5 to 0.67; dotted line,	formula, model parameter or name
+Figure legends	1	ntervals over perturbations. **c**, The Spearman–Brown correction 2r/(1 + r) maps 0.5 to 0.67; dotted line, ide	formula, model parameter or name
+Figure legends	0.5	r perturbations. **c**, The Spearman–Brown correction 2r/(1 + r) maps 0.5 to 0.67; dotted line, identity. DE, dif	analytic (chance level)
+Figure legends	0.67	rbations. **c**, The Spearman–Brown correction 2r/(1 + r) maps 0.5 to 0.67; dotted line, identity. DE, differentia	analytic (Spearman–Brown value of chance 0.5)
 Figure legends	1	-specific parts under random (red) and guide (blue) halves; CD4 donor 1 (n = 6,615); numbers above bars, contex	label (donor)
 Figure legends	6,615	ic parts under random (red) and guide (blue) halves; CD4 donor 1 (n = 6,615); numbers above bars, context-specific	label (donor)
-Figure legends	100	(n = 6,615); numbers above bars, context-specific share. **c**, Tahoe-100M: held-out explained share of a fixed c	dataset name
-Figure legends	95%	wells (red) or from the replicate plate (blue); error bars, bootstrap 95% intervals over conditions. **d**, Share	parameter (interval level)
-Figure legends	20	% intervals over conditions. **d**, Shared-to-specific predictor (k = 20) under random (red) and guide (blue) ha	parameter (k)
+Figure legends	20	ars, context-specific share. **c**, Shared-to-specific predictor (k = 20) under random (red) and guide (blue) ha	parameter (k)
 Figure legends	1,	tor (k = 20) under random (red) and guide (blue) halves in CD4 (donor 1, n = 6,615; donor 2, 5,003; strength-mat	label (donor)
 Figure legends	6,615	= 20) under random (red) and guide (blue) halves in CD4 (donor 1, n = 6,615; donor 2, 5,003; strength-matched knock	label (donor)
 Figure legends	2,	andom (red) and guide (blue) halves in CD4 (donor 1, n = 6,615; donor 2, 5,003; strength-matched knockdowns, 615	label (donor)
 Figure legends	5,003	om (red) and guide (blue) halves in CD4 (donor 1, n = 6,615; donor 2, 5,003; strength-matched knockdowns, 615 and 4	label (donor)
-Figure legends	615	CD4 (donor 1, n = 6,615; donor 2, 5,003; strength-matched knockdowns, 615 and 470), and for K562 and RPE1 screene	label (donor)
-Figure legends	470	or 1, n = 6,615; donor 2, 5,003; strength-matched knockdowns, 615 and 470), and for K562 and RPE1 screened separa	result (row: Strength-matched targets D1 / D2)
+Figure legends	615	CD4 (donor 1, n = 6,615; donor 2, 5,003; strength-matched knockdowns, 615 and 470; error bars, bootstrap 95% inte	label (donor)
+Figure legends	470	or 1, n = 6,615; donor 2, 5,003; strength-matched knockdowns, 615 and 470; error bars, bootstrap 95% intervals ov	result (row: Strength-matched targets D1 / D2)
+Figure legends	95%	,003; strength-matched knockdowns, 615 and 470; error bars, bootstrap 95% intervals over targets, shown for the a	parameter (interval level)
 Figure legends	0.70	alves (red) and independent units (blue). Right, true explained share 0.70 (dashed line): explained share across i	result (row: Model: true explained share (attenuation))
 Supplementary information	0.8	- **.** cell-eval 0.8.2 ceilings for all metrics (all, unexpr	software version
 Supplementary information	1	specific predictor, after removing the template direction: CD4 donors 1 and 2 (random and guide halves), K562,	label (donor)
 Supplementary information	2	ic predictor, after removing the template direction: CD4 donors 1 and 2 (random and guide halves), K562, RPE1,	label (donor)
-Supplementary information	2	- **.** Donor-2 expectations as written before analysis	label or parameter (reviewed)
-Supplementary information	100	- **.** Well effects between vehicle-only wells in Tahoe-100M, per plate: comparison with drug effec	dataset name

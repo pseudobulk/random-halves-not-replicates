@@ -16,10 +16,13 @@ Preprint v21 gives the full affiliation and removes the former Supplementary Tab
 timing could not be checked from outside the project; its values remain in this record. No value changed.
 Preprint v22 removes the Tahoe-100M analyses from the paper (former Fig. 2c, Fig. 4d, Fig. 5c, Supplementary Fig. S2 and the Tahoe part of
 Supplementary Table S5), which are reported separately; the remaining panels are renumbered (Fig. 2d to 2c, Fig. 5d to 5c, Fig. 5e to 5d,
-Supplementary Fig. S3 to S2). The Tahoe code and result files stay in the repository and in this record. No value changed. `repro/comparison.tsv` lists each
-comparison; `repro/number_inventory.tsv` classifies every number in the manuscript text (422), and
-`repro/printed_numbers.md` checks the 182 printed results one by one (`repro/intermediate/` holds the few values
-taken from intermediate outputs); `repro/tools/` holds
+Supplementary Fig. S3 to S2). The Tahoe code and result files stay in the repository and in this record. No value changed.
+
+The record below was last checked against preprint v22. `repro/comparison.tsv` lists each comparison;
+`repro/number_inventory.tsv` classifies every number in the v22 manuscript text (361); `repro/printed_numbers.md`
+checks the 141 results printed in v22 one by one and keeps, in separate sections, the 55 results checked against
+earlier versions that v22 no longer prints (31 of them Tahoe-100M results, now in the same-well paper; 15 only in the
+authors' number ledger). `repro/intermediate/` holds the few values taken from intermediate outputs, and `repro/tools/`
 the comparison scripts.
 
 ## Acceptance criteria
@@ -55,9 +58,9 @@ the comparison scripts.
 | Nadig (Jurkat–HepG2 pass test) | 1 | bit-identical |
 | Simulation | 1 | identical up to 4 × 10⁻¹⁶ |
 | cell-eval 0.8.2 | 1 | see below |
-| Printed numbers (manuscript, Supplementary Information, ledger) | 182 | all identical between the original and the rerun at printed precision; every value found in the v16 text, supplement or ledger |
-| Figures 1–5, Supplementary Figures S1–S3 | 10 images | identical from `data/`; from the rerun, identical except Fig. 3 (6 pixels by 1/255, anti-aliasing) |
-| Supplementary Information text (Tables S1–S6) | 201 lines | identical |
+| Printed numbers (v22 manuscript and Supplementary Information) | 141 | all identical between the original and the rerun at printed precision; the 55 results checked against earlier versions agree as well |
+| Figures 1–5, Supplementary Figures S1–S2 (v22) | 9 images | identical from `data/`; from the rerun, identical except Fig. 3 (6 pixels by 1/255, anti-aliasing) |
+| Supplementary Information text (v22, Tables S1–S5) | 168 lines | identical |
 
 Files present only in the original output folders were written by scripts outside this repository
 (`cd4_sc_analyze.py` and two exploratory Tahoe scripts); no number in the paper depends on them.
