@@ -15,9 +15,6 @@ for i, l in enumerate(L):
         c[6] = (c[6] + "; " if c[6] else "") + "Tahoe-100M: not in the paper since v22 (same-well paper)"
     if l.startswith("figure") or l.startswith("supplement"):
         c[6] = (c[6] + "; " if c[6] else "") + fig_note
-    if l.startswith("printed number\tRandom-half signal reproduced by the other guide"):
-        c[5] = "reproduced; TEXT DIFFERS"
-        c[6] = "TEXT-SIDE: printed 10–20%; the three Fig. 3f bars give 19.0%, 15.7% and 10.3%, i.e. 10–19%"
     L[i] = "\t".join(c)
 for sec in t:
     title = sec.split("\n")[0]

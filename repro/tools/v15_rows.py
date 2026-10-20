@@ -155,7 +155,7 @@ ROWS15 = [
     ("Fig. 2c n: CD4 NT guides D1 / D2 rest; NT constructs K562 essential / K562 GW / RPE1 / Jurkat / HepG2 / H1", "739 / 578; 97 / 507 / 113 / 128 / 112 / 31", lambda d: "%d / %d; %s" % (_J(d, "ntc_null.json")["D1_rest"]["n_guides"], _J(d, "ntc_null.json")["D2_rest"]["n_guides"], " / ".join(str(_J(d, f)[k]["n_constructs"]) for f, k in (("cl_ntc_replogle.json", "k562_ess"), ("cl_ntc_replogle.json", "k562_gw1"), ("cl_ntc_replogle.json", "rpe1"), ("cl_ntc_nadig.json", "jurkat"), ("cl_ntc_nadig.json", "hepg2"), ("cl_ntc_h1.json", "h1"))))),
     ("TRBC1 deviation, resting vs stimulated, D1 / D2 (cd4_D*.npz, >= 30 TRBC cells in both states)", "0.90 and 0.94", lambda d: "%.2f and %.2f" % (trbc_states(d, "D1")[0], trbc_states(d, "D2")[0])),
     ("TRBC1 resting vs stimulated, perturbations D1 / D2", "6,582 / 4,963", lambda d: "%s / %s" % (format(trbc_states(d, "D1")[1], ","), format(trbc_states(d, "D2")[1], ","))),
-    ("Random-half signal reproduced by the other guide, range", "10–20%", lambda d: rng([_rep(d, D, s) for D, s, r in DS])),
+    ("Random-half signal reproduced by the other guide, range", "10–19%", lambda d: rng([_rep(d, D, s) for D, s, r in DS])),
     ("Fig. 4b n, donor 2: all / unexpressed / expressed", "5,003; 869; 859", lambda d: "%s; %s; %s" % tuple(format(_J(d, "ci_cd4_D2.json")[k], ",") for k in ("n_targets", "n_inert", "n_expressed"))),
     ("Model perturbations", "800", lambda d: "%d" % _J(d, "sim_v6.json")["params"]["P"]),
     ("Tahoe plates 6 / 14 shared conditions; largest other pair", "94; 13", lambda d: open(os.path.join(d, "plate_overlap.txt")).read().strip()),

@@ -145,7 +145,7 @@ code, at the precision printed in the text. The later sections keep rows checked
 | Fig. 2c n: CD4 NT guides D1 / D2 rest; NT constructs K562 essential / K562 GW / RPE1 / Jurkat / HepG2 / H1 | 739 / 578; 97 / 507 / 113 / 128 / 112 / 31 | 739 / 578; 97 / 507 / 113 / 128 / 112 / 31 | 739 / 578; 97 / 507 / 113 / 128 / 112 / 31 | manuscript_v2.md, supplementary_v1.md |
 | TRBC1 deviation, resting vs stimulated, D1 / D2 (cd4_D*.npz, >= 30 TRBC cells in both states) | 0.90 and 0.94 | 0.90 and 0.94 | 0.90 and 0.94 | manuscript_v2.md |
 | TRBC1 resting vs stimulated, perturbations D1 / D2 | 6,582 / 4,963 | 6,582 / 4,963 | 6,582 / 4,963 | manuscript_v2.md |
-| Random-half signal reproduced by the other guide, range | 10–20% | 10–19% | 10–19% | manuscript_v2.md |
+| Random-half signal reproduced by the other guide, range | 10–19% | 10–19% | 10–19% | manuscript_v2.md |
 | Fig. 4b n, donor 2: all / unexpressed / expressed | 5,003; 869; 859 | 5,003; 869; 859 | 5,003; 869; 859 | manuscript_v2.md |
 | Model perturbations | 800 | 800 | 800 | manuscript_v2.md |
 | Largest spread of D1 null shares across extractions and halvings (percentage points) | 1.5 | 1.5 | 1.5 | manuscript_v2.md, supplementary_v1.md |
