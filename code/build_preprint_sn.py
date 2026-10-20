@@ -5,7 +5,7 @@ manuscript_v2.md and supplementary_v1.md: pandoc converts the markdown to LaTeX 
 structure (title, author and affiliation commands, \abstract, figures with captions, \backmatter with \bmhead
 items, a numbered reference list in the template's bibliography layout, then the Supplementary Information).
 Compiles with pdflatex inside paper/sn_template/.
-Usage: build_preprint_sn.py <paper_dir> <fig_dir> <out.pdf>"""
+Usage: build_preprint_sn.py <paper_dir> <fig_dir> <out.pdf> [--no-author]"""
 import os, re, sys, shutil, subprocess
 
 TITLE = "Shared clones make random cell halves look reproducible in pooled screens"
@@ -113,6 +113,7 @@ def bibliography(refs):
 
 def main():
     pdir, fdir, out = sys.argv[1:4]
+    anonymous = "--no-author" in sys.argv[4:]   # a copy without author, affiliation and e-mail, for sharing
     bdir = os.path.join(pdir, "sn_template")
     m = open(os.path.join(pdir, "manuscript_v2.md"), encoding="utf-8").read()
     s = open(os.path.join(pdir, "supplementary_v1.md"), encoding="utf-8").read()
@@ -122,6 +123,8 @@ def main():
     abstract = m[m.index("## Abstract") + len("## Abstract"):m.index("## Introduction")].replace("---", "").strip()
     body = m[m.index("## Introduction"):m.index("## Figure legends")]
     end = m[m.index("## Ethics"):m.index("## References")]
+    if anonymous:   # the contributions statement names the author
+        end = re.sub(r"## Author contributions\n.*?\n(?=## )", "", end, flags=re.S)
     refs = m[m.index("## References") + len("## References"):].strip()
     for n, h in FIG_AT.items():
         i = body.index(h); j = body.index("\n", i)
@@ -150,7 +153,10 @@ def main():
     supp = pandoc(common(s), cols=40)
     supp = supp.replace("\\begin{longtable}", "{\\fontsize{7}{8.5}\\selectfont\\setlength{\\tabcolsep}{3pt}\\begin{longtable}").replace("\\end{longtable}", "\\end{longtable}}")
     supp = supp.replace("\\section*{", "\\section{").replace("\\subsection*{", "\\subsection{")
-    doc = (PREAMBLE % {"short": SHORT, "title": TITLE}
+    pre = PREAMBLE % {"short": SHORT, "title": TITLE}
+    if anonymous:
+        pre = re.sub(r"\\author\*.*\n\\affil\*.*\n", "", pre)
+    doc = (pre
            + "\\abstract{%s}\n" % pandoc(common(abstract)).strip()
            + "\\keywords{%s}\n\\maketitle\n\n" % KEYWORDS
            + tex + "\n\\FloatBarrier\n\\backmatter\n\n" + "\n\n".join(em) + "\n\n" + bibliography(refs)
