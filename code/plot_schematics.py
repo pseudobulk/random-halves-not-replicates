@@ -172,7 +172,7 @@ def draw_fig3a(ax, letter=True):
     segs = [(6, "V", "#aab7b8", 7), (16, "D-J1", "#5d6d7e", 8), (26, "C1", ORANGE, 8), (40, "D-J2", "#5d6d7e", 8), (50, "C2", "#f5b041", 8)]
     for x, t, c, w in segs:
         ax.add_patch(Rectangle((x, y - 2.2), w, 4.4, fc=c, ec="white", lw=0.5, zorder=2)); label(ax, x + w / 2, y, t, ha="center", fontsize=5.8, color="white", fontweight="bold")
-    label(ax, 61, y, "TCR beta locus", fontsize=6, color=GREY)
+    label(ax, 61, y, "TCR β locus", fontsize=6, color=GREY)
     # clones
     fr = [0.9, 0.15, 0.6, 0.05, 0.75]
     for k, f in enumerate(fr):

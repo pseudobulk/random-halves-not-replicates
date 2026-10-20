@@ -121,7 +121,7 @@ def fig2(d, out):
             ax.bar(xi + (j - 0.5) * w, 100 * ind.mean(), w, color=col); err(ax, xi + (j - 0.5) * w, ind.mean(), *share_ci(ind.mean(), ind.size), scale=100)
     for xi, s in ((4.15, "rest"), (4.85, "stim")):   # donor halves: 1,479 unexpressed targets (donors 1-2 against 3-4)
         p = ds["%s_frac_pos" % s]; ax.bar(xi, 100 * p, w, color=BLUE); err(ax, xi, p, *share_ci(p, 1479), scale=100)
-    ax.axhline(50, color="k", lw=0.6, ls="--"); ax.text(3.58, 51.5, "chance", fontsize=5.4, ha="center", va="bottom")
+    ax.axhline(50, color="k", lw=0.6, ls="--")
     ax.set_ylim(0, 118); ax.set_yticks([0, 25, 50, 75, 100])
     ax.set_xticks(list(x) + [4.15, 4.85]); ax.set_xticklabels([g for g, _, _ in groups] + ["donors\nrest", "donors\nstim"], fontsize=5.6)
     ax.set_ylabel("Targets with positive\ncross-half signal (%)")
@@ -185,9 +185,8 @@ def fig3(d, out):
         ax.scatter(a[okk], b[okk], s=1.2, c=col, alpha=0.35, lw=0, rasterized=True)
         lim = 0.45; ax.set_xlim(-lim, lim); ax.set_ylim(-lim, lim); ax.axhline(0, color="k", lw=0.4); ax.axvline(0, color="k", lw=0.4)
         r = np.corrcoef(a[okk], b[okk])[0, 1]
-        ax.text(-0.42, 0.37, "r = %s" % ("%.2f" % r).replace("-", "−"), fontsize=6.5)
         ax.set_xlabel("TRBC1 share deviation, half A"); ax.set_ylabel("TRBC1 share deviation, half B" if j == 0 else "")
-        ax.set_title(nm[0].upper() + nm[1:], loc="left", fontsize=6.5, pad=3)
+        ax.set_title("%s (r = %s)" % (nm[0].upper() + nm[1:], ("%.2f" % r).replace("-", "−")), loc="left", fontsize=6.5, pad=3)
     # d: link to expression on unexpressed targets
     ax = axmm(fig, W, H, 122, 70, 56, 32); letter(fig, W, H, 112, 58, "d")
     for j, (dd, nm, mk, ls) in enumerate(((D1, "donor 1", "o", "-"), (D2, "donor 2", "s", "--"))):
@@ -234,7 +233,7 @@ def fig3(d, out):
         ax.bar(xi, 100 * rep, w, bottom=100 * (tr + gsp), color=BLUE)
         ax.text(xi, 100 * tr / 2, "%d%%" % round(100 * tr), ha="center", va="center", fontsize=5.6, color="white")
     ax.set_xticks(x); ax.set_xticklabels([b[0] for b in bars], fontsize=5.4)
-    ax.set_ylim(0, 135); ax.set_yticks([0, 25, 50, 75, 100]); ax.set_ylabel("Share of random-half signal (%)")
+    ax.set_ylim(0, 155); ax.set_yticks([0, 25, 50, 75, 100]); ax.set_ylabel("Share of random-half signal (%)")
     ax.legend(handles=patches(((RED, "shared within one transduction"), ("#e6b0aa", "specific to the guide"), (BLUE, "reproduced by the other guide"))),
               fontsize=4.8, loc="upper left", ncol=1, handlelength=0.9, borderaxespad=0.1, labelspacing=0.2)
     title(ax, "Expressed targets")
@@ -326,7 +325,7 @@ def fig5(d, out):
             err(ax, xi + dx, *cc[k]["readout_k20"])
     for xi, b in zip(x, bars):
         if abs(b[2]) < 0.01:
-            ax.text(xi + w / 2, 0.015, "≈0", ha="center", fontsize=5.5)
+            ax.text(xi + w / 2, 0.04, "≈0", ha="center", fontsize=5.5)
     ax.set_xticks(x); ax.set_xticklabels([b[0] for b in bars], fontsize=5.5); ax.set_ylabel("held-out explained share"); ax.set_ylim(0, 0.9)
     ax.legend(fontsize=5.4, loc="upper center", ncol=2, handlelength=1)
     title(ax, "Shared-to-specific predictor")
@@ -355,7 +354,7 @@ def fig5(d, out):
     ax.axvspan(4.0, 7.5, color="#eaecee", zorder=0); ax.text(5.75, 0.93, "CD4 donors", fontsize=5.5, ha="center")
     ax.axhline(0.70, color=GREY, lw=0.6, ls="--"); ax.text(2.0, 0.72, "true value", fontsize=5.5, ha="left")
     ax.set_xlabel("unit-to-signal energy ratio"); ax.set_ylabel("explained share,\nindependent units"); ax.set_ylim(0, 1.0)
-    ax.set_yticks([0, 0.2, 0.4, 0.6, 0.8]); ax.legend(fontsize=5.4, loc="upper left", bbox_to_anchor=(0.12, 1.0))
+    ax.set_yticks([0, 0.2, 0.4, 0.6, 0.8]); ax.legend(fontsize=5.4, loc="upper right", bbox_to_anchor=(0.99, 0.5))
     title(ax, "Model, true explained share 0.70")
     save(fig, out, "fig5_contexts")
 

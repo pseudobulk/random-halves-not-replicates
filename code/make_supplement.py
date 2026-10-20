@@ -150,7 +150,7 @@ def fig_s1(d, out):
     W, H = 183, 56
     fig = plt.figure(figsize=(W * P.MM, H * P.MM))
     ax = P.axmm(fig, W, H, 12, 10, 34, 36); P.letter(fig, W, H, 2, 3, "a")
-    for i, (key, nm, col) in enumerate((("inert", "unexpressed\n(n = %d)" % k["inert"]["n"], GREY), ("expressed", "expressed\n(n = %d)" % k["expressed"]["n"], BLUE))):
+    for i, (key, nm, col) in enumerate((("inert", "unexpressed\n(n = %d)" % k["inert"]["n"], "#c8c8c8"), ("expressed", "expressed\n(n = %d)" % k["expressed"]["n"], "#555555"))):
         v = k[key]["guide_fraction"]; lo, hi = k[key]["ci95"]
         ax.bar(i, v, 0.6, color=col); ax.errorbar(i, v, yerr=[[v - lo], [hi - v]], color="k", lw=0.6, capsize=1.5)
         ax.text(i, hi + 0.03, "%.2f" % v, ha="center", fontsize=5.8)
@@ -159,17 +159,20 @@ def fig_s1(d, out):
     P.title(ax, "K562 essential library")
     ax = P.axmm(fig, W, H, 62, 10, 50, 36); P.letter(fig, W, H, 52, 3, "b")
     x = np.arange(3); w = 0.36
-    for j, (key, nm, col) in enumerate((("inert", "unexpressed", GREY), ("expressed", "expressed", BLUE))):
+    for j, (key, nm, col) in enumerate((("inert", "unexpressed", "#c8c8c8"), ("expressed", "expressed", "#555555"))):
         e = k[key]; n = e["n"]
         vals = [e["within_K6"] / n, e["within_K8"] / n, e["cross"] / n]
         ax.bar(x + (j - 0.5) * w, vals, w, color=col, label=nm)
     ax.set_xticks(x); ax.set_xticklabels(["within day 6\n(essential)", "within day 8\n(genome-wide)", "across the\ntwo screens"])
     ax.set_ylabel("cross-half signal per target"); ax.legend(fontsize=5.6, loc="upper right"); P.title(ax, "Energy per target")
     ax = P.axmm(fig, W, H, 128, 10, 50, 36); P.letter(fig, W, H, 118, 3, "c")
-    for j, (key, nm, col) in enumerate((("random", "random halves", RED), ("lane", "lane halves", "#e6b0aa"))):
+    for j, (key, nm, col) in enumerate((("random", "random halves", RED), ("lane", "lane halves", None))):
         v = t[key]
         vals = [100 * v["inert"]["frac_pos"], 100 * v["inert_referenced"]["inert"]["frac_pos"]]
-        ax.bar(np.arange(2) + (j - 0.5) * w, vals, w, color=col, label=nm)
+        if col is None:   # lane halves: hatched red, since pink means guide-specific in Fig. 3f
+            ax.bar(np.arange(2) + (j - 0.5) * w, vals, w, facecolor="white", edgecolor=RED, hatch="////", lw=0.6, label=nm)
+        else:
+            ax.bar(np.arange(2) + (j - 0.5) * w, vals, w, color=col, label=nm)
         for xi, vv in zip(np.arange(2) + (j - 0.5) * w, vals):
             ax.text(xi, vv + 1.5, "%.0f" % vv, ha="center", fontsize=5.6)
     ax.axhline(50, color="k", lw=0.6, ls="--"); ax.set_ylim(0, 122)
@@ -186,7 +189,7 @@ def fig_s3(d, out):
     s = P.J(d, "sim_v5.json")
     W, H = 183, 100
     fig = plt.figure(figsize=(W * P.MM, H * P.MM))
-    panels = [("inert_frac_pos", "% null perturbations positive", 100, None, "Null perturbations"),
+    panels = [("inert_frac_pos", "Null perturbations positive (%)", 100, None, "Null perturbations"),
               ("ceiling_pearson_all", "Pearson ceiling, all", 1, None, "Ceiling, all perturbations"),
               ("ceiling_pearson_inert", "Pearson ceiling, null", 1, None, "Ceiling, null perturbations"),
               ("gamma_share", "context-specific share", 1, s["truth"]["gamma_share"], "Context-specific share"),
@@ -200,10 +203,10 @@ def fig_s3(d, out):
             vals = [0 if np.isnan(v) else v for v in vals]
             ax.bar(x + (j - 0.5) * w, vals, w, color=col, label="random halves" if dsg == "random" else "independent units")
         if truth is not None:
-            ax.axhline(truth, color=GREY, lw=0.6, ls="--"); ax.text(len(SCEN) - 0.5, truth, " truth", fontsize=5.2, color=GREY, va="center")
+            ax.axhline(truth, color=GREY, lw=0.6, ls="--")
         if key == "inert_frac_pos":
             ax.axhline(50, color="k", lw=0.5, ls=":")
-        ax.set_xticks(x); ax.set_xticklabels([l for _, l in SCEN], fontsize=5); ax.set_ylabel(ylab); P.title(ax, ttl)
+        ax.set_xticks(x); ax.set_xticklabels([l.replace(",\n", " ").replace("\n", " ") for _, l in SCEN], fontsize=5, rotation=35, ha="right", rotation_mode="anchor"); ax.set_ylabel(ylab); P.title(ax, ttl)
     ax = P.axmm(fig, W, H, 132, 58, 48, 30); ax.axis("off"); P.letter(fig, W, H, 122, 53, "f")
     ax.legend(handles=[Patch(color=RED, label="random halves (one transduction)"), Patch(color=BLUE, label="independent units (two transductions)")],
               fontsize=5.6, loc="lower left", bbox_to_anchor=(0, -0.05))
