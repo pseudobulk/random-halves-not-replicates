@@ -85,7 +85,7 @@ PREAMBLE = r"""\documentclass[pdflatex,sn-nature]{sn-jnl}
 \begin{document}
 \title[%(short)s]{%(title)s}
 \author*[1]{\fnm{Xuanrui} \sur{Huang}}\email{huangxuanrui@u.nus.edu}
-\affil*[1]{\orgname{National University of Singapore}, \orgaddress{\country{Singapore}}}
+\affil*[1]{\orgdiv{Department of Biomedical Informatics, Yong Loo Lin School of Medicine}, \orgname{National University of Singapore}, \orgaddress{\country{Singapore}}}
 """
 
 

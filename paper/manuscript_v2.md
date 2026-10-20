@@ -2,7 +2,7 @@
 
 Xuanrui Huang
 
-National University of Singapore, Singapore
+Department of Biomedical Informatics, Yong Loo Lin School of Medicine, National University of Singapore, Singapore
 
 Correspondence: huangxuanrui@u.nus.edu
 

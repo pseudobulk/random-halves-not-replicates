@@ -1,7 +1,7 @@
 # random-halves-not-replicates
 
 Analysis code for the preprint *Random cell halves are not independent replicates in pooled perturbation screens*
-(Xuanrui Huang, National University of Singapore).
+(Xuanrui Huang, Department of Biomedical Informatics, Yong Loo Lin School of Medicine, National University of Singapore).
 
 Archived at Zenodo: version 1.0.0, https://doi.org/10.5281/zenodo.23476350; all versions,
 https://doi.org/10.5281/zenodo.23476349.
