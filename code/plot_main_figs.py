@@ -154,7 +154,7 @@ def fig2(d, out):
         axr.text(xi, r[2] * 1.15, ("%.3f" % r[2]) if r[2] < 0.01 else (("%.2f" % r[2]) if r[2] < 1 else ("%.1f" % r[2])), ha="center", va="bottom", fontsize=5.2)
     axr.set_xticks(x); axr.set_xticklabels([r[0] for r in rows], fontsize=5.4)
     axr.set_ylabel("non-targeting / targeting\ncross-half signal")
-    title(axr, "Random halves")
+    title(axr, "Relative to targeting perturbations")
     save(fig, out, "fig2_null")
 
 
