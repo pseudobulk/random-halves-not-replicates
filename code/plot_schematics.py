@@ -195,20 +195,20 @@ def draw_fig5a(ax, letter=True):
     if letter:
         panel_letter(ax, 1.5, H - 1, "a")
     label(ax, 7, H - 3.5, "Shared and separate units", fontsize=7)
-    # shared: one clone, two states (the two cards are centred on the page)
-    card(ax, 32, 4, 56, 36, fc="white", ec=RED, lw=0.9)
-    label(ax, 60, 36.5, "one clone, two states (CD4)", ha="center", fontsize=6.5, fontweight="bold", color=RED)
-    cluster(ax, 44, 19, G1[0], 6, rng)
-    arrow(ax, 48, 22, 60, 27, c=G1[0], lw=0.8); arrow(ax, 48, 16, 60, 11, c=G1[0], lw=0.8)
+    # shared: one clone, two states (left two thirds of the page; panel b sits on the right)
+    card(ax, 4, 4, 56, 36, fc="white", ec=RED, lw=0.9)
+    label(ax, 32, 36.5, "one clone, two states (CD4)", ha="center", fontsize=6.5, fontweight="bold", color=RED)
+    cluster(ax, 16, 19, G1[0], 6, rng)
+    arrow(ax, 20, 22, 32, 27, c=G1[0], lw=0.8); arrow(ax, 20, 16, 32, 11, c=G1[0], lw=0.8)
     for yy, nm in ((27, "rest"), (11, "stimulated")):
         for j in range(3):
-            cell(ax, 63 + j * 2.6, yy, G1[0], r=1.1)
-        label(ax, 72, yy, nm, fontsize=6)
+            cell(ax, 35 + j * 2.6, yy, G1[0], r=1.1)
+        label(ax, 44, yy, nm, fontsize=6)
     # separate screens
-    card(ax, 96, 4, 55, 36, fc="white", ec=BLUE, lw=0.9)
-    label(ax, 123.5, 36.5, "separate screens (K562 vs RPE1)", ha="center", fontsize=6.5, fontweight="bold", color=BLUE)
-    cluster(ax, 109, 24, G1[1], 5, rng); cluster(ax, 109, 13, G2[1], 5, rng)
-    label(ax, 115, 24, "line 1 clones", fontsize=6); label(ax, 115, 13, "line 2 clones", fontsize=6)
+    card(ax, 64, 4, 55, 36, fc="white", ec=BLUE, lw=0.9)
+    label(ax, 91.5, 36.5, "separate screens (K562 vs RPE1)", ha="center", fontsize=6.5, fontweight="bold", color=BLUE)
+    cluster(ax, 77, 24, G1[1], 5, rng); cluster(ax, 77, 13, G2[1], 5, rng)
+    label(ax, 83, 24, "line 1 clones", fontsize=6); label(ax, 83, 13, "line 2 clones", fontsize=6)
 
 
 def fig6(out):

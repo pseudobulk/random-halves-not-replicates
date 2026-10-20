@@ -17,6 +17,12 @@ timing could not be checked from outside the project; its values remain in this 
 Preprint v22 removes the Tahoe-100M analyses from the paper (former Fig. 2c, Fig. 4d, Fig. 5c, Supplementary Fig. S2 and the Tahoe part of
 Supplementary Table S5), which are reported separately; the remaining panels are renumbered (Fig. 2d to 2c, Fig. 5d to 5c, Fig. 5e to 5d,
 Supplementary Fig. S3 to S2). The Tahoe code and result files stay in the repository and in this record. No value changed.
+Since then, Fig. 4c (the Spearman–Brown curve) has become Supplementary Fig. S3; Fig. 4b shows both donors, adding the
+donor-2 guide-half shares (0.9% and 2.3%, from `ci_cd4_D2.json`); and a new Fig. 5b shows the TRBC1 deviation in resting
+against stimulated cells. The correlation between states is now computed on the perturbations of the main analysis, from
+`cd4_D*.npz` (deviation = z/√n per state, at least 30 cells carrying TRBC counts in both states): r = 0.90 (n = 6,582) in
+donor 1 and 0.94 (n = 4,963) in donor 2, replacing 0.89 (n = 9,830) and 0.94 (n = 9,037) computed on all perturbations
+(`trbc_state_keff.json`). The other panels of Fig. 5 move from b–d to c–e.
 
 The record below was last checked against preprint v22. `repro/comparison.tsv` lists each comparison;
 `repro/number_inventory.tsv` classifies every number in the v22 manuscript text (361); `repro/printed_numbers.md`

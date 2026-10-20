@@ -12,7 +12,7 @@ TITLE = "Shared clones make random cell halves look reproducible in pooled scree
 SHORT = "Shared clones make random cell halves look reproducible"
 # five main figures, each floated at the first section that discusses it; Box 1 is marked <!-- BOX START --> / <!-- BOX END -->
 FIGS = {1: "fig1_schematic", 2: "fig2_null", 3: "fig3_clones", 4: "fig4_ceilings", 5: "fig5_contexts"}
-SFIGS = {1: "supp/figS1_model", 2: "supp/figS2_k562"}   # numbered by first citation
+SFIGS = {1: "supp/figS1_model", 2: "supp/figS2_k562", 3: "supp/figS3_sb"}   # numbered by first citation
 FIG_AT = {1: "## Introduction", 2: "### Null perturbations look reproducible under random halves",
           3: "### The shared state points to clones", 4: "### Ceilings and reliability labels are inflated",
           5: "### Cross-context structure comes from shared units"}
@@ -140,7 +140,9 @@ def main():
     s = s[s.index("Contents:"):]
     for n, stem in SFIGS.items():
         h = re.search(r"## Supplementary Figure S%d \|[^\n]*\n" % n, s)
-        s = s[:h.end()] + "\n```{=latex}\n\\begin{center}\\makebox[\\textwidth][c]{\\includegraphics[width=170mm]{%s/%s.pdf}}\\end{center}\n```\n" % (rel, stem) + s[h.end():]
+        import pymupdf
+        wmm = min(170.0, pymupdf.open(os.path.join(fdir, stem + ".pdf"))[0].rect.width / 72 * 25.4)   # small figures at native size
+        s = s[:h.end()] + "\n```{=latex}\n\\begin{center}\\makebox[\\textwidth][c]{\\includegraphics[width=%.0fmm]{%s/%s.pdf}}\\end{center}\n```\n" % (wmm, rel, stem) + s[h.end():]
     s = re.sub(r"(## Supplementary (Table|Figure) S)", lambda g: "```{=latex}\n\\clearpage\n```\n\n" + g.group(1), s)
     # a table with panels (a, b, ...) starts each later panel on a new page, and so does the cell-line part of
     # Table S1, so that no table is split across pages

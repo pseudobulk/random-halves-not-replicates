@@ -271,24 +271,20 @@ def fig4(d, out):
         ax.set_xlabel("noise ceiling"); ax.set_title(nm, loc="left", fontsize=6.5, pad=3)
     fig.text(140 / W, 1 - 63.6 / H, "●", color=RED, fontsize=7, va="top"); fig.text(143 / W, 1 - 64 / H, "random halves", fontsize=6, va="top")
     fig.text(160 / W, 1 - 63.6 / H, "●", color=BLUE, fontsize=7, va="top"); fig.text(163 / W, 1 - 64 / H, "guide halves", fontsize=6, va="top")
-    # b: Wang-style reliability labels
-    ci = J(d, "ci_cd4.json")["wang_reliable_share_rest"]
-    ax = axmm(fig, W, H, 12, 85, 66, 30); letter(fig, W, H, 2, 73, "b")
-    x = np.arange(3); w = 0.36
-    nn = {"all": 6615, "inert": 1235, "expressed": 1097}   # perturbations of resting cells of donor 1 (legend)
-    for j, (k, col, nm) in enumerate((("random", RED, "random halves"), ("guide", BLUE, "guide halves"))):
-        ax.bar(x + (j - 0.5) * w, [100 * ci[k][s] for s in ("all", "inert", "expressed")], w, color=col, label=nm)
-        for xi, s in zip(x, ("all", "inert", "expressed")):
-            err(ax, xi + (j - 0.5) * w, ci[k][s], *share_ci(ci[k][s], nn[s]), scale=100)
-    ax.set_xticks(x); ax.set_xticklabels(["all", "unexpressed", "expressed"]); ax.set_ylabel("Labelled reliable (%)")
-    ax.set_ylim(0, 34); ax.legend(fontsize=5.6, loc="upper left")
+    # b: Wang-style reliability labels, both donors (the Spearman-Brown curve is Supplementary Fig. S3)
+    ax = axmm(fig, W, H, 12, 85, 120, 30); letter(fig, W, H, 2, 73, "b")
+    w = 0.36; cats = ("all", "inert", "expressed")
+    for g, (fname, nn, x0) in enumerate((("ci_cd4.json", {"all": 6615, "inert": 1235, "expressed": 1097}, 0.0),
+                                          ("ci_cd4_D2.json", {"all": 5003, "inert": 869, "expressed": 859}, 3.6))):
+        ci = J(d, fname)["wang_reliable_share_rest"]; x = x0 + np.arange(3)
+        for j, (k, col, nm) in enumerate((("random", RED, "random halves"), ("guide", BLUE, "guide halves"))):
+            ax.bar(x + (j - 0.5) * w, [100 * ci[k][s] for s in cats], w, color=col, label=nm if g == 0 else None)
+            for xi, s in zip(x, cats):
+                err(ax, xi + (j - 0.5) * w, ci[k][s], *share_ci(ci[k][s], nn[s]), scale=100)
+        ax.text(x0 + 1, -15.5, "donor %d" % (g + 1), ha="center", va="top", fontsize=6.5)
+    ax.set_xticks([0, 1, 2, 3.6, 4.6, 5.6]); ax.set_xticklabels(["all", "unexpressed", "expressed"] * 2); ax.set_ylabel("Labelled reliable (%)")
+    ax.set_ylim(0, 62); ax.legend(fontsize=5.6, loc="upper left")
     title(ax, "Reliability labels")
-    # c: Spearman-Brown at chance
-    ax = axmm(fig, W, H, 110, 85, 40, 30); letter(fig, W, H, 100, 73, "c")
-    rr = np.linspace(0, 1, 200); ax.plot(rr, 2 * rr / (1 + rr), color="k", lw=0.9); ax.plot([0, 1], [0, 1], color=GREY, lw=0.6, ls=":")
-    ax.plot([0.5, 0.5, 0], [0, 2 / 3, 2 / 3], color=RED, lw=0.8, ls="--"); ax.text(0.03, 0.70, "0.67", fontsize=6)
-    ax.set_xlabel("score at half depth"); ax.set_ylabel("corrected score"); ax.set_xlim(0, 1); ax.set_ylim(0, 1.02)
-    title(ax, "Spearman–Brown correction")
     save(fig, out, "fig4_ceilings")
 
 
@@ -298,8 +294,18 @@ def fig5(d, out):
     fig = plt.figure(figsize=(W * MM, H * MM))
     ax = axmm(fig, W, H, 0, 0, 183, 50); ax.set_xlim(0, 183); ax.set_ylim(0, 50); ax.axis("off"); PS.draw_fig5a(ax)
     ci = J(d, "ci_cd4.json")
-    # b: absolute energy vs share
-    ax = axmm(fig, W, H, 12, 67, 44, 31); letter(fig, W, H, 2, 55, "b")
+    # b: the same clones in both states: TRBC1 deviation (mean f - f0) / sd_f = z / sqrt(n), resting against stimulated
+    ax = axmm(fig, W, H, 134, 8, 42, 34); letter(fig, W, H, 124, 1, "b")
+    D1 = np.load(os.path.join(d, "cd4_D1.npz"))
+    nr, ns = D1["trbc_n_rest"], D1["trbc_n_stim"]
+    ok = (nr >= 30) & (ns >= 30) & np.isfinite(D1["trbc_z_rest"]) & np.isfinite(D1["trbc_z_stim"])
+    xr, ys = D1["trbc_z_rest"][ok] / np.sqrt(nr[ok]), D1["trbc_z_stim"][ok] / np.sqrt(ns[ok])
+    ax.scatter(xr, ys, s=1.2, c=RED, alpha=0.35, lw=0, rasterized=True)
+    lim = 0.85; ax.set_xlim(-lim, lim); ax.set_ylim(-lim, lim); ax.axhline(0, color="k", lw=0.4); ax.axvline(0, color="k", lw=0.4)
+    ax.set_xlabel("TRBC1 deviation, resting"); ax.set_ylabel("TRBC1 deviation, stimulated")
+    ax.set_title("One clone, two states (r = %.2f)" % np.corrcoef(xr, ys)[0, 1], loc="left", fontsize=6.5, pad=3)
+    # c: absolute energy vs share
+    ax = axmm(fig, W, H, 12, 67, 44, 31); letter(fig, W, H, 2, 55, "c")
     x = np.arange(2); w = 0.36
     for j, (k, col, nm) in enumerate((("random_r1", RED, "random halves"), ("guide", BLUE, "guide halves"))):
         ax.bar(x + (j - 0.5) * w, [ci[k]["beta_cross_per_target"], ci[k]["gamma_cross_per_target"]], w, color=col, label=nm)
@@ -308,8 +314,8 @@ def fig5(d, out):
         g = ci[k]["gamma_share"]; ax.text(1 + (j - 0.5) * w, ci[k]["gamma_cross_per_target"] + 0.25, "%.2f" % g[0], ha="center", fontsize=5.5)
     ax.legend(fontsize=5.6)
     title(ax, "CD4 T cells, donor 1")
-    # c: CD4 predictor and K562
-    ax = axmm(fig, W, H, 76, 67, 104, 31); letter(fig, W, H, 66, 55, "c")
+    # d: CD4 predictor and K562
+    ax = axmm(fig, W, H, 76, 67, 104, 31); letter(fig, W, H, 66, 55, "d")
     kd1, kd2, ci2, rp = J(d, "kd_D1.json"), J(d, "kd_D2.json"), J(d, "ci_cd4_D2.json"), J(d, "replogle_indep.json")
     bars = [("CD4 D1", ci["random_r1"]["readout_k20"][0], ci["guide"]["readout_k20"][0]),
             ("CD4 D1\nmatched", kd1["kd_matched|cell"]["readout_k20"], kd1["kd_matched|guide"]["readout_k20"]),
@@ -329,9 +335,9 @@ def fig5(d, out):
     ax.set_xticks(x); ax.set_xticklabels([b[0] for b in bars], fontsize=5.5); ax.set_ylabel("held-out explained share"); ax.set_ylim(0, 0.9)
     ax.legend(fontsize=5.4, loc="upper center", ncol=2, handlelength=1)
     title(ax, "Shared-to-specific predictor")
-    # d: model
+    # e: model
     sim = J(d, "sim_v6.json")
-    letter(fig, W, H, 2, 110, "d")
+    letter(fig, W, H, 2, 110, "e")
     ax = axmm(fig, W, H, 12, 122, 62, 30)
     sc = [("fab_none", "no unit effect"), ("fab_low_separate", "separate units"), ("fab_low_shared", "shared units")]
     x = np.arange(3); w = 0.36

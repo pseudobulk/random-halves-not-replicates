@@ -23,8 +23,8 @@ python code/plot_main_figs.py data figures
 python code/make_supplement.py data paper/supplementary_v1.template.md figures/supplementary_v1.md figures/supp
 ```
 
-This writes Figures 1–5 (`fig1_schematic` … `fig5_contexts`, PDF and PNG), Supplementary Figures S1–S2 and the
-Supplementary Information text with Tables S1–S5 (`paper/supplementary_v1.template.md` filled in). Figures 1–5, Supplementary Figures S1–S2 and the Supplementary Information text
+This writes Figures 1–5 (`fig1_schematic` … `fig5_contexts`, PDF and PNG), Supplementary Figures S1–S3 and the
+Supplementary Information text with Tables S1–S5 (`paper/supplementary_v1.template.md` filled in). Figures 1–5, Supplementary Figures S1–S3 and the Supplementary Information text
 drawn this way are identical to the published ones (pixel for pixel and line for line; checked with Python 3.14,
 NumPy 2.5, Matplotlib 3.11 on Windows). Arial is used if installed, otherwise DejaVu Sans, which changes the glyphs but
 not the content. `paper/` holds the manuscript text and the Supplementary Information template the tables are filled
@@ -87,7 +87,7 @@ Each stage reads only the outputs of earlier stages.
 | `replogle` | K562 / RPE1 independent screens, template check, pass test for K562–RPE1 and Jurkat–HepG2, non-targeting constructs as null perturbations in the five cell-line screens and the H1 hESC data | `replogle_indep_readout.py` → `k562_inert_screens.py`, `k562_inert.py`, `readout_inert_line.py h5ad`, `cl_ntc_null.py` |
 | `sim` | three-term unit model (simulation only, about 4 minutes) | `clone_model_sim.py` |
 | `collect` | copy the small result files into `FIGDATA` under the names in `data/` | — |
-| `figures` | Figures 1–5, Supplementary Figures S1–S2, Supplementary Information with Tables S1–S5 | `plot_schematics.py`, `plot_main_figs.py`, `make_supplement.py` |
+| `figures` | Figures 1–5, Supplementary Figures S1–S3, Supplementary Information with Tables S1–S5 | `plot_schematics.py`, `plot_main_figs.py`, `make_supplement.py` |
 
 Shared modules, imported by the scripts above: `cd4_m3.py`, `cd4_readout.py`, `tahoe_arms.py`, `tahoe_readout.py`,
 `tahoe_hpa_check.py`, `tahoe_tone_check.py` (gene sets, ridge readout, line matching) and `explore_V_day6_day8.py`
@@ -120,11 +120,11 @@ Result file names refer to `data/` (see `data/README.md` for the producing outpu
 | Fig. 3e: depth (quarter vs half of the cells) | `clone_tests_cd4.py` | `clone_D1.json`, `clone_D2.json` |
 | Fig. 3f: composition of the random-half signal | `clone_tests_cd4.py`, `cd4_guide_donor.py` | `clone_D*.json`, `guide_donor.json` |
 | Fig. 4a: cell-eval 0.8.2 ceilings | `cd4_celleval_subset.py` → `run_celleval_ceiling.py` | `celleval.json` |
-| Fig. 4b: reliability labels (split-half rule of Wang et al. 2026) | `ci_bootstrap.py cd4` | `ci_cd4.json` |
-| Fig. 4c: Spearman–Brown at chance | analytic, in `plot_main_figs.py` | — |
-| Fig. 5b: context-specific share and absolute energies, CD4 | `ci_bootstrap.py cd4` | `ci_cd4.json` |
-| Fig. 5c: CD4 predictor (donors 1–2, strength-matched knockdowns) and K562 with an independent screen | `ci_bootstrap.py cd4`, `cd4_kd_matched.py`, `replogle_indep_readout.py` | `ci_cd4_D2.json`, `kd_D1.json`, `kd_D2.json`, `replogle_indep.json` |
-| Fig. 5d: three-term model, fabrication and attenuation | `clone_model_sim.py` | `sim_v6.json` |
+| Fig. 4b: reliability labels (split-half rule of Wang et al. 2026), donors 1–2 | `ci_bootstrap.py cd4` | `ci_cd4.json`, `ci_cd4_D2.json` |
+| Fig. 5b: TRBC1 deviation in resting against stimulated cells | `cd4_sc_extract_cells.py` → `export_fig_data.py` | `cd4_D1.npz` (z / √n per state) |
+| Fig. 5c: context-specific share and absolute energies, CD4 | `ci_bootstrap.py cd4` | `ci_cd4.json` |
+| Fig. 5d: CD4 predictor (donors 1–2, strength-matched knockdowns) and K562 with an independent screen | `ci_bootstrap.py cd4`, `cd4_kd_matched.py`, `replogle_indep_readout.py` | `ci_cd4_D2.json`, `kd_D1.json`, `kd_D2.json`, `replogle_indep.json` |
+| Fig. 5e: three-term model, fabrication and attenuation | `clone_model_sim.py` | `sim_v6.json` |
 
 ### Supplementary material
 
@@ -137,6 +137,7 @@ Result file names refer to `data/` (see `data/README.md` for the producing outpu
 | Table S5: robustness (target set, gene set, halves, k) | `robust_cd4_tahoe.py` → `make_supplement.py` | `robust_D1.json`, `robust_D2.json` |
 | Fig. S1: three-term model scenarios | `clone_model_sim.py` | `sim_v5.json` (the same values are in `sim_v6.json`) |
 | Fig. S2: K562 unexpressed targets across two screens; template artefact | `k562_inert_screens.py`, `k562_inert.py` | `k562_inert_screens.json`, `k562_template.json` |
+| Fig. S3: Spearman–Brown at chance | analytic, in `make_supplement.py` | — |
 
 Tahoe-100M: the pipeline stage `tahoe`, its scripts and its result files (`dmso.json`, `tahoe_recompute.json`,
 `ceiling_tahoe.json`, `ci_tahoe.json`, `robust_tahoe.json`) remain in the repository and in the reproduction record, but

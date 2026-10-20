@@ -9,6 +9,7 @@ Table S4  template-direction pass test (readout_inert_line.py)                  
 Table S5  robustness (robust_cd4_tahoe.py), CD4                                   {TABLE_S2_CD4}
 Fig S1    three-term model scenarios (clone_model_sim.py v5)                      figS1_model
 Fig S2    K562: unexpressed-target structure across two independent screens; template artifact   figS2_k562
+Fig S3    the Spearman-Brown correction at chance level (analytic)                 figS3_sb
 Usage: make_supplement.py <data_dir> <template.md> <out.md> <fig_dir>"""
 import sys, os, json
 import numpy as np
@@ -222,6 +223,18 @@ def fig_s3(d, out):
     P.save(fig, out, "figS1_model")
 
 
+def fig_sb(out):
+    """Supplementary Fig. S3: the Spearman-Brown correction at chance level (formerly Fig. 4c)"""
+    W, H = 89, 62
+    fig = plt.figure(figsize=(W * P.MM, H * P.MM))
+    ax = P.axmm(fig, W, H, 16, 9, 64, 42)
+    rr = np.linspace(0, 1, 200); ax.plot(rr, 2 * rr / (1 + rr), color="k", lw=0.9); ax.plot([0, 1], [0, 1], color=GREY, lw=0.6, ls=":")
+    ax.plot([0.5, 0.5, 0], [0, 2 / 3, 2 / 3], color=RED, lw=0.8, ls="--"); ax.text(0.03, 0.70, "0.67", fontsize=6)
+    ax.set_xlabel("Score at half depth"); ax.set_ylabel("Corrected score"); ax.set_xlim(0, 1); ax.set_ylim(0, 1.02)
+    P.title(ax, "Spearman–Brown correction")
+    P.save(fig, out, "figS3_sb")
+
+
 def table_ntc(d):
     """Table S1: non-targeting guides as null perturbations (ntc_null.json from cd4_ntc_null.py)"""
     v = P.J(d, "ntc_null.json")
@@ -267,7 +280,7 @@ def main():
         assert k in text, k
         text = text.replace(k, v)
     open(out_md, "w", encoding="utf-8").write(text)
-    fig_s1(d, fig_dir); fig_s3(d, fig_dir)
+    fig_s1(d, fig_dir); fig_s3(d, fig_dir); fig_sb(fig_dir)
     print("ok", n3)
 
 
