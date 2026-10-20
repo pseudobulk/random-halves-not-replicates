@@ -1,6 +1,6 @@
 # Supplementary Information
 
-**Random cell halves are not independent replicates in pooled perturbation screens**
+**Shared clones make random cell halves look reproducible in pooled screens**
 
 Xuanrui Huang
 

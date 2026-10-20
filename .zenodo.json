@@ -1,6 +1,6 @@
 {
-  "title": "random-halves-not-replicates: analysis code for \"Random cell halves are not independent replicates in pooled perturbation screens\"",
-  "description": "Analysis code, the result files behind every figure and table, and a record of the reproduction of all reported numbers from the raw data, for the preprint \"Random cell halves are not independent replicates in pooled perturbation screens\".",
+  "title": "random-halves-not-replicates: analysis code for \"Shared clones make random cell halves look reproducible in pooled screens\"",
+  "description": "Analysis code, the result files behind every figure and table, and a record of the reproduction of all reported numbers from the raw data, for the preprint \"Shared clones make random cell halves look reproducible in pooled screens\".",
   "upload_type": "software",
   "creators": [
     {

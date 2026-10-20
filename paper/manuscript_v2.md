@@ -1,4 +1,4 @@
-# Random cell halves are not independent replicates in pooled perturbation screens
+# Shared clones make random cell halves look reproducible in pooled screens
 
 Xuanrui Huang
 
@@ -251,5 +251,5 @@ The author declares no competing interests.
 15. Zimmerman, K. D., Espeland, M. A. & Langefeld, C. D. A practical solution to pseudoreplication bias in single-cell studies. *Nat. Commun.* **12**, 738 (2021).
 16. Raju, P. C. Directional coherence and effect magnitude in single-cell CRISPR perturbation responses. Preprint at *arXiv* https://arxiv.org/abs/2604.16642 (2026).
 17. Rosenbluh, J. et al. Complementary information derived from CRISPR Cas9 mediated gene deletion and suppression. *Nat. Commun.* **8**, 15403 (2017).
-18. Huang, X. random-halves-not-replicates v1.0.0: analysis code for "Random cell halves are not independent replicates in pooled perturbation screens". *Zenodo* https://doi.org/10.5281/zenodo.23476350 (2026).
+18. Huang, X. random-halves-not-replicates, version 1.0.0. *Zenodo* https://doi.org/10.5281/zenodo.23476350 (2026).
 
