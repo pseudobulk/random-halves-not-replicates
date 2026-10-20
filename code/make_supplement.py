@@ -6,10 +6,9 @@ Table S1  non-targeting guides as null perturbations (cd4_ntc_null.py; cell line
 Table S2  same vs different guide across donors (cd4_guide_donor.py)              {TABLE_S5}, {S5_META}, {S5_RATIO}
 Table S3  cell-eval 0.8.2 ceilings, corrected and uncorrected (run_celleval_ceiling.py)  {TABLE_S3_CORR}, {TABLE_S3_RAW}
 Table S4  template-direction pass test (readout_inert_line.py)                    {TABLE_S1}, {S1_SHUF}
-Table S5  robustness (robust_cd4_tahoe.py), CD4 and Tahoe                         {TABLE_S2_CD4}, {TABLE_S2_TAHOE}
+Table S5  robustness (robust_cd4_tahoe.py), CD4                                   {TABLE_S2_CD4}
 Fig S1    three-term model scenarios (clone_model_sim.py v5)                      figS1_model
-Fig S2    Tahoe DMSO wells per plate (tahoe_dmso_null.py)                         figS2_dmso
-Fig S3    K562: unexpressed-target structure across two independent screens; template artifact   figS3_k562
+Fig S2    K562: unexpressed-target structure across two independent screens; template artifact   figS2_k562
 Usage: make_supplement.py <data_dir> <template.md> <out.md> <fig_dir>"""
 import sys, os, json
 import numpy as np
@@ -88,19 +87,7 @@ def table_s2(d):
                     out.append("| %s | %s | %s | %s | %.1f%% / %.1f%% | %s | %s / %s / %s / %s | %s |" % (
                         donor[1], tsn, gsn, hn, 100 * v["inert_frac_pos_rest"], 100 * v["inert_frac_pos_stim"], f2(v["gamma_share"]),
                         f2(v["readout_k5"], 3), f2(v["readout_k10"], 3), f2(v["readout_k20"], 3), f2(v["readout_k50"], 3), f2(v["readout_k20_shuffled"], 3)))
-    cd4 = "\n".join(out)
-    t = P.J(d, "robust_tahoe.json")
-    rows = ["| Target | Genes | Same wells, k = 5 / 10 / 20 | Replicate plate, k = 5 / 10 / 20 | Largest shuffled value |\n|--|----|----|----|--|"]
-    for key, v in t.items():
-        if key == "rules":
-            continue
-        tp, gs = key.split("|")
-        sh = max(abs(x) for kk, x in v.items() if kk.endswith("shuffled"))
-        rows.append("| plate %s | %s | %s / %s / %s | %s / %s / %s | %s |" % (
-            tp.replace("target_plate", ""), "all kept" if gs == "all" else "top 2,000 on the other plate",
-            f2(v["same_well_k5"]), f2(v["same_well_k10"]), f2(v["same_well_k20"]),
-            f2(v["other_plate_k5"]), f2(v["other_plate_k10"]), f2(v["other_plate_k20"]), "%.4f" % sh))
-    return cd4, "\n".join(rows)
+    return "\n".join(out)
 
 
 METRICS = [("overlap_at_N", "DE overlap (top N)"), ("overlap_at_50", "DE overlap (top 50)"), ("overlap_at_100", "DE overlap (top 100)"),
@@ -188,33 +175,7 @@ def fig_s1(d, out):
     ax.axhline(50, color="k", lw=0.6, ls="--"); ax.set_ylim(0, 122)
     ax.set_xticks([0, 1]); ax.set_xticklabels(["template\nremoved", "null\nbaseline"]); ax.set_ylabel("Unexpressed targets with\npositive signal (%)")
     ax.legend(fontsize=5.6, loc="upper center", ncol=2, handlelength=1); P.title(ax, "K562 genome-wide screen: reference")
-    P.save(fig, out, "figS3_k562")
-
-
-def fig_s2(d, out):
-    dm = P.J(d, "dmso.json")["plates"]
-    pl = sorted(dm, key=lambda s: int(s[5:])); x = np.array([int(p[5:]) for p in pl])
-    W, H = 183, 52
-    fig = plt.figure(figsize=(W * P.MM, H * P.MM))
-    ax = P.axmm(fig, W, H, 12, 10, 50, 34); P.letter(fig, W, H, 2, 3, "a")
-    hi = np.array([p in ("plate6", "plate14") for p in pl])
-    ax.scatter(x, [dm[p]["drug_cross_median"] for p in pl], s=10, color="#bdc3c7", label="drug conditions (median)", zorder=2)
-    ax.scatter(x, [dm[p]["cross_median"] for p in pl], s=10, color=np.where(hi, RED, BLUE), label="DMSO well difference (median)", zorder=3)
-    ax.set_ylim(0, 48); ax.set_xticks(x); ax.set_xticklabels(x, fontsize=5); ax.set_xlabel("Tahoe plate"); ax.set_ylabel("within-well cross-half signal")
-    ax.legend(fontsize=5.4, loc="upper left", handletextpad=0.2); P.title(ax, "Well difference against drug effects")
-    ax = P.axmm(fig, W, H, 74, 10, 48, 34); P.letter(fig, W, H, 66, 3, "b")
-    v = [dm[p]["well_per_well_over_drug_median"] for p in pl]
-    ax.bar(x, v, 0.7, color=np.where(hi, RED, BLUE)); ax.axhline(np.median(v), color="k", lw=0.6, ls="--")
-    ax.text(6.6, np.median(v) + 0.02, "median %.2f" % np.median(v), fontsize=5.4, ha="left")
-    ax.set_xticks(x); ax.set_xticklabels(x, fontsize=5); ax.set_xlabel("Tahoe plate"); ax.set_ylabel("well effect per well /\nmedian drug signal")
-    P.title(ax, "Size of the well effect")
-    ax = P.axmm(fig, W, H, 134, 10, 46, 34); P.letter(fig, W, H, 126, 3, "c")
-    v = [dm[p]["common_cross"] / (dm[p]["common_cross"] + dm[p]["specific_cross"]) for p in pl]
-    ax.bar(x, v, 0.7, color=np.where(hi, RED, BLUE)); ax.axhline(np.median(v), color="k", lw=0.6, ls="--")
-    ax.text(0.4, 0.93, "dashed: median %.2f" % np.median(v), fontsize=5.4, ha="left")
-    ax.set_ylim(0, 1); ax.set_xticks(x); ax.set_xticklabels(x, fontsize=5); ax.set_xlabel("Tahoe plate"); ax.set_ylabel("share common to all lines")
-    P.title(ax, "Line-shared part")
-    P.save(fig, out, "figS2_dmso")
+    P.save(fig, out, "figS2_k562")
 
 
 SCEN = [("none", "no unit\neffect"), ("additive_separate", "additive,\nseparate"), ("additive_shared", "additive,\nshared"),
@@ -296,14 +257,14 @@ def table_ntc_cl(d):
 def main():
     d, tpl, out_md, fig_dir = sys.argv[1:5]
     os.makedirs(fig_dir, exist_ok=True)
-    ntc = table_ntc(d); ntc_cl = table_ntc_cl(d); s1, shuf1 = table_s1(d); s2a, s2b = table_s2(d); s3a, s3b, n3 = table_s3(d); s5, s5meta, s5ratio = table_s5(d)
+    ntc = table_ntc(d); ntc_cl = table_ntc_cl(d); s1, shuf1 = table_s1(d); s2a = table_s2(d); s3a, s3b, n3 = table_s3(d); s5, s5meta, s5ratio = table_s5(d)
     text = open(tpl, encoding="utf-8").read()
-    for k, v in (("{TABLE_NTC}", ntc), ("{TABLE_NTC_CL}", ntc_cl), ("{TABLE_S1}", s1), ("{S1_SHUF}", "%.4f" % shuf1), ("{TABLE_S2_CD4}", s2a), ("{TABLE_S2_TAHOE}", s2b),
+    for k, v in (("{TABLE_NTC}", ntc), ("{TABLE_NTC_CL}", ntc_cl), ("{TABLE_S1}", s1), ("{S1_SHUF}", "%.4f" % shuf1), ("{TABLE_S2_CD4}", s2a),
                  ("{TABLE_S3_CORR}", s3a), ("{TABLE_S3_RAW}", s3b), ("{TABLE_S5}", s5), ("{S5_META}", s5meta), ("{S5_RATIO}", s5ratio)):
         assert k in text, k
         text = text.replace(k, v)
     open(out_md, "w", encoding="utf-8").write(text)
-    fig_s1(d, fig_dir); fig_s2(d, fig_dir); fig_s3(d, fig_dir)
+    fig_s1(d, fig_dir); fig_s3(d, fig_dir)
     print("ok", n3)
 
 

@@ -146,7 +146,6 @@ def fig1(out):
         label(ax, x, 49.5, t, fontsize=6, fontweight="bold", color="#34495e")
     ax.plot([101.5, 178], [47, 47], color="#d5d8dc", lw=0.6)
     rows = [("primary CD4 T\n(4 donors)", "CRISPRi,\ngenome-wide", "guides; donors", "unexpressed\ntargets;\nNT guides"),
-            ("Tahoe-100M\n(~50 lines / well)", "drugs", "replicate plate", "DMSO wells"),
             ("K562 / RPE1", "CRISPRi,\nessential", "two K562\nscreens", "unexpressed\ntargets*;\nNT guides"),
             ("Jurkat / HepG2", "CRISPRi,\nessential", "none", "unexpressed\ntargets*;\nNT guides")]
     for i, r in enumerate(rows):
@@ -197,36 +196,20 @@ def draw_fig5a(ax, letter=True):
     if letter:
         panel_letter(ax, 1.5, H - 1, "a")
     label(ax, 7, H - 3.5, "Shared and separate units", fontsize=7)
-    def line_glyph(x, y, k, c):
-        if k == 0:
-            cell(ax, x, y, c, r=1.3)
-        elif k == 1:
-            ax.add_patch(RegularPolygon((x, y), 3, radius=1.6, fc=c, ec="white", lw=0.5, zorder=3))
-        else:
-            ax.add_patch(Rectangle((x - 1.2, y - 1.2), 2.4, 2.4, fc=c, ec="white", lw=0.5, zorder=3))
-    # shared: one well, many lines
-    card(ax, 4, 4, 56, 36, fc="white", ec=RED, lw=0.9)
-    label(ax, 32, 36.5, "one well, several lines (Tahoe)", ha="center", fontsize=6.5, fontweight="bold", color=RED)
-    ax.add_patch(Circle((20, 19), 11, fc="white", ec="#aab7b8", lw=0.8, zorder=1))
-    for i in range(14):
-        a = rng.uniform(0, 2 * np.pi); rr = rng.uniform(0, 8.5)
-        line_glyph(20 + rr * np.cos(a), 19 + rr * np.sin(a), i % 3, ["#5d6d7e", "#85929e", "#aeb6bf"][i % 3])
-    arrow(ax, 31.5, 23, 41, 27, c=RED, lw=0.8); arrow(ax, 31.5, 15, 41, 11, c=RED, lw=0.8)
-    label(ax, 42, 27, "shared response\n(mean over lines)", fontsize=5.8); label(ax, 42, 11, "line-specific parts\n(each line reacts\nin its own way)", fontsize=5.8)
-    # shared: one clone, two states
-    card(ax, 64, 4, 56, 36, fc="white", ec=RED, lw=0.9)
-    label(ax, 92, 36.5, "one clone, two states (CD4)", ha="center", fontsize=6.5, fontweight="bold", color=RED)
-    cluster(ax, 76, 19, G1[0], 6, rng)
-    arrow(ax, 80, 22, 92, 27, c=G1[0], lw=0.8); arrow(ax, 80, 16, 92, 11, c=G1[0], lw=0.8)
+    # shared: one clone, two states (the two cards are centred on the page)
+    card(ax, 32, 4, 56, 36, fc="white", ec=RED, lw=0.9)
+    label(ax, 60, 36.5, "one clone, two states (CD4)", ha="center", fontsize=6.5, fontweight="bold", color=RED)
+    cluster(ax, 44, 19, G1[0], 6, rng)
+    arrow(ax, 48, 22, 60, 27, c=G1[0], lw=0.8); arrow(ax, 48, 16, 60, 11, c=G1[0], lw=0.8)
     for yy, nm in ((27, "rest"), (11, "stimulated")):
         for j in range(3):
-            cell(ax, 95 + j * 2.6, yy, G1[0], r=1.1)
-        label(ax, 104, yy, nm, fontsize=6)
+            cell(ax, 63 + j * 2.6, yy, G1[0], r=1.1)
+        label(ax, 72, yy, nm, fontsize=6)
     # separate screens
-    card(ax, 124, 4, 55, 36, fc="white", ec=BLUE, lw=0.9)
-    label(ax, 151.5, 36.5, "separate screens (K562 vs RPE1)", ha="center", fontsize=6.5, fontweight="bold", color=BLUE)
-    cluster(ax, 137, 24, G1[1], 5, rng); cluster(ax, 137, 13, G2[1], 5, rng)
-    label(ax, 143, 24, "line 1 clones", fontsize=6); label(ax, 143, 13, "line 2 clones", fontsize=6)
+    card(ax, 96, 4, 55, 36, fc="white", ec=BLUE, lw=0.9)
+    label(ax, 123.5, 36.5, "separate screens (K562 vs RPE1)", ha="center", fontsize=6.5, fontweight="bold", color=BLUE)
+    cluster(ax, 109, 24, G1[1], 5, rng); cluster(ax, 109, 13, G2[1], 5, rng)
+    label(ax, 115, 24, "line 1 clones", fontsize=6); label(ax, 115, 13, "line 2 clones", fontsize=6)
 
 
 def fig6(out):

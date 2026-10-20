@@ -13,7 +13,10 @@ Preprint v19 changes only text: a shorter abstract (150 words) and a tighter Met
 with the code archive cited (Zenodo, v1.0.0). No value changed; a few robustness values that the Methods no longer
 repeat remain in the Supplementary Information or in this record.
 Preprint v21 gives the full affiliation and removes the former Supplementary Table S6 (donor-2 expectations), whose
-timing could not be checked from outside the project; its values remain in this record. No value changed. `repro/comparison.tsv` lists each
+timing could not be checked from outside the project; its values remain in this record. No value changed.
+Preprint v22 removes the Tahoe-100M analyses from the paper (former Fig. 2c, Fig. 4d, Fig. 5c, Supplementary Fig. S2 and the Tahoe part of
+Supplementary Table S5), which are reported separately; the remaining panels are renumbered (Fig. 2d to 2c, Fig. 5d to 5c, Fig. 5e to 5d,
+Supplementary Fig. S3 to S2). The Tahoe code and result files stay in the repository and in this record. No value changed. `repro/comparison.tsv` lists each
 comparison; `repro/number_inventory.tsv` classifies every number in the manuscript text (422), and
 `repro/printed_numbers.md` checks the 182 printed results one by one (`repro/intermediate/` holds the few values
 taken from intermediate outputs); `repro/tools/` holds

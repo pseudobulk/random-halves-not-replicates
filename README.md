@@ -23,8 +23,8 @@ python code/plot_main_figs.py data figures
 python code/make_supplement.py data paper/supplementary_v1.template.md figures/supplementary_v1.md figures/supp
 ```
 
-This writes Figures 1–5 (`fig1_schematic` … `fig5_contexts`, PDF and PNG), Supplementary Figures S1–S3 and the
-Supplementary Information text with Tables S1–S5 (`paper/supplementary_v1.template.md` filled in). Figures 1–5, Supplementary Figures S1–S3 and the Supplementary Information text
+This writes Figures 1–5 (`fig1_schematic` … `fig5_contexts`, PDF and PNG), Supplementary Figures S1–S2 and the
+Supplementary Information text with Tables S1–S5 (`paper/supplementary_v1.template.md` filled in). Figures 1–5, Supplementary Figures S1–S2 and the Supplementary Information text
 drawn this way are identical to the published ones (pixel for pixel and line for line; checked with Python 3.14,
 NumPy 2.5, Matplotlib 3.11 on Windows). Arial is used if installed, otherwise DejaVu Sans, which changes the glyphs but
 not the content. `paper/` holds the manuscript text and the Supplementary Information template the tables are filled
@@ -87,7 +87,7 @@ Each stage reads only the outputs of earlier stages.
 | `replogle` | K562 / RPE1 independent screens, template check, pass test for K562–RPE1 and Jurkat–HepG2, non-targeting constructs as null perturbations in the five cell-line screens and the H1 hESC data | `replogle_indep_readout.py` → `k562_inert_screens.py`, `k562_inert.py`, `readout_inert_line.py h5ad`, `cl_ntc_null.py` |
 | `sim` | three-term unit model (simulation only, about 4 minutes) | `clone_model_sim.py` |
 | `collect` | copy the small result files into `FIGDATA` under the names in `data/` | — |
-| `figures` | Figures 1–5, Supplementary Figures S1–S3, Supplementary Information with Tables S1–S5 | `plot_schematics.py`, `plot_main_figs.py`, `make_supplement.py` |
+| `figures` | Figures 1–5, Supplementary Figures S1–S2, Supplementary Information with Tables S1–S5 | `plot_schematics.py`, `plot_main_figs.py`, `make_supplement.py` |
 
 Shared modules, imported by the scripts above: `cd4_m3.py`, `cd4_readout.py`, `tahoe_arms.py`, `tahoe_readout.py`,
 `tahoe_hpa_check.py`, `tahoe_tone_check.py` (gene sets, ridge readout, line matching) and `explore_V_day6_day8.py`
@@ -115,19 +115,16 @@ Result file names refer to `data/` (see `data/README.md` for the producing outpu
 | Fig. 1 (schematic), Fig. 3a, Fig. 5a | `plot_schematics.py` | — |
 | Fig. 2a: unexpressed targets positive under random vs guide halves, CD4 donors 1–2 | `export_fig_data.py` → `plot_main_figs.py` | `cd4_D1.npz`, `cd4_D2.npz` |
 | Fig. 2b: guide and donor halves agree only by chance | `export_fig_data.py`, `cd4_donor_split.py` (null baseline, variant C) | `cd4_D*.npz`, `donor_split.json` |
-| Fig. 2c: Tahoe DMSO well difference | `tahoe_dmso_null.py` | `dmso.json` |
-| Fig. 2d: non-targeting random-half signal relative to targeting perturbations, five cell-line screens, H1 hESC and CD4 | `cl_ntc_null.py`, `cd4_ntc_ratio.py` | `cl_ntc_replogle.json`, `cl_ntc_nadig.json`, `cl_ntc_h1.json`, `cd4_ntc_ratio.json` |
+| Fig. 2c: non-targeting random-half signal relative to targeting perturbations, five cell-line screens, H1 hESC and CD4 | `cl_ntc_null.py`, `cd4_ntc_ratio.py` | `cl_ntc_replogle.json`, `cl_ntc_nadig.json`, `cl_ntc_h1.json`, `cd4_ntc_ratio.json` |
 | Fig. 3b–d: TRBC overdispersion, TRBC deviation between halves, clone skew vs reproducibility | `cd4_sc_extract_cells.py` → `export_fig_data.py` | `cd4_D*.npz` |
 | Fig. 3e: depth (quarter vs half of the cells) | `clone_tests_cd4.py` | `clone_D1.json`, `clone_D2.json` |
 | Fig. 3f: composition of the random-half signal | `clone_tests_cd4.py`, `cd4_guide_donor.py` | `clone_D*.json`, `guide_donor.json` |
 | Fig. 4a: cell-eval 0.8.2 ceilings | `cd4_celleval_subset.py` → `run_celleval_ceiling.py` | `celleval.json` |
 | Fig. 4b: reliability labels (split-half rule of Wang et al. 2026) | `ci_bootstrap.py cd4` | `ci_cd4.json` |
 | Fig. 4c: Spearman–Brown at chance | analytic, in `plot_main_figs.py` | — |
-| Fig. 4d: Tahoe ceilings, same well vs replicate plate | `ceiling_compare.py tahoe` | `ceiling_tahoe.json` |
 | Fig. 5b: context-specific share and absolute energies, CD4 | `ci_bootstrap.py cd4` | `ci_cd4.json` |
-| Fig. 5c: Tahoe predictor, same well vs other plate | `ci_bootstrap.py tahoe` (uses `verify_headline.cv_readout`) | `ci_tahoe.json` |
-| Fig. 5d: CD4 predictor (donors 1–2, strength-matched knockdowns) and K562 with an independent screen | `ci_bootstrap.py cd4`, `cd4_kd_matched.py`, `replogle_indep_readout.py` | `ci_cd4_D2.json`, `kd_D1.json`, `kd_D2.json`, `replogle_indep.json` |
-| Fig. 5e: three-term model, fabrication and attenuation | `clone_model_sim.py` | `sim_v6.json` |
+| Fig. 5c: CD4 predictor (donors 1–2, strength-matched knockdowns) and K562 with an independent screen | `ci_bootstrap.py cd4`, `cd4_kd_matched.py`, `replogle_indep_readout.py` | `ci_cd4_D2.json`, `kd_D1.json`, `kd_D2.json`, `replogle_indep.json` |
+| Fig. 5d: three-term model, fabrication and attenuation | `clone_model_sim.py` | `sim_v6.json` |
 
 ### Supplementary material
 
@@ -137,10 +134,13 @@ Result file names refer to `data/` (see `data/README.md` for the producing outpu
 | Table S2: same guide vs different guides across donors | `cd4_guide_donor.py` → `make_supplement.py` | `guide_donor.json` |
 | Table S3: all cell-eval metrics, corrected and uncorrected | `run_celleval_ceiling.py` → `make_supplement.py` | `celleval.json` |
 | Table S4: template-direction pass test (CD4 donors 1–2, K562, RPE1, Jurkat, HepG2) | `readout_inert_line.py` → `make_supplement.py` | `pass_*.json` |
-| Table S5: robustness (target set, gene set, halves, k; Tahoe target plate) | `robust_cd4_tahoe.py` → `make_supplement.py` | `robust_D1.json`, `robust_D2.json`, `robust_tahoe.json` |
+| Table S5: robustness (target set, gene set, halves, k) | `robust_cd4_tahoe.py` → `make_supplement.py` | `robust_D1.json`, `robust_D2.json` |
 | Fig. S1: three-term model scenarios | `clone_model_sim.py` | `sim_v5.json` (the same values are in `sim_v6.json`) |
-| Fig. S2: Tahoe DMSO wells per plate | `tahoe_dmso_null.py` | `dmso.json` |
-| Fig. S3: K562 unexpressed targets across two screens; template artefact | `k562_inert_screens.py`, `k562_inert.py` | `k562_inert_screens.json`, `k562_template.json` |
+| Fig. S2: K562 unexpressed targets across two screens; template artefact | `k562_inert_screens.py`, `k562_inert.py` | `k562_inert_screens.json`, `k562_template.json` |
+
+Tahoe-100M: the pipeline stage `tahoe`, its scripts and its result files (`dmso.json`, `tahoe_recompute.json`,
+`ceiling_tahoe.json`, `ci_tahoe.json`, `robust_tahoe.json`) remain in the repository and in the reproduction record, but
+since preprint v22 the paper reports the pooled CRISPR screens only.
 
 ### Numbers in the text
 
@@ -151,17 +151,13 @@ Result file names refer to `data/` (see `data/README.md` for the producing outpu
 | Non-targeting guides: random halves 96.6–98.8%, different guides 48.8–49.8% | `cd4_ntc_null.py` | `ntc_null.json` |
 | Non-targeting constructs in five cell-line screens and H1 hESC, relative to targeting perturbations; CD4 1.2–1.3 times | `cl_ntc_null.py`, `cd4_ntc_ratio.py` | `cl_ntc_*.json`, `cd4_ntc_ratio.json` |
 | TRBC1 deviation correlated between resting and stimulated cells (0.89, 0.94); effective clones per perturbation at most about 7 and 4 | `cd4_trbc_state_keff.py` | `trbc_state_keff.json` |
-| Tahoe DMSO wells: same-well difference reproducible, size relative to drugs, share common to lines, cross-plate correlation | `tahoe_dmso_null.py` | `dmso.json` |
-| Tahoe: only plates 6 and 14 are full replicates | `tahoe_plate_overlap.py` | printed |
-| Tahoe within-well vs cross-plate energy, signal correlation, context-specific share | `tahoe_plate_recompute.py`, `ci_bootstrap.py tahoe` | `tahoe_recompute.json`, `ci_tahoe.json` |
 | TRBC overdispersion, correlation between halves, clone-skew Spearman | `clone_tests_cd4.py`, `export_fig_data.py` | `clone_D*.json`, `cd4_D*.npz` |
 | Expressed-target energy random vs guide halves (8.9 vs 1.7; 16.3 vs 1.7) | `clone_tests_cd4.py` | `clone_D*.json` |
 | Same vs different guide across donors (3.09 vs 1.71; 2.85 vs 1.92), guide-specific ratios 0.80 / 0.48 | `cd4_guide_donor.py` | `guide_donor.json` |
 | K562 unexpressed structure recurring across screens (85%) | `replogle_indep_readout.py` → `k562_inert_screens.py` | `k562_inert_screens.json` |
 | K562 template artefact (83% → 89%) | `k562_inert.py` | `k562_template.json` |
 | CD4 ceilings, random vs guide halves (all, unexpressed, strong knockdowns) | `ceiling_compare.py cd4` | `ceiling_D1_rest.json`, `ceiling_D2_rest.json` |
-| Tahoe ceilings | `ceiling_compare.py tahoe` | `ceiling_tahoe.json` |
-| Context-specific share (CD4 random / guide / donor halves; Tahoe), absolute energies, reliable shares, predictor with intervals | `ci_bootstrap.py`, `cd4_donor_split.py` | `ci_*.json`, `donor_split.json` |
+| Context-specific share (CD4 random / guide / donor halves), absolute energies, reliable shares, predictor with intervals | `ci_bootstrap.py`, `cd4_donor_split.py` | `ci_*.json`, `donor_split.json` |
 | Predictor, second implementation and robustness | `robust_cd4_tahoe.py` | `robust_*.json` |
 | Predictor, strength-matched knockdowns | `cd4_kd_matched.py` | `kd_D*.json` |
 | Predictor, K562 side with an independent K562 screen | `replogle_indep_readout.py` | `replogle_indep.json` |

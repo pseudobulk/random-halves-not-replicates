@@ -2,11 +2,11 @@
 (data/ in this repository; data/README.md lists the script behind each file); per-perturbation arrays from
 export_fig_data.py.
 fig2_null.{pdf,png}       null perturbations look reproducible under random halves (CD4 unexpressed targets, donor
-                          halves, Tahoe DMSO wells, depth)
+                          halves, non-targeting guides across screens)
 fig3_clones.{pdf,png}     direct clone evidence (TRBC marker), depth, composition of the random-half signal
                           (guide_donor.json from cd4_guide_donor.py)
 fig4_ceilings.{pdf,png}   consequences for ceilings and reliability labels (cell-eval itself, Wang-style labels,
-                          Spearman-Brown at chance, Tahoe)
+                          Spearman-Brown at chance)
 fig5_contexts.{pdf,png}   cross-context structure (shared vs separate units, absolute energy, predictors, model)
 Panel titles are short labels; the message of each figure is in its legend title. Axis labels in sentence case with
 units in parentheses; error bars wherever an interval exists (defined in the legends).
@@ -99,7 +99,7 @@ def fig2(d, out):
     W, H = 183, 112
     fig = plt.figure(figsize=(W * MM, H * MM))
     # a: distribution of cross-half signal, unexpressed targets, donor 1 rest
-    ax = axmm(fig, W, H, 11, 14, 50, 33); letter(fig, W, H, 2, 3, "a")
+    ax = axmm(fig, W, H, 12, 14, 70, 33); letter(fig, W, H, 2, 3, "a")
     m = D1["inert"]
     for k, col, nm in (("random", RED, "random halves"), ("guide", BLUE, "guide halves")):
         v = D1["cross_%s_rest" % k][m]
@@ -111,7 +111,7 @@ def fig2(d, out):
     title(ax, "CD4 T cells, unexpressed targets")
     ax.set_ylim(0, ax.get_ylim()[1] * 1.3); ax.legend(fontsize=5.6, loc="upper right", handlelength=1.0)
     # b: share positive across donors / states / designs
-    ax = axmm(fig, W, H, 75, 14, 58, 33); letter(fig, W, H, 66, 3, "b")
+    ax = axmm(fig, W, H, 102, 14, 78, 33); letter(fig, W, H, 92, 3, "b")
     ds = J(d, "donor_split.json")["C_null_baseline_donor_split"]["inert"]
     groups = [("D1\nrest", D1, "rest"), ("D1\nstim", D1, "stim"), ("D2\nrest", D2, "rest"), ("D2\nstim", D2, "stim")]
     x = np.arange(4); w = 0.36
@@ -128,16 +128,8 @@ def fig2(d, out):
     ax.legend(handles=patches(((RED, "random halves"), (BLUE, "guide or donor halves"))), fontsize=5.6, loc="upper center",
               ncol=2, handlelength=1, columnspacing=1)
     title(ax, "Unexpressed targets")
-    # c: Tahoe DMSO wells
-    ax = axmm(fig, W, H, 148, 14, 32, 33); letter(fig, W, H, 139, 3, "c")
-    dm = J(d, "dmso.json"); pl = sorted(dm["plates"], key=lambda p: int(p.replace("plate", ""))); v = [dm["plates"][p] for p in pl]
-    xs = np.arange(len(pl)) + 1
-    ax.scatter(xs, [q["pearson_median"] for q in v], s=9, c=RED, zorder=3, lw=0)
-    ax.set_xticks([1, 7, 14]); ax.set_xlim(0, 15); ax.set_ylim(0, 1); ax.axhline(0, color="k", lw=0.6)
-    ax.set_xlabel("plate"); ax.set_ylabel("agreement between halves\n(Pearson r, median over lines)")
-    title(ax, "Tahoe-100M, vehicle-only wells")
-    # d: non-targeting guides across screens (findings cc): positive share and size relative to targeting perturbations
-    letter(fig, W, H, 2, 62, "d")
+    # c: non-targeting guides across screens (findings cc): positive share and size relative to targeting perturbations
+    letter(fig, W, H, 2, 62, "c")
     ntc, rat = J(d, "ntc_null.json"), J(d, "cd4_ntc_ratio.json")
     cl = dict(J(d, "cl_ntc_replogle.json")); cl.update(J(d, "cl_ntc_nadig.json")); cl.update(J(d, "cl_ntc_h1.json"))
     rows = [("CD4\nD1", ntc["D1_rest"], rat["D1_rest"]["ratio_nt_to_target_mean"]), ("CD4\nD2", ntc["D2_rest"], rat["D2_rest"]["ratio_nt_to_target_mean"])]
@@ -282,7 +274,7 @@ def fig4(d, out):
     fig.text(160 / W, 1 - 63.6 / H, "●", color=BLUE, fontsize=7, va="top"); fig.text(163 / W, 1 - 64 / H, "guide halves", fontsize=6, va="top")
     # b: Wang-style reliability labels
     ci = J(d, "ci_cd4.json")["wang_reliable_share_rest"]
-    ax = axmm(fig, W, H, 12, 85, 44, 30); letter(fig, W, H, 2, 73, "b")
+    ax = axmm(fig, W, H, 12, 85, 66, 30); letter(fig, W, H, 2, 73, "b")
     x = np.arange(3); w = 0.36
     nn = {"all": 6615, "inert": 1235, "expressed": 1097}   # perturbations of resting cells of donor 1 (legend)
     for j, (k, col, nm) in enumerate((("random", RED, "random halves"), ("guide", BLUE, "guide halves"))):
@@ -293,27 +285,11 @@ def fig4(d, out):
     ax.set_ylim(0, 34); ax.legend(fontsize=5.6, loc="upper left")
     title(ax, "Reliability labels")
     # c: Spearman-Brown at chance
-    ax = axmm(fig, W, H, 72, 85, 32, 30); letter(fig, W, H, 63, 73, "c")
+    ax = axmm(fig, W, H, 110, 85, 40, 30); letter(fig, W, H, 100, 73, "c")
     rr = np.linspace(0, 1, 200); ax.plot(rr, 2 * rr / (1 + rr), color="k", lw=0.9); ax.plot([0, 1], [0, 1], color=GREY, lw=0.6, ls=":")
     ax.plot([0.5, 0.5, 0], [0, 2 / 3, 2 / 3], color=RED, lw=0.8, ls="--"); ax.text(0.03, 0.70, "0.67", fontsize=6)
     ax.set_xlabel("score at half depth"); ax.set_ylabel("corrected score"); ax.set_xlim(0, 1); ax.set_ylim(0, 1.02)
     title(ax, "Spearman–Brown correction")
-    # d: Tahoe ceilings
-    ct = J(d, "ceiling_tahoe.json")
-    ax = axmm(fig, W, H, 126, 85, 52, 30); letter(fig, W, H, 117, 73, "d")
-    # both within-well designs are random halves (red); plate 14 is hatched rather than pink, which means "guide-specific" in Fig. 3f
-    cats = [("within_well_plate6", "same well, plate 6", RED, None), ("within_well_plate14", "same well, plate 14", RED, "////"), ("across_plates", "replicate plates", BLUE, None)]
-    x = np.arange(2); w = 0.26
-    for j, (k, lab, col, hatch) in enumerate(cats):
-        vals = [ct[k]["pearson_delta"]["ceiling"], ct[k]["discrimination_l1_within_line"]["ceiling"]]
-        if hatch:
-            ax.bar(x + (j - 1) * w, vals, w, facecolor="white", edgecolor=col, hatch=hatch, lw=0.6, label=lab)
-        else:
-            ax.bar(x + (j - 1) * w, vals, w, color=col, label=lab)
-    ax.set_xticks(x); ax.set_xticklabels(["Pearson Δ", "discrimination\n(within line)"]); ax.set_ylim(0, 1.38); ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0])
-    ax.set_ylabel("noise ceiling")
-    title(ax, "Tahoe-100M")
-    ax.legend(fontsize=5.4, loc="upper left", bbox_to_anchor=(0.02, 1.0), ncol=2, handlelength=1, columnspacing=1.0)
     save(fig, out, "fig4_ceilings")
 
 
@@ -322,9 +298,9 @@ def fig5(d, out):
     W, H = 183, 160
     fig = plt.figure(figsize=(W * MM, H * MM))
     ax = axmm(fig, W, H, 0, 0, 183, 50); ax.set_xlim(0, 183); ax.set_ylim(0, 50); ax.axis("off"); PS.draw_fig5a(ax)
-    ci = J(d, "ci_cd4.json"); ct = J(d, "ci_tahoe.json")
+    ci = J(d, "ci_cd4.json")
     # b: absolute energy vs share
-    ax = axmm(fig, W, H, 12, 67, 38, 31); letter(fig, W, H, 2, 55, "b")
+    ax = axmm(fig, W, H, 12, 67, 44, 31); letter(fig, W, H, 2, 55, "b")
     x = np.arange(2); w = 0.36
     for j, (k, col, nm) in enumerate((("random_r1", RED, "random halves"), ("guide", BLUE, "guide halves"))):
         ax.bar(x + (j - 0.5) * w, [ci[k]["beta_cross_per_target"], ci[k]["gamma_cross_per_target"]], w, color=col, label=nm)
@@ -333,18 +309,8 @@ def fig5(d, out):
         g = ci[k]["gamma_share"]; ax.text(1 + (j - 0.5) * w, ci[k]["gamma_cross_per_target"] + 0.25, "%.2f" % g[0], ha="center", fontsize=5.5)
     ax.legend(fontsize=5.6)
     title(ax, "CD4 T cells, donor 1")
-    # c: Tahoe fixed-target predictor
-    ax = axmm(fig, W, H, 63, 67, 38, 31); letter(fig, W, H, 54, 55, "c")
-    for j, pl in enumerate(("plate14", "plate6")):
-        for i, (src, col) in enumerate((("same_well", RED), ("other_plate", BLUE))):
-            v, lo, hi = ct["readout_target_" + pl][src]; xx = j + (i - 0.5) * 0.36
-            ax.bar(xx, v, 0.36, color=col); ax.errorbar(xx, v, yerr=[[v - lo], [hi - v]], color="k", lw=0.6, capsize=1.5)
-    ax.axhline(0, color="k", lw=0.5); ax.set_xticks([0, 1]); ax.set_xticklabels(["target:\nplate 14", "target:\nplate 6"])
-    ax.set_ylabel("held-out explained share")
-    ax.legend(handles=patches(((RED, "same wells"), (BLUE, "replicate plate"))), fontsize=5.6, loc="upper right"); ax.set_ylim(top=0.55)
-    title(ax, "Tahoe-100M")
-    # d: CD4 predictor and K562
-    ax = axmm(fig, W, H, 116, 67, 64, 31); letter(fig, W, H, 107, 55, "d")
+    # c: CD4 predictor and K562
+    ax = axmm(fig, W, H, 76, 67, 104, 31); letter(fig, W, H, 66, 55, "c")
     kd1, kd2, ci2, rp = J(d, "kd_D1.json"), J(d, "kd_D2.json"), J(d, "ci_cd4_D2.json"), J(d, "replogle_indep.json")
     bars = [("CD4 D1", ci["random_r1"]["readout_k20"][0], ci["guide"]["readout_k20"][0]),
             ("CD4 D1\nmatched", kd1["kd_matched|cell"]["readout_k20"], kd1["kd_matched|guide"]["readout_k20"]),
@@ -364,9 +330,9 @@ def fig5(d, out):
     ax.set_xticks(x); ax.set_xticklabels([b[0] for b in bars], fontsize=5.5); ax.set_ylabel("held-out explained share"); ax.set_ylim(0, 0.9)
     ax.legend(fontsize=5.4, loc="upper center", ncol=2, handlelength=1)
     title(ax, "Shared-to-specific predictor")
-    # e: model
+    # d: model
     sim = J(d, "sim_v6.json")
-    letter(fig, W, H, 2, 110, "e")
+    letter(fig, W, H, 2, 110, "d")
     ax = axmm(fig, W, H, 12, 122, 62, 30)
     sc = [("fab_none", "no unit effect"), ("fab_low_separate", "separate units"), ("fab_low_shared", "shared units")]
     x = np.arange(3); w = 0.36

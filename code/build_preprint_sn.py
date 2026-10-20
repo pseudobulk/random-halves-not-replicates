@@ -12,7 +12,7 @@ TITLE = "Random cell halves are not independent replicates in pooled perturbatio
 SHORT = "Random cell halves are not independent replicates"
 # five main figures, each floated at the first section that discusses it; Box 1 is marked <!-- BOX START --> / <!-- BOX END -->
 FIGS = {1: "fig1_schematic", 2: "fig2_null", 3: "fig3_clones", 4: "fig4_ceilings", 5: "fig5_contexts"}
-SFIGS = {1: "supp/figS1_model", 2: "supp/figS2_dmso", 3: "supp/figS3_k562"}   # numbered by first citation
+SFIGS = {1: "supp/figS1_model", 2: "supp/figS2_k562"}   # numbered by first citation
 FIG_AT = {1: "## Introduction", 2: "### Null perturbations look reproducible under random halves",
           3: "### The shared state points to clones", 4: "### Ceilings and reliability labels are inflated",
           5: "### Cross-context structure comes from shared units"}
