@@ -24,7 +24,7 @@ python code/make_supplement.py data paper/supplementary_v1.template.md figures/s
 ```
 
 This writes Figures 1–5 (`fig1_schematic` … `fig5_contexts`, PDF and PNG), Supplementary Figures S1–S3 and the
-Supplementary Information text with Tables S1–S6 (`paper/supplementary_v1.template.md` filled in). Figures 1–5, Supplementary Figures S1–S3 and the Supplementary Information text
+Supplementary Information text with Tables S1–S5 (`paper/supplementary_v1.template.md` filled in). Figures 1–5, Supplementary Figures S1–S3 and the Supplementary Information text
 drawn this way are identical to the published ones (pixel for pixel and line for line; checked with Python 3.14,
 NumPy 2.5, Matplotlib 3.11 on Windows). Arial is used if installed, otherwise DejaVu Sans, which changes the glyphs but
 not the content. `paper/` holds the manuscript text and the Supplementary Information template the tables are filled
@@ -87,7 +87,7 @@ Each stage reads only the outputs of earlier stages.
 | `replogle` | K562 / RPE1 independent screens, template check, pass test for K562–RPE1 and Jurkat–HepG2, non-targeting constructs as null perturbations in the five cell-line screens and the H1 hESC data | `replogle_indep_readout.py` → `k562_inert_screens.py`, `k562_inert.py`, `readout_inert_line.py h5ad`, `cl_ntc_null.py` |
 | `sim` | three-term unit model (simulation only, about 4 minutes) | `clone_model_sim.py` |
 | `collect` | copy the small result files into `FIGDATA` under the names in `data/` | — |
-| `figures` | Figures 1–5, Supplementary Figures S1–S3, Supplementary Information with Tables S1–S6 | `plot_schematics.py`, `plot_main_figs.py`, `make_supplement.py` |
+| `figures` | Figures 1–5, Supplementary Figures S1–S3, Supplementary Information with Tables S1–S5 | `plot_schematics.py`, `plot_main_figs.py`, `make_supplement.py` |
 
 Shared modules, imported by the scripts above: `cd4_m3.py`, `cd4_readout.py`, `tahoe_arms.py`, `tahoe_readout.py`,
 `tahoe_hpa_check.py`, `tahoe_tone_check.py` (gene sets, ridge readout, line matching) and `explore_V_day6_day8.py`
@@ -138,7 +138,6 @@ Result file names refer to `data/` (see `data/README.md` for the producing outpu
 | Table S3: all cell-eval metrics, corrected and uncorrected | `run_celleval_ceiling.py` → `make_supplement.py` | `celleval.json` |
 | Table S4: template-direction pass test (CD4 donors 1–2, K562, RPE1, Jurkat, HepG2) | `readout_inert_line.py` → `make_supplement.py` | `pass_*.json` |
 | Table S5: robustness (target set, gene set, halves, k; Tahoe target plate) | `robust_cd4_tahoe.py` → `make_supplement.py` | `robust_D1.json`, `robust_D2.json`, `robust_tahoe.json` |
-| Table S6: donor-2 expectations written before analysis | text of the template, not computed | — |
 | Fig. S1: three-term model scenarios | `clone_model_sim.py` | `sim_v5.json` (the same values are in `sim_v6.json`) |
 | Fig. S2: Tahoe DMSO wells per plate | `tahoe_dmso_null.py` | `dmso.json` |
 | Fig. S3: K562 unexpressed targets across two screens; template artefact | `k562_inert_screens.py`, `k562_inert.py` | `k562_inert_screens.json`, `k562_template.json` |
