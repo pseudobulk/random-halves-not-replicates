@@ -11,7 +11,9 @@ data/), shorter Results headings and one name for the strength-matched knockdown
 figures and supplement regenerated from data/ match the preprint pixel for pixel and line for line.
 Preprint v19 changes only text: a shorter abstract (150 words) and a tighter Methods section (under 3,000 words),
 with the code archive cited (Zenodo, v1.0.0). No value changed; a few robustness values that the Methods no longer
-repeat remain in the Supplementary Information or in this record. `repro/comparison.tsv` lists each
+repeat remain in the Supplementary Information or in this record.
+Preprint v21 gives the full affiliation and removes the former Supplementary Table S6 (donor-2 expectations), whose
+timing could not be checked from outside the project; its values remain in this record. No value changed. `repro/comparison.tsv` lists each
 comparison; `repro/number_inventory.tsv` classifies every number in the manuscript text (422), and
 `repro/printed_numbers.md` checks the 182 printed results one by one (`repro/intermediate/` holds the few values
 taken from intermediate outputs); `repro/tools/` holds

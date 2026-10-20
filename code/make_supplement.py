@@ -7,7 +7,6 @@ Table S2  same vs different guide across donors (cd4_guide_donor.py)            
 Table S3  cell-eval 0.8.2 ceilings, corrected and uncorrected (run_celleval_ceiling.py)  {TABLE_S3_CORR}, {TABLE_S3_RAW}
 Table S4  template-direction pass test (readout_inert_line.py)                    {TABLE_S1}, {S1_SHUF}
 Table S5  robustness (robust_cd4_tahoe.py), CD4 and Tahoe                         {TABLE_S2_CD4}, {TABLE_S2_TAHOE}
-Table S6  donor-2 expectations (static text in the template)
 Fig S1    three-term model scenarios (clone_model_sim.py v5)                      figS1_model
 Fig S2    Tahoe DMSO wells per plate (tahoe_dmso_null.py)                         figS2_dmso
 Fig S3    K562: unexpressed-target structure across two independent screens; template artifact   figS3_k562

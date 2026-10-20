@@ -184,7 +184,7 @@ A cell of perturbation p in context c from unit k has expression μ_pc(1 + g_k) 
 
 ### Statistics
 
-Confidence intervals are 2.5th–97.5th bootstrap percentiles over 1,000 resamples of perturbations (in Tahoe, conditions), with predictions held fixed; Supplementary Table S4 used 500 resamples. They describe variation over perturbations within one experiment; agreement across the available independent units (two donors in the CD4 single-cell data, four in its pseudobulk, two K562 screens and one pair of Tahoe plates) is reported separately. In CD4, the three random halvings share cells and are not independent resamples; they gave nearly identical estimates (an explained share of 0.468–0.471 in donor 1). Shares of positive null perturbations from separate extractions, halvings and minimum-cell filters agreed within 1.5 percentage points. Expectations for donor 2 were committed in two sets before the corresponding analyses (Supplementary Table S6).
+Confidence intervals are 2.5th–97.5th bootstrap percentiles over 1,000 resamples of perturbations (in Tahoe, conditions), with predictions held fixed; Supplementary Table S4 used 500 resamples. They describe variation over perturbations within one experiment; agreement across the available independent units (two donors in the CD4 single-cell data, four in its pseudobulk, two K562 screens and one pair of Tahoe plates) is reported separately. In CD4, the three random halvings share cells and are not independent resamples; they gave nearly identical estimates (an explained share of 0.468–0.471 in donor 1). Shares of positive null perturbations from separate extractions, halvings and minimum-cell filters agreed within 1.5 percentage points.
 
 ### Software
 
@@ -235,7 +235,6 @@ The author declares no competing interests.
 - **Supplementary Table S3.** cell-eval 0.8.2 ceilings for all metrics (all, unexpressed and strong subsets; corrected and uncorrected; ranges over seeds and directions).
 - **Supplementary Table S4.** Structure of unexpressed targets carried by the shared-to-specific predictor, after removing the template direction: CD4 donors 1 and 2 (random and guide halves), K562, RPE1, Jurkat and HepG2.
 - **Supplementary Table S5.** Robustness of the CD4 and Tahoe results to target set, gene set, guide balance and number of components.
-- **Supplementary Table S6.** Donor-2 expectations as written before analysis, with results.
 - **Supplementary Figure S1.** Three-term model: expectations and simulation scenarios.
 - **Supplementary Figure S2.** Well effects between vehicle-only wells in Tahoe-100M, per plate: comparison with drug effects, size per well and line-shared fraction.
 - **Supplementary Figure S3.** Unexpressed targets in K562 screens: recurrence across two independent screens, energy per target, and the template artifact in the genome-wide screen.
