@@ -246,10 +246,10 @@ def fig4(d, out):
     W, H = 183, 127
     fig = plt.figure(figsize=(W * MM, H * MM))
     mets = [("overlap_at_N", "DE overlap"), ("precision_at_N", "DE precision"), ("de_sig_genes_recall", "DE recall"),
-            ("de_direction_match", "DE direction match*"), ("pearson_delta", "Pearson Δ"), ("discrimination_score_l1", "discrimination (L1)*"),
-            ("discrimination_score_cosine", "discrimination (cosine)*")]
+            ("de_direction_match", "DE direction match*"), ("pearson_delta", "Pearson Δ"), ("discrimination_score_l1", "Discrimination (L1)*"),
+            ("discrimination_score_cosine", "Discrimination (cosine)*")]
     letter(fig, W, H, 2, 3, "a")
-    for j, (sub, nm) in enumerate((("all", "all 300 perturbations"), ("inert", "150 unexpressed targets"), ("strong", "150 strength-matched knockdowns"))):
+    for j, (sub, nm) in enumerate((("all", "All 300 perturbations"), ("inert", "150 unexpressed targets"), ("strong", "150 strength-matched knockdowns"))):
         ax = axmm(fig, W, H, 36 + j * 49, 11, 44, 44)
         for i, (m, lab) in enumerate(mets):
             r = np.nanmean([ce["random_%d" % s][sub]["ceiling"].get(m) or np.nan for s in (0, 1, 2)])
@@ -272,7 +272,7 @@ def fig4(d, out):
     fig.text(140 / W, 1 - 63.6 / H, "●", color=RED, fontsize=7, va="top"); fig.text(143 / W, 1 - 64 / H, "random halves", fontsize=6, va="top")
     fig.text(160 / W, 1 - 63.6 / H, "●", color=BLUE, fontsize=7, va="top"); fig.text(163 / W, 1 - 64 / H, "guide halves", fontsize=6, va="top")
     # b: Wang-style reliability labels, both donors (the Spearman-Brown curve is Supplementary Fig. S3)
-    ax = axmm(fig, W, H, 12, 85, 120, 30); letter(fig, W, H, 2, 73, "b")
+    ax = axmm(fig, W, H, 36, 85, 142, 30); letter(fig, W, H, 2, 73, "b")   # aligned with the three panels of a
     w = 0.36; cats = ("all", "inert", "expressed")
     for g, (fname, nn, x0) in enumerate((("ci_cd4.json", {"all": 6615, "inert": 1235, "expressed": 1097}, 0.0),
                                           ("ci_cd4_D2.json", {"all": 5003, "inert": 869, "expressed": 859}, 3.6))):
