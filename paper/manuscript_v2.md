@@ -188,7 +188,7 @@ All data are public. The CD4 Perturb-seq data are available at https://genome-sc
 
 ### Code availability
 
-The analysis code, the result files behind every figure and table, and a record of the reproduction of all reported numbers from the raw data are available at https://github.com/pseudobulk/random-halves-not-replicates under the MIT licence; the version used here (v1.0.0) is archived at Zenodo<sup>18</sup>.
+The analysis code, the result files behind every figure and table, and a record of the reproduction of all reported numbers from the raw data are available at https://github.com/xuanruihuang/random-halves-not-replicates under the MIT licence; the version used here (v1.0.0) is archived at Zenodo<sup>18</sup>.
 
 ---
 
