@@ -76,14 +76,21 @@ def fig1(out):
     label(ax, 8, H - 4, "Pooled screen: random halves and independent units", fontsize=7)
     card(ax, 4, 66, 50, 46)
     label(ax, 29, 108.5, "transduction and expansion", ha="center", fontsize=7, color="#34495e")
-    for gi, (gy, cols, gname) in enumerate(((95, G1, "guide 1"), (77, G2, "guide 2"))):
+    for gi, (gy, cols, gname) in enumerate(((97, G1, "guide 1"), (80, G2, "guide 2"))):
         ax.add_patch(FancyBboxPatch((7, gy - 2.6), 11, 5.2, boxstyle="round,pad=0,rounding_size=1.2", fc="white", ec=cols[0], lw=0.8, zorder=2))
         label(ax, 12.5, gy, gname, ha="center", fontsize=6.5, color=cols[0], fontweight="bold")
         arrow(ax, 18.8, gy, 23.5, gy, c=cols[0], lw=0.7, ms=5)
         for k, c in enumerate(cols):
-            cx = 28.5 + k * 8.6; cy = gy + (1.2 if k == 1 else -0.6)
-            cluster(ax, cx, cy, c, 9 if k == 0 else (3 if k == 1 else 1), rng, spread=3.2 if k == 0 else 2.2)   # uneven expansion
-    label(ax, 29, 69, "uneven expansion: a few clones dominate", ha="center", fontsize=6)
+            # one dashed ring per clone (the descendants of one transduced cell); expansion is uneven: 9, 3 and 1 cells
+            cx = (29.5, 39.5, 47.5)[k]; cy = gy
+            n, spread = (9, 3.2) if k == 0 else ((3, 2.0) if k == 1 else (1, 0.0))
+            cluster(ax, cx, cy, c, n, rng, spread=spread)
+            ring = (4.6, 3.5, 2.3)[k]
+            ax.add_patch(Circle((cx, cy), ring, fill=False, ec="#aab7b8", lw=0.5, ls=(0, (2, 1.5)), zorder=1))
+            if gi == 0:
+                label(ax, cx, cy - ring - 1.7, "clone %d" % (k + 1), ha="center", fontsize=5.6)
+    label(ax, 29, 71.2, "one transduced cell → one clone", ha="center", fontsize=6)
+    label(ax, 29, 68.6, "uneven expansion: a few clones dominate", ha="center", fontsize=6)
     # random halves
     card(ax, 60, 66, 56, 46, ec=RED, lw=0.9)
     label(ax, 88, 108.5, "random cell halves", ha="center", fontsize=8, color=RED, fontweight="bold")
