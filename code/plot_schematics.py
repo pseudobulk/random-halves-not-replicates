@@ -186,10 +186,11 @@ def draw_fig3a(ax, letter=True):
     # locus: the rearrangement of each T cell fixes TRBC1 or TRBC2, and its clone inherits the choice
     y = 40
     ax.plot([4, 56], [y, y], color="#aab7b8", lw=1.0, zorder=1)
-    segs = [(6, "V", "#aab7b8", 7), (15, "D-J1", "#5d6d7e", 8), (25, "C1", ORANGE, 8), (37, "D-J2", "#5d6d7e", 8), (47, "C2", LIGHT_OR, 8)]
+    segs = [(6, "V", "#aab7b8", 7), (15, "D-J1", "#5d6d7e", 8), (25, "TRBC1", ORANGE, 8), (37, "D-J2", "#5d6d7e", 8), (47, "TRBC2", LIGHT_OR, 8)]
     for x, t, c, w in segs:
-        ax.add_patch(Rectangle((x, y - 2.2), w, 4.4, fc=c, ec="white", lw=0.5, zorder=2)); label(ax, x + w / 2, y, t, ha="center", fontsize=5.8, color="white", fontweight="bold")
+        ax.add_patch(Rectangle((x, y - 2.2), w, 4.4, fc=c, ec="white", lw=0.5, zorder=2)); label(ax, x + w / 2, y, t, ha="center", fontsize=5.8, color="#34495e" if c == LIGHT_OR else "white", fontweight="bold")
     label(ax, 58, y, "TCR β locus", fontsize=6)
+    label(ax, 4, 33.2, "each T cell uses TRBC1 or TRBC2; its clone inherits the choice", fontsize=5.8)
     ring = lambda cx, cy, r: ax.add_patch(Circle((cx, cy), r, fill=False, ec="#aab7b8", lw=0.5, ls=(0, (2, 1.5)), zorder=1))
     # many clones: one cell from each of ten clones, so the TRBC1 share is near the population average
     pat = [ORANGE, LIGHT_OR, ORANGE, ORANGE, LIGHT_OR, ORANGE, LIGHT_OR, ORANGE, ORANGE, LIGHT_OR]
