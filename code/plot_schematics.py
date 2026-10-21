@@ -23,8 +23,14 @@ def canvas(w, h):
     return fig, ax
 
 
-def card(ax, x, y, w, h, fc="white", ec="#d5d8dc", lw=0.6, r=1.6, z=0):
-    ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0,rounding_size=%g" % r, fc=fc, ec=ec, lw=lw, zorder=z))
+def card(ax, x, y, w, h, fc="white", ec="#d5d8dc", lw=0.5, r=0, z=0):
+    """a plain rectangle with a thin edge (journal style: no rounded or heavy frames)"""
+    ax.add_patch(Rectangle((x, y), w, h, fc=fc, ec=ec, lw=min(lw, 0.5), zorder=z))
+
+
+def rule(ax, x0, x1, y, c):
+    """short coloured rule under a heading: the colour carries the meaning (red, shared cells; blue, independent units)"""
+    ax.plot([x0, x1], [y, y], color=c, lw=1.2, solid_capstyle="butt", zorder=2)
 
 
 def cell(ax, x, y, c, r=1.15, z=3):
@@ -74,10 +80,8 @@ def fig1(out):
     # ---------- a ----------
     panel_letter(ax, 2, H - 1.5, "a")
     label(ax, 8, H - 4, "Pooled screen: random halves and independent units", fontsize=7)
-    card(ax, 4, 66, 50, 46)
-    label(ax, 29, 108.5, "transduction and expansion", ha="center", fontsize=7, color="#34495e")
+    label(ax, 29, 108.5, "transduction and expansion", ha="center", fontsize=8, fontweight="bold")
     for gi, (gy, cols, gname) in enumerate(((97, G1, "guide 1"), (80, G2, "guide 2"))):
-        ax.add_patch(FancyBboxPatch((7, gy - 2.6), 11, 5.2, boxstyle="round,pad=0,rounding_size=1.2", fc="white", ec=cols[0], lw=0.8, zorder=2))
         label(ax, 12.5, gy, gname, ha="center", fontsize=6.5, color=cols[0], fontweight="bold")
         arrow(ax, 18.8, gy, 23.5, gy, c=cols[0], lw=0.7, ms=5)
         for k, c in enumerate(cols):
@@ -99,11 +103,10 @@ def fig1(out):
         cluster(ax, cx, cy, c, n, rng, spread=spread)
         ax.add_patch(Circle((cx, cy), ring, fill=False, ec="#aab7b8", lw=0.5, ls=(0, (2, 1.5)), zorder=1))
     # random halves: every clone is split between the two halves (the single-cell clones fall on one side)
-    card(ax, 60, 66, 56, 46, ec=RED, lw=0.9)
-    label(ax, 88, 108.5, "random cell halves", ha="center", fontsize=8, color=RED, fontweight="bold")
+    label(ax, 88, 108.5, "random cell halves", ha="center", fontsize=8, color=RED, fontweight="bold"); rule(ax, 74, 102, 106.2, RED)
     halves = {62.5: ((5, 2, 1), (4, 1, 0)), 89.5: ((4, 1, 0), (5, 2, 1))}   # (guide 1 clones, guide 2 clones)
     for x0, nm in ((62.5, "half A"), (89.5, "half B")):
-        ax.add_patch(FancyBboxPatch((x0, 76), 24, 27, boxstyle="round,pad=0,rounding_size=1.2", fc="white", ec="#e5e8e8", lw=0.6, zorder=1))
+        card(ax, x0, 76, 24, 27, ec="#d5d8dc", z=0.5)
         for cols, ns, yy in ((G1, halves[x0][0], 96.5), (G2, halves[x0][1], 83.0)):
             for k in range(3):
                 ringed(x0 + (6.5, 15.0, 20.8)[k], yy, cols[k], ns[k])
@@ -111,10 +114,9 @@ def fig1(out):
     ax.plot([88, 88], [76, 103], color=RED, lw=0.8, ls=(0, (2, 1.5)), zorder=2)
     label(ax, 88, 69, "same clones in both halves", ha="center", fontsize=6.5, color=RED)
     # independent units: each side holds the clones of one guide only
-    card(ax, 122, 66, 57, 46, ec=BLUE, lw=0.9)
-    label(ax, 150.5, 108.5, "independent units", ha="center", fontsize=8, color=BLUE, fontweight="bold")
+    label(ax, 150.5, 108.5, "independent units", ha="center", fontsize=8, color=BLUE, fontweight="bold"); rule(ax, 136.5, 164.5, 106.2, BLUE)
     for x0, cols, nm in ((124.5, G1, "guide 1 cells"), (151.5, G2, "guide 2 cells")):
-        ax.add_patch(FancyBboxPatch((x0, 76), 25, 27, boxstyle="round,pad=0,rounding_size=1.2", fc="white", ec="#e5e8e8", lw=0.6, zorder=1))
+        card(ax, x0, 76, 25, 27, ec="#d5d8dc", z=0.5)
         for k, n in enumerate((9, 3, 1)):
             ringed(x0 + (7.0, 16.0, 21.6)[k], 89.5, cols[k], n)
         label(ax, x0 + 12.5, 73.8, nm, ha="center", fontsize=6.5, color="#34495e")
@@ -127,7 +129,6 @@ def fig1(out):
     uses = [("noise ceilings and\nreliability labels", ""), ("shared and context-\nspecific parts", ""), ("predicting the context-\nspecific part", "")]
     for k, (t, s) in enumerate(uses):
         x0 = 4 + k * 31.5
-        card(ax, x0, 8, 29.5, 46)
         label(ax, x0 + 14.75, 49, t, ha="center", fontsize=6.5, fontweight="bold", color="#34495e")
         # mini graphic
         gx, gy = x0 + 4, 25
@@ -153,23 +154,22 @@ def fig1(out):
     # ---------- c ----------
     panel_letter(ax, 100, 61, "c")
     label(ax, 106, 58.5, "Datasets", fontsize=7)
-    card(ax, 100, 8, 79, 46, fc="white")   # table
+    ax.plot([101.5, 178], [52.5, 52.5], color="k", lw=0.6)   # three-line table: top rule
     hdr = ["system", "perturbation", "independent unit", "null control"]
     xs = [102, 126, 145, 164]
     for x, t in zip(xs, hdr):
         label(ax, x, 49.5, t, fontsize=6, fontweight="bold", color="#34495e")
-    ax.plot([101.5, 178], [47, 47], color="#d5d8dc", lw=0.6)
+    ax.plot([101.5, 178], [47, 47], color="k", lw=0.4)
     rows = [("primary CD4 T\n(4 donors)", "CRISPRi,\ngenome-wide", "guides; donors", "unexpressed\ntargets;\nNT guides"),
             ("K562 / RPE1", "CRISPRi,\nessential", "two K562\nscreens", "unexpressed\ntargets*;\nNT guides"),
             ("Jurkat / HepG2", "CRISPRi,\nessential", "none", "unexpressed\ntargets*;\nNT guides"),
             ("H1 hESC\n(VCC 2025)", "CRISPRi,\n150 targets", "none", "NT\nconstructs")]
     for i, r in enumerate(rows):
         y = 41.5 - i * 8.6
-        if i % 2 == 0:
-            ax.add_patch(Rectangle((101.5, y - 4.1), 76.5, 8.2, fc=LIGHT, ec="none", zorder=0.5))
         for x, t in zip(xs, r):
             col = BLUE if (x == 145 and t != "none") else ("#b03a2e" if t == "none" else "#212f3c")
             label(ax, x, y, t, fontsize=5.8, color=col)
+    ax.plot([101.5, 178], [y - 4.6, y - 4.6], color="k", lw=0.6)   # bottom rule
     save(fig, out, "fig1_schematic")
 
 
@@ -214,8 +214,7 @@ def draw_fig5a(ax, letter=True):
     # shared: one clone, two states (left two thirds of the page; panel b sits on the right)
     # one clone in two states and two random halves: the clone sits in all four cell sets, so its deviation reaches
     # the shared part (computed from half A) and the context-specific part (computed from half B)
-    card(ax, 4, 4, 56, 36, fc="white", ec=RED, lw=0.9)
-    label(ax, 32, 36.5, "one clone, two states (CD4)", ha="center", fontsize=6.5, fontweight="bold", color=RED)
+    label(ax, 32, 36.5, "one clone, two states (CD4)", ha="center", fontsize=6.5, fontweight="bold", color=RED); rule(ax, 18, 46, 34.4, RED)
     label(ax, 19, 30.5, "resting", ha="center", fontsize=6); label(ax, 31, 30.5, "stimulated", ha="center", fontsize=6)
     for yy, nm in ((22.5, "half A"), (11.5, "half B")):
         label(ax, 6.5, yy, nm, fontsize=6)
@@ -229,8 +228,7 @@ def draw_fig5a(ax, letter=True):
     card(ax, 42.2, 7.6, 16.3, 7.8, fc="white", ec=RED, r=1, z=1)
     label(ax, 50.35, 11.5, "specific part\n(half B)", ha="center", fontsize=5.6)
     # separate screens
-    card(ax, 64, 4, 55, 36, fc="white", ec=BLUE, lw=0.9)
-    label(ax, 91.5, 36.5, "separate screens (K562 vs RPE1)", ha="center", fontsize=6.5, fontweight="bold", color=BLUE)
+    label(ax, 91.5, 36.5, "separate screens (K562 vs RPE1)", ha="center", fontsize=6.5, fontweight="bold", color=BLUE); rule(ax, 77.5, 105.5, 34.4, BLUE)
     cluster(ax, 77, 24, G1[1], 5, rng); cluster(ax, 77, 13, G2[1], 5, rng)
     label(ax, 83, 24, "line 1 clones", fontsize=6); label(ax, 83, 13, "line 2 clones", fontsize=6)
 
