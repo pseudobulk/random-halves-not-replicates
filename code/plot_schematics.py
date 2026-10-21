@@ -124,7 +124,7 @@ def fig1(out):
     # ---------- b ----------
     panel_letter(ax, 2, 61, "b")
     label(ax, 8, 58.5, "Uses of random halves", fontsize=7)
-    uses = [("noise ceilings and\nreliability labels", ""), ("shared and context-\nspecific parts", ""), ("transfer across\ncontexts", "")]
+    uses = [("noise ceilings and\nreliability labels", ""), ("shared and context-\nspecific parts", ""), ("predicting the context-\nspecific part", "")]
     for k, (t, s) in enumerate(uses):
         x0 = 4 + k * 31.5
         card(ax, x0, 8, 29.5, 46)
