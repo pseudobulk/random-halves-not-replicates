@@ -183,32 +183,54 @@ def draw_fig3a(ax, letter=True):
     if letter:
         panel_letter(ax, 1.5, H - 1, "a")
     label(ax, 7, H - 3.5, "TCR β constant region as a clone marker", fontsize=7)
-    # locus: the rearrangement of each T cell fixes TRBC1 or TRBC2, and its clone inherits the choice
-    y = 40
-    ax.plot([4, 56], [y, y], color="#aab7b8", lw=1.0, zorder=1)
-    segs = [(6, "V", "#aab7b8", 7), (15, "D-J1", "#5d6d7e", 8), (25, "TRBC1", ORANGE, 8), (37, "D-J2", "#5d6d7e", 8), (47, "TRBC2", LIGHT_OR, 8)]
-    for x, t, c, w in segs:
-        ax.add_patch(Rectangle((x, y - 2.2), w, 4.4, fc=c, ec="white", lw=0.5, zorder=2)); label(ax, x + w / 2, y, t, ha="center", fontsize=5.8, color="#34495e" if c == LIGHT_OR else "white", fontweight="bold")
-    label(ax, 58, y, "TCR β locus", fontsize=6)
-    label(ax, 4, 33.2, "each T cell uses TRBC1 or TRBC2; its clone inherits the choice", fontsize=5.8)
+    # locus as a process: the gene before joining, then the two ways a developing T cell joins it.
+    # joining to D-J2 cuts out D-J1 and TRBC1; joining to D-J1 leaves TRBC1 as the constant region used (Maciocia 2017)
+    cols = [(20, 5, "V", "#aab7b8"), (26.5, 7, "D-J1", "#5d6d7e"), (35, 8, "TRBC1", ORANGE), (44.5, 7, "D-J2", "#5d6d7e"), (53, 8, "TRBC2", LIGHT_OR)]
+    def seg(i, y, alpha=1.0):
+        x, w, t, c = cols[i]
+        ax.add_patch(Rectangle((x, y - 1.8), w, 3.6, fc="white", ec="none", zorder=1.5))   # hides the backbone under faded segments
+        ax.add_patch(Rectangle((x, y - 1.8), w, 3.6, fc=c, ec="white", lw=0.5, alpha=alpha, zorder=2))
+        faded = alpha < 1
+        label(ax, x + w / 2, y, t, ha="center", fontsize=5.6, alpha=0.45 if faded else 1.0,
+              color="k" if faded or c == LIGHT_OR else "white", fontweight="bold")
+    rows = ((42.5, "TCR β gene", None), (36.5, "joined to D-J1", "→ makes TRBC1"), (30.5, "joined to D-J2", "→ makes TRBC2"))
+    for k, (y, left, right) in enumerate(rows):
+        label(ax, 4, y, left, fontsize=5.8)
+        if right:
+            label(ax, 63, y, right, fontsize=5.8)
+        if k == 0:
+            ax.plot([18.5, 62.5], [y, y], color="#aab7b8", lw=0.8, zorder=1)
+            for i in range(5):
+                seg(i, y)
+        elif k == 1:
+            ax.plot([18.5, 62.5], [y, y], color="#aab7b8", lw=0.8, zorder=1)
+            for i, a in zip(range(5), (1, 1, 1, 0.3, 0.3)):   # D-J2 and TRBC2 stay in the DNA but are not used
+                seg(i, y, a)
+        else:
+            ax.plot([18.5, 26.5], [y, y], color="#aab7b8", lw=0.8, zorder=1); ax.plot([43, 62.5], [y, y], color="#aab7b8", lw=0.8, zorder=1)
+            ax.add_patch(Rectangle((26.5, y - 1.8), 16.5, 3.6, fill=False, ec="#aab7b8", lw=0.5, ls=(0, (2, 1.5)), zorder=1))
+            label(ax, 34.75, y, "cut out", ha="center", fontsize=5.6, color="#7f8c8d")
+            for i in (0, 3, 4):
+                seg(i, y)
+    label(ax, 4, 25.3, "the joined DNA is inherited, so all cells of a clone make the same one", fontsize=5.8)
     ring = lambda cx, cy, r: ax.add_patch(Circle((cx, cy), r, fill=False, ec="#aab7b8", lw=0.5, ls=(0, (2, 1.5)), zorder=1))
     # many clones: one cell from each of ten clones, so the TRBC1 share is near the population average
     pat = [ORANGE, LIGHT_OR, ORANGE, ORANGE, LIGHT_OR, ORANGE, LIGHT_OR, ORANGE, ORANGE, LIGHT_OR]
     for i, c in enumerate(pat):
-        cx, cy = 9 + (i % 5) * 4.4, 24.5 if i < 5 else 19.5
+        cx, cy = 9 + (i % 5) * 4.4, 20.2 if i < 5 else 16.2
         cell(ax, cx, cy, c, r=1.1); ring(cx, cy, 1.8)
-    label(ax, 17.8, 13.6, "many clones", ha="center", fontsize=6, fontweight="bold")
-    label(ax, 17.8, 10.8, "TRBC1 share near average", ha="center", fontsize=5.8)
+    label(ax, 17.8, 11.0, "many clones", ha="center", fontsize=6, fontweight="bold")
+    label(ax, 17.8, 8.4, "TRBC1 share near average", ha="center", fontsize=5.8)
     # few clones: one large clone dominates, so the share is far from the average
     rng2 = np.random.default_rng(3)
-    for (cx, n, c, spread, r) in ((53.5, 7, ORANGE, 3.3, 4.8), (63.5, 2, LIGHT_OR, 1.4, 2.6), (69.5, 1, ORANGE, 0.0, 1.8)):
-        cluster(ax, cx, 22, c, n, rng2, spread=spread); ring(cx, 22, r)
-    label(ax, 61.5, 13.6, "few clones", ha="center", fontsize=6, fontweight="bold")
-    label(ax, 61.5, 10.8, "TRBC1 share far from average", ha="center", fontsize=5.8)
+    for (cx, n, c, spread, r) in ((53.5, 7, ORANGE, 3.3, 4.6), (63.5, 2, LIGHT_OR, 1.4, 2.6), (69.5, 1, ORANGE, 0.0, 1.8)):
+        cluster(ax, cx, 18.2, c, n, rng2, spread=spread); ring(cx, 18.2, r)
+    label(ax, 61.5, 11.0, "few clones", ha="center", fontsize=6, fontweight="bold")
+    label(ax, 61.5, 8.4, "TRBC1 share far from average", ha="center", fontsize=5.8)
     # key
-    cell(ax, 8, 4.2, ORANGE, r=1.1); label(ax, 10, 4.2, "uses TRBC1", fontsize=5.8)
-    cell(ax, 30, 4.2, LIGHT_OR, r=1.1); label(ax, 32, 4.2, "uses TRBC2", fontsize=5.8)
-    ring(53, 4.2, 1.8); label(ax, 55.6, 4.2, "one clone", fontsize=5.8)
+    cell(ax, 8, 2.6, ORANGE, r=1.1); label(ax, 10, 2.6, "makes TRBC1", fontsize=5.8)
+    cell(ax, 30, 2.6, LIGHT_OR, r=1.1); label(ax, 32, 2.6, "makes TRBC2", fontsize=5.8)
+    ring(53, 2.6, 1.8); label(ax, 55.6, 2.6, "one clone", fontsize=5.8)
 
 
 def fig5a(out):
