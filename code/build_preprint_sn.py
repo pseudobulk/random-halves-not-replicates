@@ -67,6 +67,7 @@ PREAMBLE = r"""\documentclass[pdflatex,sn-nature]{sn-jnl}
 \DeclareUnicodeCharacter{2265}{\ensuremath{\geq}}
 \DeclareUnicodeCharacter{2264}{\ensuremath{\leq}}
 \DeclareUnicodeCharacter{2248}{\ensuremath{\approx}}
+\DeclareUnicodeCharacter{2260}{\ensuremath{\neq}}
 \DeclareUnicodeCharacter{221A}{\ensuremath{\surd}}
 \DeclareUnicodeCharacter{0394}{\ensuremath{\Delta}}
 \DeclareUnicodeCharacter{03A3}{\ensuremath{\Sigma}}
