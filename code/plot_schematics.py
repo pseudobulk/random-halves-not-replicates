@@ -212,14 +212,22 @@ def draw_fig5a(ax, letter=True):
         panel_letter(ax, 1.5, H - 1, "a")
     label(ax, 7, H - 3.5, "Shared and separate units", fontsize=7)
     # shared: one clone, two states (left two thirds of the page; panel b sits on the right)
+    # one clone in two states and two random halves: the clone sits in all four cell sets, so its deviation reaches
+    # the shared part (computed from half A) and the context-specific part (computed from half B)
     card(ax, 4, 4, 56, 36, fc="white", ec=RED, lw=0.9)
     label(ax, 32, 36.5, "one clone, two states (CD4)", ha="center", fontsize=6.5, fontweight="bold", color=RED)
-    cluster(ax, 16, 19, G1[0], 6, rng)
-    arrow(ax, 20, 22, 32, 27, c=G1[0], lw=0.8); arrow(ax, 20, 16, 32, 11, c=G1[0], lw=0.8)
-    for yy, nm in ((27, "rest"), (11, "stimulated")):
-        for j in range(3):
-            cell(ax, 35 + j * 2.6, yy, G1[0], r=1.1)
-        label(ax, 44, yy, nm, fontsize=6)
+    label(ax, 19, 30.5, "resting", ha="center", fontsize=6); label(ax, 31, 30.5, "stimulated", ha="center", fontsize=6)
+    for yy, nm in ((22.5, "half A"), (11.5, "half B")):
+        label(ax, 6.5, yy, nm, fontsize=6)
+        for xx in (19, 31):
+            for j in range(3):
+                cell(ax, xx - 2.6 + j * 2.6, yy, G1[0], r=1.05)
+    ax.plot([25, 25], [8, 28], color="#d5d8dc", lw=0.5, zorder=0); ax.plot([13, 37], [17, 17], color="#d5d8dc", lw=0.5, zorder=0)
+    arrow(ax, 37.5, 22.5, 41.5, 22.5, c=G1[0], lw=0.8, ms=5); arrow(ax, 37.5, 11.5, 41.5, 11.5, c=G1[0], lw=0.8, ms=5)
+    card(ax, 42.2, 18.6, 16.3, 7.8, fc="white", ec=GREY, r=1, z=1)
+    label(ax, 50.35, 22.5, "shared part\n(half A)", ha="center", fontsize=5.6)
+    card(ax, 42.2, 7.6, 16.3, 7.8, fc="white", ec=RED, r=1, z=1)
+    label(ax, 50.35, 11.5, "specific part\n(half B)", ha="center", fontsize=5.6)
     # separate screens
     card(ax, 64, 4, 55, 36, fc="white", ec=BLUE, lw=0.9)
     label(ax, 91.5, 36.5, "separate screens (K562 vs RPE1)", ha="center", fontsize=6.5, fontweight="bold", color=BLUE)
