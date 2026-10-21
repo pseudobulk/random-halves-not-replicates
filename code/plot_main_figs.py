@@ -249,6 +249,7 @@ def fig4(d, out):
             ("de_direction_match", "DE direction match*"), ("pearson_delta", "Pearson Δ"), ("discrimination_score_l1", "Discrimination (L1)*"),
             ("discrimination_score_cosine", "Discrimination (cosine)*")]
     letter(fig, W, H, 2, 3, "a")
+    fig.text(36 / W, 1 - 3 / H, "cell-eval ceilings, resting CD4 T cells of donor 1", fontsize=6.5, va="top")
     for j, (sub, nm) in enumerate((("all", "All 300 perturbations"), ("inert", "150 unexpressed targets"), ("strong", "150 strength-matched knockdowns"))):
         ax = axmm(fig, W, H, 36 + j * 49, 11, 44, 44)
         for i, (m, lab) in enumerate(mets):
@@ -284,7 +285,7 @@ def fig4(d, out):
         ax.text(x0 + 1, -15.5, "donor %d" % (g + 1), ha="center", va="top", fontsize=6.5)
     ax.set_xticks([0, 1, 2, 3.6, 4.6, 5.6]); ax.set_xticklabels(["all", "unexpressed", "expressed"] * 2); ax.set_ylabel("Labelled reliable (%)")
     ax.set_ylim(0, 62); ax.legend(fontsize=5.6, loc="upper left")
-    title(ax, "Reliability labels")
+    title(ax, "Reliability labels, resting CD4 T cells")
     save(fig, out, "fig4_ceilings")
 
 
