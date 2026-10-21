@@ -82,12 +82,12 @@ def fig1(out):
         arrow(ax, 18.8, gy, 23.5, gy, c=cols[0], lw=0.7, ms=5)
         for k, c in enumerate(cols):
             cx = 28.5 + k * 8.6; cy = gy + (1.2 if k == 1 else -0.6)
-            cluster(ax, cx, cy, c, 6 if k == 0 else (4 if k == 1 else 3), rng, spread=2.2)
-    label(ax, 29, 69, "a few clones per guide, of unequal size", ha="center", fontsize=6)
+            cluster(ax, cx, cy, c, 9 if k == 0 else (3 if k == 1 else 1), rng, spread=3.2 if k == 0 else 2.2)   # uneven expansion
+    label(ax, 29, 69, "uneven expansion: a few clones dominate", ha="center", fontsize=6)
     # random halves
     card(ax, 60, 66, 56, 46, ec=RED, lw=0.9)
     label(ax, 88, 108.5, "random cell halves", ha="center", fontsize=8, color=RED, fontweight="bold")
-    allc = [G1[0]] * 6 + [G1[1]] * 4 + [G1[2]] * 3 + [G2[0]] * 6 + [G2[1]] * 4 + [G2[2]] * 3
+    allc = [G1[0]] * 9 + [G1[1]] * 3 + [G1[2]] * 1 + [G2[0]] * 9 + [G2[1]] * 3 + [G2[2]] * 1
     perm = list(rng.permutation(allc)); hA, hB = perm[: len(perm) // 2], perm[len(perm) // 2:]
     for x0, cols, nm in ((62.5, hA, "half A"), (89.5, hB, "half B")):
         ax.add_patch(FancyBboxPatch((x0, 76), 24, 27, boxstyle="round,pad=0,rounding_size=1.2", fc="white", ec="#e5e8e8", lw=0.6, zorder=1))
@@ -98,7 +98,7 @@ def fig1(out):
     # independent units
     card(ax, 122, 66, 57, 46, ec=BLUE, lw=0.9)
     label(ax, 150.5, 108.5, "independent units", ha="center", fontsize=8, color=BLUE, fontweight="bold")
-    for x0, cols, nm in ((124.5, [G1[0]] * 6 + [G1[1]] * 4 + [G1[2]] * 3, "guide 1 cells"), (151.5, [G2[0]] * 6 + [G2[1]] * 4 + [G2[2]] * 3, "guide 2 cells")):
+    for x0, cols, nm in ((124.5, [G1[0]] * 9 + [G1[1]] * 3 + [G1[2]] * 1, "guide 1 cells"), (151.5, [G2[0]] * 9 + [G2[1]] * 3 + [G2[2]] * 1, "guide 2 cells")):
         ax.add_patch(FancyBboxPatch((x0, 76), 25, 27, boxstyle="round,pad=0,rounding_size=1.2", fc="white", ec="#e5e8e8", lw=0.6, zorder=1))
         scatter_cells(ax, x0 + 0.5, 76.5, 24, 26, list(rng.permutation(cols)), rng)
         label(ax, x0 + 12.5, 73.8, nm, ha="center", fontsize=6.5, color="#34495e")
