@@ -15,7 +15,7 @@ FIGS = {1: "fig1_schematic", 2: "fig2_null", 3: "fig3_clones", 4: "fig4_ceilings
 SFIGS = {1: "supp/figS1_model", 2: "supp/figS2_k562", 3: "supp/figS3_sb"}   # numbered by first citation
 FIG_AT = {1: "## Introduction", 2: "### Null perturbations look reproducible under random halves",
           3: "### The shared state points to clones", 4: "### Ceilings and reliability labels are inflated",
-          5: "### Cross-context structure comes from shared units"}
+          5: "### Cross-context structure comes from shared clones"}
 
 
 def common(s):

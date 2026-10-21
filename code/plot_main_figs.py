@@ -7,7 +7,7 @@ fig3_clones.{pdf,png}     direct clone evidence (TRBC marker), depth, compositio
                           (guide_donor.json from cd4_guide_donor.py)
 fig4_ceilings.{pdf,png}   consequences for ceilings and reliability labels (cell-eval itself, Wang-style labels,
                           Spearman-Brown at chance)
-fig5_contexts.{pdf,png}   cross-context structure (shared vs separate units, absolute energy, predictors, model)
+fig5_contexts.{pdf,png}   cross-context structure (shared vs separate clones, absolute energy, predictors, model)
 Panel titles are short labels; the message of each figure is in its legend title. Axis labels in sentence case with
 units in parentheses; error bars wherever an interval exists (defined in the legends).
 Usage: plot_main_figs.py <data_dir> <out_dir>"""
@@ -339,10 +339,10 @@ def fig5(d, out):
     sim = J(d, "sim_v6.json")
     letter(fig, W, H, 2, 110, "e")
     ax = axmm(fig, W, H, 12, 122, 62, 30)
-    sc = [("fab_none", "no unit effect"), ("fab_low_separate", "separate units"), ("fab_low_shared", "shared units")]
+    sc = [("fab_none", "no clone effect"), ("fab_low_separate", "separate clones"), ("fab_low_shared", "shared clones")]
     x = np.arange(3); w = 0.36
     ax.bar(x - w / 2, [sim["%s|random" % k]["readout_share"] for k, _ in sc], w, color=RED, label="random halves")
-    ax.bar(x + w / 2, [sim["%s|independent" % k]["readout_share"] for k, _ in sc], w, color=BLUE, label="independent units")
+    ax.bar(x + w / 2, [sim["%s|independent" % k]["readout_share"] for k, _ in sc], w, color=BLUE, label="independent replicates")
     for xi, (k, _) in zip(x, sc):
         for dx, dsg, col in ((-w / 2, "random", RED), (w / 2, "independent", BLUE)):
             v = sim["%s|%s" % (k, dsg)]["readout_share"]
@@ -351,7 +351,7 @@ def fig5(d, out):
     ax.set_ylim(0, 0.125); ax.legend(fontsize=5.6, loc="upper left")
     title(ax, "Model, no true structure")
     ax = axmm(fig, W, H, 104, 122, 74, 30)
-    for kind, mk, lab in (("iso", "o", "unit effects in random directions"), ("low", "s", "unit effects along the response")):
+    for kind, mk, lab in (("iso", "o", "clone effects in random directions"), ("low", "s", "clone effects along the response")):
         ratio, ri = [], []
         for sa in ("0.2", "0.6", "1.2", "1.5", "2.0"):
             a = sim["atten_sa%s_%s|random" % (sa, kind)]; b = sim["atten_sa%s_%s|independent" % (sa, kind)]
@@ -359,7 +359,7 @@ def fig5(d, out):
         ax.plot(ratio, ri, "-" + mk, color=BLUE, ms=3.2, lw=0.8, label=lab, alpha=1 if kind == "low" else 0.45)
     ax.axvspan(4.0, 7.5, color="#eaecee", zorder=0); ax.text(5.75, 0.93, "CD4 donors", fontsize=5.5, ha="center")
     ax.axhline(0.70, color=GREY, lw=0.6, ls="--"); ax.text(2.0, 0.72, "true value", fontsize=5.5, ha="left")
-    ax.set_xlabel("unit-to-signal energy ratio"); ax.set_ylabel("explained share,\nindependent units"); ax.set_ylim(0, 1.0)
+    ax.set_xlabel("clone-to-signal energy ratio"); ax.set_ylabel("explained share,\nindependent replicates"); ax.set_ylim(0, 1.0)
     ax.set_yticks([0, 0.2, 0.4, 0.6, 0.8]); ax.legend(fontsize=5.4, loc="upper right", bbox_to_anchor=(0.99, 0.5))
     title(ax, "Model, true explained share 0.70")
     save(fig, out, "fig5_contexts")

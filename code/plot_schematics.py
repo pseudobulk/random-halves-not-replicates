@@ -30,7 +30,7 @@ def card(ax, x, y, w, h, fc="white", ec="#d5d8dc", lw=0.5, r=0, z=0):
 
 
 def rule(ax, x0, x1, y, c):
-    """short coloured rule under a heading: the colour carries the meaning (red, shared cells; blue, independent units)"""
+    """short coloured rule under a heading: the colour carries the meaning (red, shared cells; blue, independent replicates)"""
     ax.plot([x0, x1], [y, y], color=c, lw=1.2, solid_capstyle="butt", zorder=2)
 
 
@@ -80,7 +80,7 @@ def fig1(out):
     fig, ax = canvas(W, H); rng = np.random.default_rng(4)
     # ---------- a ----------
     panel_letter(ax, 2, H - 1.5, "a")
-    label(ax, 8, H - 4, "Pooled screen: random halves and independent units", fontsize=7)
+    label(ax, 8, H - 4, "Pooled screen: random halves and independent replicates", fontsize=7)
     label(ax, 29, 108.5, "transduction and expansion", ha="center", fontsize=8, fontweight="bold")
     for gi, (gy, cols, gname) in enumerate(((97, G1, "guide 1"), (80, G2, "guide 2"))):
         label(ax, 12.5, gy, gname, ha="center", fontsize=6.5, color=cols[0], fontweight="bold")
@@ -114,8 +114,8 @@ def fig1(out):
         label(ax, x0 + 12, 73.8, nm, ha="center", fontsize=6.5, color="#34495e")
     ax.plot([88, 88], [76, 103], color=RED, lw=0.8, ls=(0, (2, 1.5)), zorder=2)
     label(ax, 88, 69, "same clones in both halves", ha="center", fontsize=6.5, color=RED)
-    # independent units: each side holds the clones of one guide only
-    label(ax, 150.5, 108.5, "independent units", ha="center", fontsize=8, color=BLUE, fontweight="bold"); rule(ax, 136.5, 164.5, 106.2, BLUE)
+    # independent replicates: each side holds the clones of one guide only
+    label(ax, 150.5, 108.5, "independent replicates", ha="center", fontsize=8, color=BLUE, fontweight="bold"); rule(ax, 133, 168, 106.2, BLUE)
     for x0, cols, nm in ((124.5, G1, "guide 1 cells"), (151.5, G2, "guide 2 cells")):
         card(ax, x0, 76, 25, 27, ec="#d5d8dc", z=0.5)
         for k, n in enumerate((9, 3, 1)):
@@ -156,8 +156,8 @@ def fig1(out):
     panel_letter(ax, 100, 61, "c")
     label(ax, 106, 58.5, "Datasets", fontsize=7)
     ax.plot([101.5, 178], [52.5, 52.5], color="k", lw=0.6)   # three-line table: top rule
-    hdr = ["system", "perturbation", "independent unit", "null control"]
-    xs = [102, 126, 145, 164]
+    hdr = ["system", "perturbation", "independent replicate", "null control"]
+    xs = [102, 120, 136, 163]
     for x, t in zip(xs, hdr):
         label(ax, x, 49.5, t, fontsize=6, fontweight="bold", color="#34495e")
     ax.plot([101.5, 178], [47, 47], color="k", lw=0.4)
@@ -218,7 +218,7 @@ def draw_fig5a(ax, letter=True):
     W, H = 183, 50; rng = np.random.default_rng(11)
     if letter:
         panel_letter(ax, 1.5, H - 1, "a")
-    label(ax, 7, H - 3.5, "Shared and separate units", fontsize=7)
+    label(ax, 7, H - 3.5, "Shared and separate clones", fontsize=7)
     # shared: one clone, two states (left two thirds of the page; panel b sits on the right)
     # one clone in two states and two random halves: the clone sits in all four cell sets, so its deviation reaches
     # the shared part (computed from half A) and the context-specific part (computed from half B)

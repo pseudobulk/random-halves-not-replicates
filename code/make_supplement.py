@@ -182,7 +182,7 @@ def fig_s1(d, out):
     P.save(fig, out, "figS2_k562")
 
 
-SCEN = [("none", "no unit\neffect"), ("additive_separate", "additive,\nseparate"), ("additive_shared", "additive,\nshared"),
+SCEN = [("none", "no clone\neffect"), ("additive_separate", "additive,\nseparate"), ("additive_shared", "additive,\nshared"),
         ("gain_separate", "gain,\nseparate"), ("gain_shared", "gain,\nshared"), ("both_shared", "both,\nshared")]
 
 
@@ -202,21 +202,21 @@ def fig_s3(d, out):
         for j, (dsg, col) in enumerate((("random", RED), ("independent", BLUE))):
             vals = [mul * s["%s|%s" % (k, dsg)][key] for k, _ in SCEN]
             vals = [0 if np.isnan(v) else v for v in vals]
-            ax.bar(x + (j - 0.5) * w, vals, w, color=col, label="random halves" if dsg == "random" else "independent units")
+            ax.bar(x + (j - 0.5) * w, vals, w, color=col, label="random halves" if dsg == "random" else "independent replicates")
         if truth is not None:
             ax.axhline(truth, color=GREY, lw=0.6, ls="--")
         if key == "inert_frac_pos":
             ax.axhline(50, color="k", lw=0.5, ls=":")
         ax.set_xticks(x); ax.set_xticklabels([l.replace(",\n", " ").replace("\n", " ") for _, l in SCEN], fontsize=5, rotation=35, ha="right", rotation_mode="anchor"); ax.set_ylabel(ylab); P.title(ax, ttl)
     ax = P.axmm(fig, W, H, 132, 58, 48, 30); ax.axis("off"); P.letter(fig, W, H, 122, 53, "f")
-    ax.legend(handles=[Patch(color=RED, label="random halves (one transduction)"), Patch(color=BLUE, label="independent units (two transductions)")],
+    ax.legend(handles=[Patch(color=RED, label="random halves (one transduction)"), Patch(color=BLUE, label="independent replicates (two transductions)")],
               fontsize=5.6, loc="lower left", bbox_to_anchor=(0, -0.05))
     p = s["params"]
     txt = ("cell = μ(1 + g) + a + e\n"
            "a ~ N(0, σa²I),  g ~ N(0, σg²),  e ~ N(0, σe²I)\n\n"
            "G = %d genes, %d perturbations (20%% null)\n"
            "rank %d responses, %d cells per perturbation\n"
-           "K = %d units, Dirichlet(%.1f) weights\n"
+           "K = %d clones, Dirichlet(%.1f) weights\n"
            "σa = %.1f, σg = %.1f, σe = %.0f, ρ = %.1f\n"
            "predictor k = %d; seeds %s" % (p["G"], p["P"], p["R"], p["NCELL"], p["K"], p["ALPHA"], p["SIG_A"], p["SIG_G"], p["SIG_E"], p["RHO"], p["KREAD"], ", ".join(map(str, p["seeds"]))))
     ax.text(0, 1, txt, fontsize=5.8, va="top", family="DejaVu Sans")
