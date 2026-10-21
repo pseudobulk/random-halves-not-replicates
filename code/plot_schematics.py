@@ -91,23 +91,32 @@ def fig1(out):
                 label(ax, cx, cy - ring - 1.7, "clone %d" % (k + 1), ha="center", fontsize=5.6)
     label(ax, 29, 71.2, "one transduced cell → one clone", ha="center", fontsize=6)
     label(ax, 29, 68.6, "uneven expansion: a few clones dominate", ha="center", fontsize=6)
-    # random halves
+    # clones drawn as in the left box (dashed ring, one colour per clone), so that the reader can see which clones each half holds
+    def ringed(cx, cy, c, n):
+        if n == 0:
+            return
+        spread, ring = {1: (0.0, 1.9), 2: (1.6, 2.8), 3: (2.0, 3.3), 4: (2.4, 3.7), 5: (2.6, 4.0), 9: (3.2, 4.6)}[n]
+        cluster(ax, cx, cy, c, n, rng, spread=spread)
+        ax.add_patch(Circle((cx, cy), ring, fill=False, ec="#aab7b8", lw=0.5, ls=(0, (2, 1.5)), zorder=1))
+    # random halves: every clone is split between the two halves (the single-cell clones fall on one side)
     card(ax, 60, 66, 56, 46, ec=RED, lw=0.9)
     label(ax, 88, 108.5, "random cell halves", ha="center", fontsize=8, color=RED, fontweight="bold")
-    allc = [G1[0]] * 9 + [G1[1]] * 3 + [G1[2]] * 1 + [G2[0]] * 9 + [G2[1]] * 3 + [G2[2]] * 1
-    perm = list(rng.permutation(allc)); hA, hB = perm[: len(perm) // 2], perm[len(perm) // 2:]
-    for x0, cols, nm in ((62.5, hA, "half A"), (89.5, hB, "half B")):
+    halves = {62.5: ((5, 2, 1), (4, 1, 0)), 89.5: ((4, 1, 0), (5, 2, 1))}   # (guide 1 clones, guide 2 clones)
+    for x0, nm in ((62.5, "half A"), (89.5, "half B")):
         ax.add_patch(FancyBboxPatch((x0, 76), 24, 27, boxstyle="round,pad=0,rounding_size=1.2", fc="white", ec="#e5e8e8", lw=0.6, zorder=1))
-        scatter_cells(ax, x0 + 0.5, 76.5, 23, 26, cols, rng)
+        for cols, ns, yy in ((G1, halves[x0][0], 96.5), (G2, halves[x0][1], 83.0)):
+            for k in range(3):
+                ringed(x0 + (6.5, 15.0, 20.8)[k], yy, cols[k], ns[k])
         label(ax, x0 + 12, 73.8, nm, ha="center", fontsize=6.5, color="#34495e")
     ax.plot([88, 88], [76, 103], color=RED, lw=0.8, ls=(0, (2, 1.5)), zorder=2)
     label(ax, 88, 69, "same clones in both halves", ha="center", fontsize=6.5, color=RED)
-    # independent units
+    # independent units: each side holds the clones of one guide only
     card(ax, 122, 66, 57, 46, ec=BLUE, lw=0.9)
     label(ax, 150.5, 108.5, "independent units", ha="center", fontsize=8, color=BLUE, fontweight="bold")
-    for x0, cols, nm in ((124.5, [G1[0]] * 9 + [G1[1]] * 3 + [G1[2]] * 1, "guide 1 cells"), (151.5, [G2[0]] * 9 + [G2[1]] * 3 + [G2[2]] * 1, "guide 2 cells")):
+    for x0, cols, nm in ((124.5, G1, "guide 1 cells"), (151.5, G2, "guide 2 cells")):
         ax.add_patch(FancyBboxPatch((x0, 76), 25, 27, boxstyle="round,pad=0,rounding_size=1.2", fc="white", ec="#e5e8e8", lw=0.6, zorder=1))
-        scatter_cells(ax, x0 + 0.5, 76.5, 24, 26, list(rng.permutation(cols)), rng)
+        for k, n in enumerate((9, 3, 1)):
+            ringed(x0 + (7.0, 16.0, 21.6)[k], 89.5, cols[k], n)
         label(ax, x0 + 12.5, 73.8, nm, ha="center", fontsize=6.5, color="#34495e")
     label(ax, 150.5, 69, "no clone in common", ha="center", fontsize=6.5, color=BLUE)
     arrow(ax, 54.5, 89, 59.5, 89, lw=0.9)
@@ -133,14 +142,14 @@ def fig1(out):
             ax.add_patch(Rectangle((gx + 2, gy + 2), 6, 13, fc=GREY, ec="none", alpha=0.5, zorder=3))
             ax.add_patch(Rectangle((gx + 2, gy + 15), 6, 5, fc=RED, ec="none", zorder=3))
             label(ax, gx + 10, gy + 8.5, "shared", fontsize=5.5, color=GREY); label(ax, gx + 10, gy + 17.5, "context-\nspecific", fontsize=5.5, color=RED)
-            label(ax, gx + 10.5, gy - 3.5, "half A · half B", ha="center", fontsize=6)
+            label(ax, gx + 10.5, gy - 3.5, "energy: half A · half B", ha="center", fontsize=6)
         else:
-            card(ax, gx, gy + 6, 8, 8, fc="white", ec=GREY, r=1)
-            label(ax, gx + 4, gy + 10, "shared\n(A)", ha="center", fontsize=5.3)
-            arrow(ax, gx + 8.5, gy + 10, gx + 12.5, gy + 10, lw=0.7, ms=5)
-            card(ax, gx + 13, gy + 6, 9, 8, fc="white", ec=RED, r=1)
-            label(ax, gx + 17.5, gy + 10, "specific\n(B)", ha="center", fontsize=5.3, color=RED)
-            label(ax, gx + 10.5, gy - 3.5, "model fit on A, scored on B", ha="center", fontsize=6)
+            card(ax, gx - 1, gy + 5, 10, 10, fc="white", ec=GREY, r=1)
+            label(ax, gx + 4, gy + 10, "shared\n(half A)", ha="center", fontsize=5.6)
+            arrow(ax, gx + 9.3, gy + 10, gx + 12.3, gy + 10, lw=0.7, ms=5)
+            card(ax, gx + 12.7, gy + 5, 10.5, 10, fc="white", ec=RED, r=1)
+            label(ax, gx + 17.95, gy + 10, "specific\n(half B)", ha="center", fontsize=5.6, color=RED)
+            label(ax, gx + 10.5, gy - 3.5, "scored on new perturbations", ha="center", fontsize=6)
     # ---------- c ----------
     panel_letter(ax, 100, 61, "c")
     label(ax, 106, 58.5, "Datasets", fontsize=7)
