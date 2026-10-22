@@ -3,8 +3,8 @@
 Analysis code for the preprint *Shared clones make random cell halves look reproducible in pooled screens*
 (Xuanrui Huang, Department of Biomedical Informatics, Yong Loo Lin School of Medicine, National University of Singapore).
 
-Archived at Zenodo: version 1.0.0, https://doi.org/10.5281/zenodo.23476350; all versions,
-https://doi.org/10.5281/zenodo.23476349.
+Archived at Zenodo, all versions: https://doi.org/10.5281/zenodo.23476349 (each release has its own DOI there;
+version 1.1.0 is the one the current preprint uses).
 
 The scripts are the ones that produced the numbers in the paper. For release, only paths and imports were changed:
 input and output locations are command-line arguments or come from one configuration file, and the scripts import each
