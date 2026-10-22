@@ -188,7 +188,7 @@ All data are public. The CD4 Perturb-seq data are available at https://genome-sc
 
 ### Code availability
 
-The analysis code, the result files behind every figure and table, and a record of the reproduction of all reported numbers from the raw data are available at https://github.com/xuanruihuang/random-halves-not-replicates under the MIT licence; the version used here (v1.0.0) is archived at Zenodo<sup>20</sup>.
+The analysis code, the result files behind every figure and table, and a record of the reproduction of all reported numbers from the raw data are available at https://github.com/xuanruihuang/random-halves-not-replicates under the MIT licence and are archived at Zenodo<sup>20</sup>.
 
 ---
 
@@ -254,5 +254,5 @@ The author declares no competing interests.
 17. Raju, P. C. Directional coherence and effect magnitude in single-cell CRISPR perturbation responses. Preprint at *arXiv* https://arxiv.org/abs/2604.16642 (2026).
 18. Maciocia, P. M. et al. Targeting the T cell receptor β-chain constant region for immunotherapy of T cell malignancies. *Nat. Med.* **23**, 1416–1423 (2017).
 19. Rosenbluh, J. et al. Complementary information derived from CRISPR Cas9 mediated gene deletion and suppression. *Nat. Commun.* **8**, 15403 (2017).
-20. Huang, X. random-halves-not-replicates, version 1.0.0. *Zenodo* https://doi.org/10.5281/zenodo.23476350 (2026).
+20. Huang, X. random-halves-not-replicates (all versions). *Zenodo* https://doi.org/10.5281/zenodo.23476349 (2026).
 
