@@ -1,0 +1,95 @@
+{
+ "rules": "Whole-brain: random halves against mouse halves (wb_mouse_halves.py), the independent replicate of this design.\nNull test and targeting signal: wb_analyze.null_test (within-mouse reference) on the random-half and the mouse-half sums.\nCross-context Glut -> GABA with mouse halves: models trained on group-0 mice (Glut effect -> GABA effect of the training\nguides); for a held-out guide g0 (other guide g1 of the same target) the prediction from its group-0 Glut effect is\nscored against\n  A    GABA effect of g0 in group-0 mice (same guide, same mice: what a single-mouse-set evaluation uses)\n  A'   GABA effect of g0 in group-1 mice (same guide, other mice)\n  B'   GABA effect of g1 in group-1 mice (other guide, other mice)\nA - A' is the part shared only through the mice; A' - B' the guide-specific part. Units need >= MINH nuclei in each\nclass and half; otherwise as wb_analyze.ab_test.\nUsage: wb_split.py <agg_random.npz> <agg_mouse.npz> <out.json> [seed]",
+ "Glut": {
+  "random": {
+   "n_nt": 399,
+   "n_targets": 2047,
+   "share_pos_random": 0.606516290726817,
+   "share_pos_diff_guides": 0.5048241206030151,
+   "mean_random": 0.3545548430109058,
+   "mean_diff_guides": 0.00858410605631805,
+   "se_random": 0.10089902232847156,
+   "mean_target": 0.6323901568151119,
+   "ratio_nt_to_target": 0.5606583834203556,
+   "mean_random_scaled": 0.0001938575638704069,
+   "mean_target_scaled": 0.0003457677074009995
+  },
+  "mouse": {
+   "n_nt": 399,
+   "n_targets": 2047,
+   "share_pos_random": 0.5764411027568922,
+   "share_pos_diff_guides": 0.5021105527638191,
+   "mean_random": 0.25361933124890046,
+   "mean_diff_guides": 0.013378982391890459,
+   "se_random": 0.08220773882903788,
+   "mean_target": 0.6260267408167042,
+   "ratio_nt_to_target": 0.4051253959503916,
+   "mean_random_scaled": 0.00013866973382405977,
+   "mean_target_scaled": 0.00034228842528805613
+  },
+  "nt_mouse_over_random": 0.7153176335010586,
+  "target_mouse_over_random": 0.9899375157411437
+ },
+ "GABA": {
+  "random": {
+   "n_nt": 396,
+   "n_targets": 2047,
+   "share_pos_random": 0.5429292929292929,
+   "share_pos_diff_guides": 0.5052525252525253,
+   "mean_random": 0.2091671192297373,
+   "mean_diff_guides": 0.006328750909039355,
+   "se_random": 0.10692312837747277,
+   "mean_target": 0.59777185464534,
+   "ratio_nt_to_target": 0.34991128739883015,
+   "mean_random_scaled": 0.00010715033327551864,
+   "mean_target_scaled": 0.0003062214256420608
+  },
+  "mouse": {
+   "n_nt": 396,
+   "n_targets": 2047,
+   "share_pos_random": 0.5555555555555556,
+   "share_pos_diff_guides": 0.49757575757575756,
+   "mean_random": 0.10938706284333263,
+   "mean_diff_guides": -0.011307557591344405,
+   "se_random": 0.11060211631109575,
+   "mean_target": 0.5760213043451378,
+   "ratio_nt_to_target": 0.18990107139820406,
+   "mean_random_scaled": 5.6035863967795365e-05,
+   "mean_target_scaled": 0.0002950792407605411
+  },
+  "nt_mouse_over_random": 0.5229649059859551,
+  "target_mouse_over_random": 0.963613960524945
+ },
+ "ab_mouse_halves": {
+  "n_test_targets": 2029,
+  "truth_A_vs_A1": 0.018397440803461354,
+  "truth_A1_vs_B1": 0.011299998980495597,
+  "mean": {
+   "A": 0.0340776498710779,
+   "A1": 0.002861246145831877,
+   "B1": 0.002861246145831877,
+   "A_minus_A1": 0.03121640372524602,
+   "A_minus_A1_se": 0.002176067799118928,
+   "A1_minus_B1": 0.0,
+   "A1_minus_B1_se": 0.0
+  },
+  "copy": {
+   "A": 0.018095429907948248,
+   "A1": 0.017921903233000438,
+   "B1": 0.012366783455182514,
+   "A_minus_A1": 0.0001735266749478123,
+   "A_minus_A1_se": 0.0007204330112966662,
+   "A1_minus_B1": 0.005555119777817922,
+   "A1_minus_B1_se": 0.0007337046364580578
+  },
+  "linear": {
+   "A": 0.05208599748878575,
+   "A1": 0.023419497776409042,
+   "B1": 0.009117991280052154,
+   "A_minus_A1": 0.02866649971237671,
+   "A_minus_A1_se": 0.002326170218012821,
+   "A1_minus_B1": 0.014301506496356888,
+   "A1_minus_B1_se": 0.0017039553699512182
+  }
+ }
+}

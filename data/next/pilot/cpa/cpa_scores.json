@@ -1,0 +1,26 @@
+{
+ "model": "CPA",
+ "cpa_version": "0.8.8",
+ "train_seconds": 847.344587802887,
+ "scores": {
+  "inert": {
+   "n": 254,
+   "pearson_A": -0.0006892553194475167,
+   "pearson_B": 0.0027575658866497398,
+   "leak": -0.003446821206097257,
+   "leak_se": 0.01701983586529229
+  },
+  "strong": {
+   "n": 246,
+   "pearson_A": -0.031139274769392416,
+   "pearson_B": -0.00013796660410986397,
+   "leak": -0.031001308165282553,
+   "leak_se": 0.01986955288987583
+  }
+ },
+ "rules": "Model pilot: CPA (cpa-tools 0.8.8) on the donor-1 resting / stimulated subset (pilot_common.py).\nSetup: perturbation = guide label, categorical covariate = state, log1p CP10K input (is_count_data False, Gaussian\nreconstruction), hyperparameters of scPerturBench's myCPA.py (the published settings; no tuning). No perturbation\nembeddings: CPA learns one per guide.\nSplits: stimulated cells of test guides = 'ood' (held out); all other cells train, 5% of them at random (seed 0) 'valid'\nfor early stopping. The resting cells of test guides are in training, as in a context-transfer task.\nCounterfactual: the held-out rows are replaced by stimulated control cells drawn at random (seed 42, with replacement)\nand predicted with their own guide label and state; a guide's predicted effect is the mean prediction over its rows\nminus CPA's prediction for stimulated control cells under the control label. Scored by pilot_common.score.\nUsage: CUDA_VISIBLE_DEVICES=<gpu> pilot_cpa.py <data_dir> <out_dir> [max_epochs]",
+ "fit_check": {
+  "resting_fit_pearson": 0.003020150435341499,
+  "n": 500
+ }
+}

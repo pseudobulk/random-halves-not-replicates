@@ -1,0 +1,157 @@
+{
+ "n_train_guides": 492,
+ "n_test_guides": 198,
+ "ridge_lambda": 1000,
+ "models": {
+  "mean": {
+   "inert": {
+    "n": 0,
+    "pearson_A": NaN,
+    "pearson_B": NaN,
+    "leak": NaN,
+    "leak_se": NaN
+   },
+   "strong": {
+    "n": 0,
+    "pearson_A": NaN,
+    "pearson_B": NaN,
+    "leak": NaN,
+    "leak_se": NaN
+   },
+   "null": {
+    "n": 16,
+    "pearson_A": 0.12093725345966934,
+    "pearson_B": 0.12093725345966934,
+    "leak": 0.0,
+    "leak_se": 0.01826167091552797
+   },
+   "gene": {
+    "n": 182,
+    "pearson_A": 0.13180922070845233,
+    "pearson_B": 0.13180922070845233,
+    "leak": 0.0,
+    "leak_se": 0.005781005665641549
+   }
+  },
+  "copy": {
+   "inert": {
+    "n": 0,
+    "pearson_A": NaN,
+    "pearson_B": NaN,
+    "leak": NaN,
+    "leak_se": NaN
+   },
+   "strong": {
+    "n": 0,
+    "pearson_A": NaN,
+    "pearson_B": NaN,
+    "leak": NaN,
+    "leak_se": NaN
+   },
+   "null": {
+    "n": 16,
+    "pearson_A": 0.02832209666079573,
+    "pearson_B": 0.017066074577295934,
+    "leak": 0.011256022083499793,
+    "leak_se": 0.012617396856060616
+   },
+   "gene": {
+    "n": 182,
+    "pearson_A": 0.04168043137864876,
+    "pearson_B": 0.018186389004201827,
+    "leak": 0.02349404237444693,
+    "leak_se": 0.00569532064619893
+   }
+  },
+  "additive": {
+   "inert": {
+    "n": 0,
+    "pearson_A": NaN,
+    "pearson_B": NaN,
+    "leak": NaN,
+    "leak_se": NaN
+   },
+   "strong": {
+    "n": 0,
+    "pearson_A": NaN,
+    "pearson_B": NaN,
+    "leak": NaN,
+    "leak_se": NaN
+   },
+   "null": {
+    "n": 16,
+    "pearson_A": 0.04334535355550026,
+    "pearson_B": 0.03273754233934494,
+    "leak": 0.010607811216155323,
+    "leak_se": 0.013123347789764126
+   },
+   "gene": {
+    "n": 182,
+    "pearson_A": 0.05754447454898763,
+    "pearson_B": 0.0338443790084307,
+    "leak": 0.023700095540556944,
+    "leak_se": 0.005663098416512527
+   }
+  },
+  "linear": {
+   "inert": {
+    "n": 0,
+    "pearson_A": NaN,
+    "pearson_B": NaN,
+    "leak": NaN,
+    "leak_se": NaN
+   },
+   "strong": {
+    "n": 0,
+    "pearson_A": NaN,
+    "pearson_B": NaN,
+    "leak": NaN,
+    "leak_se": NaN
+   },
+   "null": {
+    "n": 16,
+    "pearson_A": 0.12977209054878872,
+    "pearson_B": 0.1259300060366778,
+    "leak": 0.0038420845121109127,
+    "leak_se": 0.015747787006540438
+   },
+   "gene": {
+    "n": 182,
+    "pearson_A": 0.13744916546854868,
+    "pearson_B": 0.13309342580550798,
+    "leak": 0.0043557396630406805,
+    "leak_se": 0.005718180532849355
+   }
+  }
+ },
+ "truth_A_vs_B": {
+  "inert": {
+   "n": 0,
+   "pearson_A": NaN,
+   "pearson_B": NaN,
+   "leak": NaN,
+   "leak_se": NaN
+  },
+  "strong": {
+   "n": 0,
+   "pearson_A": NaN,
+   "pearson_B": NaN,
+   "leak": NaN,
+   "leak_se": NaN
+  },
+  "null": {
+   "n": 16,
+   "pearson_A": 1.0,
+   "pearson_B": 0.04907255504154866,
+   "leak": 0.9509274449584513,
+   "leak_se": 0.00942455126714757
+  },
+  "gene": {
+   "n": 182,
+   "pearson_A": 1.0,
+   "pearson_B": 0.0629589289571208,
+   "leak": 0.9370410710428791,
+   "leak_se": 0.009805948042144946
+  }
+ }
+}

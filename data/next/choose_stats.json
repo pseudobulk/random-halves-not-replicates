@@ -1,0 +1,298 @@
+{
+ "rules": "CHOOSE: formal tests for the clone-halves result and the formula (cell-type reference, as the main analysis of\nchoose_clone.py; same clone calls, genes and deviations).\n1. Permutation test. Statistic T = mean over perturbations of (random-half signal - clone-half signal) / V. Null: clone\n   labels shuffled among the cells of each perturbation (clone sizes kept), which destroys any link between clone\n   and expression; the clone halves of shuffled labels are then random groupings. B permutations; one-sided p.\n2. Slope = ICC. Bootstrap over perturbations (2,000 draws) of the slope of strength on sum p_k^2 (through the origin)\n   and of the median ANOVA ICC, and of their ratio.\n3. Out of sample. Perturbations split at random into two halves (500 draws): ICC (median) from one half predicts the\n   strength of the other as ICC x sum p_k^2; reported: Spearman and Pearson between predicted and measured, and the\n   ratio of summed measured to summed predicted.\nHalf signals are computed from per-clone sums: with S_k the summed deviation of clone k, a half made of clone set A\nhas mean sum_{k in A} S_k / n_A, so every split costs a K x K Gram matrix.\nPer perturbation, the random-half and clone-half signals average NS splits (argument; 50 in the first run, 1,000 since\n10-23, when 50 splits left the sign of one small perturbation, DEAF1 with 64 cells, to the draw); perm_mean is the mean\nclone-half signal over the B permutations.\nUsage: choose_stats.py <export dir> <cbc dir> <cbc_libs.tsv> <out.json> [B] [NS]",
+ "V": 1805.2318222529923,
+ "n_perturbations": 32,
+ "permutation": {
+  "T": 0.0008558419788170628,
+  "T_perm_mean": -1.1897249558559713e-06,
+  "T_perm_sd": 2.8869426463198083e-05,
+  "B": 200,
+  "p_one_sided": 0.004975124378109453,
+  "mean_clone_halves": 3.4278621760417867,
+  "mean_shuffled_clone_halves": 4.9750030803723595,
+  "mean_random": 4.97285535102232
+ },
+ "slope_vs_icc": {
+  "slope": 0.00956979304420159,
+  "slope_ci": [
+   0.008527793021890826,
+   0.01091712203511809
+  ],
+  "median_icc": 0.010448351535486646,
+  "icc_ci": [
+   0.003399037866669684,
+   0.01708830529151268
+  ],
+  "ratio_ci": [
+   0.5694206359824235,
+   2.6951642580179476
+  ]
+ },
+ "out_of_sample": {
+  "spearman_median": 0.7999999999999999,
+  "pearson_median": 0.8333795560646464,
+  "ratio_measured_to_predicted_median": 0.9437549597091672,
+  "ratio_iqr": [
+   0.706784153732115,
+   1.3879488530599904
+  ]
+ },
+ "perturbations": {
+  "ARID1B": {
+   "n": 240,
+   "random": 11.894985171774163,
+   "clone": 10.648441240180306,
+   "perm_mean": 11.91695622187432,
+   "sum_p2": 0.06156249999999999,
+   "ICC": 0.03001361198326835
+  },
+  "ASH1L": {
+   "n": 224,
+   "random": 3.402827382735882,
+   "clone": 2.752960851099799,
+   "perm_mean": 3.4347645770981923,
+   "sum_p2": 0.09438775510204075,
+   "ICC": 0.014760342582879029
+  },
+  "ASXL3": {
+   "n": 264,
+   "random": 3.8661973664761238,
+   "clone": 2.9716100191111265,
+   "perm_mean": 3.842130948132957,
+   "sum_p2": 0.09696395775941231,
+   "ICC": -0.014107218413399385
+  },
+  "BAZ2B": {
+   "n": 352,
+   "random": 1.9725096945367084,
+   "clone": 0.9751317989384335,
+   "perm_mean": 1.966116954745633,
+   "sum_p2": 0.061353951446280995,
+   "ICC": 0.008196782522667017
+  },
+  "BCL11A": {
+   "n": 290,
+   "random": 3.0897901085862607,
+   "clone": 2.682528566153237,
+   "perm_mean": 3.0845631217531513,
+   "sum_p2": 0.03724137931034483,
+   "ICC": -0.004227295234748245
+  },
+  "CHD2": {
+   "n": 160,
+   "random": 4.602780409961825,
+   "clone": 1.7223341668544772,
+   "perm_mean": 4.590566800783449,
+   "sum_p2": 0.12984375,
+   "ICC": 0.03862784271263416
+  },
+  "CHD8": {
+   "n": 109,
+   "random": 4.205288453180671,
+   "clone": 2.2188806469913587,
+   "perm_mean": 4.18918600642197,
+   "sum_p2": 0.12145442302836464,
+   "ICC": 0.014693350672436089
+  },
+  "CIC": {
+   "n": 321,
+   "random": 10.304230259489831,
+   "clone": 9.768011290081235,
+   "perm_mean": 10.28141846590861,
+   "sum_p2": 0.036189477974786735,
+   "ICC": 0.015352157821331473
+  },
+  "Control2": {
+   "n": 368,
+   "random": 1.7803376038768537,
+   "clone": 1.1627564312345535,
+   "perm_mean": 1.7961747718347072,
+   "sum_p2": 0.054303520793950844,
+   "ICC": -0.0029364203322583132
+  },
+  "DEAF1": {
+   "n": 64,
+   "random": 1.5330790305312827,
+   "clone": 1.0826672046806076,
+   "perm_mean": 1.4830135231146977,
+   "sum_p2": 0.0546875,
+   "ICC": 0.003254235966955714
+  },
+  "FOXP1": {
+   "n": 91,
+   "random": 3.2339209094745534,
+   "clone": 2.280862916750137,
+   "perm_mean": 3.1719644132402585,
+   "sum_p2": 0.10083323270136457,
+   "ICC": 0.003543839766383654
+  },
+  "ILF2": {
+   "n": 187,
+   "random": 4.774955358537345,
+   "clone": 2.535126983083773,
+   "perm_mean": 4.799666479335854,
+   "sum_p2": 0.185564357001916,
+   "ICC": -0.03996770628781531
+  },
+  "IRF2BPL": {
+   "n": 186,
+   "random": 4.633086027880681,
+   "clone": 3.0393063428462406,
+   "perm_mean": 4.66691849411418,
+   "sum_p2": 0.08295756734882645,
+   "ICC": 0.03390460112801846
+  },
+  "KAT2B": {
+   "n": 152,
+   "random": 2.079860787117225,
+   "clone": -0.2968174450012239,
+   "perm_mean": 2.08616855646149,
+   "sum_p2": 0.10223337950138503,
+   "ICC": 0.036504416836969984
+  },
+  "KDM5B": {
+   "n": 221,
+   "random": 1.2377587505712346,
+   "clone": -0.09333448695861055,
+   "perm_mean": 1.2138662489418695,
+   "sum_p2": 0.08318830490776193,
+   "ICC": 0.013709489748512027
+  },
+  "KDM6A": {
+   "n": 108,
+   "random": 5.172298079711699,
+   "clone": 0.6087089802530925,
+   "perm_mean": 5.180203377968635,
+   "sum_p2": 0.28206447187928685,
+   "ICC": 0.004480118555151626
+  },
+  "KDM6B": {
+   "n": 157,
+   "random": 5.863855737607158,
+   "clone": 3.1431987442536826,
+   "perm_mean": 5.860989139841978,
+   "sum_p2": 0.11744898373159153,
+   "ICC": -0.003349460649786622
+  },
+  "KMT2A": {
+   "n": 62,
+   "random": 3.8891969506543473,
+   "clone": 2.8279277023004594,
+   "perm_mean": 3.906145166936102,
+   "sum_p2": 0.059833506763787715,
+   "ICC": 0.06216691242625685
+  },
+  "KMT2C": {
+   "n": 2809,
+   "random": 13.030154117021938,
+   "clone": 12.767001146219734,
+   "perm_mean": 13.026610137979414,
+   "sum_p2": 0.03322699845548072,
+   "ICC": 0.0049063941380189085
+  },
+  "KMT5B": {
+   "n": 132,
+   "random": 2.0016597523273747,
+   "clone": -0.14534526487281754,
+   "perm_mean": 2.0506264379323915,
+   "sum_p2": 0.0950413223140496,
+   "ICC": 0.03130269535141162
+  },
+  "LEO1": {
+   "n": 1754,
+   "random": 16.271342845786883,
+   "clone": 14.85462107374735,
+   "perm_mean": 16.273119165511705,
+   "sum_p2": 0.08947523757393105,
+   "ICC": 0.019078855905498744
+  },
+  "MECP2": {
+   "n": 276,
+   "random": 1.9351952456067274,
+   "clone": 1.425665092625115,
+   "perm_mean": 1.9652371418218468,
+   "sum_p2": 0.044239655534551565,
+   "ICC": 0.010159224642062727
+  },
+  "MED13": {
+   "n": 361,
+   "random": 6.486965483599915,
+   "clone": 5.595347406387377,
+   "perm_mean": 6.4728286499601815,
+   "sum_p2": 0.06254556057734365,
+   "ICC": 0.010737478428910565
+  },
+  "MED13L": {
+   "n": 164,
+   "random": 3.3124232729055616,
+   "clone": 2.152963067768991,
+   "perm_mean": 3.38270817563249,
+   "sum_p2": 0.06595776323616895,
+   "ICC": 0.00045925748986014905
+  },
+  "MYT1L": {
+   "n": 197,
+   "random": 3.1431399814725505,
+   "clone": 2.2803680095356396,
+   "perm_mean": 3.1524816029124763,
+   "sum_p2": 0.07737895848901029,
+   "ICC": -0.009223314093885831
+  },
+  "PHF3": {
+   "n": 609,
+   "random": 8.073930096866972,
+   "clone": 5.246083572644171,
+   "perm_mean": 8.075501903222563,
+   "sum_p2": 0.09446965468708293,
+   "ICC": 0.04940164917563325
+  },
+  "SETD5": {
+   "n": 111,
+   "random": 4.57773103213765,
+   "clone": 1.834031983977953,
+   "perm_mean": 4.581521046501045,
+   "sum_p2": 0.08075643210778348,
+   "ICC": 0.024474733102978253
+  },
+  "SMARCC2": {
+   "n": 163,
+   "random": 5.387184850087402,
+   "clone": 3.4008179766790914,
+   "perm_mean": 5.383143477183507,
+   "sum_p2": 0.09104595581316571,
+   "ICC": -0.0011843069191299778
+  },
+  "SRCAP": {
+   "n": 167,
+   "random": 3.013438880066859,
+   "clone": 2.136191332934526,
+   "perm_mean": 3.0100591140971393,
+   "sum_p2": 0.05468105704758148,
+   "ICC": 0.018824452761693884
+  },
+  "TBL1XR1": {
+   "n": 212,
+   "random": 7.271305636979496,
+   "clone": 5.096195634891017,
+   "perm_mean": 7.295744812315317,
+   "sum_p2": 0.07827518689925242,
+   "ICC": 0.022546950783744055
+  },
+  "TBR1": {
+   "n": 174,
+   "random": 3.537868965198071,
+   "clone": 0.5077441593726687,
+   "perm_mean": 3.5265070130370573,
+   "sum_p2": 0.14671687144933276,
+   "ICC": 0.0033897861114600344
+  },
+  "TCF20": {
+   "n": 101,
+   "random": 3.5520729899529817,
+   "clone": 2.509602488573673,
+   "perm_mean": 3.5331966253003118,
+   "sum_p2": 0.073228114890697,
+   "ICC": -0.03934385149468987
+  }
+ }
+}

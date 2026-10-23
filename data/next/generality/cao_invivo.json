@@ -1,0 +1,60 @@
+{
+ "rules": "Clone ruler (null_ruler.py) on the generality datasets; one loader per dataset.\nzhou      Zhou et al. 2023 Nature (GSE216800): OT-I CD8 T cells, transduced in vitro, 4 days, transferred into B16-OVA\n          mice, tumour-infiltrating cells at day 7. CellRanger outputs of samples S1-S4 (B1) and S1-S12 (B2); guides by\n          feature barcoding. Each vector carries two guides of one gene (dual-guide construct); constructs are found as\n          the guide pairs most often detected together. A cell gets the construct with the most guide UMIs if >= 3 UMIs\n          and >= 3x the second construct. Unit = construct; null = constructs of non-targeting guides; sample = CellRanger\n          sample (reference group and replicate label).\nUsage: run_generality.py <dataset> <data dir> <out.json>",
+ "dataset": "cao_invivo",
+ "info": {
+  "cells": 631,
+  "assigned": 482,
+  "null_cells": 64,
+  "samples": [
+   "GSM6886577_2263_invivo_d15"
+  ]
+ },
+ "ruler_all": {
+  "ref_mode": "all",
+  "n_genes": 7455,
+  "V_cell": 929.1549008008803,
+  "n_null_units": 1,
+  "n_target_units": 4,
+  "null_share_pos_random": 1.0,
+  "null_share_pos_diff": NaN,
+  "null_mean_random": 32.55857160743628,
+  "null_se_random": 0.0,
+  "null_mean_diff": NaN,
+  "null_scaled": 0.0350410589013442,
+  "null_clone_scaled": NaN,
+  "null_cells_median": 33.0,
+  "target_mean_random": 88.86761587363942,
+  "target_median_random": 79.02991823423801,
+  "target_cells_median": 65.0,
+  "ratio_null_to_target_mean": 0.3663716111584585,
+  "ratio_null_to_target_median": 0.41197779695197734,
+  "n_targets_two_units": 1,
+  "target_cross_unit": 36.77566193514175,
+  "target_random_same": 64.40088990444758,
+  "share_reproduced_by_other_guide": 0.5710427602740624
+ },
+ "ruler_null": {
+  "ref_mode": "null",
+  "n_genes": 7455,
+  "V_cell": 929.1549008008803,
+  "n_null_units": 1,
+  "n_target_units": 4,
+  "null_share_pos_random": 1.0,
+  "null_share_pos_diff": NaN,
+  "null_mean_random": 125.43299176783341,
+  "null_se_random": 0.0,
+  "null_mean_diff": NaN,
+  "null_scaled": 0.13499685753120075,
+  "null_clone_scaled": NaN,
+  "null_cells_median": 33.0,
+  "target_mean_random": 86.65203889444204,
+  "target_median_random": 68.42748157037155,
+  "target_cells_median": 65.0,
+  "ratio_null_to_target_mean": 1.447548071207345,
+  "ratio_null_to_target_median": 1.833079179435192,
+  "n_targets_two_units": 1,
+  "target_cross_unit": 53.93634229529564,
+  "target_random_same": 68.42748157037155,
+  "share_reproduced_by_other_guide": 0.7882263245334687
+ }
+}

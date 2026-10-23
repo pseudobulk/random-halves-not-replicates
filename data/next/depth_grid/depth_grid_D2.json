@@ -1,0 +1,267 @@
+{
+ "rules": "Depth grid for Fig. 2d: cross-half signal and Pearson agreement at 1/8, 1/4, 3/8 and 1/2 of a target's cells per side\n(A100; output of cd4_sc_extract_grid.py; estimator as clone_tests_cd4.py DEPTH).\ncode16 = gp * 8 + r, r = r1 * 4 + r2 * 2 + r3 in 0..7 (eight equal random parts of each guide's cells).\n  random side  both guides, r in a set S of m parts (m / 8 of the cells); A and B use disjoint S\n  guide side   one guide, r in a set T of 2m parts (also m / 8 of the cells); A = guide 0, B = guide 1, same T\nSeveral disjoint choices are averaged at each m. Effect = side mean - control mean of the same codes (log1p CP10K; genes\nwith control mean >= 0.1, TCR genes removed; the target's own gene set to 0); cross-half signal referenced to the mean of\nthe inert targets. Inert (control mean < 0.01) and expressed (>= 0.5) targets are classified from the full gene list of\nthe existing extraction (cd4_sc_extract_cells.py). Targets: >= MINS cells on every side of every design.\nUsage: depth_grid_cd4.py <cells_dir> <grid_dir> <label> [<cells_dir> <grid_dir> <label>] <out_json>.",
+ "rest": {
+  "label": "rest",
+  "n_targets": 3369,
+  "n_inert": 709,
+  "n_expressed": 744,
+  "grid": {
+   "random": [
+    {
+     "fraction": 0.125,
+     "n_choices": 4,
+     "median_cells_per_side": 25.625,
+     "inert": {
+      "cross_per_target": 13.045004372435928,
+      "frac_pos": 0.93688293370945,
+      "pearson_mean": 0.16004813933891696
+     },
+     "expressed": {
+      "cross_per_target": 16.835471785571695,
+      "frac_pos": 0.9445564516129032,
+      "pearson_mean": 0.1820328251185779
+     }
+    },
+    {
+     "fraction": 0.25,
+     "n_choices": 2,
+     "median_cells_per_side": 51.0,
+     "inert": {
+      "cross_per_target": 12.99428185693159,
+      "frac_pos": 0.9880112834978844,
+      "pearson_mean": 0.2548544161683364
+     },
+     "expressed": {
+      "cross_per_target": 16.70133208050617,
+      "frac_pos": 0.9905913978494624,
+      "pearson_mean": 0.2807334763331003
+     }
+    },
+    {
+     "fraction": 0.375,
+     "n_choices": 2,
+     "median_cells_per_side": 76.0,
+     "inert": {
+      "cross_per_target": 12.775840040126857,
+      "frac_pos": 0.9929478138222849,
+      "pearson_mean": 0.32259820033199493
+     },
+     "expressed": {
+      "cross_per_target": 16.73255339924018,
+      "frac_pos": 0.997983870967742,
+      "pearson_mean": 0.35384234408849535
+     }
+    },
+    {
+     "fraction": 0.5,
+     "n_choices": 2,
+     "median_cells_per_side": 101.75,
+     "inert": {
+      "cross_per_target": 12.869036078407586,
+      "frac_pos": 0.9992947813822285,
+      "pearson_mean": 0.379455233132469
+     },
+     "expressed": {
+      "cross_per_target": 16.685506629060246,
+      "frac_pos": 0.9986559139784946,
+      "pearson_mean": 0.408921504613432
+     }
+    }
+   ],
+   "guide": [
+    {
+     "fraction": 0.125,
+     "n_choices": 4,
+     "median_cells_per_side": 21.0,
+     "inert": {
+      "cross_per_target": 0.45443367318500294,
+      "frac_pos": 0.5137517630465444,
+      "pearson_mean": 0.007911592724099565
+     },
+     "expressed": {
+      "cross_per_target": 2.233902221483891,
+      "frac_pos": 0.5551075268817204,
+      "pearson_mean": 0.01788886794427364
+     }
+    },
+    {
+     "fraction": 0.25,
+     "n_choices": 2,
+     "median_cells_per_side": 41.5,
+     "inert": {
+      "cross_per_target": 0.4401082144595697,
+      "frac_pos": 0.5133991537376587,
+      "pearson_mean": 0.013914980891851475
+     },
+     "expressed": {
+      "cross_per_target": 2.297939291909741,
+      "frac_pos": 0.5618279569892473,
+      "pearson_mean": 0.030420770741834753
+     }
+    },
+    {
+     "fraction": 0.375,
+     "n_choices": 2,
+     "median_cells_per_side": 62.5,
+     "inert": {
+      "cross_per_target": 0.4291603791684549,
+      "frac_pos": 0.5218617771509168,
+      "pearson_mean": 0.018374688942570952
+     },
+     "expressed": {
+      "cross_per_target": 2.2016949515480833,
+      "frac_pos": 0.5826612903225807,
+      "pearson_mean": 0.03863435034053502
+     }
+    },
+    {
+     "fraction": 0.5,
+     "n_choices": 1,
+     "median_cells_per_side": 82.5,
+     "inert": {
+      "cross_per_target": 0.3933360943957483,
+      "frac_pos": 0.5091678420310296,
+      "pearson_mean": 0.022363385068891756
+     },
+     "expressed": {
+      "cross_per_target": 2.2756462844053784,
+      "frac_pos": 0.5685483870967742,
+      "pearson_mean": 0.04686854899065991
+     }
+    }
+   ]
+  }
+ },
+ "stim48": {
+  "label": "stim48",
+  "n_targets": 3700,
+  "n_inert": 725,
+  "n_expressed": 749,
+  "grid": {
+   "random": [
+    {
+     "fraction": 0.125,
+     "n_choices": 4,
+     "median_cells_per_side": 25.25,
+     "inert": {
+      "cross_per_target": 12.846128095315258,
+      "frac_pos": 0.9206896551724137,
+      "pearson_mean": 0.1504005356416098
+     },
+     "expressed": {
+      "cross_per_target": 16.587485114167478,
+      "frac_pos": 0.9309078771695594,
+      "pearson_mean": 0.17983890585477308
+     }
+    },
+    {
+     "fraction": 0.25,
+     "n_choices": 2,
+     "median_cells_per_side": 50.25,
+     "inert": {
+      "cross_per_target": 12.871857456728186,
+      "frac_pos": 0.9758620689655173,
+      "pearson_mean": 0.24361849152568138
+     },
+     "expressed": {
+      "cross_per_target": 16.820383178777256,
+      "frac_pos": 0.9853137516688919,
+      "pearson_mean": 0.28440744471594015
+     }
+    },
+    {
+     "fraction": 0.375,
+     "n_choices": 2,
+     "median_cells_per_side": 75.25,
+     "inert": {
+      "cross_per_target": 12.929182569851427,
+      "frac_pos": 0.9951724137931035,
+      "pearson_mean": 0.3126834631426273
+     },
+     "expressed": {
+      "cross_per_target": 16.659485074487424,
+      "frac_pos": 0.9873164218958611,
+      "pearson_mean": 0.35688373164074005
+     }
+    },
+    {
+     "fraction": 0.5,
+     "n_choices": 2,
+     "median_cells_per_side": 100.25,
+     "inert": {
+      "cross_per_target": 12.90833314820544,
+      "frac_pos": 0.9986206896551724,
+      "pearson_mean": 0.36763767362140776
+     },
+     "expressed": {
+      "cross_per_target": 16.67574236635093,
+      "frac_pos": 0.9959946595460614,
+      "pearson_mean": 0.413821170757943
+     }
+    }
+   ],
+   "guide": [
+    {
+     "fraction": 0.125,
+     "n_choices": 4,
+     "median_cells_per_side": 20.375,
+     "inert": {
+      "cross_per_target": -0.11260413321052574,
+      "frac_pos": 0.4882758620689655,
+      "pearson_mean": 0.0005085265278635451
+     },
+     "expressed": {
+      "cross_per_target": 2.527914667854218,
+      "frac_pos": 0.5690921228304405,
+      "pearson_mean": 0.016727472151526108
+     }
+    },
+    {
+     "fraction": 0.25,
+     "n_choices": 2,
+     "median_cells_per_side": 41.0,
+     "inert": {
+      "cross_per_target": -0.01502916794823002,
+      "frac_pos": 0.4896551724137931,
+      "pearson_mean": 0.0017001925355781076
+     },
+     "expressed": {
+      "cross_per_target": 2.6632974798478926,
+      "frac_pos": 0.5867823765020027,
+      "pearson_mean": 0.028142664297021787
+     }
+    },
+    {
+     "fraction": 0.375,
+     "n_choices": 2,
+     "median_cells_per_side": 61.0,
+     "inert": {
+      "cross_per_target": 0.04319706977744712,
+      "frac_pos": 0.5062068965517241,
+      "pearson_mean": 0.0036531777314218286
+     },
+     "expressed": {
+      "cross_per_target": 2.5680835265179773,
+      "frac_pos": 0.5841121495327103,
+      "pearson_mean": 0.03548973770734602
+     }
+    },
+    {
+     "fraction": 0.5,
+     "n_choices": 1,
+     "median_cells_per_side": 81.5,
+     "inert": {
+      "cross_per_target": -0.046953316549174215,
+      "frac_pos": 0.4993103448275862,
+      "pearson_mean": 0.0033217681222208286
+     },
+     "expressed": {
+      "cross_per_target": 2.677647771654308,
+      "frac_pos": 0.6021361815754339,
+      "pearson_mean": 0.04210922497409856
+     }
+    }
+   ]
+  }
+ }
+}

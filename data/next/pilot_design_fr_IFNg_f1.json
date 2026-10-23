@@ -1,0 +1,3953 @@
+{
+ "train": [
+  "A2M~3",
+  "ACSL3",
+  "ACTA2~3",
+  "AEBP1",
+  "AEBP1~3",
+  "AGA",
+  "AGA~3",
+  "AHNAK",
+  "AHNAK~3",
+  "APOC2~3",
+  "APOD~3",
+  "APOE~3",
+  "ARMC6~3",
+  "ATP1B1~3",
+  "ATP5MD~3",
+  "B2M~3",
+  "BOLA2",
+  "BOLA2B",
+  "BZW2~3",
+  "C19orf48",
+  "C19orf48~3",
+  "C1QBP",
+  "C6orf226~3",
+  "CCND1",
+  "CCND2~3",
+  "CCR10~3",
+  "CCT3",
+  "CD151~3",
+  "CD274~3",
+  "CD44~3",
+  "CD47~3",
+  "CD58~3",
+  "CD59",
+  "CD59~3",
+  "CD63~3",
+  "CDC123",
+  "CDH19",
+  "CDH19~3",
+  "CDK4",
+  "CDK4~3",
+  "CDK6",
+  "CDKN1A~3",
+  "CDKN2A~3",
+  "CDKN2B",
+  "CDKN2B~3",
+  "CGAS",
+  "CGAS~3",
+  "CHCHD2~3",
+  "CITED1",
+  "CITED1~3",
+  "CKS1B",
+  "CKS1B~3",
+  "CMSS1",
+  "CMSS1~3",
+  "CORO1A",
+  "CORO1A~3",
+  "CSPG4~3",
+  "CST3",
+  "CTPS1",
+  "CTSA~3",
+  "CTSB~3",
+  "CTSD~3",
+  "CTSL",
+  "CTSL~3",
+  "CTSO~3",
+  "CXCR4",
+  "CXCR4~3",
+  "CYP27A1~3",
+  "DAG1",
+  "DAG1~3",
+  "DDR1~3",
+  "DDX17",
+  "DDX17~3",
+  "DDX39A",
+  "DLL3",
+  "DLL3~3",
+  "DNMT1",
+  "E2F1",
+  "EEA1",
+  "EEA1~3",
+  "EIF3K~3",
+  "EIF4A1",
+  "EMP1",
+  "EMP1~3",
+  "ENPP1",
+  "ENPP1~3",
+  "EVA1A",
+  "EVA1A~3",
+  "FBL",
+  "FBXO32~3",
+  "FGFR1",
+  "FGFR1~3",
+  "FKBP4",
+  "FKBP4~3",
+  "FMN1~3",
+  "FOS",
+  "FOS~3",
+  "FOXM1",
+  "FRZB",
+  "FRZB~3",
+  "FSTL3",
+  "FSTL3~3",
+  "GAA~3",
+  "GAS5",
+  "GAS5~3",
+  "GPATCH4~3",
+  "GPI",
+  "GPNMB~3",
+  "GRN",
+  "GRN~3",
+  "GSEC",
+  "GSN",
+  "GSN~3",
+  "HASPIN",
+  "HLA-A",
+  "HLA-A~3",
+  "HLA-B",
+  "HLA-C",
+  "HLA-DRB5~3",
+  "HLA-E~3",
+  "HLA-F~3",
+  "HLA-H",
+  "HLA-H~3",
+  "HNRNPA1",
+  "HNRNPA1~3",
+  "HNRNPC",
+  "HSPA1A~3",
+  "IDH2",
+  "IDH2~3",
+  "IDI2-AS1",
+  "IDI2-AS1~3",
+  "IFNGR1~3",
+  "IFNGR2",
+  "IFNGR2~3",
+  "ILF2",
+  "IRF3~3",
+  "IRF4",
+  "IRF4~3",
+  "ISYNA1",
+  "ISYNA1~3",
+  "ITGA3",
+  "ITGA3~3",
+  "JAK1",
+  "JAK1~3",
+  "JAK2~3",
+  "JMJD7",
+  "JMJD7~3",
+  "KCNN4~3",
+  "KDR~3",
+  "KLF4",
+  "KLF4~3",
+  "LAMP2",
+  "LAMP2~3",
+  "LCP1~3",
+  "LEF1-AS1~3",
+  "LGALS3BP",
+  "LGALS3BP~3",
+  "LGALS3~3",
+  "LINC00518",
+  "LINC00518~3",
+  "LRPAP1",
+  "LRPAP1~3",
+  "LRRC75A-AS1",
+  "LRRC75A-AS1~3",
+  "LY96~3",
+  "MC1R~3",
+  "MDH2~3",
+  "MFGE8~3",
+  "MIA",
+  "MIA~3",
+  "MRPL47",
+  "MT2A",
+  "MT2A~3",
+  "MYC",
+  "NCL",
+  "NDUFA13~3",
+  "NEAT1~3",
+  "NGFR",
+  "NGFR~3",
+  "NME1",
+  "NME1~3",
+  "NMRK1",
+  "NMRK1~3",
+  "NOLC1",
+  "NONO",
+  "NONO~3",
+  "NPC1~3",
+  "NPC2~3",
+  "NSG1",
+  "NSG1~3",
+  "NT5E",
+  "NT5E~3",
+  "NTP04",
+  "NTP05",
+  "NTP07",
+  "NTP08",
+  "NTP09",
+  "NTP11",
+  "NTP13",
+  "NTP14",
+  "NTP15",
+  "NUP50-AS1~3",
+  "P2RX4",
+  "PABPC1",
+  "PAICS",
+  "PET100",
+  "PFDN4",
+  "PFDN4~3",
+  "PFN1",
+  "PIK3IP1",
+  "PIK3IP1~3",
+  "POLD2",
+  "PPA1",
+  "PPIA~3",
+  "PRELID3B",
+  "PROS1",
+  "PROS1~3",
+  "PSAP~3",
+  "PSMB8-AS1~3",
+  "PTMA",
+  "PTMA~3",
+  "PUF60",
+  "PYGB~3",
+  "RAB27A",
+  "RAB27A~3",
+  "RB1",
+  "RB1~3",
+  "RBP7",
+  "RBP7~3",
+  "RNASEH2A",
+  "RNF213~3",
+  "ROMO1",
+  "RPSA",
+  "RRS1",
+  "RTP4",
+  "RTP4~3",
+  "S100A6",
+  "S100A6~3",
+  "S100B~3",
+  "SAE1",
+  "SAT1",
+  "SAT1~3",
+  "SCARB2",
+  "SCARB2~3",
+  "SDC3~3",
+  "SDCBP~3",
+  "SEC11C",
+  "SEC11C~3",
+  "SERPINA3~3",
+  "SERPINE2~3",
+  "SERPINF1",
+  "SERPINF1~3",
+  "SET~3",
+  "SGK1",
+  "SHMT2~3",
+  "SINHCAF",
+  "SLC19A1",
+  "SLC19A1~3",
+  "SLC22A18",
+  "SLC22A18~3",
+  "SLC25A13~3",
+  "SLC26A2",
+  "SLC26A2~3",
+  "SLC5A3~3",
+  "SLC7A5P1~3",
+  "SLIRP~3",
+  "SMAD3",
+  "SMAD3~3",
+  "SMAD4",
+  "SMAD4~3",
+  "SNHG6~3",
+  "SNRPG",
+  "SOX4",
+  "SOX4~3",
+  "SP100~3",
+  "SPESP1",
+  "SPESP1~3",
+  "SPINT1",
+  "SPINT1~3",
+  "SSR2",
+  "SSR2~3",
+  "ST3GAL6-AS1",
+  "ST3GAL6-AS1~3",
+  "ST6GALNAC2~3",
+  "STAT1~3",
+  "STAT3",
+  "STAT3~3",
+  "STOM~3",
+  "STX7",
+  "STX7~3",
+  "TAPBPL",
+  "TAPBPL~3",
+  "TAPBP~3",
+  "TFAP2A~3",
+  "TGFB1~3",
+  "TIMM50",
+  "TIMP1",
+  "TIMP1~3",
+  "TIMP2",
+  "TIMP2~3",
+  "TIMP3",
+  "TIMP3~3",
+  "TM4SF1",
+  "TM4SF1~3",
+  "TMED10",
+  "TMEM173~3",
+  "TOP1MT",
+  "TOP1MT~3",
+  "TP53~3",
+  "TPP1~3",
+  "TPRKB",
+  "TRIM22~3",
+  "TSC22D3~3",
+  "TTLL1~3",
+  "TXNDC17",
+  "TXNDC17~3",
+  "TYR~3",
+  "UBC",
+  "UCN2~3",
+  "UQCRFS1",
+  "UQCRFS1~3",
+  "UQCRH",
+  "VAT1",
+  "VAT1~3",
+  "VDAC2~3",
+  "WBP2~3",
+  "WNT7A",
+  "WNT7A~3",
+  "XAGE1A",
+  "XAGE1A~3"
+ ],
+ "inert": [],
+ "strong": [],
+ "null": [
+  "NTP00",
+  "NTP01",
+  "NTP02",
+  "NTP03",
+  "NTP06",
+  "NTP10",
+  "NTP12",
+  "NTP16"
+ ],
+ "gene": [
+  "A2M",
+  "ACTA2",
+  "APOC2",
+  "APOD",
+  "APOE",
+  "ARMC6",
+  "ATP1B1",
+  "ATP5MD",
+  "B2M",
+  "BZW2",
+  "C6orf226",
+  "CCND2",
+  "CCR10",
+  "CD151",
+  "CD274",
+  "CD44",
+  "CD47",
+  "CD58",
+  "CD63",
+  "CDKN1A",
+  "CDKN2A",
+  "CHCHD2",
+  "CSPG4",
+  "CTSA",
+  "CTSB",
+  "CTSD",
+  "CTSO",
+  "CYP27A1",
+  "DDR1",
+  "EIF3K",
+  "FBXO32",
+  "FMN1",
+  "GAA",
+  "GPATCH4",
+  "GPNMB",
+  "HLA-DRB5",
+  "HLA-E",
+  "HLA-F",
+  "HSPA1A",
+  "IFNGR1",
+  "IRF3",
+  "JAK2",
+  "JPT1",
+  "KCNN4",
+  "KDR",
+  "LCP1",
+  "LEF1-AS1",
+  "LGALS3",
+  "LY96",
+  "MC1R",
+  "MDH2",
+  "MFGE8",
+  "NDUFA13",
+  "NEAT1",
+  "NPC1",
+  "NPC2",
+  "NUP50-AS1",
+  "PPIA",
+  "PSAP",
+  "PSMB8-AS1",
+  "PYGB",
+  "RNF213",
+  "S100B",
+  "SDC3",
+  "SDCBP",
+  "SERPINA3",
+  "SERPINE2",
+  "SET",
+  "SHMT2",
+  "SLC25A13",
+  "SLC5A3",
+  "SLC7A5P1",
+  "SLIRP",
+  "SNHG6",
+  "SP100",
+  "ST6GALNAC2",
+  "STAT1",
+  "STOM",
+  "TAPBP",
+  "TFAP2A",
+  "TGFB1",
+  "TMEM173",
+  "TP53",
+  "TPP1",
+  "TRIM22",
+  "TSC22D3",
+  "TTLL1",
+  "TYR",
+  "UCN2",
+  "VDAC2",
+  "WBP2"
+ ],
+ "extra_kinds": [
+  "null",
+  "gene"
+ ],
+ "dropped_test": [],
+ "n_genes": 2111,
+ "states": [
+  "Control",
+  "IFNg"
+ ],
+ "fold": 1,
+ "nfold": 2,
+ "units": {
+  "A2M_2": [
+   "A2M",
+   "0",
+   "gene"
+  ],
+  "A2M_3": [
+   "A2M",
+   "1",
+   "gene"
+  ],
+  "A2M_1": [
+   "A2M~3",
+   "0",
+   "train"
+  ],
+  "ACSL3_1": [
+   "ACSL3",
+   "0",
+   "train"
+  ],
+  "ACSL3_2": [
+   "ACSL3",
+   "1",
+   "train"
+  ],
+  "ACSL3_3": [
+   "ACSL3",
+   "2",
+   "train"
+  ],
+  "ACTA2_1": [
+   "ACTA2",
+   "0",
+   "gene"
+  ],
+  "ACTA2_2": [
+   "ACTA2",
+   "1",
+   "gene"
+  ],
+  "ACTA2_3": [
+   "ACTA2~3",
+   "0",
+   "train"
+  ],
+  "AEBP1_1": [
+   "AEBP1",
+   "0",
+   "gene"
+  ],
+  "AEBP1_2": [
+   "AEBP1",
+   "1",
+   "gene"
+  ],
+  "AEBP1_3": [
+   "AEBP1~3",
+   "0",
+   "train"
+  ],
+  "AGA_1": [
+   "AGA",
+   "0",
+   "gene"
+  ],
+  "AGA_2": [
+   "AGA",
+   "1",
+   "gene"
+  ],
+  "AGA_3": [
+   "AGA~3",
+   "0",
+   "train"
+  ],
+  "AHNAK_1": [
+   "AHNAK",
+   "0",
+   "gene"
+  ],
+  "AHNAK_2": [
+   "AHNAK",
+   "1",
+   "gene"
+  ],
+  "AHNAK_3": [
+   "AHNAK~3",
+   "0",
+   "train"
+  ],
+  "APOC2_1": [
+   "APOC2",
+   "0",
+   "gene"
+  ],
+  "APOC2_2": [
+   "APOC2",
+   "1",
+   "gene"
+  ],
+  "APOC2_3": [
+   "APOC2~3",
+   "0",
+   "train"
+  ],
+  "APOD_2": [
+   "APOD",
+   "0",
+   "gene"
+  ],
+  "APOD_3": [
+   "APOD",
+   "1",
+   "gene"
+  ],
+  "APOD_1": [
+   "APOD~3",
+   "0",
+   "train"
+  ],
+  "APOE_2": [
+   "APOE",
+   "0",
+   "gene"
+  ],
+  "APOE_3": [
+   "APOE",
+   "1",
+   "gene"
+  ],
+  "APOE_1": [
+   "APOE~3",
+   "0",
+   "train"
+  ],
+  "ARMC6_1": [
+   "ARMC6",
+   "0",
+   "gene"
+  ],
+  "ARMC6_3": [
+   "ARMC6",
+   "1",
+   "gene"
+  ],
+  "ARMC6_2": [
+   "ARMC6~3",
+   "0",
+   "train"
+  ],
+  "ATP1B1_1": [
+   "ATP1B1",
+   "0",
+   "gene"
+  ],
+  "ATP1B1_2": [
+   "ATP1B1",
+   "1",
+   "gene"
+  ],
+  "ATP1B1_3": [
+   "ATP1B1~3",
+   "0",
+   "train"
+  ],
+  "ATP5MD_1": [
+   "ATP5MD",
+   "0",
+   "gene"
+  ],
+  "ATP5MD_3": [
+   "ATP5MD",
+   "1",
+   "gene"
+  ],
+  "ATP5MD_2": [
+   "ATP5MD~3",
+   "0",
+   "train"
+  ],
+  "B2M_1": [
+   "B2M",
+   "0",
+   "gene"
+  ],
+  "B2M_2": [
+   "B2M",
+   "1",
+   "gene"
+  ],
+  "B2M_3": [
+   "B2M~3",
+   "0",
+   "train"
+  ],
+  "BOLA2_1": [
+   "BOLA2",
+   "0",
+   "train"
+  ],
+  "BOLA2_2": [
+   "BOLA2",
+   "1",
+   "train"
+  ],
+  "BOLA2_3": [
+   "BOLA2",
+   "2",
+   "train"
+  ],
+  "BOLA2B_1": [
+   "BOLA2B",
+   "0",
+   "train"
+  ],
+  "BOLA2B_2": [
+   "BOLA2B",
+   "1",
+   "train"
+  ],
+  "BOLA2B_3": [
+   "BOLA2B",
+   "2",
+   "train"
+  ],
+  "BZW2_1": [
+   "BZW2",
+   "0",
+   "gene"
+  ],
+  "BZW2_3": [
+   "BZW2",
+   "1",
+   "gene"
+  ],
+  "BZW2_2": [
+   "BZW2~3",
+   "0",
+   "train"
+  ],
+  "C19orf48_1": [
+   "C19orf48",
+   "0",
+   "gene"
+  ],
+  "C19orf48_3": [
+   "C19orf48",
+   "1",
+   "gene"
+  ],
+  "C19orf48_2": [
+   "C19orf48~3",
+   "0",
+   "train"
+  ],
+  "C1QBP_1": [
+   "C1QBP",
+   "0",
+   "train"
+  ],
+  "C1QBP_2": [
+   "C1QBP",
+   "1",
+   "train"
+  ],
+  "C1QBP_3": [
+   "C1QBP",
+   "2",
+   "train"
+  ],
+  "C6orf226_1": [
+   "C6orf226",
+   "0",
+   "gene"
+  ],
+  "C6orf226_2": [
+   "C6orf226",
+   "1",
+   "gene"
+  ],
+  "C6orf226_3": [
+   "C6orf226~3",
+   "0",
+   "train"
+  ],
+  "CCND1_1": [
+   "CCND1",
+   "0",
+   "train"
+  ],
+  "CCND1_2": [
+   "CCND1",
+   "1",
+   "train"
+  ],
+  "CCND1_3": [
+   "CCND1",
+   "2",
+   "train"
+  ],
+  "CCND2_1": [
+   "CCND2",
+   "0",
+   "gene"
+  ],
+  "CCND2_3": [
+   "CCND2",
+   "1",
+   "gene"
+  ],
+  "CCND2_2": [
+   "CCND2~3",
+   "0",
+   "train"
+  ],
+  "CCR10_2": [
+   "CCR10",
+   "0",
+   "gene"
+  ],
+  "CCR10_3": [
+   "CCR10",
+   "1",
+   "gene"
+  ],
+  "CCR10_1": [
+   "CCR10~3",
+   "0",
+   "train"
+  ],
+  "CCT3_2": [
+   "CCT3",
+   "0",
+   "train"
+  ],
+  "CCT3_3": [
+   "CCT3",
+   "1",
+   "train"
+  ],
+  "CD151_1": [
+   "CD151",
+   "0",
+   "gene"
+  ],
+  "CD151_3": [
+   "CD151",
+   "1",
+   "gene"
+  ],
+  "CD151_2": [
+   "CD151~3",
+   "0",
+   "train"
+  ],
+  "CD274_1": [
+   "CD274",
+   "0",
+   "gene"
+  ],
+  "CD274_2": [
+   "CD274",
+   "1",
+   "gene"
+  ],
+  "CD274_3": [
+   "CD274~3",
+   "0",
+   "train"
+  ],
+  "CD44_2": [
+   "CD44",
+   "0",
+   "gene"
+  ],
+  "CD44_3": [
+   "CD44",
+   "1",
+   "gene"
+  ],
+  "CD44_1": [
+   "CD44~3",
+   "0",
+   "train"
+  ],
+  "CD47_1": [
+   "CD47",
+   "0",
+   "gene"
+  ],
+  "CD47_3": [
+   "CD47",
+   "1",
+   "gene"
+  ],
+  "CD47_2": [
+   "CD47~3",
+   "0",
+   "train"
+  ],
+  "CD58_2": [
+   "CD58",
+   "0",
+   "gene"
+  ],
+  "CD58_3": [
+   "CD58",
+   "1",
+   "gene"
+  ],
+  "CD58_1": [
+   "CD58~3",
+   "0",
+   "train"
+  ],
+  "CD59_1": [
+   "CD59",
+   "0",
+   "gene"
+  ],
+  "CD59_2": [
+   "CD59",
+   "1",
+   "gene"
+  ],
+  "CD59_3": [
+   "CD59~3",
+   "0",
+   "train"
+  ],
+  "CD63_1": [
+   "CD63",
+   "0",
+   "gene"
+  ],
+  "CD63_3": [
+   "CD63",
+   "1",
+   "gene"
+  ],
+  "CD63_2": [
+   "CD63~3",
+   "0",
+   "train"
+  ],
+  "CDC123_2": [
+   "CDC123",
+   "0",
+   "train"
+  ],
+  "CDH19_1": [
+   "CDH19",
+   "0",
+   "gene"
+  ],
+  "CDH19_2": [
+   "CDH19",
+   "1",
+   "gene"
+  ],
+  "CDH19_3": [
+   "CDH19~3",
+   "0",
+   "train"
+  ],
+  "CDK4_2": [
+   "CDK4",
+   "0",
+   "gene"
+  ],
+  "CDK4_3": [
+   "CDK4",
+   "1",
+   "gene"
+  ],
+  "CDK4_1": [
+   "CDK4~3",
+   "0",
+   "train"
+  ],
+  "CDK6_1": [
+   "CDK6",
+   "0",
+   "train"
+  ],
+  "CDK6_2": [
+   "CDK6",
+   "1",
+   "train"
+  ],
+  "CDK6_3": [
+   "CDK6",
+   "2",
+   "train"
+  ],
+  "CDKN1A_1": [
+   "CDKN1A",
+   "0",
+   "gene"
+  ],
+  "CDKN1A_3": [
+   "CDKN1A",
+   "1",
+   "gene"
+  ],
+  "CDKN1A_2": [
+   "CDKN1A~3",
+   "0",
+   "train"
+  ],
+  "CDKN2A_1": [
+   "CDKN2A",
+   "0",
+   "gene"
+  ],
+  "CDKN2A_2": [
+   "CDKN2A",
+   "1",
+   "gene"
+  ],
+  "CDKN2A_3": [
+   "CDKN2A~3",
+   "0",
+   "train"
+  ],
+  "CDKN2B_1": [
+   "CDKN2B",
+   "0",
+   "gene"
+  ],
+  "CDKN2B_2": [
+   "CDKN2B",
+   "1",
+   "gene"
+  ],
+  "CDKN2B_3": [
+   "CDKN2B~3",
+   "0",
+   "train"
+  ],
+  "CGAS_1": [
+   "CGAS",
+   "0",
+   "gene"
+  ],
+  "CGAS_2": [
+   "CGAS",
+   "1",
+   "gene"
+  ],
+  "CGAS_3": [
+   "CGAS~3",
+   "0",
+   "train"
+  ],
+  "CHCHD2_1": [
+   "CHCHD2",
+   "0",
+   "gene"
+  ],
+  "CHCHD2_2": [
+   "CHCHD2",
+   "1",
+   "gene"
+  ],
+  "CHCHD2_3": [
+   "CHCHD2~3",
+   "0",
+   "train"
+  ],
+  "CITED1_1": [
+   "CITED1",
+   "0",
+   "gene"
+  ],
+  "CITED1_3": [
+   "CITED1",
+   "1",
+   "gene"
+  ],
+  "CITED1_2": [
+   "CITED1~3",
+   "0",
+   "train"
+  ],
+  "CKS1B_2": [
+   "CKS1B",
+   "0",
+   "gene"
+  ],
+  "CKS1B_3": [
+   "CKS1B",
+   "1",
+   "gene"
+  ],
+  "CKS1B_1": [
+   "CKS1B~3",
+   "0",
+   "train"
+  ],
+  "CMSS1_1": [
+   "CMSS1",
+   "0",
+   "gene"
+  ],
+  "CMSS1_3": [
+   "CMSS1",
+   "1",
+   "gene"
+  ],
+  "CMSS1_2": [
+   "CMSS1~3",
+   "0",
+   "train"
+  ],
+  "CORO1A_1": [
+   "CORO1A",
+   "0",
+   "gene"
+  ],
+  "CORO1A_3": [
+   "CORO1A",
+   "1",
+   "gene"
+  ],
+  "CORO1A_2": [
+   "CORO1A~3",
+   "0",
+   "train"
+  ],
+  "CSPG4_1": [
+   "CSPG4",
+   "0",
+   "gene"
+  ],
+  "CSPG4_3": [
+   "CSPG4",
+   "1",
+   "gene"
+  ],
+  "CSPG4_2": [
+   "CSPG4~3",
+   "0",
+   "train"
+  ],
+  "CST3_1": [
+   "CST3",
+   "0",
+   "train"
+  ],
+  "CST3_2": [
+   "CST3",
+   "1",
+   "train"
+  ],
+  "CST3_3": [
+   "CST3",
+   "2",
+   "train"
+  ],
+  "CTPS1_1": [
+   "CTPS1",
+   "0",
+   "train"
+  ],
+  "CTPS1_2": [
+   "CTPS1",
+   "1",
+   "train"
+  ],
+  "CTPS1_3": [
+   "CTPS1",
+   "2",
+   "train"
+  ],
+  "CTSA_1": [
+   "CTSA",
+   "0",
+   "gene"
+  ],
+  "CTSA_2": [
+   "CTSA",
+   "1",
+   "gene"
+  ],
+  "CTSA_3": [
+   "CTSA~3",
+   "0",
+   "train"
+  ],
+  "CTSB_1": [
+   "CTSB",
+   "0",
+   "gene"
+  ],
+  "CTSB_2": [
+   "CTSB",
+   "1",
+   "gene"
+  ],
+  "CTSB_3": [
+   "CTSB~3",
+   "0",
+   "train"
+  ],
+  "CTSD_2": [
+   "CTSD",
+   "0",
+   "gene"
+  ],
+  "CTSD_3": [
+   "CTSD",
+   "1",
+   "gene"
+  ],
+  "CTSD_1": [
+   "CTSD~3",
+   "0",
+   "train"
+  ],
+  "CTSL_1": [
+   "CTSL",
+   "0",
+   "gene"
+  ],
+  "CTSL_2": [
+   "CTSL",
+   "1",
+   "gene"
+  ],
+  "CTSL_3": [
+   "CTSL~3",
+   "0",
+   "train"
+  ],
+  "CTSO_1": [
+   "CTSO",
+   "0",
+   "gene"
+  ],
+  "CTSO_2": [
+   "CTSO",
+   "1",
+   "gene"
+  ],
+  "CTSO_3": [
+   "CTSO~3",
+   "0",
+   "train"
+  ],
+  "CXCR4_1": [
+   "CXCR4",
+   "0",
+   "gene"
+  ],
+  "CXCR4_2": [
+   "CXCR4",
+   "1",
+   "gene"
+  ],
+  "CXCR4_3": [
+   "CXCR4~3",
+   "0",
+   "train"
+  ],
+  "CYP27A1_1": [
+   "CYP27A1",
+   "0",
+   "gene"
+  ],
+  "CYP27A1_2": [
+   "CYP27A1",
+   "1",
+   "gene"
+  ],
+  "CYP27A1_3": [
+   "CYP27A1~3",
+   "0",
+   "train"
+  ],
+  "DAG1_2": [
+   "DAG1",
+   "0",
+   "gene"
+  ],
+  "DAG1_3": [
+   "DAG1",
+   "1",
+   "gene"
+  ],
+  "DAG1_1": [
+   "DAG1~3",
+   "0",
+   "train"
+  ],
+  "DDR1_2": [
+   "DDR1",
+   "0",
+   "gene"
+  ],
+  "DDR1_3": [
+   "DDR1",
+   "1",
+   "gene"
+  ],
+  "DDR1_1": [
+   "DDR1~3",
+   "0",
+   "train"
+  ],
+  "DDX17_2": [
+   "DDX17",
+   "0",
+   "gene"
+  ],
+  "DDX17_3": [
+   "DDX17",
+   "1",
+   "gene"
+  ],
+  "DDX17_1": [
+   "DDX17~3",
+   "0",
+   "train"
+  ],
+  "DDX39A_1": [
+   "DDX39A",
+   "0",
+   "train"
+  ],
+  "DDX39A_2": [
+   "DDX39A",
+   "1",
+   "train"
+  ],
+  "DDX39A_3": [
+   "DDX39A",
+   "2",
+   "train"
+  ],
+  "DLL3_2": [
+   "DLL3",
+   "0",
+   "gene"
+  ],
+  "DLL3_3": [
+   "DLL3",
+   "1",
+   "gene"
+  ],
+  "DLL3_1": [
+   "DLL3~3",
+   "0",
+   "train"
+  ],
+  "DNMT1_1": [
+   "DNMT1",
+   "0",
+   "train"
+  ],
+  "DNMT1_3": [
+   "DNMT1",
+   "1",
+   "train"
+  ],
+  "E2F1_1": [
+   "E2F1",
+   "0",
+   "train"
+  ],
+  "E2F1_2": [
+   "E2F1",
+   "1",
+   "train"
+  ],
+  "E2F1_3": [
+   "E2F1",
+   "2",
+   "train"
+  ],
+  "EEA1_1": [
+   "EEA1",
+   "0",
+   "gene"
+  ],
+  "EEA1_2": [
+   "EEA1",
+   "1",
+   "gene"
+  ],
+  "EEA1_3": [
+   "EEA1~3",
+   "0",
+   "train"
+  ],
+  "EIF3K_1": [
+   "EIF3K",
+   "0",
+   "gene"
+  ],
+  "EIF3K_2": [
+   "EIF3K",
+   "1",
+   "gene"
+  ],
+  "EIF3K_3": [
+   "EIF3K~3",
+   "0",
+   "train"
+  ],
+  "EIF4A1_1": [
+   "EIF4A1",
+   "0",
+   "train"
+  ],
+  "EMP1_1": [
+   "EMP1",
+   "0",
+   "gene"
+  ],
+  "EMP1_2": [
+   "EMP1",
+   "1",
+   "gene"
+  ],
+  "EMP1_3": [
+   "EMP1~3",
+   "0",
+   "train"
+  ],
+  "ENPP1_1": [
+   "ENPP1",
+   "0",
+   "gene"
+  ],
+  "ENPP1_3": [
+   "ENPP1",
+   "1",
+   "gene"
+  ],
+  "ENPP1_2": [
+   "ENPP1~3",
+   "0",
+   "train"
+  ],
+  "EVA1A_2": [
+   "EVA1A",
+   "0",
+   "gene"
+  ],
+  "EVA1A_3": [
+   "EVA1A",
+   "1",
+   "gene"
+  ],
+  "EVA1A_1": [
+   "EVA1A~3",
+   "0",
+   "train"
+  ],
+  "FBL_2": [
+   "FBL",
+   "0",
+   "train"
+  ],
+  "FBL_3": [
+   "FBL",
+   "1",
+   "train"
+  ],
+  "FBXO32_1": [
+   "FBXO32",
+   "0",
+   "gene"
+  ],
+  "FBXO32_2": [
+   "FBXO32",
+   "1",
+   "gene"
+  ],
+  "FBXO32_3": [
+   "FBXO32~3",
+   "0",
+   "train"
+  ],
+  "FGFR1_1": [
+   "FGFR1",
+   "0",
+   "gene"
+  ],
+  "FGFR1_3": [
+   "FGFR1",
+   "1",
+   "gene"
+  ],
+  "FGFR1_2": [
+   "FGFR1~3",
+   "0",
+   "train"
+  ],
+  "FKBP4_2": [
+   "FKBP4",
+   "0",
+   "gene"
+  ],
+  "FKBP4_3": [
+   "FKBP4",
+   "1",
+   "gene"
+  ],
+  "FKBP4_1": [
+   "FKBP4~3",
+   "0",
+   "train"
+  ],
+  "FMN1_1": [
+   "FMN1",
+   "0",
+   "gene"
+  ],
+  "FMN1_3": [
+   "FMN1",
+   "1",
+   "gene"
+  ],
+  "FMN1_2": [
+   "FMN1~3",
+   "0",
+   "train"
+  ],
+  "FOS_1": [
+   "FOS",
+   "0",
+   "gene"
+  ],
+  "FOS_3": [
+   "FOS",
+   "1",
+   "gene"
+  ],
+  "FOS_2": [
+   "FOS~3",
+   "0",
+   "train"
+  ],
+  "FOXM1_3": [
+   "FOXM1",
+   "0",
+   "train"
+  ],
+  "FRZB_1": [
+   "FRZB",
+   "0",
+   "gene"
+  ],
+  "FRZB_2": [
+   "FRZB",
+   "1",
+   "gene"
+  ],
+  "FRZB_3": [
+   "FRZB~3",
+   "0",
+   "train"
+  ],
+  "FSTL3_1": [
+   "FSTL3",
+   "0",
+   "gene"
+  ],
+  "FSTL3_3": [
+   "FSTL3",
+   "1",
+   "gene"
+  ],
+  "FSTL3_2": [
+   "FSTL3~3",
+   "0",
+   "train"
+  ],
+  "GAA_2": [
+   "GAA",
+   "0",
+   "gene"
+  ],
+  "GAA_3": [
+   "GAA",
+   "1",
+   "gene"
+  ],
+  "GAA_1": [
+   "GAA~3",
+   "0",
+   "train"
+  ],
+  "GAS5_2": [
+   "GAS5",
+   "0",
+   "gene"
+  ],
+  "GAS5_3": [
+   "GAS5",
+   "1",
+   "gene"
+  ],
+  "GAS5_1": [
+   "GAS5~3",
+   "0",
+   "train"
+  ],
+  "GPATCH4_1": [
+   "GPATCH4",
+   "0",
+   "gene"
+  ],
+  "GPATCH4_2": [
+   "GPATCH4",
+   "1",
+   "gene"
+  ],
+  "GPATCH4_3": [
+   "GPATCH4~3",
+   "0",
+   "train"
+  ],
+  "GPI_2": [
+   "GPI",
+   "0",
+   "train"
+  ],
+  "GPNMB_1": [
+   "GPNMB",
+   "0",
+   "gene"
+  ],
+  "GPNMB_2": [
+   "GPNMB",
+   "1",
+   "gene"
+  ],
+  "GPNMB_3": [
+   "GPNMB~3",
+   "0",
+   "train"
+  ],
+  "GRN_1": [
+   "GRN",
+   "0",
+   "gene"
+  ],
+  "GRN_2": [
+   "GRN",
+   "1",
+   "gene"
+  ],
+  "GRN_3": [
+   "GRN~3",
+   "0",
+   "train"
+  ],
+  "GSEC_1": [
+   "GSEC",
+   "0",
+   "train"
+  ],
+  "GSEC_2": [
+   "GSEC",
+   "1",
+   "train"
+  ],
+  "GSEC_3": [
+   "GSEC",
+   "2",
+   "train"
+  ],
+  "GSN_1": [
+   "GSN",
+   "0",
+   "gene"
+  ],
+  "GSN_2": [
+   "GSN",
+   "1",
+   "gene"
+  ],
+  "GSN_3": [
+   "GSN~3",
+   "0",
+   "train"
+  ],
+  "HASPIN_1": [
+   "HASPIN",
+   "0",
+   "train"
+  ],
+  "HASPIN_2": [
+   "HASPIN",
+   "1",
+   "train"
+  ],
+  "HASPIN_3": [
+   "HASPIN",
+   "2",
+   "train"
+  ],
+  "HLA-A_2": [
+   "HLA-A",
+   "0",
+   "gene"
+  ],
+  "HLA-A_3": [
+   "HLA-A",
+   "1",
+   "gene"
+  ],
+  "HLA-A_1": [
+   "HLA-A~3",
+   "0",
+   "train"
+  ],
+  "HLA-B_1": [
+   "HLA-B",
+   "0",
+   "train"
+  ],
+  "HLA-B_2": [
+   "HLA-B",
+   "1",
+   "train"
+  ],
+  "HLA-B_3": [
+   "HLA-B",
+   "2",
+   "train"
+  ],
+  "HLA-C_1": [
+   "HLA-C",
+   "0",
+   "train"
+  ],
+  "HLA-C_2": [
+   "HLA-C",
+   "1",
+   "train"
+  ],
+  "HLA-C_3": [
+   "HLA-C",
+   "2",
+   "train"
+  ],
+  "HLA-DRB5_1": [
+   "HLA-DRB5",
+   "0",
+   "gene"
+  ],
+  "HLA-DRB5_2": [
+   "HLA-DRB5",
+   "1",
+   "gene"
+  ],
+  "HLA-DRB5_3": [
+   "HLA-DRB5~3",
+   "0",
+   "train"
+  ],
+  "HLA-E_1": [
+   "HLA-E",
+   "0",
+   "gene"
+  ],
+  "HLA-E_2": [
+   "HLA-E",
+   "1",
+   "gene"
+  ],
+  "HLA-E_3": [
+   "HLA-E~3",
+   "0",
+   "train"
+  ],
+  "HLA-F_1": [
+   "HLA-F",
+   "0",
+   "gene"
+  ],
+  "HLA-F_2": [
+   "HLA-F",
+   "1",
+   "gene"
+  ],
+  "HLA-F_3": [
+   "HLA-F~3",
+   "0",
+   "train"
+  ],
+  "HLA-H_2": [
+   "HLA-H",
+   "0",
+   "gene"
+  ],
+  "HLA-H_3": [
+   "HLA-H",
+   "1",
+   "gene"
+  ],
+  "HLA-H_1": [
+   "HLA-H~3",
+   "0",
+   "train"
+  ],
+  "HNRNPA1_1": [
+   "HNRNPA1",
+   "0",
+   "gene"
+  ],
+  "HNRNPA1_2": [
+   "HNRNPA1",
+   "1",
+   "gene"
+  ],
+  "HNRNPA1_3": [
+   "HNRNPA1~3",
+   "0",
+   "train"
+  ],
+  "HNRNPC_2": [
+   "HNRNPC",
+   "0",
+   "train"
+  ],
+  "HSPA1A_1": [
+   "HSPA1A",
+   "0",
+   "gene"
+  ],
+  "HSPA1A_3": [
+   "HSPA1A",
+   "1",
+   "gene"
+  ],
+  "HSPA1A_2": [
+   "HSPA1A~3",
+   "0",
+   "train"
+  ],
+  "IDH2_2": [
+   "IDH2",
+   "0",
+   "gene"
+  ],
+  "IDH2_3": [
+   "IDH2",
+   "1",
+   "gene"
+  ],
+  "IDH2_1": [
+   "IDH2~3",
+   "0",
+   "train"
+  ],
+  "IDI2-AS1_1": [
+   "IDI2-AS1",
+   "0",
+   "gene"
+  ],
+  "IDI2-AS1_3": [
+   "IDI2-AS1",
+   "1",
+   "gene"
+  ],
+  "IDI2-AS1_2": [
+   "IDI2-AS1~3",
+   "0",
+   "train"
+  ],
+  "IFNGR1_1": [
+   "IFNGR1",
+   "0",
+   "gene"
+  ],
+  "IFNGR1_2": [
+   "IFNGR1",
+   "1",
+   "gene"
+  ],
+  "IFNGR1_3": [
+   "IFNGR1~3",
+   "0",
+   "train"
+  ],
+  "IFNGR2_1": [
+   "IFNGR2",
+   "0",
+   "gene"
+  ],
+  "IFNGR2_2": [
+   "IFNGR2",
+   "1",
+   "gene"
+  ],
+  "IFNGR2_3": [
+   "IFNGR2~3",
+   "0",
+   "train"
+  ],
+  "ILF2_2": [
+   "ILF2",
+   "0",
+   "train"
+  ],
+  "ILF2_3": [
+   "ILF2",
+   "1",
+   "train"
+  ],
+  "IRF3_1": [
+   "IRF3",
+   "0",
+   "gene"
+  ],
+  "IRF3_3": [
+   "IRF3",
+   "1",
+   "gene"
+  ],
+  "IRF3_2": [
+   "IRF3~3",
+   "0",
+   "train"
+  ],
+  "IRF4_1": [
+   "IRF4",
+   "0",
+   "gene"
+  ],
+  "IRF4_2": [
+   "IRF4",
+   "1",
+   "gene"
+  ],
+  "IRF4_3": [
+   "IRF4~3",
+   "0",
+   "train"
+  ],
+  "ISYNA1_1": [
+   "ISYNA1",
+   "0",
+   "gene"
+  ],
+  "ISYNA1_3": [
+   "ISYNA1",
+   "1",
+   "gene"
+  ],
+  "ISYNA1_2": [
+   "ISYNA1~3",
+   "0",
+   "train"
+  ],
+  "ITGA3_1": [
+   "ITGA3",
+   "0",
+   "gene"
+  ],
+  "ITGA3_2": [
+   "ITGA3",
+   "1",
+   "gene"
+  ],
+  "ITGA3_3": [
+   "ITGA3~3",
+   "0",
+   "train"
+  ],
+  "JAK1_2": [
+   "JAK1",
+   "0",
+   "gene"
+  ],
+  "JAK1_3": [
+   "JAK1",
+   "1",
+   "gene"
+  ],
+  "JAK1_1": [
+   "JAK1~3",
+   "0",
+   "train"
+  ],
+  "JAK2_1": [
+   "JAK2",
+   "0",
+   "gene"
+  ],
+  "JAK2_2": [
+   "JAK2",
+   "1",
+   "gene"
+  ],
+  "JAK2_3": [
+   "JAK2~3",
+   "0",
+   "train"
+  ],
+  "JMJD7_1": [
+   "JMJD7",
+   "0",
+   "gene"
+  ],
+  "JMJD7_2": [
+   "JMJD7",
+   "1",
+   "gene"
+  ],
+  "JMJD7_3": [
+   "JMJD7~3",
+   "0",
+   "train"
+  ],
+  "JPT1_1": [
+   "JPT1",
+   "0",
+   "gene"
+  ],
+  "JPT1_3": [
+   "JPT1",
+   "1",
+   "gene"
+  ],
+  "KCNN4_2": [
+   "KCNN4",
+   "0",
+   "gene"
+  ],
+  "KCNN4_3": [
+   "KCNN4",
+   "1",
+   "gene"
+  ],
+  "KCNN4_1": [
+   "KCNN4~3",
+   "0",
+   "train"
+  ],
+  "KDR_2": [
+   "KDR",
+   "0",
+   "gene"
+  ],
+  "KDR_3": [
+   "KDR",
+   "1",
+   "gene"
+  ],
+  "KDR_1": [
+   "KDR~3",
+   "0",
+   "train"
+  ],
+  "KLF4_2": [
+   "KLF4",
+   "0",
+   "gene"
+  ],
+  "KLF4_3": [
+   "KLF4",
+   "1",
+   "gene"
+  ],
+  "KLF4_1": [
+   "KLF4~3",
+   "0",
+   "train"
+  ],
+  "LAMP2_2": [
+   "LAMP2",
+   "0",
+   "gene"
+  ],
+  "LAMP2_3": [
+   "LAMP2",
+   "1",
+   "gene"
+  ],
+  "LAMP2_1": [
+   "LAMP2~3",
+   "0",
+   "train"
+  ],
+  "LCP1_1": [
+   "LCP1",
+   "0",
+   "gene"
+  ],
+  "LCP1_2": [
+   "LCP1",
+   "1",
+   "gene"
+  ],
+  "LCP1_3": [
+   "LCP1~3",
+   "0",
+   "train"
+  ],
+  "LEF1-AS1_1": [
+   "LEF1-AS1",
+   "0",
+   "gene"
+  ],
+  "LEF1-AS1_3": [
+   "LEF1-AS1",
+   "1",
+   "gene"
+  ],
+  "LEF1-AS1_2": [
+   "LEF1-AS1~3",
+   "0",
+   "train"
+  ],
+  "LGALS3_2": [
+   "LGALS3",
+   "0",
+   "gene"
+  ],
+  "LGALS3_3": [
+   "LGALS3",
+   "1",
+   "gene"
+  ],
+  "LGALS3_1": [
+   "LGALS3~3",
+   "0",
+   "train"
+  ],
+  "LGALS3BP_1": [
+   "LGALS3BP",
+   "0",
+   "gene"
+  ],
+  "LGALS3BP_2": [
+   "LGALS3BP",
+   "1",
+   "gene"
+  ],
+  "LGALS3BP_3": [
+   "LGALS3BP~3",
+   "0",
+   "train"
+  ],
+  "LINC00518_1": [
+   "LINC00518",
+   "0",
+   "gene"
+  ],
+  "LINC00518_2": [
+   "LINC00518",
+   "1",
+   "gene"
+  ],
+  "LINC00518_3": [
+   "LINC00518~3",
+   "0",
+   "train"
+  ],
+  "LRPAP1_1": [
+   "LRPAP1",
+   "0",
+   "gene"
+  ],
+  "LRPAP1_2": [
+   "LRPAP1",
+   "1",
+   "gene"
+  ],
+  "LRPAP1_3": [
+   "LRPAP1~3",
+   "0",
+   "train"
+  ],
+  "LRRC75A-AS1_2": [
+   "LRRC75A-AS1",
+   "0",
+   "gene"
+  ],
+  "LRRC75A-AS1_3": [
+   "LRRC75A-AS1",
+   "1",
+   "gene"
+  ],
+  "LRRC75A-AS1_1": [
+   "LRRC75A-AS1~3",
+   "0",
+   "train"
+  ],
+  "LY96_1": [
+   "LY96",
+   "0",
+   "gene"
+  ],
+  "LY96_2": [
+   "LY96",
+   "1",
+   "gene"
+  ],
+  "LY96_3": [
+   "LY96~3",
+   "0",
+   "train"
+  ],
+  "MC1R_1": [
+   "MC1R",
+   "0",
+   "gene"
+  ],
+  "MC1R_2": [
+   "MC1R",
+   "1",
+   "gene"
+  ],
+  "MC1R_3": [
+   "MC1R~3",
+   "0",
+   "train"
+  ],
+  "MDH2_1": [
+   "MDH2",
+   "0",
+   "gene"
+  ],
+  "MDH2_2": [
+   "MDH2",
+   "1",
+   "gene"
+  ],
+  "MDH2_3": [
+   "MDH2~3",
+   "0",
+   "train"
+  ],
+  "MFGE8_2": [
+   "MFGE8",
+   "0",
+   "gene"
+  ],
+  "MFGE8_3": [
+   "MFGE8",
+   "1",
+   "gene"
+  ],
+  "MFGE8_1": [
+   "MFGE8~3",
+   "0",
+   "train"
+  ],
+  "MIA_2": [
+   "MIA",
+   "0",
+   "gene"
+  ],
+  "MIA_3": [
+   "MIA",
+   "1",
+   "gene"
+  ],
+  "MIA_1": [
+   "MIA~3",
+   "0",
+   "train"
+  ],
+  "MRPL47_1": [
+   "MRPL47",
+   "0",
+   "train"
+  ],
+  "MRPL47_2": [
+   "MRPL47",
+   "1",
+   "train"
+  ],
+  "MRPL47_3": [
+   "MRPL47",
+   "2",
+   "train"
+  ],
+  "MT2A_1": [
+   "MT2A",
+   "0",
+   "gene"
+  ],
+  "MT2A_2": [
+   "MT2A",
+   "1",
+   "gene"
+  ],
+  "MT2A_3": [
+   "MT2A~3",
+   "0",
+   "train"
+  ],
+  "MYC_2": [
+   "MYC",
+   "0",
+   "train"
+  ],
+  "MYC_3": [
+   "MYC",
+   "1",
+   "train"
+  ],
+  "NCL_3": [
+   "NCL",
+   "0",
+   "train"
+  ],
+  "NDUFA13_1": [
+   "NDUFA13",
+   "0",
+   "gene"
+  ],
+  "NDUFA13_3": [
+   "NDUFA13",
+   "1",
+   "gene"
+  ],
+  "NDUFA13_2": [
+   "NDUFA13~3",
+   "0",
+   "train"
+  ],
+  "NEAT1_1": [
+   "NEAT1",
+   "0",
+   "gene"
+  ],
+  "NEAT1_2": [
+   "NEAT1",
+   "1",
+   "gene"
+  ],
+  "NEAT1_3": [
+   "NEAT1~3",
+   "0",
+   "train"
+  ],
+  "NGFR_1": [
+   "NGFR",
+   "0",
+   "gene"
+  ],
+  "NGFR_2": [
+   "NGFR",
+   "1",
+   "gene"
+  ],
+  "NGFR_3": [
+   "NGFR~3",
+   "0",
+   "train"
+  ],
+  "NME1_1": [
+   "NME1",
+   "0",
+   "gene"
+  ],
+  "NME1_2": [
+   "NME1",
+   "1",
+   "gene"
+  ],
+  "NME1_3": [
+   "NME1~3",
+   "0",
+   "train"
+  ],
+  "NMRK1_1": [
+   "NMRK1",
+   "0",
+   "gene"
+  ],
+  "NMRK1_2": [
+   "NMRK1",
+   "1",
+   "gene"
+  ],
+  "NMRK1_3": [
+   "NMRK1~3",
+   "0",
+   "train"
+  ],
+  "NOLC1_1": [
+   "NOLC1",
+   "0",
+   "train"
+  ],
+  "NOLC1_2": [
+   "NOLC1",
+   "1",
+   "train"
+  ],
+  "NOLC1_3": [
+   "NOLC1",
+   "2",
+   "train"
+  ],
+  "NONO_1": [
+   "NONO",
+   "0",
+   "gene"
+  ],
+  "NONO_3": [
+   "NONO",
+   "1",
+   "gene"
+  ],
+  "NONO_2": [
+   "NONO~3",
+   "0",
+   "train"
+  ],
+  "NPC1_2": [
+   "NPC1",
+   "0",
+   "gene"
+  ],
+  "NPC1_3": [
+   "NPC1",
+   "1",
+   "gene"
+  ],
+  "NPC1_1": [
+   "NPC1~3",
+   "0",
+   "train"
+  ],
+  "NPC2_2": [
+   "NPC2",
+   "0",
+   "gene"
+  ],
+  "NPC2_3": [
+   "NPC2",
+   "1",
+   "gene"
+  ],
+  "NPC2_1": [
+   "NPC2~3",
+   "0",
+   "train"
+  ],
+  "NSG1_1": [
+   "NSG1",
+   "0",
+   "gene"
+  ],
+  "NSG1_2": [
+   "NSG1",
+   "1",
+   "gene"
+  ],
+  "NSG1_3": [
+   "NSG1~3",
+   "0",
+   "train"
+  ],
+  "NT5E_2": [
+   "NT5E",
+   "0",
+   "gene"
+  ],
+  "NT5E_3": [
+   "NT5E",
+   "1",
+   "gene"
+  ],
+  "NT5E_1": [
+   "NT5E~3",
+   "0",
+   "train"
+  ],
+  "NUP50-AS1_1": [
+   "NUP50-AS1",
+   "0",
+   "gene"
+  ],
+  "NUP50-AS1_3": [
+   "NUP50-AS1",
+   "1",
+   "gene"
+  ],
+  "NUP50-AS1_2": [
+   "NUP50-AS1~3",
+   "0",
+   "train"
+  ],
+  "P2RX4_1": [
+   "P2RX4",
+   "0",
+   "train"
+  ],
+  "P2RX4_2": [
+   "P2RX4",
+   "1",
+   "train"
+  ],
+  "P2RX4_3": [
+   "P2RX4",
+   "2",
+   "train"
+  ],
+  "PABPC1_1": [
+   "PABPC1",
+   "0",
+   "train"
+  ],
+  "PABPC1_3": [
+   "PABPC1",
+   "1",
+   "train"
+  ],
+  "PAICS_1": [
+   "PAICS",
+   "0",
+   "train"
+  ],
+  "PAICS_2": [
+   "PAICS",
+   "1",
+   "train"
+  ],
+  "PAICS_3": [
+   "PAICS",
+   "2",
+   "train"
+  ],
+  "PET100_1": [
+   "PET100",
+   "0",
+   "train"
+  ],
+  "PET100_2": [
+   "PET100",
+   "1",
+   "train"
+  ],
+  "PET100_3": [
+   "PET100",
+   "2",
+   "train"
+  ],
+  "PFDN4_1": [
+   "PFDN4",
+   "0",
+   "gene"
+  ],
+  "PFDN4_3": [
+   "PFDN4",
+   "1",
+   "gene"
+  ],
+  "PFDN4_2": [
+   "PFDN4~3",
+   "0",
+   "train"
+  ],
+  "PFN1_1": [
+   "PFN1",
+   "0",
+   "train"
+  ],
+  "PFN1_2": [
+   "PFN1",
+   "1",
+   "train"
+  ],
+  "PFN1_3": [
+   "PFN1",
+   "2",
+   "train"
+  ],
+  "PIK3IP1_1": [
+   "PIK3IP1",
+   "0",
+   "gene"
+  ],
+  "PIK3IP1_3": [
+   "PIK3IP1",
+   "1",
+   "gene"
+  ],
+  "PIK3IP1_2": [
+   "PIK3IP1~3",
+   "0",
+   "train"
+  ],
+  "POLD2_2": [
+   "POLD2",
+   "0",
+   "train"
+  ],
+  "PPA1_1": [
+   "PPA1",
+   "0",
+   "train"
+  ],
+  "PPIA_1": [
+   "PPIA",
+   "0",
+   "gene"
+  ],
+  "PPIA_3": [
+   "PPIA",
+   "1",
+   "gene"
+  ],
+  "PPIA_2": [
+   "PPIA~3",
+   "0",
+   "train"
+  ],
+  "PRELID3B_2": [
+   "PRELID3B",
+   "0",
+   "train"
+  ],
+  "PROS1_1": [
+   "PROS1",
+   "0",
+   "gene"
+  ],
+  "PROS1_2": [
+   "PROS1",
+   "1",
+   "gene"
+  ],
+  "PROS1_3": [
+   "PROS1~3",
+   "0",
+   "train"
+  ],
+  "PSAP_2": [
+   "PSAP",
+   "0",
+   "gene"
+  ],
+  "PSAP_3": [
+   "PSAP",
+   "1",
+   "gene"
+  ],
+  "PSAP_1": [
+   "PSAP~3",
+   "0",
+   "train"
+  ],
+  "PSMB8-AS1_1": [
+   "PSMB8-AS1",
+   "0",
+   "gene"
+  ],
+  "PSMB8-AS1_2": [
+   "PSMB8-AS1",
+   "1",
+   "gene"
+  ],
+  "PSMB8-AS1_3": [
+   "PSMB8-AS1~3",
+   "0",
+   "train"
+  ],
+  "PTMA_1": [
+   "PTMA",
+   "0",
+   "gene"
+  ],
+  "PTMA_3": [
+   "PTMA",
+   "1",
+   "gene"
+  ],
+  "PTMA_2": [
+   "PTMA~3",
+   "0",
+   "train"
+  ],
+  "PUF60_2": [
+   "PUF60",
+   "0",
+   "train"
+  ],
+  "PUF60_3": [
+   "PUF60",
+   "1",
+   "train"
+  ],
+  "PYGB_1": [
+   "PYGB",
+   "0",
+   "gene"
+  ],
+  "PYGB_3": [
+   "PYGB",
+   "1",
+   "gene"
+  ],
+  "PYGB_2": [
+   "PYGB~3",
+   "0",
+   "train"
+  ],
+  "RAB27A_1": [
+   "RAB27A",
+   "0",
+   "gene"
+  ],
+  "RAB27A_2": [
+   "RAB27A",
+   "1",
+   "gene"
+  ],
+  "RAB27A_3": [
+   "RAB27A~3",
+   "0",
+   "train"
+  ],
+  "RB1_1": [
+   "RB1",
+   "0",
+   "gene"
+  ],
+  "RB1_2": [
+   "RB1",
+   "1",
+   "gene"
+  ],
+  "RB1_3": [
+   "RB1~3",
+   "0",
+   "train"
+  ],
+  "RBP7_2": [
+   "RBP7",
+   "0",
+   "gene"
+  ],
+  "RBP7_3": [
+   "RBP7",
+   "1",
+   "gene"
+  ],
+  "RBP7_1": [
+   "RBP7~3",
+   "0",
+   "train"
+  ],
+  "RNASEH2A_1": [
+   "RNASEH2A",
+   "0",
+   "train"
+  ],
+  "RNASEH2A_2": [
+   "RNASEH2A",
+   "1",
+   "train"
+  ],
+  "RNASEH2A_3": [
+   "RNASEH2A",
+   "2",
+   "train"
+  ],
+  "RNF213_1": [
+   "RNF213",
+   "0",
+   "gene"
+  ],
+  "RNF213_2": [
+   "RNF213",
+   "1",
+   "gene"
+  ],
+  "RNF213_3": [
+   "RNF213~3",
+   "0",
+   "train"
+  ],
+  "ROMO1_2": [
+   "ROMO1",
+   "0",
+   "train"
+  ],
+  "ROMO1_3": [
+   "ROMO1",
+   "1",
+   "train"
+  ],
+  "RPSA_3": [
+   "RPSA",
+   "0",
+   "train"
+  ],
+  "RRS1_2": [
+   "RRS1",
+   "0",
+   "train"
+  ],
+  "RTP4_1": [
+   "RTP4",
+   "0",
+   "gene"
+  ],
+  "RTP4_2": [
+   "RTP4",
+   "1",
+   "gene"
+  ],
+  "RTP4_3": [
+   "RTP4~3",
+   "0",
+   "train"
+  ],
+  "S100A6_1": [
+   "S100A6",
+   "0",
+   "gene"
+  ],
+  "S100A6_3": [
+   "S100A6",
+   "1",
+   "gene"
+  ],
+  "S100A6_2": [
+   "S100A6~3",
+   "0",
+   "train"
+  ],
+  "S100B_2": [
+   "S100B",
+   "0",
+   "gene"
+  ],
+  "S100B_3": [
+   "S100B",
+   "1",
+   "gene"
+  ],
+  "S100B_1": [
+   "S100B~3",
+   "0",
+   "train"
+  ],
+  "SAE1_1": [
+   "SAE1",
+   "0",
+   "train"
+  ],
+  "SAE1_3": [
+   "SAE1",
+   "1",
+   "train"
+  ],
+  "SAT1_1": [
+   "SAT1",
+   "0",
+   "gene"
+  ],
+  "SAT1_2": [
+   "SAT1",
+   "1",
+   "gene"
+  ],
+  "SAT1_3": [
+   "SAT1~3",
+   "0",
+   "train"
+  ],
+  "SCARB2_2": [
+   "SCARB2",
+   "0",
+   "gene"
+  ],
+  "SCARB2_3": [
+   "SCARB2",
+   "1",
+   "gene"
+  ],
+  "SCARB2_1": [
+   "SCARB2~3",
+   "0",
+   "train"
+  ],
+  "SDC3_1": [
+   "SDC3",
+   "0",
+   "gene"
+  ],
+  "SDC3_2": [
+   "SDC3",
+   "1",
+   "gene"
+  ],
+  "SDC3_3": [
+   "SDC3~3",
+   "0",
+   "train"
+  ],
+  "SDCBP_1": [
+   "SDCBP",
+   "0",
+   "gene"
+  ],
+  "SDCBP_2": [
+   "SDCBP",
+   "1",
+   "gene"
+  ],
+  "SDCBP_3": [
+   "SDCBP~3",
+   "0",
+   "train"
+  ],
+  "SEC11C_2": [
+   "SEC11C",
+   "0",
+   "gene"
+  ],
+  "SEC11C_3": [
+   "SEC11C",
+   "1",
+   "gene"
+  ],
+  "SEC11C_1": [
+   "SEC11C~3",
+   "0",
+   "train"
+  ],
+  "SERPINA3_1": [
+   "SERPINA3",
+   "0",
+   "gene"
+  ],
+  "SERPINA3_2": [
+   "SERPINA3",
+   "1",
+   "gene"
+  ],
+  "SERPINA3_3": [
+   "SERPINA3~3",
+   "0",
+   "train"
+  ],
+  "SERPINE2_2": [
+   "SERPINE2",
+   "0",
+   "gene"
+  ],
+  "SERPINE2_3": [
+   "SERPINE2",
+   "1",
+   "gene"
+  ],
+  "SERPINE2_1": [
+   "SERPINE2~3",
+   "0",
+   "train"
+  ],
+  "SERPINF1_1": [
+   "SERPINF1",
+   "0",
+   "gene"
+  ],
+  "SERPINF1_3": [
+   "SERPINF1",
+   "1",
+   "gene"
+  ],
+  "SERPINF1_2": [
+   "SERPINF1~3",
+   "0",
+   "train"
+  ],
+  "SET_1": [
+   "SET",
+   "0",
+   "gene"
+  ],
+  "SET_2": [
+   "SET",
+   "1",
+   "gene"
+  ],
+  "SET_3": [
+   "SET~3",
+   "0",
+   "train"
+  ],
+  "SGK1_1": [
+   "SGK1",
+   "0",
+   "train"
+  ],
+  "SGK1_2": [
+   "SGK1",
+   "1",
+   "train"
+  ],
+  "SGK1_3": [
+   "SGK1",
+   "2",
+   "train"
+  ],
+  "SHMT2_1": [
+   "SHMT2",
+   "0",
+   "gene"
+  ],
+  "SHMT2_3": [
+   "SHMT2",
+   "1",
+   "gene"
+  ],
+  "SHMT2_2": [
+   "SHMT2~3",
+   "0",
+   "train"
+  ],
+  "SINHCAF_1": [
+   "SINHCAF",
+   "0",
+   "train"
+  ],
+  "SINHCAF_2": [
+   "SINHCAF",
+   "1",
+   "train"
+  ],
+  "SINHCAF_3": [
+   "SINHCAF",
+   "2",
+   "train"
+  ],
+  "SLC19A1_2": [
+   "SLC19A1",
+   "0",
+   "gene"
+  ],
+  "SLC19A1_3": [
+   "SLC19A1",
+   "1",
+   "gene"
+  ],
+  "SLC19A1_1": [
+   "SLC19A1~3",
+   "0",
+   "train"
+  ],
+  "SLC22A18_1": [
+   "SLC22A18",
+   "0",
+   "gene"
+  ],
+  "SLC22A18_3": [
+   "SLC22A18",
+   "1",
+   "gene"
+  ],
+  "SLC22A18_2": [
+   "SLC22A18~3",
+   "0",
+   "train"
+  ],
+  "SLC25A13_1": [
+   "SLC25A13",
+   "0",
+   "gene"
+  ],
+  "SLC25A13_3": [
+   "SLC25A13",
+   "1",
+   "gene"
+  ],
+  "SLC25A13_2": [
+   "SLC25A13~3",
+   "0",
+   "train"
+  ],
+  "SLC26A2_1": [
+   "SLC26A2",
+   "0",
+   "gene"
+  ],
+  "SLC26A2_3": [
+   "SLC26A2",
+   "1",
+   "gene"
+  ],
+  "SLC26A2_2": [
+   "SLC26A2~3",
+   "0",
+   "train"
+  ],
+  "SLC5A3_1": [
+   "SLC5A3",
+   "0",
+   "gene"
+  ],
+  "SLC5A3_2": [
+   "SLC5A3",
+   "1",
+   "gene"
+  ],
+  "SLC5A3_3": [
+   "SLC5A3~3",
+   "0",
+   "train"
+  ],
+  "SLC7A5P1_1": [
+   "SLC7A5P1",
+   "0",
+   "gene"
+  ],
+  "SLC7A5P1_3": [
+   "SLC7A5P1",
+   "1",
+   "gene"
+  ],
+  "SLC7A5P1_2": [
+   "SLC7A5P1~3",
+   "0",
+   "train"
+  ],
+  "SLIRP_2": [
+   "SLIRP",
+   "0",
+   "gene"
+  ],
+  "SLIRP_3": [
+   "SLIRP",
+   "1",
+   "gene"
+  ],
+  "SLIRP_1": [
+   "SLIRP~3",
+   "0",
+   "train"
+  ],
+  "SMAD3_1": [
+   "SMAD3",
+   "0",
+   "gene"
+  ],
+  "SMAD3_2": [
+   "SMAD3",
+   "1",
+   "gene"
+  ],
+  "SMAD3_3": [
+   "SMAD3~3",
+   "0",
+   "train"
+  ],
+  "SMAD4_1": [
+   "SMAD4",
+   "0",
+   "gene"
+  ],
+  "SMAD4_2": [
+   "SMAD4",
+   "1",
+   "gene"
+  ],
+  "SMAD4_3": [
+   "SMAD4~3",
+   "0",
+   "train"
+  ],
+  "SNHG6_2": [
+   "SNHG6",
+   "0",
+   "gene"
+  ],
+  "SNHG6_3": [
+   "SNHG6",
+   "1",
+   "gene"
+  ],
+  "SNHG6_1": [
+   "SNHG6~3",
+   "0",
+   "train"
+  ],
+  "SNRPG_2": [
+   "SNRPG",
+   "0",
+   "train"
+  ],
+  "SOX4_2": [
+   "SOX4",
+   "0",
+   "gene"
+  ],
+  "SOX4_3": [
+   "SOX4",
+   "1",
+   "gene"
+  ],
+  "SOX4_1": [
+   "SOX4~3",
+   "0",
+   "train"
+  ],
+  "SP100_1": [
+   "SP100",
+   "0",
+   "gene"
+  ],
+  "SP100_2": [
+   "SP100",
+   "1",
+   "gene"
+  ],
+  "SP100_3": [
+   "SP100~3",
+   "0",
+   "train"
+  ],
+  "SPESP1_1": [
+   "SPESP1",
+   "0",
+   "gene"
+  ],
+  "SPESP1_3": [
+   "SPESP1",
+   "1",
+   "gene"
+  ],
+  "SPESP1_2": [
+   "SPESP1~3",
+   "0",
+   "train"
+  ],
+  "SPINT1_2": [
+   "SPINT1",
+   "0",
+   "gene"
+  ],
+  "SPINT1_3": [
+   "SPINT1",
+   "1",
+   "gene"
+  ],
+  "SPINT1_1": [
+   "SPINT1~3",
+   "0",
+   "train"
+  ],
+  "SSR2_2": [
+   "SSR2",
+   "0",
+   "gene"
+  ],
+  "SSR2_3": [
+   "SSR2",
+   "1",
+   "gene"
+  ],
+  "SSR2_1": [
+   "SSR2~3",
+   "0",
+   "train"
+  ],
+  "ST3GAL6-AS1_2": [
+   "ST3GAL6-AS1",
+   "0",
+   "gene"
+  ],
+  "ST3GAL6-AS1_3": [
+   "ST3GAL6-AS1",
+   "1",
+   "gene"
+  ],
+  "ST3GAL6-AS1_1": [
+   "ST3GAL6-AS1~3",
+   "0",
+   "train"
+  ],
+  "ST6GALNAC2_1": [
+   "ST6GALNAC2",
+   "0",
+   "gene"
+  ],
+  "ST6GALNAC2_2": [
+   "ST6GALNAC2",
+   "1",
+   "gene"
+  ],
+  "ST6GALNAC2_3": [
+   "ST6GALNAC2~3",
+   "0",
+   "train"
+  ],
+  "STAT1_1": [
+   "STAT1",
+   "0",
+   "gene"
+  ],
+  "STAT1_2": [
+   "STAT1",
+   "1",
+   "gene"
+  ],
+  "STAT1_3": [
+   "STAT1~3",
+   "0",
+   "train"
+  ],
+  "STAT3_1": [
+   "STAT3",
+   "0",
+   "gene"
+  ],
+  "STAT3_2": [
+   "STAT3",
+   "1",
+   "gene"
+  ],
+  "STAT3_3": [
+   "STAT3~3",
+   "0",
+   "train"
+  ],
+  "STOM_2": [
+   "STOM",
+   "0",
+   "gene"
+  ],
+  "STOM_3": [
+   "STOM",
+   "1",
+   "gene"
+  ],
+  "STOM_1": [
+   "STOM~3",
+   "0",
+   "train"
+  ],
+  "STX7_1": [
+   "STX7",
+   "0",
+   "gene"
+  ],
+  "STX7_3": [
+   "STX7",
+   "1",
+   "gene"
+  ],
+  "STX7_2": [
+   "STX7~3",
+   "0",
+   "train"
+  ],
+  "TAPBP_1": [
+   "TAPBP",
+   "0",
+   "gene"
+  ],
+  "TAPBP_2": [
+   "TAPBP",
+   "1",
+   "gene"
+  ],
+  "TAPBP_3": [
+   "TAPBP~3",
+   "0",
+   "train"
+  ],
+  "TAPBPL_1": [
+   "TAPBPL",
+   "0",
+   "gene"
+  ],
+  "TAPBPL_2": [
+   "TAPBPL",
+   "1",
+   "gene"
+  ],
+  "TAPBPL_3": [
+   "TAPBPL~3",
+   "0",
+   "train"
+  ],
+  "TFAP2A_2": [
+   "TFAP2A",
+   "0",
+   "gene"
+  ],
+  "TFAP2A_3": [
+   "TFAP2A",
+   "1",
+   "gene"
+  ],
+  "TFAP2A_1": [
+   "TFAP2A~3",
+   "0",
+   "train"
+  ],
+  "TGFB1_2": [
+   "TGFB1",
+   "0",
+   "gene"
+  ],
+  "TGFB1_3": [
+   "TGFB1",
+   "1",
+   "gene"
+  ],
+  "TGFB1_1": [
+   "TGFB1~3",
+   "0",
+   "train"
+  ],
+  "TIMM50_1": [
+   "TIMM50",
+   "0",
+   "train"
+  ],
+  "TIMM50_2": [
+   "TIMM50",
+   "1",
+   "train"
+  ],
+  "TIMM50_3": [
+   "TIMM50",
+   "2",
+   "train"
+  ],
+  "TIMP1_1": [
+   "TIMP1",
+   "0",
+   "gene"
+  ],
+  "TIMP1_3": [
+   "TIMP1",
+   "1",
+   "gene"
+  ],
+  "TIMP1_2": [
+   "TIMP1~3",
+   "0",
+   "train"
+  ],
+  "TIMP2_1": [
+   "TIMP2",
+   "0",
+   "gene"
+  ],
+  "TIMP2_3": [
+   "TIMP2",
+   "1",
+   "gene"
+  ],
+  "TIMP2_2": [
+   "TIMP2~3",
+   "0",
+   "train"
+  ],
+  "TIMP3_1": [
+   "TIMP3",
+   "0",
+   "gene"
+  ],
+  "TIMP3_3": [
+   "TIMP3",
+   "1",
+   "gene"
+  ],
+  "TIMP3_2": [
+   "TIMP3~3",
+   "0",
+   "train"
+  ],
+  "TM4SF1_1": [
+   "TM4SF1",
+   "0",
+   "gene"
+  ],
+  "TM4SF1_3": [
+   "TM4SF1",
+   "1",
+   "gene"
+  ],
+  "TM4SF1_2": [
+   "TM4SF1~3",
+   "0",
+   "train"
+  ],
+  "TMED10_1": [
+   "TMED10",
+   "0",
+   "train"
+  ],
+  "TMED10_2": [
+   "TMED10",
+   "1",
+   "train"
+  ],
+  "TMED10_3": [
+   "TMED10",
+   "2",
+   "train"
+  ],
+  "TMEM173_1": [
+   "TMEM173",
+   "0",
+   "gene"
+  ],
+  "TMEM173_2": [
+   "TMEM173",
+   "1",
+   "gene"
+  ],
+  "TMEM173_3": [
+   "TMEM173~3",
+   "0",
+   "train"
+  ],
+  "TOP1MT_1": [
+   "TOP1MT",
+   "0",
+   "gene"
+  ],
+  "TOP1MT_3": [
+   "TOP1MT",
+   "1",
+   "gene"
+  ],
+  "TOP1MT_2": [
+   "TOP1MT~3",
+   "0",
+   "train"
+  ],
+  "TP53_2": [
+   "TP53",
+   "0",
+   "gene"
+  ],
+  "TP53_3": [
+   "TP53",
+   "1",
+   "gene"
+  ],
+  "TP53_1": [
+   "TP53~3",
+   "0",
+   "train"
+  ],
+  "TPP1_1": [
+   "TPP1",
+   "0",
+   "gene"
+  ],
+  "TPP1_3": [
+   "TPP1",
+   "1",
+   "gene"
+  ],
+  "TPP1_2": [
+   "TPP1~3",
+   "0",
+   "train"
+  ],
+  "TPRKB_2": [
+   "TPRKB",
+   "0",
+   "train"
+  ],
+  "TRIM22_1": [
+   "TRIM22",
+   "0",
+   "gene"
+  ],
+  "TRIM22_2": [
+   "TRIM22",
+   "1",
+   "gene"
+  ],
+  "TRIM22_3": [
+   "TRIM22~3",
+   "0",
+   "train"
+  ],
+  "TSC22D3_1": [
+   "TSC22D3",
+   "0",
+   "gene"
+  ],
+  "TSC22D3_3": [
+   "TSC22D3",
+   "1",
+   "gene"
+  ],
+  "TSC22D3_2": [
+   "TSC22D3~3",
+   "0",
+   "train"
+  ],
+  "TTLL1_1": [
+   "TTLL1",
+   "0",
+   "gene"
+  ],
+  "TTLL1_3": [
+   "TTLL1",
+   "1",
+   "gene"
+  ],
+  "TTLL1_2": [
+   "TTLL1~3",
+   "0",
+   "train"
+  ],
+  "TXNDC17_2": [
+   "TXNDC17",
+   "0",
+   "gene"
+  ],
+  "TXNDC17_3": [
+   "TXNDC17",
+   "1",
+   "gene"
+  ],
+  "TXNDC17_1": [
+   "TXNDC17~3",
+   "0",
+   "train"
+  ],
+  "TYR_1": [
+   "TYR",
+   "0",
+   "gene"
+  ],
+  "TYR_3": [
+   "TYR",
+   "1",
+   "gene"
+  ],
+  "TYR_2": [
+   "TYR~3",
+   "0",
+   "train"
+  ],
+  "UBC_1": [
+   "UBC",
+   "0",
+   "train"
+  ],
+  "UBC_3": [
+   "UBC",
+   "1",
+   "train"
+  ],
+  "UCN2_1": [
+   "UCN2",
+   "0",
+   "gene"
+  ],
+  "UCN2_2": [
+   "UCN2",
+   "1",
+   "gene"
+  ],
+  "UCN2_3": [
+   "UCN2~3",
+   "0",
+   "train"
+  ],
+  "UQCRFS1_1": [
+   "UQCRFS1",
+   "0",
+   "gene"
+  ],
+  "UQCRFS1_3": [
+   "UQCRFS1",
+   "1",
+   "gene"
+  ],
+  "UQCRFS1_2": [
+   "UQCRFS1~3",
+   "0",
+   "train"
+  ],
+  "UQCRH_1": [
+   "UQCRH",
+   "0",
+   "train"
+  ],
+  "UQCRH_2": [
+   "UQCRH",
+   "1",
+   "train"
+  ],
+  "UQCRH_3": [
+   "UQCRH",
+   "2",
+   "train"
+  ],
+  "VAT1_1": [
+   "VAT1",
+   "0",
+   "gene"
+  ],
+  "VAT1_2": [
+   "VAT1",
+   "1",
+   "gene"
+  ],
+  "VAT1_3": [
+   "VAT1~3",
+   "0",
+   "train"
+  ],
+  "VDAC2_1": [
+   "VDAC2",
+   "0",
+   "gene"
+  ],
+  "VDAC2_2": [
+   "VDAC2",
+   "1",
+   "gene"
+  ],
+  "VDAC2_3": [
+   "VDAC2~3",
+   "0",
+   "train"
+  ],
+  "WBP2_1": [
+   "WBP2",
+   "0",
+   "gene"
+  ],
+  "WBP2_2": [
+   "WBP2",
+   "1",
+   "gene"
+  ],
+  "WBP2_3": [
+   "WBP2~3",
+   "0",
+   "train"
+  ],
+  "WNT7A_2": [
+   "WNT7A",
+   "0",
+   "gene"
+  ],
+  "WNT7A_3": [
+   "WNT7A",
+   "1",
+   "gene"
+  ],
+  "WNT7A_1": [
+   "WNT7A~3",
+   "0",
+   "train"
+  ],
+  "XAGE1A_1": [
+   "XAGE1A",
+   "0",
+   "gene"
+  ],
+  "XAGE1A_3": [
+   "XAGE1A",
+   "1",
+   "gene"
+  ],
+  "XAGE1A_2": [
+   "XAGE1A~3",
+   "0",
+   "train"
+  ],
+  "NO_SITE_736": [
+   "NTP00",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_263": [
+   "NTP00",
+   "1",
+   "null"
+  ],
+  "NO_SITE_386": [
+   "NTP01",
+   "0",
+   "null"
+  ],
+  "NO_SITE_505": [
+   "NTP01",
+   "1",
+   "null"
+  ],
+  "NO_SITE_187": [
+   "NTP02",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_202": [
+   "NTP02",
+   "1",
+   "null"
+  ],
+  "NO_SITE_136": [
+   "NTP03",
+   "0",
+   "null"
+  ],
+  "NO_SITE_36": [
+   "NTP03",
+   "1",
+   "null"
+  ],
+  "NO_SITE_229": [
+   "NTP04",
+   "0",
+   "null"
+  ],
+  "NO_SITE_694": [
+   "NTP04",
+   "1",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_290": [
+   "NTP05",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_848": [
+   "NTP05",
+   "1",
+   "null"
+  ],
+  "NO_SITE_963": [
+   "NTP06",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_84": [
+   "NTP06",
+   "1",
+   "null"
+  ],
+  "NO_SITE_707": [
+   "NTP07",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_250": [
+   "NTP07",
+   "1",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_813": [
+   "NTP08",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_892": [
+   "NTP08",
+   "1",
+   "null"
+  ],
+  "NO_SITE_107": [
+   "NTP09",
+   "0",
+   "null"
+  ],
+  "NO_SITE_146": [
+   "NTP09",
+   "1",
+   "null"
+  ],
+  "NO_SITE_836": [
+   "NTP10",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_640": [
+   "NTP10",
+   "1",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_2": [
+   "NTP11",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_931": [
+   "NTP11",
+   "1",
+   "null"
+  ],
+  "NO_SITE_599": [
+   "NTP12",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_714": [
+   "NTP12",
+   "1",
+   "null"
+  ],
+  "NO_SITE_411": [
+   "NTP13",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_157": [
+   "NTP13",
+   "1",
+   "null"
+  ],
+  "NO_SITE_605": [
+   "NTP14",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_231": [
+   "NTP14",
+   "1",
+   "null"
+  ],
+  "NO_SITE_664": [
+   "NTP15",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_422": [
+   "NTP15",
+   "1",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_594": [
+   "NTP16",
+   "0",
+   "null"
+  ],
+  "ONE_NON-GENE_SITE_869": [
+   "NTP16",
+   "1",
+   "null"
+  ]
+ },
+ "control_sgrnas": [
+  "NO_SITE_172",
+  "NO_SITE_205",
+  "NO_SITE_23",
+  "NO_SITE_304",
+  "NO_SITE_355",
+  "NO_SITE_38",
+  "NO_SITE_40",
+  "NO_SITE_47",
+  "NO_SITE_544",
+  "NO_SITE_547",
+  "NO_SITE_628",
+  "NO_SITE_678",
+  "NO_SITE_706",
+  "NO_SITE_716",
+  "NO_SITE_81",
+  "NO_SITE_812",
+  "NO_SITE_820",
+  "NO_SITE_913",
+  "NO_SITE_915",
+  "NO_SITE_960",
+  "ONE_NON-GENE_SITE_177",
+  "ONE_NON-GENE_SITE_217",
+  "ONE_NON-GENE_SITE_241",
+  "ONE_NON-GENE_SITE_249",
+  "ONE_NON-GENE_SITE_293",
+  "ONE_NON-GENE_SITE_328",
+  "ONE_NON-GENE_SITE_409",
+  "ONE_NON-GENE_SITE_531",
+  "ONE_NON-GENE_SITE_570",
+  "ONE_NON-GENE_SITE_598",
+  "ONE_NON-GENE_SITE_636",
+  "ONE_NON-GENE_SITE_658",
+  "ONE_NON-GENE_SITE_670",
+  "ONE_NON-GENE_SITE_672",
+  "ONE_NON-GENE_SITE_675",
+  "ONE_NON-GENE_SITE_724",
+  "ONE_NON-GENE_SITE_736",
+  "ONE_NON-GENE_SITE_859",
+  "ONE_NON-GENE_SITE_915",
+  "ONE_NON-GENE_SITE_993"
+ ],
+ "caps": {
+  "test": 200,
+  "train": 200,
+  "ctrl": 6000,
+  "minc": 30,
+  "minc_train": 10
+ },
+ "rules": "Model evaluation step 3: Frangieh et al. 2021 (Perturb-CITE-seq, patient-derived melanoma cells, Cas9 knockout;\nscPerturb v1.4 FrangiehIzar2021_RNA.h5ad) in the pilot format, for a low-clonality point. One transduced pool was\nexpanded and plated into three conditions (Control, IFN-gamma, co-culture with TILs), so clones are shared across\nconditions, but each sgRNA's cells come from many clones (cell line, ~1,000 cells per sgRNA at transduction).\nCells: single-guide cells (MOI == 1, sgRNA called). UMI = obs ncounts (all genes). Pair: source Control -> target T\n(IFNg or Coculture). Units = sgRNAs; a unit qualifies with >= MINC cells in both conditions.\n  gene     test targets: genes with >= 2 qualifying sgRNAs; the two with most cells (min over conditions) are g0 / g1\n           (by name). Further qualifying sgRNAs of the gene become training units '<gene>~<k>' (k = 3, ...), so\n           baselines and STATE see the same training set.\n  null     the non-targeting sgRNAs that qualify, shuffled (seed 7); half are paired into pseudo-targets 'NTP<i>' (g0 / g1),\n           whose A - B can only come from clones; all other non-targeting cells are the control group.\n  train    every other sgRNA with >= MINC_TRAIN cells in both conditions (gp = name rank within its gene).\nCross-fit (about 250 genes only): the gene and null test targets are split into NFOLD folds (seed 8); fold k tests its\nown targets and trains on everything else (the other fold's test targets included). Same cells for every fold.\nCells per unit: up to CAP (seed 6); control cells up to NCTRL. Genes: control mean log1p CP10K >= 0.05 in both\nconditions; the NHVG with the largest standardised variance of unit means in the SOURCE condition (all units; no\ntarget-condition data of test units is used), plus the measured test target genes.\nOutput: <out>/<T>/pilot_Control.npz, pilot_<T>.npz (pilot format + unit = sgRNA name), fold<k>/pilot_design.json\n(extra_kinds null, gene) with links to the npz. Usage: me_frangieh_extract.py <h5ad> <out_dir>"
+}

@@ -1,0 +1,39 @@
+# References for preprint_next.md (key: entry). Numbered by first citation at build time.
+
+- Replogle2022: Replogle, J. M. et al. Mapping information-rich genotype–phenotype landscapes with genome-scale Perturb-seq. *Cell* **185**, 2559–2575 (2022).
+- Nadig2025: Nadig, A. et al. Transcriptome-wide analysis of differential expression in perturbation atlases. *Nat. Genet.* **57**, 1228–1237 (2025).
+- Zhu2026: Zhu, R. et al. Genome-scale perturb-seq in primary human CD4+ T cells maps context-specific regulators of T cell programs and human immune traits. *Cell* https://doi.org/10.1016/j.cell.2026.08.002 (2026).
+- VCC2025: Roohani, Y. H. et al. Virtual Cell Challenge: toward a Turing test for the virtual cell. *Cell* **188**, 3370–3374 (2025).
+- Bunne2024: Bunne, C. et al. How to build the virtual cell with artificial intelligence: priorities and opportunities. *Cell* **187**, 7045–7063 (2024).
+- WangX2026: Wang, X., Kuipers, J., Hugi, F., Platt, R. J. & Beerenwinkel, N. Reliable single-cell perturbations explain and improve model performance. Preprint at *bioRxiv* https://doi.org/10.64898/2026.08.11.744177 (2026).
+- CellEval: Arc Institute. cell-eval, version 0.8.2. https://github.com/ArcInstitute/cell-eval (2026).
+- Spearman1910: Spearman, C. Correlation calculated from faulty data. *Br. J. Psychol.* **3**, 271–295 (1910).
+- Brown1910: Brown, W. Some experimental results in the correlation of mental abilities. *Br. J. Psychol.* **3**, 296–322 (1910).
+- Molina2026: Molina, A. & Zhang, X. Perturbation response decomposition enables biologically aligned generalization to unseen perturbations and cellular contexts. Preprint at *bioRxiv* https://doi.org/10.64898/2026.07.24.740459 (2026).
+- Adduri2026: Adduri, A. K. et al. Predicting cellular responses to perturbation across diverse contexts with State. *Cell* **189**, 5914–5931 (2026).
+- Schmierer2017: Schmierer, B. et al. CRISPR/Cas9 screening using unique molecular identifiers. *Mol. Syst. Biol.* **13**, 945 (2017).
+- Sivakumar2025: Sivakumar, S. et al. Benchmarking and optimizing Perturb-seq in differentiating human pluripotent stem cells. *Stem Cell Rep.* **20**, 102713 (2025).
+- Regalado2025: Regalado, S. G. et al. Barcoded monoclonal embryoids are a potential solution to confounding bottlenecks in mosaic organoid screens. Preprint at *bioRxiv* https://doi.org/10.1101/2025.05.23.655669 (2025).
+- Squair2021: Squair, J. W. et al. Confronting false discoveries in single-cell differential expression. *Nat. Commun.* **12**, 5692 (2021).
+- Zimmerman2021: Zimmerman, K. D., Espeland, M. A. & Langefeld, C. D. A practical solution to pseudoreplication bias in single-cell studies. *Nat. Commun.* **12**, 738 (2021).
+- WangY2022: Wang, Y., Xie, S., Armendariz, D. & Hon, G. C. Computational identification of clonal cells in single-cell CRISPR screens. *BMC Genomics* **23**, 135 (2022).
+- Raju2026: Raju, P. C. Directional coherence and effect magnitude in single-cell CRISPR perturbation responses. Preprint at *arXiv* https://arxiv.org/abs/2604.16642 (2026).
+- Maciocia2017: Maciocia, P. M. et al. Targeting the T cell receptor β-chain constant region for immunotherapy of T cell malignancies. *Nat. Med.* **23**, 1416–1423 (2017).
+- Li2023: Li, C. et al. Single-cell brain organoid screening identifies developmental defects in autism. *Nature* **621**, 373–380 (2023).
+- Kish1965: Kish, L. *Survey Sampling* (Wiley, 1965).
+- Kish1992: Kish, L. Weighting for unequal P~i~. *J. Off. Stat.* **8**, 183–200 (1992).
+- Eldridge2006: Eldridge, S. M., Ashby, D. & Kerry, S. Sample size for cluster randomized trials: effect of coefficient of variation of cluster size and analysis method. *Int. J. Epidemiol.* **35**, 1292–1300 (2006).
+- Knudsen2025: Knudsen, N. H. et al. In vivo CRISPR screens identify modifiers of CAR T cell function in myeloma. *Nature* **646**, 953–962 (2025).
+- Fagerberg2025: Fagerberg, E. et al. KLF2 maintains lineage fidelity and suppresses CD8 T cell exhaustion during acute LCMV infection. *Science* **387**, eadn2337 (2025).
+- Shi2026: Shi, T. et al. Genome-scale functional mapping of the mammalian whole brain with in vivo Perturb-seq. Preprint at *bioRxiv* https://doi.org/10.64898/2026.03.16.711480 (2026).
+- Frangieh2021: Frangieh, C. J. et al. Multimodal pooled Perturb-CITE-seq screens in patient models define mechanisms of cancer immune evasion. *Nat. Genet.* **53**, 332–341 (2021).
+- Schmidt2022: Schmidt, R. et al. CRISPR activation and interference screens decode stimulation responses in primary human T cells. *Science* **375**, eabj4008 (2022).
+- Zhou2023: Zhou, P. et al. Single-cell CRISPR screens in vivo map T cell fate regulomes in cancer. *Nature* **624**, 154–163 (2023).
+- Cao2026: Cao, Z. et al. CRISPR-based functional genomics for dissecting therapeutic dependency in primary acute myeloid leukemia samples. *Mol. Cell* **86**, 968–985 (2026).
+- Jin2020: Jin, X. et al. In vivo Perturb-Seq reveals neuronal and glial abnormalities associated with autism risk genes. *Science* **370**, eaaz6063 (2020).
+- Verma2026: Verma, R. et al. PIE: generalizing perturbation effects across unseen perturbations, contexts and datasets. Preprint at *bioRxiv* https://doi.org/10.64898/2026.10.02.756297 (2026).
+- Lotfollahi2023: Lotfollahi, M. et al. Predicting cellular responses to complex perturbations in high-throughput screens. *Mol. Syst. Biol.* **19**, e11517 (2023).
+- Piran2024: Piran, Z., Cohen, N., Hoshen, Y. & Nitzan, M. Disentanglement of single-cell data with biolord. *Nat. Biotechnol.* **42**, 1678–1683 (2024).
+- Dong2026: Dong, M. et al. Stack: in-context learning of single-cell biology. Preprint at *bioRxiv* https://doi.org/10.64898/2026.01.09.698608 (2026).
+- Rosenbluh2017: Rosenbluh, J. et al. Complementary information derived from CRISPR Cas9 mediated gene deletion and suppression. *Nat. Commun.* **8**, 15403 (2017).
+- Zenodo2026: Huang, X. random-halves-not-replicates (all versions). *Zenodo* https://doi.org/10.5281/zenodo.23476349 (2026).

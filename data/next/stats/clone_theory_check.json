@@ -1,0 +1,253 @@
+{
+ "rules": "Supplementary Note checks: the propositions behind clone strength, verified symbolically (sympy) and by simulation\nrecovery (known truth). Model (per perturbation, G genes): cell i of clone k has expression vector\n    x_i = mu + c_k + e_i,   c_k ~ N(0, s_c^2 I_G) independent over clones,  e_i ~ N(0, s_e^2 I_G) independent over cells,\nand effects are taken against a reference that is fixed (or estimated from many cells). ICC = s_c^2 / (s_c^2 + s_e^2).\nP1  For two disjoint sets of cells A, B with clone shares a_k, b_k (sum a_k = sum b_k = 1),\n        E[xbar_A . xbar_B] = |mu|^2 + G s_c^2 sum_k a_k b_k\n    (cell noise does not enter because A and B share no cell). Independent replicates (no shared clone): |mu|^2.\nP2  Random halves: for n_k cells in clone k split by fair coins, E[sum_k a_k b_k] = sum_k p_k^2 (1 + O(1/n)).\n    Hence clone strength (random - independent) / (G (s_c^2 + s_e^2)) = ICC sum p_k^2 = ICC / K_eff, K_eff = 1/sum p_k^2,\n    independent of the number of cells.\nP3  If N0 clones have sizes with mean m and coefficient of variation CV, sum p_k^2 = N0 E[n^2] / (N0 m)^2 (to leading\n    order) = (1 + CV^2) / N0, i.e. K_eff = N0 / (1 + CV^2).\nP4  Split-half reliability of a null perturbation (correlation over genes between the two half means, then\n    Spearman-Brown) tends to 1 as cells grow when s_c > 0 and K is fixed, although its effect in an independent\n    experiment is 0: SB extrapolates agreement within the same clones.\nP5  Two contexts R, S share clones; clone k shifts R by c_k and S by q c_k. With s = (x_R + x_S)/2 and\n    d = (x_R - x_S)/2 from disjoint halves A and B: E[s_A . d_B] = G s_c^2 (1 + q)(1 - q)/4 sum a_k b_k, non-zero for q != 1\n    and zero for independent replicates.\nSimulation: screens with known s_c, s_e, clone counts and size CV; the estimator used on data (random-half signal minus\nthe signal between two different null perturbations, divided by the per-cell variance) is compared with ICC sum p_k^2.\nUsage: clone_theory_check.py <out.json>",
+ "symbolic": {
+  "P1": true,
+  "P2_leading": true,
+  "P3": true,
+  "P5": true
+ },
+ "simulation": {
+  "recovery": [
+   {
+    "ICC": 0.01,
+    "clones": 5,
+    "CV": 0.5,
+    "cells": 100,
+    "estimate": 0.0023132236858276335,
+    "truth": 0.0024364000000000005,
+    "K_eff_formula": 4.0
+   },
+   {
+    "ICC": 0.01,
+    "clones": 5,
+    "CV": 0.5,
+    "cells": 400,
+    "estimate": 0.0024051335502291247,
+    "truth": 0.0024053743055555557,
+    "K_eff_formula": 4.0
+   },
+   {
+    "ICC": 0.01,
+    "clones": 20,
+    "CV": 1.0,
+    "cells": 100,
+    "estimate": 0.0008771515086253037,
+    "truth": 0.0010358222222222227,
+    "K_eff_formula": 10.0
+   },
+   {
+    "ICC": 0.01,
+    "clones": 20,
+    "CV": 1.0,
+    "cells": 400,
+    "estimate": 0.000946247938753244,
+    "truth": 0.0009773208333333334,
+    "K_eff_formula": 10.0
+   },
+   {
+    "ICC": 0.01,
+    "clones": 50,
+    "CV": 2.0,
+    "cells": 100,
+    "estimate": 0.0012053550103686634,
+    "truth": 0.0009855777777777782,
+    "K_eff_formula": 10.0
+   },
+   {
+    "ICC": 0.01,
+    "clones": 50,
+    "CV": 2.0,
+    "cells": 400,
+    "estimate": 0.0009501102714462472,
+    "truth": 0.0009488708333333335,
+    "K_eff_formula": 10.0
+   },
+   {
+    "ICC": 0.01,
+    "clones": 200,
+    "CV": 1.0,
+    "cells": 100,
+    "estimate": 0.00010221587474963489,
+    "truth": 0.00019958888888888893,
+    "K_eff_formula": 100.0
+   },
+   {
+    "ICC": 0.01,
+    "clones": 200,
+    "CV": 1.0,
+    "cells": 400,
+    "estimate": 0.00010783016212600983,
+    "truth": 0.00012459861111111114,
+    "K_eff_formula": 100.0
+   },
+   {
+    "ICC": 0.05,
+    "clones": 5,
+    "CV": 0.5,
+    "cells": 100,
+    "estimate": 0.012274165171617972,
+    "truth": 0.012337833333333334,
+    "K_eff_formula": 4.0
+   },
+   {
+    "ICC": 0.05,
+    "clones": 5,
+    "CV": 0.5,
+    "cells": 400,
+    "estimate": 0.01165921815018584,
+    "truth": 0.011892871527777779,
+    "K_eff_formula": 4.0
+   },
+   {
+    "ICC": 0.05,
+    "clones": 20,
+    "CV": 1.0,
+    "cells": 100,
+    "estimate": 0.0044664699301827405,
+    "truth": 0.0052393333333333346,
+    "K_eff_formula": 10.0
+   },
+   {
+    "ICC": 0.05,
+    "clones": 20,
+    "CV": 1.0,
+    "cells": 400,
+    "estimate": 0.004576576427274926,
+    "truth": 0.004865600694444444,
+    "K_eff_formula": 10.0
+   },
+   {
+    "ICC": 0.05,
+    "clones": 50,
+    "CV": 2.0,
+    "cells": 100,
+    "estimate": 0.004819661502010602,
+    "truth": 0.005158944444444445,
+    "K_eff_formula": 10.0
+   },
+   {
+    "ICC": 0.05,
+    "clones": 50,
+    "CV": 2.0,
+    "cells": 400,
+    "estimate": 0.004735489849578701,
+    "truth": 0.004773284722222222,
+    "K_eff_formula": 10.0
+   },
+   {
+    "ICC": 0.05,
+    "clones": 200,
+    "CV": 1.0,
+    "cells": 100,
+    "estimate": 0.00047679483068259395,
+    "truth": 0.0009988333333333336,
+    "K_eff_formula": 100.0
+   },
+   {
+    "ICC": 0.05,
+    "clones": 200,
+    "CV": 1.0,
+    "cells": 400,
+    "estimate": 0.0004669029535442416,
+    "truth": 0.0006224618055555555,
+    "K_eff_formula": 100.0
+   },
+   {
+    "ICC": 0.2,
+    "clones": 5,
+    "CV": 0.5,
+    "cells": 100,
+    "estimate": 0.0474624594821473,
+    "truth": 0.048343111111111114,
+    "K_eff_formula": 4.0
+   },
+   {
+    "ICC": 0.2,
+    "clones": 5,
+    "CV": 0.5,
+    "cells": 400,
+    "estimate": 0.04877855794287362,
+    "truth": 0.04858001388888889,
+    "K_eff_formula": 4.0
+   },
+   {
+    "ICC": 0.2,
+    "clones": 20,
+    "CV": 1.0,
+    "cells": 100,
+    "estimate": 0.01925624117799925,
+    "truth": 0.021223111111111113,
+    "K_eff_formula": 10.0
+   },
+   {
+    "ICC": 0.2,
+    "clones": 20,
+    "CV": 1.0,
+    "cells": 400,
+    "estimate": 0.019059261799097046,
+    "truth": 0.019441805555555556,
+    "K_eff_formula": 10.0
+   },
+   {
+    "ICC": 0.2,
+    "clones": 50,
+    "CV": 2.0,
+    "cells": 100,
+    "estimate": 0.0188967024409265,
+    "truth": 0.020266222222222227,
+    "K_eff_formula": 10.0
+   },
+   {
+    "ICC": 0.2,
+    "clones": 50,
+    "CV": 2.0,
+    "cells": 400,
+    "estimate": 0.01781398581460095,
+    "truth": 0.018219055555555554,
+    "K_eff_formula": 10.0
+   },
+   {
+    "ICC": 0.2,
+    "clones": 200,
+    "CV": 1.0,
+    "cells": 100,
+    "estimate": 0.002040433068849615,
+    "truth": 0.004019111111111112,
+    "K_eff_formula": 100.0
+   },
+   {
+    "ICC": 0.2,
+    "clones": 200,
+    "CV": 1.0,
+    "cells": 400,
+    "estimate": 0.0019929152041343115,
+    "truth": 0.002493555555555556,
+    "K_eff_formula": 100.0
+   }
+  ],
+  "recovery_pearson": 0.9990847038389499,
+  "recovery_slope": 0.9793617316293864,
+  "spearman_brown_vs_cells": [
+   {
+    "cells": 50,
+    "split_half_r": 0.23093710327993033,
+    "spearman_brown": 0.37522161394693515
+   },
+   {
+    "cells": 200,
+    "split_half_r": 0.5616642264247089,
+    "spearman_brown": 0.7193149678667983
+   },
+   {
+    "cells": 800,
+    "split_half_r": 0.8352302944470754,
+    "spearman_brown": 0.9102185126022199
+   },
+   {
+    "cells": 3200,
+    "split_half_r": 0.9533634548895439,
+    "spearman_brown": 0.9761250037755553
+   }
+  ]
+ }
+}

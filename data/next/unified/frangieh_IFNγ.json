@@ -1,0 +1,62 @@
+{
+ "rules": "Unified clone ruler for h5ad screens (null_ruler.py, both references). Reads only what the ruler needs: all\nnon-targeting cells and the cells of up to NTG randomly chosen targeting units, straight from the h5ad with h5py (dense\nor CSR X; old-style obs with __categories or new-style categorical obs). Counts are log1p CP10K; if X is not integer\ncounts (max fractional part > 0) it is used as given.\nColumns are given per dataset: unit (guide or guide pair), target (gene; non-targeting cells are those whose target\ncontains 'non-targeting' or equals 'control' / 'non_target' / 'NTC'), sample (10x lane or batch; reference group and\nreplicate label), optional quality column (cells with a true value are dropped).\nOptions: qc=<col> drops cells whose value is true; keep=<col>:<value> keeps only cells with that value (repeatable);\ndrop=<col>:<value> drops cells with that value (repeatable); ntg=<n> targeting units sampled (default 400).\nUsage: unified_null.py <h5ad> <unit col> <target col | @guide_type> <sample col or -> <out.json> [options]",
+ "info": {
+  "file": "FrangiehIzar2021_RNA.h5ad",
+  "options": [
+   "keep=perturbation_2:IFN\u03b3"
+  ],
+  "cells_read": 47767,
+  "null_cells": 23910,
+  "null_units": 75,
+  "target_units_sampled": 400,
+  "samples": 1
+ },
+ "ruler_all": {
+  "ref_mode": "all",
+  "n_genes": 6294,
+  "V_cell": 1364.0083734118482,
+  "n_null_units": 74,
+  "n_target_units": 328,
+  "null_share_pos_random": 0.7972972972972973,
+  "null_share_pos_diff": 0.6151351351351352,
+  "null_mean_random": 0.79284841488392,
+  "null_se_random": 0.12811177920537292,
+  "null_mean_diff": 0.37263135913720113,
+  "null_scaled": 0.000581263598038432,
+  "null_clone_scaled": 0.00030807512911054446,
+  "null_cells_median": 84.0,
+  "target_mean_random": 2.294280725570302,
+  "target_median_random": 1.0746324425320357,
+  "target_cells_median": 70.0,
+  "ratio_null_to_target_mean": 0.34557602565694623,
+  "ratio_null_to_target_median": 0.7377856683870629,
+  "n_targets_two_units": 110,
+  "target_cross_unit": 1.116839493735029,
+  "target_random_same": 1.6160146480550421,
+  "share_reproduced_by_other_guide": 0.6911072836370658
+ },
+ "ruler_null": {
+  "ref_mode": "null",
+  "n_genes": 6294,
+  "V_cell": 1364.0083734118482,
+  "n_null_units": 74,
+  "n_target_units": 328,
+  "null_share_pos_random": 0.9324324324324325,
+  "null_share_pos_diff": 0.8097297297297297,
+  "null_mean_random": 1.8554449058824733,
+  "null_se_random": 0.17267099151813672,
+  "null_mean_diff": 1.3148209182588932,
+  "null_scaled": 0.001360288501192537,
+  "null_clone_scaled": 0.00039634946394888755,
+  "null_cells_median": 84.0,
+  "target_mean_random": 3.2328449046071244,
+  "target_median_random": 2.0523560305100186,
+  "target_cells_median": 70.0,
+  "ratio_null_to_target_mean": 0.5739356389285117,
+  "ratio_null_to_target_median": 0.9040560596210921,
+  "n_targets_two_units": 110,
+  "target_cross_unit": 2.160276862808284,
+  "target_random_same": 2.6009957085499615,
+  "share_reproduced_by_other_guide": 0.8305576421010801
+ }
+}

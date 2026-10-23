@@ -1,0 +1,115 @@
+{
+ "rules": "Model evaluation step 1: per-donor clonality from the TRBC marker (A100; cells.npz of cd4_sc_extract_cells.py).\nPer cell f = TRBC1 / (TRBC1 + TRBC2) (>= MINTR counts); a clone carries one TCR beta rearrangement, so cells of one\nclone share f, and a group drawn from few clones has a mean f away from the population mean f0.\n  var_z     TRBC overdispersion at target level, as clone_tests_cd4.py: var over targets (>= 2 MINF valid cells) of\n            z = (mean f - f0) / (sd_f / sqrt(n)); 1 under random assignment. It grows with cells per target as well\n            as with clonality (var_z - 1 is about n times the clone variance of a target mean).\n  vc        size-free clone variance of a guide mean, in units of the per-cell variance sd_f^2: mean over guides of\n            ((mean f - f0)^2 - sd_f^2 / n) / sd_f^2 (guides with >= MINF valid cells). Subsampling cells keeps a\n            guide's clone mix, so vc also holds for the pilot's capped subsets; vc_test is over the pilot test guides.\nUsage: me_clonality.py <out_json> <donor>:<cells_rest>:<cells_stim>:<pilot_design.json> ...",
+ "D1": {
+  "rest": {
+   "var_z": 34.094540017901515,
+   "n_targets": 10165,
+   "median_cells_per_target": 131.0,
+   "vc": 0.276971546577316,
+   "vc_se": 0.0024868613065425474,
+   "n_guides": 17447,
+   "vc_test": 0.27641413522767344,
+   "vc_test_se": 0.014308646619703045,
+   "n_test_guides": 500,
+   "f0": 0.30508217215538025,
+   "sd_f": 0.31180816888809204
+  },
+  "stim48": {
+   "var_z": 28.485423626603346,
+   "n_targets": 10355,
+   "median_cells_per_target": 119.0,
+   "vc": 0.27474331242079086,
+   "vc_se": 0.0024488462440432662,
+   "n_guides": 18194,
+   "vc_test": 0.27859769032285353,
+   "vc_test_se": 0.014694816970025107,
+   "n_test_guides": 500,
+   "f0": 0.33518514037132263,
+   "sd_f": 0.3419272005558014
+  }
+ },
+ "D2": {
+  "rest": {
+   "var_z": 81.04148756977112,
+   "n_targets": 9334,
+   "median_cells_per_target": 125.0,
+   "vc": 0.4286228030789233,
+   "vc_se": 0.004174746772304539,
+   "n_guides": 15099,
+   "vc_test": 0.4451265761467819,
+   "vc_test_se": 0.02234596251023796,
+   "n_test_guides": 522,
+   "f0": 0.26081353425979614,
+   "sd_f": 0.30411338806152344
+  },
+  "stim48": {
+   "var_z": 77.81474540720468,
+   "n_targets": 9621,
+   "median_cells_per_target": 123.0,
+   "vc": 0.4249758972660937,
+   "vc_se": 0.004215953667279755,
+   "n_guides": 15720,
+   "vc_test": 0.4368147524459971,
+   "vc_test_se": 0.023019292603927356,
+   "n_test_guides": 522,
+   "f0": 0.2771454453468323,
+   "sd_f": 0.32426679134368896
+  }
+ },
+ "D3": {
+  "rest": {
+   "var_z": 80.7757410956558,
+   "n_targets": 9170,
+   "median_cells_per_target": 136.0,
+   "vc": 0.5352197854125367,
+   "vc_se": 0.00565219662234183,
+   "n_guides": 14536,
+   "vc_test": 0.5173549921621995,
+   "vc_test_se": 0.02998917959372727,
+   "n_test_guides": 506,
+   "f0": 0.24397721886634827,
+   "sd_f": 0.32078495621681213
+  },
+  "stim48": {
+   "var_z": 77.21859487482172,
+   "n_targets": 8953,
+   "median_cells_per_target": 130.0,
+   "vc": 0.5192895056346223,
+   "vc_se": 0.005889274425324908,
+   "n_guides": 14133,
+   "vc_test": 0.4910036058949734,
+   "vc_test_se": 0.02965211048511265,
+   "n_test_guides": 506,
+   "f0": 0.23576411604881287,
+   "sd_f": 0.3145875930786133
+  }
+ },
+ "D4": {
+  "rest": {
+   "var_z": 17.240508291272665,
+   "n_targets": 11032,
+   "median_cells_per_target": 135.0,
+   "vc": 0.15615475356548109,
+   "vc_se": 0.0017706744795610162,
+   "n_guides": 20092,
+   "vc_test": 0.15778449077755755,
+   "vc_test_se": 0.009902511503358438,
+   "n_test_guides": 554,
+   "f0": 0.24576039612293243,
+   "sd_f": 0.3176773488521576
+  },
+  "stim48": {
+   "var_z": 19.265519354074915,
+   "n_targets": 11020,
+   "median_cells_per_target": 141.0,
+   "vc": 0.1663134013958414,
+   "vc_se": 0.0018638378430286247,
+   "n_guides": 20313,
+   "vc_test": 0.14829939815137955,
+   "vc_test_se": 0.00925699203653658,
+   "n_test_guides": 554,
+   "f0": 0.24856121838092804,
+   "sd_f": 0.3154720366001129
+  }
+ }
+}

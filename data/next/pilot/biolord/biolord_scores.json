@@ -1,0 +1,27 @@
+{
+ "model": "biolord",
+ "biolord_version": "0.0.3",
+ "train_seconds": 437.85287404060364,
+ "n_source": 1000,
+ "scores": {
+  "inert": {
+   "n": 254,
+   "pearson_A": 0.004689287373825077,
+   "pearson_B": 0.01023477452907031,
+   "leak": -0.005545487155245236,
+   "leak_se": 0.021530580257499092
+  },
+  "strong": {
+   "n": 246,
+   "pearson_A": -0.03531413873081508,
+   "pearson_B": -0.030594260115772712,
+   "leak": -0.004719878615042372,
+   "leak_se": 0.02285628467212128
+  }
+ },
+ "fit_check": {
+  "resting_fit_pearson": 0.024975039332415554,
+  "n": 500
+ },
+ "rules": "Model pilot: biolord (0.0.3) on the donor-1 resting / stimulated subset (pilot_common.build_adata; same cells and\nsplit as pilot_cpa.py). Categorical attributes: condition (guide label) and state. Module and trainer settings, n_latent\nand the training call are those of biolord's own tutorial (docs/tutorials/biolord_pipeline.ipynb); no tuning.\nCounterfactual (as compute_prediction_adata, restricted to the test guides): stimulated control cells from training\n(biolord keeps a learned latent per training cell) are given each test guide's condition code and decoded; a guide's\npredicted effect is the mean over these cells minus biolord's prediction for the same cells under the control label.\nUsage: CUDA_VISIBLE_DEVICES=<gpu> pilot_biolord.py <data_dir> <out_dir> [max_epochs] [n_source]"
+}

@@ -1,0 +1,29 @@
+{
+ "donor": "Control_to_IFNg",
+ "kind": "null",
+ "rules": "Model evaluation step 3: clonality in expression, on one scale for CD4 and Frangieh (the expression analogue of the\nTRBC vc of me_clonality.py; TRBC exists only in T cells). Null units: guides with no true effect (CD4: guides of\nunexpressed targets, kind 'inert'; Frangieh: non-targeting sgRNAs, kind 'null').\nFor a unit, its cells are split into random halves A and B, the control cells into halves C1 and C2 (seed 11);\nd_A = mean_A - mean_C1, d_B = mean_B - mean_C2 (log1p CP10K, the run's evaluation genes, target gene excluded).\n  vc_expr   mean over units of sum_g d_A,g d_B,g / sum_g var_g, with var_g the per-cell variance of control cells.\n            Sampling noise of different cells averages out of the cross product, so this estimates the squared\n            deviation that all of the unit's cells share (its clone mix) relative to the per-cell variance, at any\n            cell number; it is what the shared-clone truth A shares with the input.\n  vc_guide  the same cross product between the two guides of a null target (independent transductions; ~0 expected)\n  *_ds      the same with every unit first subsampled to NDS cells (mean of NREP draws), as a check on the\n            cell-number independence\nSEs over targets (a target's two guides averaged). Usage (env PILOT_DONOR or PILOT_STATES): me_vc_expr.py <data_dir>\n<kind> <out_json>",
+ "Control": {
+  "n_units": 34,
+  "n_targets": 17,
+  "vc_expr": 0.0002288372052134946,
+  "vc_expr_se": 0.0005261981743295757,
+  "vc_expr_ds": 0.0004626439044573892,
+  "vc_expr_ds_se": 0.00044794080208576486,
+  "vc_guide": -0.00014497982920147479,
+  "vc_guide_se": 0.00024620614049089735,
+  "n_genes": 2111,
+  "median_cells_per_unit": 49.0
+ },
+ "IFNg": {
+  "n_units": 34,
+  "n_targets": 17,
+  "vc_expr": 0.0004333793476689607,
+  "vc_expr_se": 0.0002804390764220731,
+  "vc_expr_ds": 0.00022216390243556816,
+  "vc_expr_ds_se": 0.00019548539907168503,
+  "vc_guide": 3.756235309992917e-05,
+  "vc_guide_se": 0.00021422822423298018,
+  "n_genes": 2111,
+  "median_cells_per_unit": 76.0
+ }
+}

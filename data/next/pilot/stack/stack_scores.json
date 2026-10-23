@@ -1,0 +1,24 @@
+{
+ "model": "Stack",
+ "checkpoint": "bc_large_aligned.ckpt",
+ "n_test_cells": 1000,
+ "pilot_genes_covered": 1672,
+ "scores": {
+  "inert": {
+   "n": 254,
+   "pearson_A": 0.038219085311845306,
+   "pearson_B": 0.0025461064167499425,
+   "leak": 0.03567297889509537,
+   "leak_se": 0.014292768717665421
+  },
+  "strong": {
+   "n": 246,
+   "pearson_A": 0.022949851488553975,
+   "pearson_B": -0.005171665396544195,
+   "leak": 0.02812151688509817,
+   "leak_se": 0.01523924431708931
+  }
+ },
+ "seconds": 9873.167854070663,
+ "rules": "Model pilot: Stack (arc-stack, checkpoint Stack-Large-Aligned) in-context generation, no training on these data.\nAs the Stack prediction tutorial (notebooks/tutorial-predict.ipynb; prompt 0.25, context 0.4, 5 steps, batch 16):\n  base   the resting cells of each test guide (one split per guide label) and resting control cells ('non-targeting')\n  test   NTEST stimulated control cells (random, seed 7)\nRaw counts over all genes (pilot_<state>_allgenes.npz; Stack applies its own library-size scaling and log1p). For each\nsplit Stack generates the test cells under that condition. Generated cells are put on log1p CP10K (their own totals);\na guide's predicted effect is the mean over its generated cells minus the mean over the generated control cells, on the\npilot genes, scored by pilot_common.score on the pilot genes present in Stack's gene list.\nUsage: CUDA_VISIBLE_DEVICES=<gpu> pilot_stack.py <data_dir> <model_dir> <out_dir> [n_test]"
+}

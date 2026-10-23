@@ -59,3 +59,13 @@ Pearson correlations under random and guide halves, TRBC1-fraction deviations); 
 | `sim_v6.json` | `clone_model_sim.py` | `sim/sim_v6.json` | plot_main_figs.py | `dcf2758372d30512c2c4946d311657d649fea1122645081616a1fd4981ce9499` |
 | `tahoe_recompute.json` | `tahoe_plate_recompute.py` | `tahoe/plate_recompute/metrics_tahoe_plate_recompute.json` | text only | `192904646cc5f975910303e7df0d974e8f43e5fab6e20bc5973ae62098466103` |
 | `trbc_state_keff.json` | `cd4_trbc_state_keff.py` | `trbc/trbc_state_keff.json` | text only | `fe8594774e7847a07fbbb3123c5aa9d81b569d33e1321d6ed8f0fb665f2fb2fd` |
+
+## Second version: data/next/
+
+The result files of the second version of the preprint (6.5 MB) are in `data/next/`, under the names that
+`plot_next_figs.py` and `me_summary.py` read; `bash pipelines/run_next.sh collect_next` recreates the set from a full run
+(`FIGDATA/next`). The README section "Second version of the preprint" lists the script and manuscript item behind each
+file. `data/next/pilot/` holds the score files of the donor-1 model pilot (Fig. 7a, Supplementary Table S6), from which
+`model_eval/pilot_summary.py` writes `model_pilot_summary_table.md`; `data/next/inputs/` holds the run list and library
+table of the organoid clone-barcode reads and the file list of the whole-brain data. The `file` fields of
+`data/next/unified/*.json` hold only the input file name.

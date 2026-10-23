@@ -1,0 +1,83 @@
+{
+ "rules": "Whole-brain in vivo Perturb-seq (AAV at P16 into post-mitotic neurons: no clonal expansion): the clone null test of\nthe preprint (Fig. 2c) and the cross-context A / B comparison of the model evaluation, from wb_aggregate.py sums.\nEffects (per unit = guide x class, per random half): mean log1p CP10K minus a non-targeting reference, either\n  within  the non-targeting mean of the same mouse, class and half, weighted by the unit's nuclei per mouse (removes\n          differences between mice, which random halves of one guide share and two different guides do not), or\n  global  the non-targeting mean of the class and half over all mice (as in a screen without a mouse column).\nGenes: mean >= 0.1 over all non-targeting nuclei of the class. Units need >= MINC nuclei per half.\nNull test (non-targeting guides, per class): cross-half signal sum_g x_A,g x_B,g under random halves; between two\ndifferent non-targeting guides (first half of one, second half of the other; 50 random pairings); share positive,\nmean, and the mean scaled by the summed per-nucleus variance (comparable to vc_expr of the model evaluation); ratio of\nthe non-targeting random-half mean to that of targeting perturbations (grouped by target, centred over targets).\nCross-context A / B (Glut -> GABA): per guide, effects with both halves pooled (within-mouse reference), on genes\npassing in both classes. Test targets: >= 2 guides with >= MINAB nuclei in both classes (g0, g1 = the two with most\nGABA nuclei); split into 2 folds, training on all guides of the other fold's targets plus non-test targets. Models:\ncontext mean, copy, linear (ridge on 50 PCs of the source effects, lambda by 5-fold CV). Truth A = the guide's own GABA\neffect, B = the other guide's GABA effect; Pearson over genes without the target gene.\nUsage: wb_analyze.py <agg.npz> <out.json> [seed]",
+ "n_nuclei": 3360989,
+ "n_mice": 74,
+ "Glut": {
+  "n_genes": 9693,
+  "n_nt_nuclei": 139027,
+  "within": {
+   "n_nt": 399,
+   "n_targets": 2047,
+   "share_pos_random": 0.606516290726817,
+   "share_pos_diff_guides": 0.5048241206030151,
+   "mean_random": 0.3545548430109058,
+   "mean_diff_guides": 0.00858410605631805,
+   "se_random": 0.10089902232847156,
+   "mean_target": 0.6323901568151119,
+   "ratio_nt_to_target": 0.5606583834203556,
+   "mean_random_scaled": 0.0001938575638704069
+  },
+  "global": {
+   "n_nt": 399,
+   "n_targets": 2047,
+   "share_pos_random": 0.6265664160401002,
+   "share_pos_diff_guides": 0.5055276381909548,
+   "mean_random": 0.37558570066940467,
+   "mean_diff_guides": 0.00039869290715484655,
+   "se_random": 0.1094671044687987,
+   "mean_target": 0.6357312462565788,
+   "ratio_nt_to_target": 0.5907932052750159,
+   "mean_random_scaled": 0.00020535646428637577
+  }
+ },
+ "GABA": {
+  "n_genes": 9676,
+  "n_nt_nuclei": 68232,
+  "within": {
+   "n_nt": 396,
+   "n_targets": 2047,
+   "share_pos_random": 0.5429292929292929,
+   "share_pos_diff_guides": 0.5052525252525253,
+   "mean_random": 0.2091671192297373,
+   "mean_diff_guides": 0.006328750909039355,
+   "se_random": 0.10692312837747277,
+   "mean_target": 0.59777185464534,
+   "ratio_nt_to_target": 0.34991128739883015,
+   "mean_random_scaled": 0.00010715033327551864
+  },
+  "global": {
+   "n_nt": 396,
+   "n_targets": 2047,
+   "share_pos_random": 0.5404040404040404,
+   "share_pos_diff_guides": 0.4991919191919192,
+   "mean_random": 0.19055078718238774,
+   "mean_diff_guides": 0.018887499211496322,
+   "se_random": 0.10928258351487288,
+   "mean_target": 0.601618066618798,
+   "ratio_nt_to_target": 0.3167304935726374,
+   "mean_random_scaled": 9.761371877039507e-05
+  }
+ },
+ "ab_Glut_to_GABA": {
+  "n_test_targets": 2033,
+  "truth_A_vs_B": 0.019948049217396242,
+  "mean": {
+   "A": 0.028260737002633807,
+   "B": 0.028260737002633807,
+   "A_minus_B": 0.0,
+   "se": 0.0
+  },
+  "copy": {
+   "A": 0.02982057257714001,
+   "B": 0.020068119546921025,
+   "A_minus_B": 0.009752453030218981,
+   "se": 0.0008346850622232882
+  },
+  "linear": {
+   "A": 0.07111424164993442,
+   "B": 0.039463154614332085,
+   "A_minus_B": 0.03165108703560234,
+   "se": 0.0027059594842329896
+  }
+ }
+}

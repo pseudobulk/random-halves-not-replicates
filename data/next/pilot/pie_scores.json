@@ -1,0 +1,40 @@
+{
+ "model": "PIE",
+ "checkpoint": "best_auprc",
+ "genes_scored": 2140,
+ "scores": {
+  "lfc_pred": {
+   "inert": {
+    "n": 254,
+    "pearson_A": 0.02592133257919678,
+    "pearson_B": 0.010528500013118676,
+    "leak": 0.015392832566078098,
+    "leak_se": 0.0025983417324352454
+   },
+   "strong": {
+    "n": 246,
+    "pearson_A": 0.02949514132397192,
+    "pearson_B": 0.014088201036214726,
+    "leak": 0.015406940287757201,
+    "leak_se": 0.002949796204092423
+   }
+  },
+  "delta_p_pred": {
+   "inert": {
+    "n": 254,
+    "pearson_A": 0.22755694321341202,
+    "pearson_B": 0.10795081040066884,
+    "leak": 0.11960613281274317,
+    "leak_se": 0.014790254644850944
+   },
+   "strong": {
+    "n": 246,
+    "pearson_A": 0.23349179938396317,
+    "pearson_B": 0.12208235182494065,
+    "leak": 0.1114094475590225,
+    "leak_se": 0.017991986166801695
+   }
+  }
+ },
+ "rules": "Model pilot: score PIE's test predictions (pie eval save_predictions=true; checkpoint best_auprc) like the other\nmodels. PIE predicts per (context, perturbation) a log2 fold change (lfc_pred) and an expression-level shift\n(delta_p_pred) for every gene of its axis; both are mapped onto the pilot genes (genes missing from PIE's axis, e.g.\nPuroR, are left out of the Pearson) and scored by pilot_common.score against truth A (same guide) and B (other guide).\nlfc_pred is the primary readout (closest to the pilot's log-scale effect). Usage: pilot_pie_score.py <data_dir> <pred_parquet> <out_json>"
+}

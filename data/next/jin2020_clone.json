@@ -1,0 +1,753 @@
+{
+ "rules": "Jin et al. 2020 (Science; GEO GSE157977): in vivo Perturb-seq in developing mouse cortex. Lentivirus at E12.5 into\ndividing neural progenitors, so the cells of one perturbation descend from a limited number of infected progenitors\n(clones). Both gRNAs of a gene sit in one vector, so the independent replicate here is another library: each of the 18\nlibraries pools BFP+ cells of 1-3 litters (4-20 embryos) harvested on one day, i.e. separate transductions.\nCells: dial-out counts (per library), assigned when the top perturbation barcode has >= 2 UMIs and >= 2x the second;\nbarcodes mapped to genes with Table S5 (barcodes.csv; 'GFP' = GFP-targeting control). RNA: raw CellRanger h5,\ncells with >= MINUMI UMIs; log1p CP10K. Classes by marker means (argmax, >= 0.5): excitatory neurons, interneurons,\nastrocytes, oligodendrocyte lineage.\nEffects: every cell of a perturbation minus the mean of the OTHER assigned cells of its class in its library (removes\nlibrary batch; leaving the perturbation's own cells out of the reference avoids a negative bias between its halves,\nwhich the first version had: with small libraries the noise of one half entered the other half's reference).\nPer perturbation and class (>= MINC cells):\n  random   cells split by a random bit; cross-half signal sum_g x_A,g x_B,g, averaged over NSPLIT random splits\n           (sex-linked genes excluded: embryos of both sexes are pooled); SE by bootstrap over perturbations\n  library  libraries split into two random groups (NSPLIT draws; >= 10 cells in each); same cross-half signal\nThe difference random - library is the part of the reproducible signal that only cells of the same libraries share:\nclones, plus differences between the embryos pooled within a library (no per-embryo label, so this is an upper bound\non the clone part). Scaled by the summed per-cell variance of the class (comparable to vc_expr).\nUsage: jin_clone.py <dir with GEO files + barcodes.csv> <out.json>",
+ "n_cells": 15495,
+ "libraries": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18
+ ],
+ "cells_per_class": {
+  "ExN": 2835,
+  "InN": 1898,
+  "Astro": 4000,
+  "Oligo": 1526
+ },
+ "unassigned": 5236,
+ "cells_per_perturbation": {
+  "TNRC6B": 3811,
+  "CTNNB1": 1035,
+  "ASXL3": 647,
+  "STARD9": 614,
+  "CUL3": 614,
+  "ANK2": 543,
+  "DYRK1A": 503,
+  "MBD5": 469,
+  "FBXO11": 448,
+  "QRICH1": 433,
+  "UPF3B": 430,
+  "ASH1L": 399,
+  "WAC": 392,
+  "SCN2A": 358,
+  "DDX3X": 345,
+  "TCF20": 314,
+  "SETD5": 304,
+  "MYST4": 303,
+  "SETD2": 296,
+  "MLL1": 293,
+  "KDM5B": 272,
+  "ADNP": 268,
+  "SYNGAP1": 261,
+  "SPEN": 254,
+  "DSCAM": 239,
+  "MED13L": 238,
+  "CHD8": 172,
+  "GFP": 149,
+  "POGZ": 143,
+  "ARID1B": 135,
+  "GATAD2B": 132,
+  "PTEN": 131,
+  "SATB2": 119,
+  "TCF7L2": 115,
+  "LARP4B": 102,
+  "CHD2": 99,
+  "ANKRD11": 51,
+  "MAP1A": 40,
+  "SUV420H1": 24
+ },
+ "classes": {
+  "ExN": {
+   "summary": {
+    "n_cells": 2835,
+    "n_genes": 7543,
+    "per_cell_var_sum": 1284.950927734375,
+    "n_perturbations": 22,
+    "mean_random": 4.215465214032711,
+    "mean_library": 0.7699814945607184,
+    "clone_part_share": 0.8173436488106806,
+    "clone_strength": 0.002681412686745221,
+    "clone_strength_se": 0.0007209283117406097,
+    "positive_random_minus_library": 0.9545454545454546,
+    "GFP": {
+     "n": 49,
+     "n_libraries": 10,
+     "random": 7.437926483154297,
+     "library": 1.5574803964991588,
+     "n_splits": 40,
+     "random_scaled": 0.005788490690666955,
+     "library_scaled": 0.0012120932892319147,
+     "ratio_to_targeting_random": 1.7644378747082174
+    }
+   },
+   "perturbations": {
+    "ADNP": {
+     "n": 56,
+     "n_libraries": 10,
+     "random": 2.9088649587880355,
+     "library": 0.7201614705845714,
+     "n_splits": 48
+    },
+    "ANK2": {
+     "n": 80,
+     "n_libraries": 8,
+     "random": 13.858280687332153,
+     "library": 2.426891957010542,
+     "n_splits": 42
+    },
+    "ASH1L": {
+     "n": 83,
+     "n_libraries": 13,
+     "random": 3.763538626432419,
+     "library": 2.7703031635284425,
+     "n_splits": 50
+    },
+    "ASXL3": {
+     "n": 101,
+     "n_libraries": 13,
+     "random": 15.859835052490235,
+     "library": 1.1869158196449279,
+     "n_splits": 50
+    },
+    "CTNNB1": {
+     "n": 178,
+     "n_libraries": 12,
+     "random": 1.0258676030486822,
+     "library": -0.09040138149634004,
+     "n_splits": 50
+    },
+    "CUL3": {
+     "n": 147,
+     "n_libraries": 9,
+     "random": 12.39777063369751,
+     "library": -1.1860142382979393,
+     "n_splits": 50
+    },
+    "DSCAM": {
+     "n": 40,
+     "n_libraries": 8,
+     "random": 0.8540002720057964,
+     "library": 0.11779120630688138,
+     "n_splits": 45
+    },
+    "DYRK1A": {
+     "n": 67,
+     "n_libraries": 8,
+     "random": 11.025249691009522,
+     "library": 3.201342156460119,
+     "n_splits": 43
+    },
+    "FBXO11": {
+     "n": 59,
+     "n_libraries": 15,
+     "random": 1.586891466975212,
+     "library": -0.9984897819906473,
+     "n_splits": 50
+    },
+    "GFP": {
+     "n": 49,
+     "n_libraries": 10,
+     "random": 7.437926483154297,
+     "library": 1.5574803964991588,
+     "n_splits": 40
+    },
+    "KDM5B": {
+     "n": 46,
+     "n_libraries": 11,
+     "random": -1.4565873655676842,
+     "library": -1.7890882416069507,
+     "n_splits": 50
+    },
+    "MBD5": {
+     "n": 84,
+     "n_libraries": 12,
+     "random": 0.7252375132124871,
+     "library": -0.723630802333355,
+     "n_splits": 50
+    },
+    "MLL1": {
+     "n": 57,
+     "n_libraries": 11,
+     "random": 4.01982541680336,
+     "library": 1.4108080297708512,
+     "n_splits": 50
+    },
+    "MYST4": {
+     "n": 55,
+     "n_libraries": 13,
+     "random": 1.70087578676641,
+     "library": 0.7828447505831718,
+     "n_splits": 50
+    },
+    "PTEN": {
+     "n": 55,
+     "n_libraries": 8,
+     "random": 2.671745370775461,
+     "library": -1.7701035514473915,
+     "n_splits": 16
+    },
+    "QRICH1": {
+     "n": 54,
+     "n_libraries": 11,
+     "random": 5.755094636306167,
+     "library": 5.094600770784461,
+     "n_splits": 46
+    },
+    "SCN2A": {
+     "n": 52,
+     "n_libraries": 11,
+     "random": 4.008801339864731,
+     "library": 3.3932447685879104,
+     "n_splits": 49
+    },
+    "SETD2": {
+     "n": 45,
+     "n_libraries": 12,
+     "random": 0.35226940736174583,
+     "library": -0.9911598500609398,
+     "n_splits": 50
+    },
+    "SETD5": {
+     "n": 40,
+     "n_libraries": 10,
+     "random": 2.201889850720763,
+     "library": 2.0710619130033128,
+     "n_splits": 47
+    },
+    "STARD9": {
+     "n": 87,
+     "n_libraries": 11,
+     "random": 1.9872385156154633,
+     "library": -2.3463911537826063,
+     "n_splits": 50
+    },
+    "TNRC6B": {
+     "n": 923,
+     "n_libraries": 16,
+     "random": 6.19265814781189,
+     "library": 3.863759605884552,
+     "n_splits": 50
+    },
+    "UPF3B": {
+     "n": 50,
+     "n_libraries": 14,
+     "random": 1.294727381169796,
+     "library": -0.8039703944325447,
+     "n_splits": 50
+    },
+    "WAC": {
+     "n": 47,
+     "n_libraries": 11,
+     "random": 0.006159716099500656,
+     "library": 0.5991166636347771,
+     "n_splits": 50
+    }
+   }
+  },
+  "InN": {
+   "summary": {
+    "n_cells": 1898,
+    "n_genes": 6824,
+    "per_cell_var_sum": 1866.259521484375,
+    "n_perturbations": 20,
+    "mean_random": 5.56231570205884,
+    "mean_library": -0.5698378285350907,
+    "clone_part_share": 1.10244614995948,
+    "clone_strength": 0.0032857989256052517,
+    "clone_strength_se": 0.0012426787933540507,
+    "positive_random_minus_library": 0.9
+   },
+   "perturbations": {
+    "ANK2": {
+     "n": 47,
+     "n_libraries": 9,
+     "random": 29.377363777160646,
+     "library": -8.500500996907553,
+     "n_splits": 6
+    },
+    "ASH1L": {
+     "n": 49,
+     "n_libraries": 12,
+     "random": -1.95241863720119,
+     "library": -5.222167254984379,
+     "n_splits": 50
+    },
+    "ASXL3": {
+     "n": 63,
+     "n_libraries": 14,
+     "random": 0.5939749121852219,
+     "library": -2.021467596441507,
+     "n_splits": 50
+    },
+    "CTNNB1": {
+     "n": 127,
+     "n_libraries": 13,
+     "random": 3.5454386192560197,
+     "library": 1.1174511633068323,
+     "n_splits": 50
+    },
+    "CUL3": {
+     "n": 51,
+     "n_libraries": 12,
+     "random": -1.1361853088438512,
+     "library": -2.916810622215271,
+     "n_splits": 50
+    },
+    "DYRK1A": {
+     "n": 43,
+     "n_libraries": 7,
+     "random": 28.903918075561524,
+     "library": -4.780615125383649,
+     "n_splits": 7
+    },
+    "FBXO11": {
+     "n": 66,
+     "n_libraries": 12,
+     "random": 0.17430572762154042,
+     "library": -4.366279524713755,
+     "n_splits": 50
+    },
+    "KDM5B": {
+     "n": 52,
+     "n_libraries": 10,
+     "random": 3.516616151928902,
+     "library": -4.14249757707119,
+     "n_splits": 50
+    },
+    "MBD5": {
+     "n": 66,
+     "n_libraries": 14,
+     "random": 5.624177899956703,
+     "library": 5.644540991187096,
+     "n_splits": 50
+    },
+    "MED13L": {
+     "n": 41,
+     "n_libraries": 12,
+     "random": 6.764723145365715,
+     "library": -2.406361480553945,
+     "n_splits": 48
+    },
+    "MYST4": {
+     "n": 42,
+     "n_libraries": 13,
+     "random": 1.1234311994165183,
+     "library": -2.110084788762033,
+     "n_splits": 50
+    },
+    "QRICH1": {
+     "n": 59,
+     "n_libraries": 12,
+     "random": -1.622526338994503,
+     "library": -7.261685944646597,
+     "n_splits": 50
+    },
+    "SCN2A": {
+     "n": 51,
+     "n_libraries": 13,
+     "random": 18.487823781967162,
+     "library": 18.452043199539183,
+     "n_splits": 50
+    },
+    "SETD2": {
+     "n": 66,
+     "n_libraries": 14,
+     "random": 5.122497125864029,
+     "library": 4.391491485238075,
+     "n_splits": 50
+    },
+    "SETD5": {
+     "n": 55,
+     "n_libraries": 13,
+     "random": -1.394765203371644,
+     "library": -2.877536619696766,
+     "n_splits": 50
+    },
+    "STARD9": {
+     "n": 76,
+     "n_libraries": 14,
+     "random": 5.775919070243836,
+     "library": 5.391885257959366,
+     "n_splits": 50
+    },
+    "TCF20": {
+     "n": 57,
+     "n_libraries": 13,
+     "random": -2.762971258461475,
+     "library": -2.5492815816402437,
+     "n_splits": 50
+    },
+    "TNRC6B": {
+     "n": 327,
+     "n_libraries": 14,
+     "random": 5.53705482006073,
+     "library": 2.281605507582426,
+     "n_splits": 50
+    },
+    "UPF3B": {
+     "n": 68,
+     "n_libraries": 11,
+     "random": 1.857420235723257,
+     "library": -0.021282303828047588,
+     "n_splits": 50
+    },
+    "WAC": {
+     "n": 59,
+     "n_libraries": 12,
+     "random": 3.7105162457376717,
+     "library": 0.5007972413301468,
+     "n_splits": 50
+    }
+   }
+  },
+  "Astro": {
+   "summary": {
+    "n_cells": 4000,
+    "n_genes": 7045,
+    "per_cell_var_sum": 1770.2869873046875,
+    "n_perturbations": 28,
+    "mean_random": 1.9571957128092514,
+    "mean_library": 0.07901551182839464,
+    "clone_part_share": 0.9596282010474159,
+    "clone_strength": 0.0010609467360094193,
+    "clone_strength_se": 0.00023274860842817786,
+    "positive_random_minus_library": 0.9285714285714286,
+    "GFP": {
+     "n": 43,
+     "n_libraries": 10,
+     "random": 1.5894824716509606,
+     "library": NaN,
+     "n_splits": 0,
+     "random_scaled": 0.0008978671159250812,
+     "library_scaled": NaN,
+     "ratio_to_targeting_random": 0.8121223959608539
+    }
+   },
+   "perturbations": {
+    "ADNP": {
+     "n": 59,
+     "n_libraries": 8,
+     "random": 4.52211006090045,
+     "library": 4.282618102820023,
+     "n_splits": 46
+    },
+    "ANK2": {
+     "n": 166,
+     "n_libraries": 6,
+     "random": 9.827469658851623,
+     "library": 5.362289264284331,
+     "n_splits": 29
+    },
+    "ASH1L": {
+     "n": 94,
+     "n_libraries": 11,
+     "random": 0.4112628171034157,
+     "library": -1.0052536863088608,
+     "n_splits": 50
+    },
+    "ASXL3": {
+     "n": 174,
+     "n_libraries": 14,
+     "random": 1.273690137863159,
+     "library": -1.6456696802377702,
+     "n_splits": 50
+    },
+    "CTNNB1": {
+     "n": 286,
+     "n_libraries": 13,
+     "random": 1.644922354221344,
+     "library": -0.10077610127453226,
+     "n_splits": 50
+    },
+    "CUL3": {
+     "n": 109,
+     "n_libraries": 13,
+     "random": 2.6980206954479216,
+     "library": 1.033109666891396,
+     "n_splits": 50
+    },
+    "DDX3X": {
+     "n": 100,
+     "n_libraries": 9,
+     "random": 3.7659996151924133,
+     "library": -1.6213108444092226,
+     "n_splits": 49
+    },
+    "DSCAM": {
+     "n": 58,
+     "n_libraries": 8,
+     "random": -1.6781035594642162,
+     "library": -4.240458076894283,
+     "n_splits": 50
+    },
+    "DYRK1A": {
+     "n": 178,
+     "n_libraries": 6,
+     "random": 4.647940312027931,
+     "library": -5.455592204784525,
+     "n_splits": 29
+    },
+    "FBXO11": {
+     "n": 119,
+     "n_libraries": 14,
+     "random": 0.9248802016675473,
+     "library": -0.8471445241570472,
+     "n_splits": 50
+    },
+    "GATAD2B": {
+     "n": 44,
+     "n_libraries": 9,
+     "random": 11.132529523670673,
+     "library": 12.096098384857179,
+     "n_splits": 50
+    },
+    "GFP": {
+     "n": 43,
+     "n_libraries": 10,
+     "random": 1.5894824716509606,
+     "library": NaN,
+     "n_splits": 0
+    },
+    "KDM5B": {
+     "n": 74,
+     "n_libraries": 9,
+     "random": -0.8879946891963482,
+     "library": -1.878618859052658,
+     "n_splits": 50
+    },
+    "MBD5": {
+     "n": 129,
+     "n_libraries": 12,
+     "random": 0.549858971312642,
+     "library": -0.4883560889726505,
+     "n_splits": 50
+    },
+    "MED13L": {
+     "n": 60,
+     "n_libraries": 8,
+     "random": 6.768061703294515,
+     "library": 2.6893307136934856,
+     "n_splits": 43
+    },
+    "MLL1": {
+     "n": 68,
+     "n_libraries": 9,
+     "random": 2.7026665526628495,
+     "library": 0.020318739814683795,
+     "n_splits": 48
+    },
+    "MYST4": {
+     "n": 83,
+     "n_libraries": 9,
+     "random": 1.4635308540053666,
+     "library": 0.9405825608223677,
+     "n_splits": 50
+    },
+    "QRICH1": {
+     "n": 119,
+     "n_libraries": 10,
+     "random": 2.126004531979561,
+     "library": 1.4953962182998657,
+     "n_splits": 50
+    },
+    "SCN2A": {
+     "n": 97,
+     "n_libraries": 11,
+     "random": 0.7589279253035783,
+     "library": 0.44335683750454336,
+     "n_splits": 50
+    },
+    "SETD2": {
+     "n": 66,
+     "n_libraries": 12,
+     "random": -2.6252962021157145,
+     "library": -3.039589086472988,
+     "n_splits": 50
+    },
+    "SETD5": {
+     "n": 81,
+     "n_libraries": 10,
+     "random": -1.3466302566975354,
+     "library": -2.7183409094810487,
+     "n_splits": 50
+    },
+    "SPEN": {
+     "n": 78,
+     "n_libraries": 9,
+     "random": 1.9160917103290558,
+     "library": 0.5856442288780699,
+     "n_splits": 49
+    },
+    "STARD9": {
+     "n": 212,
+     "n_libraries": 12,
+     "random": 1.4398641484975814,
+     "library": -1.3819574707746505,
+     "n_splits": 50
+    },
+    "SYNGAP1": {
+     "n": 67,
+     "n_libraries": 9,
+     "random": -1.691894958401099,
+     "library": -2.769217993531908,
+     "n_splits": 49
+    },
+    "TCF20": {
+     "n": 81,
+     "n_libraries": 12,
+     "random": 1.1953114618360996,
+     "library": -1.70981286033988,
+     "n_splits": 50
+    },
+    "TCF7L2": {
+     "n": 43,
+     "n_libraries": 6,
+     "random": -2.5248401123285293,
+     "library": -1.1934199655056,
+     "n_splits": 50
+    },
+    "TNRC6B": {
+     "n": 846,
+     "n_libraries": 13,
+     "random": 1.5731775116920472,
+     "library": 0.16324391627684234,
+     "n_splits": 50
+    },
+    "UPF3B": {
+     "n": 113,
+     "n_libraries": 11,
+     "random": 1.3340223509073257,
+     "library": 0.8383013299107551,
+     "n_splits": 50
+    },
+    "WAC": {
+     "n": 125,
+     "n_libraries": 11,
+     "random": 2.8798966380953788,
+     "library": 2.357662719339132,
+     "n_splits": 50
+    }
+   }
+  },
+  "Oligo": {
+   "summary": {
+    "n_cells": 1526,
+    "n_genes": 6686,
+    "per_cell_var_sum": 2204.637939453125,
+    "n_perturbations": 12,
+    "mean_random": 6.317437842076956,
+    "mean_library": 0.41858039206652503,
+    "clone_part_share": 0.9337420640249766,
+    "clone_strength": 0.002675658140707531,
+    "clone_strength_se": 0.0008082401337307061,
+    "positive_random_minus_library": 1.0
+   },
+   "perturbations": {
+    "ANK2": {
+     "n": 48,
+     "n_libraries": 7,
+     "random": 23.97480926513672,
+     "library": NaN,
+     "n_splits": 0
+    },
+    "ASH1L": {
+     "n": 52,
+     "n_libraries": 10,
+     "random": 1.4720631131529809,
+     "library": -3.2280233946381784,
+     "n_splits": 49
+    },
+    "ASXL3": {
+     "n": 68,
+     "n_libraries": 11,
+     "random": 11.440900087356567,
+     "library": 7.713541356630103,
+     "n_splits": 43
+    },
+    "CTNNB1": {
+     "n": 104,
+     "n_libraries": 11,
+     "random": 4.206258594989777,
+     "library": 1.0544865643419326,
+     "n_splits": 50
+    },
+    "DYRK1A": {
+     "n": 78,
+     "n_libraries": 7,
+     "random": 31.859907150268555,
+     "library": 6.643268585205078,
+     "n_splits": 5
+    },
+    "FBXO11": {
+     "n": 51,
+     "n_libraries": 12,
+     "random": -0.44455449774861333,
+     "library": -3.439615111351013,
+     "n_splits": 50
+    },
+    "KDM5B": {
+     "n": 41,
+     "n_libraries": 11,
+     "random": 3.6206127059459687,
+     "library": -2.325398115401572,
+     "n_splits": 47
+    },
+    "QRICH1": {
+     "n": 47,
+     "n_libraries": 10,
+     "random": 2.023653041869402,
+     "library": 0.2323851293325424,
+     "n_splits": 50
+    },
+    "SCN2A": {
+     "n": 60,
+     "n_libraries": 12,
+     "random": 4.852273492813111,
+     "library": 1.5509988264739514,
+     "n_splits": 50
+    },
+    "STARD9": {
+     "n": 60,
+     "n_libraries": 9,
+     "random": 5.852898366451264,
+     "library": -1.2567583829164506,
+     "n_splits": 50
+    },
+    "SYNGAP1": {
+     "n": 40,
+     "n_libraries": 8,
+     "random": 1.9874388165585697,
+     "library": -6.06454795897007,
+     "n_splits": 40
+    },
+    "TNRC6B": {
+     "n": 282,
+     "n_libraries": 13,
+     "random": 4.007649819850922,
+     "library": 0.8137056747078896,
+     "n_splits": 50
+    },
+    "WAC": {
+     "n": 42,
+     "n_libraries": 10,
+     "random": 4.930153413414955,
+     "library": 3.3289215313840885,
+     "n_splits": 49
+    }
+   }
+  }
+ }
+}

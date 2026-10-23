@@ -4,7 +4,7 @@ Analysis code for the preprint *Shared clones make random cell halves look repro
 (Xuanrui Huang, Department of Biomedical Informatics, Yong Loo Lin School of Medicine, National University of Singapore).
 
 Archived at Zenodo, all versions: https://doi.org/10.5281/zenodo.23476349 (each release has its own DOI there;
-version 1.1.0 is the one the current preprint uses).
+version 1.1.0 is the one the first version of the preprint uses; the files of the second version are described in "Second version of the preprint").
 
 The scripts are the ones that produced the numbers in the paper. For release, only paths and imports were changed:
 input and output locations are command-line arguments or come from one configuration file, and the scripts import each
@@ -182,6 +182,119 @@ A few numbers in the text are simple ratios of the outputs above:
   the authors' analysis log and are kept so that each script can be traced to the record it was written for.
 - The `collect` stage fills `sim_v5.json` (Supplementary Fig. S1) from the current simulation; the values used by
   Fig. S1 are unchanged between the two versions (largest difference 2 × 10⁻¹⁶).
+
+## Second version of the preprint
+
+The second version adds constant-region (TRBC) halves, clone-barcode halves in brain organoids, one clone-strength
+estimator across 16 screens, a depth grid and an evaluation of transfer models. Its code, result files and figures sit
+next to those of the first version, which stay unchanged:
+
+| Path | Content |
+|---|---|
+| `code/plot_next_figs.py` | Figures 1–7 of the second version (imports `plot_main_figs.py` and `plot_schematics.py`) |
+| `code/build_preprint_next.py` | typesets the second version (imports `build_preprint_sn.py`) |
+| `code/cd4_sc_extract_grid.py`, `depth_grid_cd4.py` | depth grid (Fig. 2d) |
+| `code/cd4_trbc_split.py`, `trbc_split_test.py` | constant-region halves (Fig. 3d) |
+| `code/cd4_pilot_extract.py`, `code/model_eval/` | transfer models (Fig. 7, Supplementary Table S6) and clonality readouts (Supplementary Table S2) |
+| `code/model_eval/generality/`, `jin2020/`, `wholebrain/` | clone strength in 16 screens (Fig. 4c, Supplementary Table S3) |
+| `code/model_eval/choose/` | organoid clone barcodes, clone halves and formal tests (Fig. 3f, Fig. 4a, Supplementary Table N1) |
+| `code/stats/clone_theory_check.py` | Supplementary Note 1: symbolic checks (sympy) and simulation recovery |
+| `pipelines/run_next.sh` | all new stages in order |
+| `data/next/` | the result files the new figures and tables read (6.5 MB); `data/next/pilot/` holds the model score files of Fig. 7a, `data/next/inputs/` the run lists of the organoid and whole-brain downloads |
+| `paper/preprint_next.md`, `supplementary_next.md`, `references_next_en.md` | text of the second version |
+| `paper/figures_next/` | Figures 1–7 as published, for comparison |
+
+### Figures from the included result files
+
+```bash
+python code/plot_next_figs.py data data/next figures/next
+```
+
+`data/` holds the first-version files that several panels reuse, `data/next/` the new ones. Drawn with Python 3.10,
+NumPy 2.2.6 and Matplotlib 3.10.8 (Windows, Arial), all seven figures are identical pixel for pixel to
+`paper/figures_next/`; with Matplotlib 3.11 the content is the same but the rendering differs at the pixel level.
+`code/build_preprint_next.py paper <fig_dir> <supp_fig_dir> <out.pdf> [--no-author]` typesets the preprint as
+`build_preprint_sn.py` does for the first version (Springer Nature template in `paper/sn_template/`, not redistributed;
+Supplementary Figures S1–S3 from `make_supplement.py`). Built this way from the files in this repository, the PDF has
+the same 48 pages, with the same text on every page, as the authors' build. Supplementary Tables N1 and S1–S7 are
+written in `paper/supplementary_next.md`; their values come from the files listed below.
+
+| Manuscript item | Script(s) | Result files (`data/next/` unless noted) |
+|---|---|---|
+| Fig. 1 (schematics) | `plot_next_figs.py` | — |
+| Fig. 2a–c | as Fig. 2a–c of the first version | `data/`: `cd4_D*.npz`, `donor_split.json`, `ntc_null.json`, `cl_ntc_*.json` |
+| Fig. 2d: depth grid | `cd4_sc_extract_grid.py` → `depth_grid_cd4.py` | `depth_grid/depth_grid_D1.json`, `depth_grid_D2.json` |
+| Fig. 3a–c | as Fig. 3 of the first version | `data/cd4_D1.npz` |
+| Fig. 3d: constant-region halves; Table N1, row 1 | `cd4_trbc_split.py` → `trbc_split_test.py` | `trbc_split/*.json` |
+| Fig. 3f, Fig. 4a: organoid clone halves; Table N1, rows 2–4 | `choose/export_object.R`, `cbc_parse.py` → `choose_clone.py`, `choose_stats.py` | `choose_clone.json`, `choose_stats.json` |
+| Fig. 4b, Fig. 6b, Fig. 7b (TRBC readout), Table S2 | `me_clonality.py`, `generality/unified_null.py` | `clonality.json`, `unified/cd4_*.json` |
+| Fig. 4c, Table S3: clone strength in 16 screens | `generality/unified_null.py`, `generality/run_generality.py`, `jin2020/jin_clone.py`, `wholebrain/wb_*.py`, `choose_clone.py` | `unified/*.json`, `generality/*.json`, `jin2020_clone.json`, `wholebrain_wb_results.json`, `wholebrain_wb_split.json`, `choose_clone.json` |
+| Fig. 5, Fig. 6 (other panels) | as Fig. 4–5 of the first version | `data/`: `celleval.json`, `clone_D*.json`, `guide_donor.json`, `ci_cd4*.json`, `kd_D*.json`, `replogle_indep.json`, `sim_v6.json` |
+| Fig. 7a, Table S6: transfer models, donor 1 | `cd4_pilot_extract.py`, `run_transfer.sh`, `run_state_model.sh`, `pilot_se_embed.py` + `run_state_se.sh`, `pilot_pie_prep.py` + `run_pie.sh` + `pilot_pie_score.py`, `pilot_stack.py`, `pilot_biolord.py`, `pilot_cpa.py`, `pilot_summary.py` | `pilot/*.json`, `model_pilot_summary_table.md` |
+| Fig. 7b: four donors | `me_select_targets.py`, `cd4_pilot_extract.py`, `run_transfer.sh` (`me_score_detail.py`) | `detail_D*.json`, `clonality.json` |
+| Fig. 7c: answer from another donor | `me_export_preds.py` → `me_cross_donor.py` | `cross_donor.json` |
+| Fig. 7d: equal cells, CD4 against melanoma | `me_downsample.py` + `pilot_baselines.py`; `me_frangieh_extract.py` + `run_transfer.sh` | `baselines_ds48_75_D*.json`, `detail_fr_IFNg_f*.json` |
+| Expression clonality, fit checks, K562 → RPE1 control (text; `summary_table.md`) | `me_vc_expr.py`, `run_fitcheck.sh` (`me_fitcheck.py`), `me_replogle_extract.py`, `me_summary.py` | `vc_expr_*.json`, `fitcheck_*.json`, `detail_K562_RPE1.json`, `baselines_*.json`, `clone_tests_D*.json`, `pilot_design_*.json`, `summary_table.md` |
+| Supplementary Note 1 | `stats/clone_theory_check.py` | `stats/clone_theory_check.json` |
+
+The files in `data/next/` are the original outputs of the runs behind the manuscript (a sample of 10 was checked byte for
+byte against the server copies), except that the `file` fields of `unified/*.json` hold only the input file name.
+
+### Full analysis of the second version
+
+`bash pipelines/run_next.sh` runs the new stages after `run_all.sh` (it reuses the per-cell extractions of `extract_cd4`
+and the cell-eval subset of `celleval`). New configuration keys are in `config.example.env` (`GPU`, `STATE_BIN`,
+`STATE_PYTHON`, `SE_DIR`, `PIE_DIR`, `PIE_BIN`, `RSCRIPT`); `code/model_eval/mkenv_models.sh` creates the model
+environments (arc-state 0.11.1, biolord 0.0.3, cpa-tools 0.8.8, arc-pie 1.0.0, arc-stack). The original runs were split
+between a CPU server (extraction, clone analyses) and a GPU server (models), with files copied between them; the pipeline
+runs the same commands with the same arguments on one machine.
+
+| Stage | What it does |
+|---|---|
+| `extract_next` | per-cell aggregates of CD4 donors 3 and 4; 16-code aggregates and TRBC classes of donors 1 and 2 |
+| `cd4_next` | depth grid, constant-region halves, TRBC clone tests of donors 3 and 4 |
+| `unified`, `generality`, `jin2020`, `wholebrain` | clone strength in the 16 screens |
+| `organoid` | organoid clone barcodes (streamed from ENA), clone halves, formal tests |
+| `stats` | Supplementary Note 1 checks |
+| `model_inputs` | cell subsets of CD4 donors 1–4, K562 → RPE1 and the Frangieh folds |
+| `model_gpu` | baselines, STATE, scoring, prediction export and fit check per run |
+| `model_pilot` | donor 1: Arc perturb_mean and pseudobulk, State with SE-600M, PIE, Stack, biolord, CPA |
+| `model_post` | clonality, cross-donor control, expression clonality, matched-cell baselines |
+| `collect_next`, `figures_next` | gather the result files under the names in `data/next/`; draw Figures 1–7 |
+
+Additional data (all public; Supplementary Table S7), under `DATA_ROOT`:
+
+| Dataset | Source | Files under `DATA_ROOT` |
+|---|---|---|
+| Zhu et al., donors 3 and 4 | as donors 1 and 2 | `cd4_sc/{D3,D4}_{Rest,Stim48hr}.assigned_guide.h5ad` |
+| Frangieh et al. 2021 | scPerturb, Zenodo 13350497 | `frangieh/FrangiehIzar2021_RNA.h5ad` |
+| Li et al. 2023 (CHOOSE organoids) | Zenodo 7083558 (`CHOOSE_ASD_Modules.rds`); clone-barcode reads of ArrayExpress E-MTAB-13148, streamed by `cbc_parse.py` from the ENA runs in `data/next/inputs/choose_cbc_runs.txt` | `choose/CHOOSE_ASD_Modules.rds` |
+| Jin et al. 2020 | GEO GSE157977 (RAW tar, unpacked); barcode table from the paper's Table S5 (`data/next/jin2020_barcodes.csv`) | `jin2020/` |
+| Shi et al. (whole brain) | Hugging Face `perturbai/wholebrain_crispr_atlas`: 14 h5ad files (sizes and SHA-256 in `data/next/inputs/wholebrain_h5ads.txt`) and `all_obs.parquet` | `wholebrain/h5ads/`, `wholebrain/all_obs.parquet` |
+| Zhou et al. 2023 | GEO GSE216800 (GSM6697660–GSM6697675, CellRanger tar files) | `zhou/` |
+| Knudsen et al. | GEO GSE302504 (`GSE302504_adata_106_21_GEX_final.h5ad`) | `knudsen/` |
+| Fagerberg et al. 2025; Schmidt et al. 2022 | FITdb, Zenodo 22212134 (`Fagerberg_2025.h5ad`, `Schmidt_2022_resting.h5ad`, `Schmidt_2022_restim.h5ad`) | `fitdb/` |
+| Cao et al. | GEO GSE221578 (CellRanger tar files of the in vitro and in vivo samples) | `cao/` |
+
+What has not been rerun, and what the pipeline cannot recreate exactly:
+
+- The pipeline has not been run end to end from raw data. Checked: the figures (identical from `data/next/`), the
+  preprint PDF, and three clone-strength runs recomputed with the released `unified_null.py` and the arguments in
+  `run_next.sh` (HepG2, Frangieh control, H1), which equal the result files exactly. The other commands in `run_next.sh`
+  were taken from the run scripts and logs on the two servers.
+- Model training on GPUs is not bit-reproducible, so a rerun of `model_gpu` and `model_pilot` gives scores that differ
+  in the last digits.
+- In the original run of the donor-1 depth grid, `cd4_sc_extract_grid.py` was pointed at the per-cell extraction made
+  before the guide-parity fix (`REPRODUCTION.md`); the script takes from it only the gene list, control means and cell
+  counts, which the fix did not change, and computes guide parity itself. The pipeline uses the current extraction.
+- Fig. 7a and Supplementary Table S6 (donor-1 model pilot): the PIE knowledge sources (the published sources without
+  `ncbi_text`), PIE's preprocessing and its `pie eval` step, and the SE-600M weights were prepared by hand following the
+  packages' documentation; the TOML of the SE run is written by `run_next.sh` as the donor-1 TOML pointed at the SE
+  inputs. The epoch setting of the adapted CPA run is not recorded. CPA and biolord (tutorial settings) did not learn
+  per-sgRNA effects (fit check r ≤ 0.025) and appear in the table only.
+- `cd4_pilot_extract.py` and `unified_null.py` are the latest versions. The versions that ran for donor 1 and for the CD4
+  and Replogle screens lacked, respectively, the `PILOT_DONOR` option (default donor 1) and the reader for
+  column-compressed matrices, which those runs do not use.
 
 ## License
 

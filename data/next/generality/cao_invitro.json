@@ -1,0 +1,62 @@
+{
+ "rules": "Clone ruler (null_ruler.py) on the generality datasets; one loader per dataset.\nzhou      Zhou et al. 2023 Nature (GSE216800): OT-I CD8 T cells, transduced in vitro, 4 days, transferred into B16-OVA\n          mice, tumour-infiltrating cells at day 7. CellRanger outputs of samples S1-S4 (B1) and S1-S12 (B2); guides by\n          feature barcoding. Each vector carries two guides of one gene (dual-guide construct); constructs are found as\n          the guide pairs most often detected together. A cell gets the construct with the most guide UMIs if >= 3 UMIs\n          and >= 3x the second construct. Unit = construct; null = constructs of non-targeting guides; sample = CellRanger\n          sample (reference group and replicate label).\nUsage: run_generality.py <dataset> <data dir> <out.json>",
+ "dataset": "cao_invitro",
+ "info": {
+  "cells": 57418,
+  "assigned": 12886,
+  "null_cells": 2234,
+  "samples": [
+   "GSM6886571_7050_invitro_DP",
+   "GSM6886573_combined_2263_invitro_d10",
+   "GSM6886575_combined_2263_invitro_d15"
+  ]
+ },
+ "ruler_all": {
+  "ref_mode": "all",
+  "n_genes": 6744,
+  "V_cell": 1767.159553041553,
+  "n_null_units": 10,
+  "n_target_units": 73,
+  "null_share_pos_random": 0.9,
+  "null_share_pos_diff": 0.688,
+  "null_mean_random": 2.48388262258942,
+  "null_se_random": 0.8446600572712298,
+  "null_mean_diff": 1.0201466374653314,
+  "null_scaled": 0.0014055791500627527,
+  "null_clone_scaled": 0.000828298713947348,
+  "null_cells_median": 231.5,
+  "target_mean_random": 19.99497190917252,
+  "target_median_random": 13.35071682628957,
+  "target_cells_median": 108.0,
+  "ratio_null_to_target_mean": 0.12422536194961896,
+  "ratio_null_to_target_median": 0.18604863356087978,
+  "n_targets_two_units": 27,
+  "target_cross_unit": 15.442750183872059,
+  "target_random_same": 18.3326786701868,
+  "share_reproduced_by_other_guide": 0.8423619080274156
+ },
+ "ruler_null": {
+  "ref_mode": "null",
+  "n_genes": 6744,
+  "V_cell": 1767.159553041553,
+  "n_null_units": 10,
+  "n_target_units": 73,
+  "null_share_pos_random": 1.0,
+  "null_share_pos_diff": 0.172,
+  "null_mean_random": 2.024748948978991,
+  "null_se_random": 0.5939877410494205,
+  "null_mean_diff": -1.1706185083837672,
+  "null_scaled": 0.001145764651241642,
+  "null_clone_scaled": 0.0018081940885660496,
+  "null_cells_median": 231.5,
+  "target_mean_random": 29.056781737584178,
+  "target_median_random": 19.89259121649757,
+  "target_cells_median": 108.0,
+  "ratio_null_to_target_mean": 0.06968249158715441,
+  "ratio_null_to_target_median": 0.10178407261995115,
+  "n_targets_two_units": 27,
+  "target_cross_unit": 24.32544620442075,
+  "target_random_same": 26.797953288797665,
+  "share_reproduced_by_other_guide": 0.9077352267267927
+ }
+}
