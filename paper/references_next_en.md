@@ -37,3 +37,5 @@
 - Dong2026: Dong, M. et al. Stack: in-context learning of single-cell biology. Preprint at *bioRxiv* https://doi.org/10.64898/2026.01.09.698608 (2026).
 - Rosenbluh2017: Rosenbluh, J. et al. Complementary information derived from CRISPR Cas9 mediated gene deletion and suppression. *Nat. Commun.* **8**, 15403 (2017).
 - Zenodo2026: Huang, X. random-halves-not-replicates (all versions). *Zenodo* https://doi.org/10.5281/zenodo.23476349 (2026).
+- Shesha2026: Raju, P. C. Shesha: self-consistency metrics for representational stability, version 0.2.29. *Zenodo* https://doi.org/10.5281/zenodo.18227453 (2026).
+- Raju2026b: Raju, P. C. Geometric stability: the missing axis of representations. Preprint at *arXiv* https://arxiv.org/abs/2601.09173 (2026).

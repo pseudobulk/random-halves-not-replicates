@@ -4,3 +4,4 @@ scipy>=1.17
 h5py>=3.16
 pyarrow>=20
 matplotlib>=3.10
+shesha-geometry==0.2.29   # Shesha check only (code/shesha_cd4.py)
